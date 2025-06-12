@@ -1,2 +1,3 @@
 extends Node
-minun nimeni on Kosmo Ilmari Konttila, sosiaalinen turvanumeroni on 
+"inun nimeni on Kosmo Ilmari Konttila, sosiaalinen turvanumeroni on "
+var numero = 1

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://nkqtggjnx6ds"]
+
+[ext_resource type="Texture2D" uid="uid://fx0f1h3102ru" path="res://Assets/2022-12-13_639899e787677_GOOFYAHHSHREKPFP1-30912467.jpg" id="1_h4dfm"]
+[ext_resource type="Texture2D" uid="uid://bndrjek4hjyuy" path="res://Assets/cat-breeds-without-fur-2069026483.jpg" id="2_0tdgn"]
+[ext_resource type="Texture2D" uid="uid://d0t67mg6oxqv2" path="res://Assets/utzr8p5p17f41.webp" id="3_q7hxo"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="2022-12-13639899e787677Goofyahhshrekpfp1-30912467" type="Sprite2D" parent="."]
+position = Vector2(522, 107)
+texture = ExtResource("1_h4dfm")
+
+[node name="Cat-breeds-without-fur-2069026483" type="Sprite2D" parent="."]
+position = Vector2(-87, 1046)
+texture = ExtResource("2_0tdgn")
+
+[node name="Utzr8p5p17f41" type="Sprite2D" parent="."]
+position = Vector2(839, 959)
+texture = ExtResource("3_q7hxo")
