@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drobeqo1udrit"
-path="res://.godot/imported/gurggu walking animation-Sheet.png-f0cc6f19df4d70d669e2c635aec3f46d.ctex"
+uid="uid://e2rsocohcloe"
+path="res://.godot/imported/gurggu default animation-Sheet.png-9f459472f0275809ceff776491ba9ccc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gurggu walking animation-Sheet.png"
-dest_files=["res://.godot/imported/gurggu walking animation-Sheet.png-f0cc6f19df4d70d669e2c635aec3f46d.ctex"]
+source_file="res://assets/player assets/gurggu default animation-Sheet.png"
+dest_files=["res://.godot/imported/gurggu default animation-Sheet.png-9f459472f0275809ceff776491ba9ccc.ctex"]
 
 [params]
 
