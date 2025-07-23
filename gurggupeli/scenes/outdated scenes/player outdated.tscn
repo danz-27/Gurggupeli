@@ -1,92 +1,94 @@
-[gd_scene load_steps=28 format=3 uid="uid://chnkqqcojft2m"]
+[gd_scene load_steps=36 format=3 uid="uid://chnkqqcojft2m"]
 
-[ext_resource type="Script" uid="uid://cn4ijhb35n7q3" path="res://script/player.gd" id="1_iqcf1"]
-[ext_resource type="Texture2D" uid="uid://drobeqo1udrit" path="res://assets/player assets/gurggu walking animation-Sheet.png" id="1_lbsit"]
-[ext_resource type="Texture2D" uid="uid://e2rsocohcloe" path="res://assets/player assets/gurggu default animation-Sheet.png" id="2_jtblh"]
-[ext_resource type="Texture2D" uid="uid://cpjm643fnmgoq" path="res://assets/player assets/Gurggu spinning-Sheet.png" id="3_acjdt"]
+[ext_resource type="Script" uid="uid://cn4ijhb35n7q3" path="res://scripts/outdated scripts/player.gd" id="1_sn5bb"]
+[ext_resource type="Texture2D" uid="uid://e2rsocohcloe" path="res://assets/player assets/gurggu default animation-Sheet.png" id="2_1maqb"]
+[ext_resource type="Texture2D" uid="uid://cpjm643fnmgoq" path="res://assets/player assets/Gurggu spinning-Sheet.png" id="3_cgm46"]
+[ext_resource type="Texture2D" uid="uid://drobeqo1udrit" path="res://assets/player assets/gurggu walking animation-Sheet.png" id="4_bpdyj"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mu8im"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2mnkm"]
-atlas = ExtResource("2_jtblh")
+atlas = ExtResource("2_1maqb")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w7p53"]
-atlas = ExtResource("2_jtblh")
+atlas = ExtResource("2_1maqb")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mu8im"]
-atlas = ExtResource("2_jtblh")
+atlas = ExtResource("2_1maqb")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w3hpg"]
-atlas = ExtResource("2_jtblh")
+atlas = ExtResource("2_1maqb")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jbnf5"]
-atlas = ExtResource("2_jtblh")
+atlas = ExtResource("2_1maqb")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_36sed"]
-atlas = ExtResource("2_jtblh")
+atlas = ExtResource("2_1maqb")
 region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e01f4"]
-atlas = ExtResource("3_acjdt")
+atlas = ExtResource("3_cgm46")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_verwr"]
-atlas = ExtResource("3_acjdt")
+atlas = ExtResource("3_cgm46")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g56v5"]
-atlas = ExtResource("3_acjdt")
+atlas = ExtResource("3_cgm46")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_miwrx"]
-atlas = ExtResource("3_acjdt")
+atlas = ExtResource("3_cgm46")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ot72j"]
-atlas = ExtResource("3_acjdt")
+atlas = ExtResource("3_cgm46")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uui3r"]
-atlas = ExtResource("3_acjdt")
+atlas = ExtResource("3_cgm46")
 region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_20l4p"]
-atlas = ExtResource("3_acjdt")
+atlas = ExtResource("3_cgm46")
 region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q0ytf"]
-atlas = ExtResource("3_acjdt")
+atlas = ExtResource("3_cgm46")
 region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t14c6"]
-atlas = ExtResource("1_lbsit")
+atlas = ExtResource("4_bpdyj")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4dfm"]
-atlas = ExtResource("1_lbsit")
+atlas = ExtResource("4_bpdyj")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0tdgn"]
-atlas = ExtResource("1_lbsit")
+atlas = ExtResource("4_bpdyj")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q7hxo"]
-atlas = ExtResource("1_lbsit")
+atlas = ExtResource("4_bpdyj")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qs6e5"]
-atlas = ExtResource("1_lbsit")
+atlas = ExtResource("4_bpdyj")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxwoj"]
-atlas = ExtResource("1_lbsit")
+atlas = ExtResource("4_bpdyj")
 region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_178c0"]
-atlas = ExtResource("1_lbsit")
+atlas = ExtResource("4_bpdyj")
 region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yrasj"]
@@ -170,15 +172,69 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlmmo"]
-size = Vector2(16, 10)
+[sub_resource type="Gradient" id="Gradient_jtblh"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_acjdt"]
+gradient = SubResource("Gradient_jtblh")
+fill = 1
+fill_from = Vector2(0.517094, 0.508547)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jtblh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_acjdt"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_w3hpg"]
+diffuse_texture = SubResource("CompressedTexture2D_jtblh")
+normal_texture = SubResource("CompressedTexture2D_acjdt")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2mnkm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w7p53"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mu8im"]
 
 [node name="player" type="Area2D"]
-script = ExtResource("1_iqcf1")
+material = SubResource("CanvasItemMaterial_mu8im")
+script = ExtResource("1_sn5bb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yrasj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_mlmmo")
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-37, -1)
+scale = Vector2(0.433594, 0.425781)
+texture = SubResource("GradientTexture2D_acjdt")
+
+[node name="Sprite-0003" type="Sprite2D" parent="."]
+position = Vector2(-24, 20)
+texture = SubResource("CanvasTexture_w3hpg")
+
+[node name="Sprite-0003Normal" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-82, 41)
+texture = SubResource("CompressedTexture2D_2mnkm")
+
+[node name="Sprite-0003N" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-56, 41)
+texture = SubResource("CompressedTexture2D_w7p53")
+
+[node name="Sprite-0003Normal2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-83, 21)
+texture = SubResource("CompressedTexture2D_mu8im")
+
+[node name="Sprite-0003NSoft" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-62, 23)
+texture = SubResource("CompressedTexture2D_acjdt")
+
+[node name="Sprite-0003Normal3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-102, 23)
+texture = SubResource("CompressedTexture2D_mu8im")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimatedSprite2D")
