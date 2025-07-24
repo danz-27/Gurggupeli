@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wsv8yd7i70gb"
-path="res://.godot/imported/Gurggu sprite sheet.png-e4a5a7ae48626dc63b1a7559ec029d2d.ctex"
+uid="uid://iemybxgnyxpr"
+path="res://.godot/imported/Gurggu sprite sheet updated.png-d2dec7cf8d1445e7fe43bcb46c2feb53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player assets/Gurggu sprite sheet.png"
-dest_files=["res://.godot/imported/Gurggu sprite sheet.png-e4a5a7ae48626dc63b1a7559ec029d2d.ctex"]
+source_file="res://player/assets/Gurggu sprite sheet updated.png"
+dest_files=["res://.godot/imported/Gurggu sprite sheet updated.png-d2dec7cf8d1445e7fe43bcb46c2feb53.ctex"]
 
 [params]
 
