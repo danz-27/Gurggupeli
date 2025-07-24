@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t561oion7i0e"
-path="res://.godot/imported/gurggu walking animation-Sheet_n soft whole sheet updated.png-075248aaf50e74241ea582f458c762bd.ctex"
+uid="uid://wsv8yd7i70gb"
+path="res://.godot/imported/Gurggu sprite sheet.png-e4a5a7ae48626dc63b1a7559ec029d2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player assets/gurggu walking animation-Sheet_n soft whole sheet updated.png"
-dest_files=["res://.godot/imported/gurggu walking animation-Sheet_n soft whole sheet updated.png-075248aaf50e74241ea582f458c762bd.ctex"]
+source_file="res://assets/player assets/Gurggu sprite sheet.png"
+dest_files=["res://.godot/imported/Gurggu sprite sheet.png-e4a5a7ae48626dc63b1a7559ec029d2d.ctex"]
 
 [params]
 

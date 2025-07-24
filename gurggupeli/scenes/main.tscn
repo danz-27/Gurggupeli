@@ -54,11 +54,12 @@ fill_to = Vector2(0, 1)
 [node name="main" type="Node"]
 
 [node name="player" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(22, -3)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray(0, 0, 254, 255, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 3, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_jyhfs")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(3, 48)
+position = Vector2(3, 32)
 texture = SubResource("GradientTexture2D_0wfyh")
