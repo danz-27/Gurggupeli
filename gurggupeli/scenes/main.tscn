@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://brraufw4h63vr"]
+[gd_scene load_steps=6 format=4 uid="uid://brraufw4h63vr"]
 
 [ext_resource type="PackedScene" uid="uid://dvwl2b6vslbe4" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://qybnb36gcy0h" path="res://assets/Environment/sewer steel beams-Sheet.png" id="2_0wfyh"]
@@ -47,5 +47,5 @@ pattern_0 = SubResource("TileMapPattern_qlg0r")
 position = Vector2(22, -3)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 254, 255, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 3, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray("AAD+/wEAAAAAAAAAAAD//wEAAAABAAAAAAAAAAEAAAACAAAAAAABAAEAAAADAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAADAP//AAAAAAAAAAADAP7/AAAAAAAAAAADAP3/AAAAAAAAAAADAPz/AAAAAAAAAAADAPv/AAAAAAAAAAADAPr/AAAAAAAAAAADAPn/AAAAAAAAAAADAPj/AAAAAAAAAAADAPf/AAAAAAAAAAAEAPf/AAAAAAAAAAAFAPf/AAAAAAAAAAAGAPf/AAAAAAAAAAACAAEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_jyhfs")
