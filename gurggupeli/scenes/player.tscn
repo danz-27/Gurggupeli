@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvwl2b6vslbe4"]
+[gd_scene load_steps=13 format=3 uid="uid://dvwl2b6vslbe4"]
 
 [ext_resource type="Script" uid="uid://681j0yp4c50r" path="res://player/scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://wsv8yd7i70gb" path="res://player/assets/Gurggu sprite sheet.png" id="2_qhqgy"]
@@ -8,8 +8,9 @@
 diffuse_texture = ExtResource("2_qhqgy")
 normal_texture = ExtResource("3_dqkch")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xj33"]
-size = Vector2(16, 10)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
+radius = 5.0
+height = 16.0
 
 [sub_resource type="Animation" id="Animation_jxylt"]
 length = 0.001
@@ -119,16 +120,6 @@ _data = {
 &"walk": SubResource("Animation_tuyoq")
 }
 
-[sub_resource type="Gradient" id="Gradient_yfwlq"]
-offsets = PackedFloat32Array(0, 0.995536)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qhqgy"]
-gradient = SubResource("Gradient_yfwlq")
-fill = 1
-fill_from = Vector2(0.512821, 0.521368)
-fill_to = Vector2(0, 1)
-
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_qhqgy")
 
@@ -143,16 +134,29 @@ frame = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_2xj33")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qhqgy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_762f5")
 }
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(21, -9)
-texture = SubResource("GradientTexture2D_qhqgy")
-
-[node name="Timer" type="Timer" parent="."]
+[node name="DashTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = 9.0
+offset_right = 20.0
+offset_bottom = 32.0
+
+[connection signal="timeout" from="DashTimer" to="." method="on_dash_timer_timeout"]
+[connection signal="timeout" from="CoyoteTimer" to="." method="on_coyote_timer_timeout"]
+[connection signal="timeout" from="JumpBufferTimer" to="." method="on_jump_buffer_timeout"]
