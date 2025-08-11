@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dvwl2b6vslbe4"]
+[gd_scene load_steps=14 format=3 uid="uid://dvwl2b6vslbe4"]
 
 [ext_resource type="Script" uid="uid://681j0yp4c50r" path="res://player/scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://wsv8yd7i70gb" path="res://player/assets/Gurggu sprite sheet.png" id="2_qhqgy"]
@@ -110,9 +110,25 @@ tracks/0/keys = {
 "values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1), Vector2i(6, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_qlg0r"]
+resource_name = "dash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gurggu:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_762f5"]
 _data = {
 &"RESET": SubResource("Animation_jxylt"),
+&"dash": SubResource("Animation_qlg0r"),
 &"falling": SubResource("Animation_qhqgy"),
 &"falling_up": SubResource("Animation_dqkch"),
 &"idle": SubResource("Animation_fjrip"),
