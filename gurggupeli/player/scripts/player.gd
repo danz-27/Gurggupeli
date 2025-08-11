@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
 var move_speed := 128
-var jump_speed := -400.0
+var jump_speed := -200.0
 var can_jump := false
-var dash_speed := 300
+var dash_speed := 250
 var gravity := 15
 var dash_count := 1
 var dash_direction := Vector2.ZERO
 var jump_buffer := false
-var jump_buffer_time := 0.5
+var jump_buffer_time := 0.2
 var max_fall_speed := 300
 
 # Track jump hold
@@ -48,8 +48,9 @@ func _physics_process(delta: float) -> void:
 		coyote_time_duration.start(0.1)
 
 	if is_on_floor():
-		dash_count = 1
 		coyote_time_duration.stop()
+		if dash_duration.is_stopped() and is_on_floor():
+			dash_count = 1
 		if jump_buffer:
 			jump()
 			jump_buffer = false
@@ -86,8 +87,7 @@ func _physics_process(delta: float) -> void:
 
 
 func draw_debug_text() -> void:
-	$Label.text = str(jump_buffer, "\n", velocity.y)
-	print(velocity.y)
+	$Label.text = str(dash_count)
 
 func jump() -> void:
 	velocity.y = jump_speed
