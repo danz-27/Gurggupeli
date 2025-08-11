@@ -8,7 +8,7 @@ var gravity := 15
 var dash_count := 1
 var dash_direction := Vector2.ZERO
 var jump_buffer := false
-var jump_buffer_time := 0.5
+var jump_buffer_time := 0.2
 var max_fall_speed := 300
 
 # Track jump hold
