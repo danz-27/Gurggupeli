@@ -1,20 +1,26 @@
 extends CharacterBody2D
 
+#movement & dash related
 var move_speed := 128
-var jump_speed := -200.0
-var can_jump := false
+
 var dash_speed := 250
-var gravity := 15
 var dash_count := 1
 var dash_direction := Vector2.ZERO
-var jump_buffer := false
-var jump_buffer_time := 0.2
+
+var gravity := 15
 var max_fall_speed := 300
 
-# Track jump hold
+#jump related
+var jump_speed := -200.0
+var can_jump := false
+
+var jump_buffer := false
+var jump_buffer_time := 0.2
 var jump_held := false
 var jump_hold_time := 0.0
+var jump_height_cut := 0.4
 
+#timers
 @onready var dash_duration := $DashTimer
 @onready var coyote_time_duration := $CoyoteTimer
 @onready var jump_buffer_duration := $JumpBufferTimer
@@ -65,16 +71,25 @@ func _physics_process(delta: float) -> void:
 	else:
 		if not is_on_floor():
 			velocity.y += gravity
-
+		
+		#smoothen out movement
 		velocity.x *= 0.75
 		if abs(velocity.x) < 0.1:
 			velocity.x = 0
 
-		if player_direction.x != 0:
-			velocity.x = player_direction.x * move_speed
+		if player_direction.x > 0:
+			velocity.x = move_speed
+		elif player_direction.x < 0:
+			velocity.x = -move_speed
+
+		if is_on_floor() and Input.is_action_pressed("move_down") and player_direction.y > 0.5:
+			velocity.y = 0
+
+		elif is_on_floor() and Input.is_action_pressed("move_down") and player_direction.y > -0.5:
+			velocity.y = 0
 
 		# Dash
-		if Input.is_action_just_pressed("dash") and dash_count > 0 and player_direction != Vector2.ZERO:
+		if Input.is_action_just_pressed("dash") and dash_count > 0:
 			dash_count -= 1
 			dash_direction = player_direction
 			dash_duration.start(0.3)
@@ -87,7 +102,7 @@ func _physics_process(delta: float) -> void:
 
 
 func draw_debug_text() -> void:
-	$Label.text = str(dash_count)
+	$Label.text = str(is_dashing())
 
 func jump() -> void:
 	velocity.y = jump_speed
@@ -95,7 +110,7 @@ func jump() -> void:
 
 	# If jump button was already released before jump started → short hop immediately
 	if not Input.is_action_pressed("jump"):
-		velocity.y *= 0.4
+		velocity.y *= jump_height_cut
 
 
 func on_jump_buffer_timeout() -> void:
@@ -107,12 +122,12 @@ func on_coyote_timer_timeout() -> void:
 
 
 func _input(event):
-	# Detect release at any time
 	if event.is_action_released("jump"):
 		jump_held = false
-		# If in the air and still moving upward → apply short hop cut
+		
+		#reduce the jump by a certain amount if released jump before the apex
 		if velocity.y < 0.0:
-			velocity.y *= 0.2
+			velocity.y *= jump_height_cut
 
 
 func is_dashing() -> bool:

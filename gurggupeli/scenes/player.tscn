@@ -10,7 +10,7 @@ normal_texture = ExtResource("3_dqkch")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
 radius = 5.0
-height = 16.0
+height = 14.0
 
 [sub_resource type="Animation" id="Animation_jxylt"]
 length = 0.001
