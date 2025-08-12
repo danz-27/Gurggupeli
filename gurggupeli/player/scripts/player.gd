@@ -1,7 +1,11 @@
 extends CharacterBody2D
 
 #movement & dash related
-var move_speed := 128
+var move_speed := 16
+var max_speed := 128
+var player_direction := Vector2.ZERO
+var acceleration := 10
+var friction := 10
 
 var dash_speed := 250
 var dash_count := 1
@@ -64,29 +68,29 @@ func _physics_process(delta: float) -> void:
 	if velocity.y > max_fall_speed:
 		velocity.y = max_fall_speed
 
-	# Movement
-	var player_direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
+	# movement
+	player_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	player_direction = player_direction.normalized()
 	if is_dashing():
 		velocity = dash_direction * dash_speed
 	else:
 		if not is_on_floor():
 			velocity.y += gravity
-		
-		#smoothen out movement
-		velocity.x *= 0.75
+
+		# smoothen out movement
+		var velocity_weight: float = delta * (acceleration if player_direction.x else friction)
+		velocity.x = lerp(velocity.x, player_direction.x * max_speed, velocity_weight)
 		if abs(velocity.x) < 0.1:
 			velocity.x = 0
 
-		if player_direction.x > 0:
-			velocity.x = move_speed
-		elif player_direction.x < 0:
-			velocity.x = -move_speed
+		
 
-		if is_on_floor() and Input.is_action_pressed("move_down") and player_direction.y > 0.5:
-			velocity.y = 0
+		# check for downleft and downright inputs and reset movement to zero
+		if is_on_floor() and player_direction.y > 0 and (abs(player_direction.x) > 0 and abs(player_direction.x) < 1):
+			velocity.x = lerp(velocity.x, 0.0, 0.8)
+			if abs(velocity.x) < 0.1:
+				velocity.x = 0
 
-		elif is_on_floor() and Input.is_action_pressed("move_down") and player_direction.y > -0.5:
-			velocity.y = 0
 
 		# Dash
 		if Input.is_action_just_pressed("dash") and dash_count > 0:
@@ -102,7 +106,7 @@ func _physics_process(delta: float) -> void:
 
 
 func draw_debug_text() -> void:
-	$Label.text = str(is_dashing())
+	$Label.text = str(velocity.x)
 
 func jump() -> void:
 	velocity.y = jump_speed
