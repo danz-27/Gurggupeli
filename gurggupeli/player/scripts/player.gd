@@ -10,6 +10,8 @@ var dash_speed := 250
 var dash_count := 1
 var dash_direction := Vector2.ZERO
 var dash_multiplier := 1.0
+var dash_buffer_time := 0.03
+var dash_duration := 0.25
 
 var grounded_frames_amount := 0
 
@@ -27,7 +29,7 @@ var jump_hold_time := 0.0
 var jump_height_cut := 0.4
 
 #timers
-@onready var dash_duration := $DashTimer
+@onready var dash_timer := $DashTimer
 @onready var coyote_time_duration := $CoyoteTimer
 @onready var jump_buffer_duration := $JumpBufferTimer
 
@@ -61,7 +63,7 @@ func _physics_process(delta: float) -> void:
 
 	if is_on_floor():
 		coyote_time_duration.stop()
-		if dash_duration.is_stopped() and is_on_floor():
+		if dash_timer.is_stopped() and is_on_floor():
 			dash_count = 1
 		if jump_buffer:
 			jump()
@@ -109,18 +111,27 @@ func _physics_process(delta: float) -> void:
 		# Dash
 		if Input.is_action_just_pressed("dash") and dash_count > 0:
 			dash_count -= 1
-			dash_direction = player_direction
-			dash_duration.start(0.25)
+			
+			if player_direction == Vector2.ZERO:
+				if $Gurggu.flip_h:
+					dash_direction = Vector2.RIGHT
+				else:
+					dash_direction = Vector2.LEFT
+			else:
+				dash_direction = player_direction 
+
+			dash_timer.start(dash_duration)
 			velocity = dash_direction * dash_speed * dash_multiplier
 
 	draw_debug_text()
 	set_player_flip_h()
 	animate_player()
+	buffer_dash_inputs()
 	move_and_slide()
 
 
 func draw_debug_text() -> void:
-	$Label.text = str(grounded_frames_amount, "\n", velocity.x)
+	$Label.text = str(dash_timer.time_left, "\n", velocity.x)
 
 
 func jump() -> void:
@@ -131,12 +142,14 @@ func jump() -> void:
 	# short hop after jump buffer
 	if not Input.is_action_pressed("jump"):
 		velocity.y *= jump_height_cut
+
+	# celeste wavedash
 	if is_dashing():
 		if player_direction == Vector2.DOWN or player_direction == Vector2.UP:
-			dash_duration.stop()
+			dash_timer.stop()
 		else:
 			dash_multiplier *= 1.2
-			dash_duration.stop()
+			dash_timer.stop()
 	
 
 func on_jump_buffer_timeout() -> void:
@@ -157,7 +170,12 @@ func _input(event):
 
 
 func is_dashing() -> bool:
-	return not dash_duration.is_stopped()
+	return not dash_timer.is_stopped()
+
+func buffer_dash_inputs() -> void:
+	if (dash_timer.time_left >= (dash_duration - dash_buffer_time)) and player_direction:
+		dash_direction = player_direction
+
 
 
 func on_dash_timer_timeout() -> void:
