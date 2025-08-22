@@ -1,0 +1,7 @@
+2025-08-22 19:22:01 +0300:
+  lines: 224
+  loc: 165
+  code files: 2
+  code chars: 5115
+  scenes: 2
+  textures: 7
