@@ -157,7 +157,7 @@ func buffer_dash_inputs() -> void:
 	is_dash_buffered = true
 
 func is_in_water() -> bool:
-	return water_detector.has_overlapping_areas()
+	return water_detector.has_overlapping_bodies()
 
 func animate_player() -> void:
 	if velocity.x != 0:
