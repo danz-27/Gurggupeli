@@ -27,21 +27,9 @@ const action_for_direction: Dictionary[Direction, StringName] = {
 	Direction.RIGHT: "move_left"
 }
 
-func get_player_velocity_direction(player: Node2D) -> int:
-	if abs(player.velocity.x) > abs(player.velocity.y):
-		if player.velocity.x > 0:
-			return 1 #Right
-		else:
-			return 3 #Left
-	else:
-		if player.velocity.y > 0:
-			return 2 #Up
-		else:
-			return 0 #Down
-
 func _on_head_2_entered(player: Node2D) -> void:
 	while head_2.overlaps_body(player):
-		if head2_direction == get_player_velocity_direction(player):
+		if !wait_for_release and Input.is_action_pressed(action_for_direction[head2_direction]):
 			player.position = head_1.position
 			change_velocity(head2_direction, head1_direction, player)
 			wait_for_release = true
@@ -54,7 +42,7 @@ func _on_head_2_entered(player: Node2D) -> void:
 
 func _on_head_1_entered(player: Node2D) -> void:
 	while head_1.overlaps_body(player):
-		if head1_direction == get_player_velocity_direction(player):
+		if !wait_for_release and Input.is_action_pressed(action_for_direction[head1_direction]):
 			player.position = head_2.position
 			change_velocity(head1_direction, head2_direction, player)
 			wait_for_release = true
@@ -66,13 +54,12 @@ func _on_head_1_entered(player: Node2D) -> void:
 		
 func change_velocity(entrance_direction: Direction, exit_direction:Direction, player:Node2D) -> void:
 	if abs(entrance_direction-exit_direction) == 2: #suoraputki
-		player.velocity *= 2
 		return
 	elif entrance_direction == exit_direction: #180 putki
-		player.velocity *= axis_for_direction[entrance_direction] * 2
+		player.velocity *= axis_for_direction[entrance_direction]
 		player.dash_direction *= axis_for_direction[entrance_direction]
 	else:
-		player.velocity = player.velocity.rotated(PI/2 if posmod((entrance_direction - exit_direction), 4) == 1 else -PI/2) * 2
+		player.velocity = player.velocity.rotated(PI/2 if posmod((entrance_direction - exit_direction), 4) == 1 else -PI/2)
 		player.dash_direction = player.dash_direction.rotated(PI/2 if posmod((entrance_direction - exit_direction), 4) == 1 else -PI/2)
 
 	
