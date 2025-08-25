@@ -17,8 +17,8 @@ var is_dash_buffered := false
 
 var frame_counter := 0
 
-const gravity := 15
-const fast_gravity := gravity * 2
+var gravity := 15
+var fast_gravity := gravity * 2
 const max_fall_speed := 300
 
 # Jump related
@@ -85,7 +85,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		is_dash_buffered = false
 		if not is_on_floor():
-			velocity.y += (fast_gravity if Input.is_action_pressed("move_down") else gravity)
+			if velocity.y > 0:
+				velocity.y += (fast_gravity if Input.is_action_pressed("move_down") else gravity)
+			else: 
+				velocity.y += gravity
 
 		# check direction for only x axis
 		var player_direction_x := Input.get_axis("move_left", "move_right")
@@ -114,7 +117,12 @@ func _physics_process(delta: float) -> void:
 			dash_timer.start(dash_duration)
 			$AfterimageSpawner.start_spawning()
 
-
+	if is_in_water():
+		
+		can_jump = true
+		if !is_dashing():
+			velocity = player_direction * water_speed
+		velocity.y += gravity / 2
 	draw_debug_text()
 	
 	set_player_flip_h()
@@ -122,7 +130,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func draw_debug_text() -> void:
-	$Label.text = str(dash_timer.time_left, "\n", is_in_water())
+	$Label.text = str(velocity.y, "\n", is_in_water())
 
 func jump() -> void:
 	velocity.y = jump_speed
@@ -160,6 +168,8 @@ func buffer_dash_inputs() -> void:
 
 func is_in_water() -> bool:
 	return water_detector.has_overlapping_bodies()
+
+
 
 func animate_player() -> void:
 	if velocity.x != 0:
