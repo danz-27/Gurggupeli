@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dvwl2b6vslbe4"]
+[gd_scene load_steps=17 format=3 uid="uid://dvwl2b6vslbe4"]
 
 [ext_resource type="Script" uid="uid://681j0yp4c50r" path="res://assets/assets/scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://wsv8yd7i70gb" path="res://assets/assets/assets/Gurggu sprite sheet.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://b27o3x5qppu10" path="res://assets/assets/assets/Gurggu normal map spritesheet.png" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://hee4mlcm32fo" path="res://assets/assets/assets/arrow.png" id="4_qlg0r"]
-[ext_resource type="Script" uid="uid://crxc8r1f7wivl" path="res://scenes/sprite_2d.gd" id="5_tuyoq"]
+[ext_resource type="Script" uid="uid://das7t6k1gnuou" path="res://scenes/afterimage_spawner.gd" id="4_tuyoq"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_qlg0r"]
 diffuse_texture = ExtResource("2_qhqgy")
@@ -138,6 +138,8 @@ _data = {
 &"walk": SubResource("Animation_tuyoq")
 }
 
+[sub_resource type="GDScript" id="GDScript_qlg0r"]
+
 [node name="player" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_qhqgy")
@@ -150,6 +152,9 @@ texture = SubResource("CanvasTexture_qlg0r")
 hframes = 16
 vframes = 4
 frame = 17
+
+[node name="AfterimageSpawner" type="Node2D" parent="."]
+script = ExtResource("4_tuyoq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
@@ -186,9 +191,10 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qhqgy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("4_qlg0r")
 offset = Vector2(12, 0.5)
-script = ExtResource("5_tuyoq")
+script = SubResource("GDScript_qlg0r")
 
 [connection signal="timeout" from="DashTimer" to="." method="on_dash_timer_timeout"]
 [connection signal="timeout" from="CoyoteTimer" to="." method="on_coyote_timer_timeout"]

@@ -112,6 +112,7 @@ func _physics_process(delta: float) -> void:
 				else:
 					dash_direction = Vector2.LEFT
 			dash_timer.start(dash_duration)
+			$AfterimageSpawner.start_spawning()
 
 
 	draw_debug_text()
@@ -139,6 +140,7 @@ func on_coyote_timer_timeout() -> void:
 
 func on_dash_timer_timeout() -> void:
 	velocity = Vector2.ZERO
+	$AfterimageSpawner.stop_spawning()
 
 func _input(event):
 	if event.is_action_released("jump"):
