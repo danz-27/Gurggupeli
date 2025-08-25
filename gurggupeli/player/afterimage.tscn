@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjgdh508xyx7h"]
+
+[ext_resource type="Script" uid="uid://okgf3xlwogq7" path="res://player/afterimage.gd" id="1_dhyms"]
+[ext_resource type="Texture2D" uid="uid://cn50r8k2jqjwr" path="res://player/textures/Gurggu dash spritesheet.png" id="1_sp257"]
+
+[node name="Sprite2D" type="Sprite2D"]
+z_index = -1
+texture = ExtResource("1_sp257")
+script = ExtResource("1_dhyms")

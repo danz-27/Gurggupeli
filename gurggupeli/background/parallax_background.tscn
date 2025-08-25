@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://crjqkjsi3uyms"]
 
-[ext_resource type="Texture2D" uid="uid://bcpkm41dmh3tc" path="res://assets/assets/assets/tiiliseinä tileset.png" id="1_yqcdc"]
-[ext_resource type="Texture2D" uid="uid://clp732e1pvvjd" path="res://assets/assets/assets/viemäristö tunneli.png" id="2_r7lvs"]
+[ext_resource type="Texture2D" uid="uid://bcpkm41dmh3tc" path="res://tilemaps/tiiliseinä tileset.png" id="1_yqcdc"]
+[ext_resource type="Texture2D" uid="uid://clp732e1pvvjd" path="res://tilemaps/viemäristö tunneli.png" id="2_r7lvs"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_0wfyh"]
 tile_data = PackedInt32Array(0, 262145, 13, 65536, 262145, 14, 1, 327681, 13, 65537, 327681, 14, 2, 393217, 13, 65538, 393217, 14, 3, 458753, 13, 65539, 458753, 14, 4, 524289, 13, 65540, 524289, 14, 5, 589825, 13, 65541, 589825, 14)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn50r8k2jqjwr"
-path="res://.godot/imported/Gurggu dash spritesheet.png-0e0cd3f49f9a863e20d7a39cc3461c69.ctex"
+uid="uid://wsv8yd7i70gb"
+path="res://.godot/imported/Gurggu sprite sheet.png-0bba21fae01d9c4ad2a612b6cd73f1a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets/assets/Gurggu dash spritesheet.png"
-dest_files=["res://.godot/imported/Gurggu dash spritesheet.png-0e0cd3f49f9a863e20d7a39cc3461c69.ctex"]
+source_file="res://player/textures/Gurggu sprite sheet.png"
+dest_files=["res://.godot/imported/Gurggu sprite sheet.png-0bba21fae01d9c4ad2a612b6cd73f1a0.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var afterimage_scene: PackedScene = preload("res://Afterimage.tscn")
+@export var afterimage_scene: PackedScene = preload("res://player/afterimage.tscn")
 @export var spawn_interval: float = 0.05
 
 var spawn_timer: float = 0.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clp732e1pvvjd"
-path="res://.godot/imported/viemäristö tunneli.png-d7be49adf41d3ed477d1729a58bc5cd8.ctex"
+uid="uid://c5lsafy05wjjf"
+path="res://.godot/imported/jetpack spritesheet.png-4a7a100bc6d6eb2a737db69b68f57305.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets/assets/viemäristö tunneli.png"
-dest_files=["res://.godot/imported/viemäristö tunneli.png-d7be49adf41d3ed477d1729a58bc5cd8.ctex"]
+source_file="res://player/textures/jetpack spritesheet.png"
+dest_files=["res://.godot/imported/jetpack spritesheet.png-4a7a100bc6d6eb2a737db69b68f57305.ctex"]
 
 [params]
 

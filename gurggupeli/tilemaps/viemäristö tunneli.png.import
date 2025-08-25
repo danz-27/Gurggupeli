@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hee4mlcm32fo"
-path="res://.godot/imported/arrow.png-908da33540c01445c429c96f0a21bcac.ctex"
+uid="uid://clp732e1pvvjd"
+path="res://.godot/imported/viemäristö tunneli.png-17debf4d184c16ed27e176ae937f454d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets/assets/arrow.png"
-dest_files=["res://.godot/imported/arrow.png-908da33540c01445c429c96f0a21bcac.ctex"]
+source_file="res://tilemaps/viemäristö tunneli.png"
+dest_files=["res://.godot/imported/viemäristö tunneli.png-17debf4d184c16ed27e176ae937f454d.ctex"]
 
 [params]
 

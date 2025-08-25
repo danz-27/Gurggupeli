@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcpkm41dmh3tc"
-path="res://.godot/imported/tiiliseinä tileset.png-122d7e18a6b2beb898db7f64b1843a47.ctex"
+uid="uid://cn50r8k2jqjwr"
+path="res://.godot/imported/Gurggu dash spritesheet.png-540ac60ee16ad25a0632d5d989d804b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets/assets/tiiliseinä tileset.png"
-dest_files=["res://.godot/imported/tiiliseinä tileset.png-122d7e18a6b2beb898db7f64b1843a47.ctex"]
+source_file="res://player/textures/Gurggu dash spritesheet.png"
+dest_files=["res://.godot/imported/Gurggu dash spritesheet.png-540ac60ee16ad25a0632d5d989d804b8.ctex"]
 
 [params]
 

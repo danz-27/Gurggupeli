@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wsv8yd7i70gb"
-path="res://.godot/imported/Gurggu sprite sheet.png-bdb65ec47500e7e07c624b8b4eb58e54.ctex"
+uid="uid://bcpkm41dmh3tc"
+path="res://.godot/imported/tiiliseinä tileset.png-d6e82b31955dbbbb1b4fe33bd504a53d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets/assets/Gurggu sprite sheet.png"
-dest_files=["res://.godot/imported/Gurggu sprite sheet.png-bdb65ec47500e7e07c624b8b4eb58e54.ctex"]
+source_file="res://tilemaps/tiiliseinä tileset.png"
+dest_files=["res://.godot/imported/tiiliseinä tileset.png-d6e82b31955dbbbb1b4fe33bd504a53d.ctex"]
 
 [params]
 

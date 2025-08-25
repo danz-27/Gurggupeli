@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b27o3x5qppu10"
-path="res://.godot/imported/Gurggu normal map spritesheet.png-8b36eb18734557fa87fa00043afe6ebc.ctex"
+uid="uid://dekn2512yw5bn"
+path="res://.godot/imported/pipe.png-e22b6d4c05e84d3512d7731c289386ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets/assets/Gurggu normal map spritesheet.png"
-dest_files=["res://.godot/imported/Gurggu normal map spritesheet.png-8b36eb18734557fa87fa00043afe6ebc.ctex"]
+source_file="res://tilemaps/pipe.png"
+dest_files=["res://.godot/imported/pipe.png-e22b6d4c05e84d3512d7731c289386ed.ctex"]
 
 [params]
 

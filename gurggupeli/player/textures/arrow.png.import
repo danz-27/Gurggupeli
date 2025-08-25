@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5lsafy05wjjf"
-path="res://.godot/imported/jetpack spritesheet.png-62cdb5cc8cd3ab07ee46d30bd906ee3d.ctex"
+uid="uid://hee4mlcm32fo"
+path="res://.godot/imported/arrow.png-73b38dc51225405b8ee2a9394694009e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets/assets/jetpack spritesheet.png"
-dest_files=["res://.godot/imported/jetpack spritesheet.png-62cdb5cc8cd3ab07ee46d30bd906ee3d.ctex"]
+source_file="res://player/textures/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-73b38dc51225405b8ee2a9394694009e.ctex"]
 
 [params]
 
