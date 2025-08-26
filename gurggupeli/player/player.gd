@@ -46,6 +46,7 @@ func _physics_process(delta: float) -> void:
 
 	if !can_jump and (is_on_floor() or is_in_water()):
 		can_jump = true
+		
 
 	# Handle player jump press
 	if Input.is_action_just_pressed("jump"):
@@ -120,7 +121,7 @@ func _physics_process(delta: float) -> void:
 			spawner.start_spawning()
 
 	if is_in_water():
-		
+		coyote_time_duration.start(0.2)
 		can_jump = true
 		if !is_dashing():
 			velocity = player_direction * water_speed
@@ -132,7 +133,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func draw_debug_text() -> void:
-	$Label.text = str(velocity.y, "\n", is_in_water())
+	$Label.text = str(coyote_time_duration.time_left, "\n", can_jump)
 
 func jump() -> void:
 	velocity.y = jump_speed
