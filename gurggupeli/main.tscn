@@ -918,7 +918,7 @@ position = Vector2(564, -100)
 [node name="Head2" parent="pipe5" index="1"]
 position = Vector2(564, 4)
 
-[node name="Node2D" parent="." instance=ExtResource("6_efxa6")]
+[node name="Dash particle" parent="." instance=ExtResource("6_efxa6")]
 
 [editable path="pipe"]
 [editable path="pipe2"]

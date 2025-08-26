@@ -37,6 +37,7 @@ const jump_height_cut := 0.4
 @onready var gurggu := $Gurggu
 @onready var animation_player := $AnimationPlayer
 @onready var water_detector := $WaterDetector
+@onready var spawner := $AfterimageSpawner
 
 func _physics_process(delta: float) -> void:
 	# Track jump hold time
@@ -115,7 +116,8 @@ func _physics_process(delta: float) -> void:
 				else:
 					dash_direction = Vector2.LEFT
 			dash_timer.start(dash_duration)
-			$AfterimageSpawner.start_spawning()
+			spawner.make_afterimage()
+			spawner.start_spawning()
 
 	if is_in_water():
 		
@@ -148,7 +150,7 @@ func on_coyote_timer_timeout() -> void:
 
 func on_dash_timer_timeout() -> void:
 	velocity = Vector2.ZERO
-	$AfterimageSpawner.stop_spawning()
+	spawner.stop_spawning()
 
 func _input(event):
 	if event.is_action_released("jump"):
