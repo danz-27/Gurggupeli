@@ -919,6 +919,7 @@ position = Vector2(564, -100)
 position = Vector2(564, 4)
 
 [node name="Dash particle" parent="." instance=ExtResource("6_efxa6")]
+visible = false
 
 [editable path="pipe"]
 [editable path="pipe2"]

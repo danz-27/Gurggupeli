@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 	if jump_held:
 		jump_hold_time += delta
 
-	if !can_jump and is_on_floor():
+	if !can_jump and (is_on_floor() or is_in_water()):
 		can_jump = true
 
 	# Handle player jump press
@@ -126,7 +126,7 @@ func _physics_process(delta: float) -> void:
 			velocity = player_direction * water_speed
 		velocity.y += gravity / 2
 	draw_debug_text()
-	
+	dash_stretch()
 	set_player_flip_h()
 	animate_player()
 	move_and_slide()
@@ -189,3 +189,9 @@ func animate_player() -> void:
 func set_player_flip_h() -> void:
 	if player_direction.x != 0:
 		gurggu.flip_h = player_direction.x > 0
+		
+func dash_stretch() -> void:
+	if is_dashing():
+		gurggu.scale = Vector2(1.0,1.0) + abs(velocity) *0.001
+	else:
+		gurggu.scale = Vector2(1.0,1.0)
