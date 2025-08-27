@@ -34,9 +34,11 @@ const jump_height_cut := 0.4
 @onready var dash_timer := $DashTimer
 @onready var coyote_time_duration := $CoyoteTimer
 @onready var jump_buffer_duration := $JumpBufferTimer
+@onready var jump_timer := $JumpTimer
 @onready var gurggu := $Gurggu
 @onready var animation_player := $AnimationPlayer
 @onready var water_detector := $WaterDetector
+@onready var above_water_detector := $AboveWaterDetector
 @onready var spawner := $AfterimageSpawner
 
 func _physics_process(delta: float) -> void:
@@ -60,7 +62,7 @@ func _physics_process(delta: float) -> void:
 			jump_buffer_duration.start(jump_buffer_time)
 
 	# Begin coyote time
-	if not is_on_floor() and can_jump and coyote_time_duration.is_stopped():
+	if !is_on_floor() and can_jump and coyote_time_duration.is_stopped():
 		coyote_time_duration.start(0.1)
 
 	if is_on_floor():
@@ -78,7 +80,6 @@ func _physics_process(delta: float) -> void:
 
 	# movement
 	player_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-
 	if is_dashing():
 		if dash_timer.time_left >= (dash_duration - dash_buffer_time) and !is_dash_buffered:
 			buffer_dash_inputs()
@@ -86,7 +87,7 @@ func _physics_process(delta: float) -> void:
 
 	else:
 		is_dash_buffered = false
-		if not is_on_floor():
+		if !is_on_floor():
 			if velocity.y > 0:
 				velocity.y += (fast_gravity if Input.is_action_pressed("move_down") else gravity)
 			else: 
@@ -94,7 +95,6 @@ func _physics_process(delta: float) -> void:
 
 		# check direction for only x axis
 		var player_direction_x := Input.get_axis("move_left", "move_right")
-
 		# lerp smoothen movement
 		var velocity_weight: float = delta * (acceleration if player_direction_x else friction)
 
@@ -121,21 +121,32 @@ func _physics_process(delta: float) -> void:
 			spawner.start_spawning()
 
 	if is_in_water():
-		coyote_time_duration.start(0.2)
 		can_jump = true
 		if dash_timer.is_stopped():
 			dash_count = 1
+
 		if !is_dashing():
-			velocity = player_direction * water_speed
-		velocity.y += gravity / 2
+			if Input.is_action_just_pressed("jump"):
+				jump()
+				jump_timer.start(0.15)
+			elif jump_timer.is_stopped():
+				velocity = player_direction * water_speed 
+		if jump_timer.is_stopped():
+			if is_close_to_surface():
+				if player_direction.y < 0:
+					velocity.y = 0
+				velocity.y -= 10
+			else:
+				velocity.y += gravity / 2
+
+
 	draw_debug_text()
-	dash_stretch()
 	set_player_flip_h()
 	animate_player()
 	move_and_slide()
 
 func draw_debug_text() -> void:
-	$Label.text = str(coyote_time_duration.time_left, "\n", can_jump)
+	$Label.text = str(player_direction, "\n", is_close_to_surface())
 
 func jump() -> void:
 	velocity.y = jump_speed
@@ -164,7 +175,10 @@ func _input(event):
 			velocity.y *= jump_height_cut
 
 func is_dashing() -> bool:
-	return not dash_timer.is_stopped()
+	return !dash_timer.is_stopped()
+
+func is_jumping() -> bool:
+	return !jump_timer.is_stopped()
 
 func buffer_dash_inputs() -> void:
 	if player_direction != Vector2.ZERO:
@@ -174,6 +188,8 @@ func buffer_dash_inputs() -> void:
 func is_in_water() -> bool:
 	return water_detector.has_overlapping_bodies()
 
+func is_close_to_surface() -> bool:
+	return !above_water_detector.has_overlapping_bodies()
 
 
 func animate_player() -> void:
@@ -193,8 +209,3 @@ func set_player_flip_h() -> void:
 	if player_direction.x != 0:
 		gurggu.flip_h = player_direction.x > 0
 		
-func dash_stretch() -> void:
-	if is_dashing():
-		gurggu.scale = Vector2(1.0,1.0) + abs(velocity) *0.001
-	else:
-		gurggu.scale = Vector2(1.0,1.0)
