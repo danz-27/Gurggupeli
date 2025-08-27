@@ -123,6 +123,8 @@ func _physics_process(delta: float) -> void:
 	if is_in_water():
 		coyote_time_duration.start(0.2)
 		can_jump = true
+		if dash_timer.is_stopped():
+			dash_count = 1
 		if !is_dashing():
 			velocity = player_direction * water_speed
 		velocity.y += gravity / 2
