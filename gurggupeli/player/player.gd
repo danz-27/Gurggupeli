@@ -41,6 +41,13 @@ const jump_height_cut := 0.4
 @onready var above_water_detector := $AboveWaterDetector
 @onready var spawner := $AfterimageSpawner
 
+#blinking texture
+var blinking_texture = load("res://player/textures/Gurggu_spritesheet_eyes_closed.png")
+var not_blinking_texture = load("res://player/textures/Gurggu sprite sheet.png")
+var blinking: bool = false
+var blink_randomiser: int
+var blinking_duration_frames: int
+
 func _physics_process(delta: float) -> void:
 	# Track jump hold time
 	if jump_held:
@@ -143,6 +150,7 @@ func _physics_process(delta: float) -> void:
 	draw_debug_text()
 	set_player_flip_h()
 	animate_player()
+	blink()
 	move_and_slide()
 
 func draw_debug_text() -> void:
@@ -209,3 +217,19 @@ func set_player_flip_h() -> void:
 	if player_direction.x != 0:
 		gurggu.flip_h = player_direction.x > 0
 		
+func blink() -> void:
+	if not is_in_water():
+		blink_randomiser = randi() % 100
+		print(blink_randomiser)
+		if blink_randomiser == 69:
+			print("BLINKED!")
+			gurggu.set_texture(blinking_texture)
+			blinking_duration_frames = randi() % 10
+			blinking = true
+		elif blinking_duration_frames <= 0:
+			gurggu.set_texture(not_blinking_texture)
+		elif blinking:
+			blinking_duration_frames -= 1
+	elif not is_close_to_surface() and gurggu.get_texture() != blinking_texture:
+		gurggu.set_texture(blinking_texture)
+	
