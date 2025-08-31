@@ -220,9 +220,7 @@ func set_player_flip_h() -> void:
 func blink() -> void:
 	if not is_in_water():
 		blink_randomiser = randi() % 100
-		print(blink_randomiser)
 		if blink_randomiser == 69:
-			print("BLINKED!")
 			gurggu.set_texture(blinking_texture)
 			blinking_duration_frames = randi() % 10
 			blinking = true

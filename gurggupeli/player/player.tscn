@@ -183,6 +183,7 @@ offset_left = -20.0
 offset_top = -26.0
 offset_right = 20.0
 offset_bottom = -3.0
+metadata/_edit_use_anchors_ = true
 
 [node name="WaterDetector" type="Area2D" parent="."]
 collision_layer = 0
