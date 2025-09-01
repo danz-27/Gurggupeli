@@ -18,3 +18,16 @@ func _physics_process(delta: float) -> void:
 		background1.position.x = abs(background1.position.x)
 	if background2.position.x <= -328:
 		background2.position.x = abs(background2.position.x)
+
+
+func _on_play_button_pressed() -> void:
+	print("play button pressed!")
+	visible = false
+
+
+func _on_options_button_pressed() -> void:
+	print("options button pressed!")
+
+
+func _on_quit_button_pressed() -> void:
+	print("quit button pressed!")

@@ -1,18 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0gsfqutb1xqi"]
+[gd_scene load_steps=4 format=3 uid="uid://d0gsfqutb1xqi"]
 
 [ext_resource type="Script" uid="uid://efv0lw07ce4y" path="res://titlescreen/title_screen.gd" id="1_y0dik"]
 [ext_resource type="Texture2D" uid="uid://1x0amq151cs7" path="res://titlescreen/title.png" id="1_y1mc1"]
 [ext_resource type="Texture2D" uid="uid://b205wy6yad0ep" path="res://titlescreen/title_screen_background.png" id="2_gmc7t"]
-[ext_resource type="Script" uid="uid://cke13l7iijuwx" path="res://titlescreen/play_button_collision.gd" id="4_68i05"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0dik"]
-size = Vector2(64, 26)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_68i05"]
-size = Vector2(91, 26)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fl2fr"]
-size = Vector2(52, 26)
 
 [node name="titlescreen" type="Node2D"]
 script = ExtResource("1_y0dik")
@@ -29,21 +19,24 @@ texture = ExtResource("2_gmc7t")
 z_index = 98
 texture = ExtResource("2_gmc7t")
 
-[node name="play_button" type="Area2D" parent="."]
+[node name="play_button" type="Button" parent="."]
+offset_left = -152.0
+offset_top = -7.0
+offset_right = -88.0
+offset_bottom = 19.0
 
-[node name="play_button_collision" type="CollisionShape2D" parent="play_button"]
-position = Vector2(-120, 6)
-shape = SubResource("RectangleShape2D_y0dik")
-script = ExtResource("4_68i05")
+[node name="options_button" type="Button" parent="."]
+offset_left = -152.0
+offset_top = 24.0
+offset_right = -61.0
+offset_bottom = 50.0
 
-[node name="options_button" type="Area2D" parent="."]
+[node name="quit_button" type="Button" parent="."]
+offset_left = -152.0
+offset_top = 55.0
+offset_right = -100.0
+offset_bottom = 81.0
 
-[node name="options_button_collision" type="CollisionShape2D" parent="options_button"]
-position = Vector2(-106.5, 37)
-shape = SubResource("RectangleShape2D_68i05")
-
-[node name="quit_button" type="Area2D" parent="."]
-
-[node name="quit_button_collision" type="CollisionShape2D" parent="quit_button"]
-position = Vector2(-126, 68)
-shape = SubResource("RectangleShape2D_fl2fr")
+[connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
