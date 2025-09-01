@@ -145,7 +145,9 @@ collision_layer = 4
 script = ExtResource("1_qhqgy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_speed = 10.0
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
 
 [node name="Gurggu" type="Sprite2D" parent="."]
 texture = SubResource("CanvasTexture_qlg0r")

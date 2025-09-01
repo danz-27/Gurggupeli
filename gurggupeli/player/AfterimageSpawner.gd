@@ -2,7 +2,7 @@ extends Node2D
 
 var spawning: bool = false
 var timer: float = 0.0
-var time_between_spawns: float = 0.075
+var time_between_spawns: float = 0.05
 
 func start_spawning() -> void:
 	spawning = true
