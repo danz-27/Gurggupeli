@@ -42,11 +42,10 @@ const jump_height_cut := 0.4
 @onready var spawner := $AfterimageSpawner
 
 #blinking texture
-var blinking_texture = load("res://player/textures/Gurggu_spritesheet_eyes_closed.png")
-var not_blinking_texture = load("res://player/textures/Gurggu sprite sheet.png")
-var blinking: bool = false
-var blink_randomiser: int
-var blinking_duration_frames: int
+var blinking_texture = preload("res://player/textures/Gurggu_spritesheet_eyes_closed.png")
+var default_texture = preload("res://player/textures/Gurggu sprite sheet.png")
+var interval_between_blinks: int = randi_range(210, 300)
+var blinking_duration := 5
 
 func _physics_process(delta: float) -> void:
 	# Track jump hold time
@@ -150,11 +149,10 @@ func _physics_process(delta: float) -> void:
 	draw_debug_text()
 	set_player_flip_h()
 	animate_player()
-	blink()
 	move_and_slide()
 
 func draw_debug_text() -> void:
-	$Label.text = str(player_direction, "\n", is_close_to_surface())
+	$Label.text = str(player_direction, "\n", interval_between_blinks)
 
 func jump() -> void:
 	velocity.y = jump_speed
@@ -199,7 +197,6 @@ func is_in_water() -> bool:
 func is_close_to_surface() -> bool:
 	return !above_water_detector.has_overlapping_bodies()
 
-
 func animate_player() -> void:
 	if velocity.x != 0:
 		animation_player.play("walk")
@@ -212,22 +209,18 @@ func animate_player() -> void:
 		animation_player.play("falling")
 	if velocity.y < 0:
 		animation_player.play("falling_up")
+	
+	# blink
+	if interval_between_blinks != 0:
+		interval_between_blinks -= 1
+	else:
+		gurggu.set_texture(blinking_texture)
+		blinking_duration -= 1
+		if blinking_duration == 0:
+			gurggu.set_texture(default_texture)
+			blinking_duration = 5
+			interval_between_blinks = randf_range(210, 300)
 
 func set_player_flip_h() -> void:
 	if player_direction.x != 0:
 		gurggu.flip_h = player_direction.x > 0
-		
-func blink() -> void:
-	if not is_in_water():
-		blink_randomiser = randi() % 100
-		if blink_randomiser == 69:
-			gurggu.set_texture(blinking_texture)
-			blinking_duration_frames = randi() % 10
-			blinking = true
-		elif blinking_duration_frames <= 0:
-			gurggu.set_texture(not_blinking_texture)
-		elif blinking:
-			blinking_duration_frames -= 1
-	elif not is_close_to_surface() and gurggu.get_texture() != blinking_texture:
-		gurggu.set_texture(blinking_texture)
-	
