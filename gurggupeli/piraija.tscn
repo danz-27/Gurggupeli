@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjf7vtglxqxqb"]
+
+[ext_resource type="Script" uid="uid://nyfkcorv81uu" path="res://piraija.gd" id="1_pd6sm"]
+[ext_resource type="Texture2D" uid="uid://dycag0eh3iwkg" path="res://random assets/biraija gala.png" id="1_wwynk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pd6sm"]
+radius = 4.0
+height = 14.0
+
+[node name="piraija" type="CharacterBody2D"]
+script = ExtResource("1_pd6sm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pd6sm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wwynk")
