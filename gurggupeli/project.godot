@@ -65,6 +65,7 @@ dash={
 2d_physics/layer_1="wall collision"
 2d_physics/layer_2="water collision"
 2d_physics/layer_3="player layer"
+2d_physics/layer_4="entity health"
 
 [rendering]
 

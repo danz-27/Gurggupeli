@@ -1,4 +1,7 @@
 extends CharacterBody2D
+class_name Player
+
+static var instance : Player
 
 # Movement & dash related
 const speed := 128.0
@@ -40,12 +43,16 @@ const jump_height_cut := 0.4
 @onready var water_detector := $WaterDetector
 @onready var above_water_detector := $AboveWaterDetector
 @onready var spawner := $AfterimageSpawner
+@onready var health : EntityHealth = $EntityHealth
 
 #blinking texture
-var blinking_texture = preload("res://player/textures/Gurggu_spritesheet_eyes_closed.png")
-var default_texture = preload("res://player/textures/Gurggu sprite sheet.png")
+var blinking_texture : Texture2D = preload("res://player/textures/Gurggu_spritesheet_eyes_closed.png")
+var default_texture : Texture2D = preload("res://player/textures/Gurggu sprite sheet.png")
 var interval_between_blinks: int = randi_range(210, 300)
 var blinking_duration := 5
+
+func _ready() -> void:
+	instance = self
 
 func _physics_process(delta: float) -> void:
 	# Track jump hold time
@@ -143,10 +150,10 @@ func _physics_process(delta: float) -> void:
 					velocity.y = 0
 				velocity.y -= 10
 			else:
-				velocity.y += gravity / 2
+				velocity.y += gravity / 2.0
 
 
-	draw_debug_text()
+	#draw_debug_text()
 	set_player_flip_h()
 	animate_player()
 	move_and_slide()
@@ -172,7 +179,7 @@ func on_dash_timer_timeout() -> void:
 	velocity = Vector2.ZERO
 	spawner.stop_spawning()
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event.is_action_released("jump"):
 		jump_held = false
 		
@@ -219,7 +226,7 @@ func animate_player() -> void:
 		if blinking_duration == 0:
 			gurggu.set_texture(default_texture)
 			blinking_duration = 5
-			interval_between_blinks = randf_range(210, 300)
+			interval_between_blinks = randi_range(210, 300)
 
 func set_player_flip_h() -> void:
 	if player_direction.x != 0:

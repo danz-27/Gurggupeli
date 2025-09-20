@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://betvs3gq1xrw7"]
+
+[ext_resource type="Texture2D" uid="uid://dn3247ny3t3ch" path="res://random assets/vine.png" id="1_kdjhy"]
+[ext_resource type="Script" uid="uid://ubrxk4fbsbjh" path="res://health_bar.gd" id="1_srckl"]
+[ext_resource type="Texture2D" uid="uid://iafnpkm0u6co" path="res://random assets/health kurkku.png" id="2_srckl"]
+
+[node name="HealthBar" type="Node2D"]
+script = ExtResource("1_srckl")
+
+[node name="HealthbarTexture" type="Sprite2D" parent="."]
+z_index = 99
+position = Vector2(-127, -76)
+texture = ExtResource("1_kdjhy")
+
+[node name="HealthIcon1" type="Sprite2D" parent="."]
+modulate = Color(0.121569, 0.972549, 0.282353, 1)
+position = Vector2(-89, -80)
+texture = ExtResource("2_srckl")
+
+[node name="HealthIcon2" type="Sprite2D" parent="."]
+modulate = Color(0.121569, 0.972549, 0.282353, 1)
+position = Vector2(-122, -84)
+rotation = -3.1415927
+scale = Vector2(2.5312734, 2.0750384)
+texture = ExtResource("2_srckl")
+
+[node name="HealthIcon3" type="Sprite2D" parent="."]
+modulate = Color(0.121569, 0.972549, 0.282353, 1)
+position = Vector2(-150, -75)
+scale = Vector2(0.3125, 0.25)
+texture = ExtResource("2_srckl")
+
+[node name="HealthIcon4" type="Sprite2D" parent="."]
+modulate = Color(0.121569, 0.972549, 0.282353, 1)
+position = Vector2(-113, -75)
+rotation = -1.3788102
+scale = Vector2(0.3125, 1)
+texture = ExtResource("2_srckl")
+
+[node name="HealthIcon5" type="Sprite2D" parent="."]
+modulate = Color(0.121569, 0.972549, 0.282353, 1)
+position = Vector2(-138, -63.000004)
+rotation = -1.4573499
+scale = Vector2(1.4375, 0.625)
+texture = ExtResource("2_srckl")
