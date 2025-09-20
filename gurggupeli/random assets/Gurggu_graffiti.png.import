@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn3247ny3t3ch"
-path="res://.godot/imported/vine.png-7ca48b69ded5c65e6a4e2ca5587c50a6.ctex"
+uid="uid://d1pe07qp6otxu"
+path="res://.godot/imported/Gurggu_graffiti.png-6a61667782dc8bfe85d18ba747d4495d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://random assets/vine.png"
-dest_files=["res://.godot/imported/vine.png-7ca48b69ded5c65e6a4e2ca5587c50a6.ctex"]
+source_file="res://random assets/Gurggu_graffiti.png"
+dest_files=["res://.godot/imported/Gurggu_graffiti.png-6a61667782dc8bfe85d18ba747d4495d.ctex"]
 
 [params]
 
