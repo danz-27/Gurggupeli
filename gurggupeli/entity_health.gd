@@ -6,7 +6,7 @@ class_name EntityHealth
 
 @onready var iframes_timer : Timer = $Iframes
 
-func take_damage(damage: float) -> void:
+func take_damage(damage: int) -> void:
 	if !iframes_timer.is_stopped():
 		return
 	health -= damage

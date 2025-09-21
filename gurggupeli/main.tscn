@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://7fx0kfswq7vo" path="res://tilemaps/darkness new.png" id="5_5vw27"]
 [ext_resource type="PackedScene" uid="uid://cjgdh508xyx7h" path="res://player/afterimage.tscn" id="6_efxa6"]
 [ext_resource type="Texture2D" uid="uid://d1pe07qp6otxu" path="res://random assets/Gurggu_graffiti.png" id="7_efxa6"]
-[ext_resource type="PackedScene" uid="uid://betvs3gq1xrw7" path="res://health_bar.tscn" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://d2trf1846jb0b" path="res://gui.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://doejntmkit0nt" path="res://entities.gd" id="13_w48qg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sugp2"]
@@ -1185,11 +1185,7 @@ visible = false
 [node name="Entities" type="Node2D" parent="."]
 script = ExtResource("13_w48qg")
 
-[node name="GUI" type="CanvasLayer" parent="."]
-layer = 99
-follow_viewport_scale = 6.0
-
-[node name="HealthBar" parent="GUI" instance=ExtResource("12_dg77c")]
+[node name="GUI" parent="." instance=ExtResource("12_dg77c")]
 
 [editable path="pipe"]
 [editable path="pipe2"]

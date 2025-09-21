@@ -3,9 +3,9 @@ class_name Entity
 
 
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

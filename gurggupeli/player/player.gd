@@ -42,7 +42,7 @@ const jump_height_cut := 0.4
 @onready var animation_player := $AnimationPlayer
 @onready var water_detector := $WaterDetector
 @onready var above_water_detector := $AboveWaterDetector
-@onready var spawner := $AfterimageSpawner
+@onready var afterimage_spawner := $AfterimageSpawner
 @onready var health : EntityHealth = $EntityHealth
 
 #blinking texture
@@ -130,8 +130,8 @@ func _physics_process(delta: float) -> void:
 				else:
 					dash_direction = Vector2.LEFT
 			dash_timer.start(dash_duration)
-			spawner.make_afterimage()
-			spawner.start_spawning()
+			afterimage_spawner.make_afterimage()
+			afterimage_spawner.start_spawning()
 
 	if is_in_water():
 		can_jump = true
@@ -177,7 +177,7 @@ func on_coyote_timer_timeout() -> void:
 
 func on_dash_timer_timeout() -> void:
 	velocity = Vector2.ZERO
-	spawner.stop_spawning()
+	afterimage_spawner.stop_spawning()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("jump"):
