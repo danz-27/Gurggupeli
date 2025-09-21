@@ -45,7 +45,7 @@ const jump_height_cut := 0.4
 @onready var afterimage_spawner := $AfterimageSpawner
 @onready var health : EntityHealth = $EntityHealth
 
-#blinking texture
+# Blinking
 var blinking_texture : Texture2D = preload("res://player/textures/Gurggu_spritesheet_eyes_closed.png")
 var default_texture : Texture2D = preload("res://player/textures/Gurggu sprite sheet.png")
 var interval_between_blinks: int = randi_range(210, 300)
@@ -153,13 +153,13 @@ func _physics_process(delta: float) -> void:
 				velocity.y += gravity / 2.0
 
 
-	#draw_debug_text()
+	draw_debug_text()
 	set_player_flip_h()
 	animate_player()
 	move_and_slide()
 
 func draw_debug_text() -> void:
-	$Label.text = str(player_direction, "\n", interval_between_blinks)
+	$Label.text = str(player_direction, "\n", $EntityHealth.health)
 
 func jump() -> void:
 	velocity.y = jump_speed

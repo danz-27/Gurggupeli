@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2trf1846jb0b"]
+
+[ext_resource type="PackedScene" uid="uid://betvs3gq1xrw7" path="res://GUI/health_bar.tscn" id="1_80edf"]
+[ext_resource type="Texture2D" uid="uid://dn3247ny3t3ch" path="res://random assets/vine.png" id="1_egdk1"]
+
+[node name="GUI" type="CanvasLayer"]
+follow_viewport_scale = 6.0
+
+[node name="HealthbarTexture" type="Sprite2D" parent="."]
+z_index = 99
+position = Vector2(198.00002, 84)
+scale = Vector2(6, 6)
+texture = ExtResource("1_egdk1")
+
+[node name="HealthBarHealths" parent="." instance=ExtResource("1_80edf")]
+position = Vector2(960, 540)
+scale = Vector2(6, 6)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://buf5pdb22e0bo"]
 
-[ext_resource type="Script" uid="uid://bddmmidtl3xq0" path="res://entity_health.gd" id="1_kxma2"]
+[ext_resource type="Script" uid="uid://bddmmidtl3xq0" path="res://enemis/entity_health.gd" id="1_kxma2"]
 
 [node name="EntityHealth" type="Area2D"]
 collision_layer = 8

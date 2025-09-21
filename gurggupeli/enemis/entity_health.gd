@@ -11,4 +11,6 @@ func take_damage(damage: int) -> void:
 		return
 	health -= damage
 	iframes_timer.start(iframes_duration)
-	print(health)
+	if health <= 0:
+		get_parent().queue_free()
+		#queue_free()
