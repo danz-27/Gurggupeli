@@ -32,7 +32,8 @@ func _physics_process(_delta: float) -> void:
 	
 	for i : int in range(HEART_AMOUNT):
 		var icon := health_icons[i]
-		if health % 5 < i:
+
+		if (health - 1) % HEART_AMOUNT + 1 <= i:
 			icon.modulate = color1
 		else:
 			icon.modulate = color2

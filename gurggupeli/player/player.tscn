@@ -204,7 +204,7 @@ position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_yw30f")
 
 [node name="EntityHealth" parent="." instance=ExtResource("5_qjkh3")]
-health = 13
+health = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EntityHealth"]
 position = Vector2(0, 3)
