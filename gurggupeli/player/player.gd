@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Entity
 class_name Player
 
 static var instance : Player
@@ -23,6 +23,8 @@ var frame_counter := 0
 var gravity := 15
 var fast_gravity := gravity * 2
 const max_fall_speed := 300
+
+var respawn_pos : Vector2
 
 # Jump related
 const jump_speed := -250.0
@@ -53,6 +55,7 @@ var blinking_duration := 5
 
 func _ready() -> void:
 	instance = self
+	respawn_pos = position
 
 func _physics_process(delta: float) -> void:
 	# Track jump hold time
@@ -153,6 +156,9 @@ func _physics_process(delta: float) -> void:
 				velocity.y += gravity / 2.0
 
 
+	if Input.is_action_just_pressed("ui_focus_next"):
+		health.health += 1
+
 	draw_debug_text()
 	set_player_flip_h()
 	animate_player()
@@ -203,6 +209,9 @@ func is_in_water() -> bool:
 
 func is_close_to_surface() -> bool:
 	return !above_water_detector.has_overlapping_bodies()
+
+func _die() -> void:
+	GUI.show_death_screen()
 
 func animate_player() -> void:
 	if velocity.x != 0:

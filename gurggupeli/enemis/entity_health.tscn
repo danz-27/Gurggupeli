@@ -8,4 +8,5 @@ collision_mask = 0
 script = ExtResource("1_kxma2")
 
 [node name="Iframes" type="Timer" parent="."]
+wait_time = 0.001
 one_shot = true

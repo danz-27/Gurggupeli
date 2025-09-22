@@ -5,17 +5,32 @@ const HEART_AMOUNT := 5
 var entity_health_node : EntityHealth
 var previous_health : int
 @onready var health_icons : Array[Sprite2D] = [$HealthIcon1, $HealthIcon2, $HealthIcon3, $HealthIcon4, $HealthIcon5]
-
+var health_icon_positions : Array[Vector2]
+var tween_dict : Dictionary
 
 func _ready() -> void:
+	health_icon_positions.assign(health_icons.map(func(icon: Sprite2D) -> Vector2: return icon.position))
 	await get_tree().physics_frame
 	entity_health_node = Player.instance.get_node("EntityHealth")
+	
 
 
 func _physics_process(_delta: float) -> void:
 	var health : int = entity_health_node.health
 	if previous_health == health:
 		return
+	# gain hp
+	if previous_health < health:
+		if previous_health < HEART_AMOUNT:
+			for i : int in range(len(health_icons)):
+				# selvitä huomen mitä tää meinaa
+				#if (previous_health <= i) and (i < health):
+					# Check if tween animation is still running and if it is, kill it
+					if tween_dict.has(health_icons[i]) and tween_dict[health_icons[i]].is_running():
+						tween_dict[health_icons[i]].kill()
+						
+						health_icons[i].position = health_icon_positions[i]
+	
 	
 	var color1 : Color
 	var color2 : Color
@@ -39,12 +54,19 @@ func _physics_process(_delta: float) -> void:
 			icon.modulate = color2
 	
 	if health < HEART_AMOUNT:
-		if health <= 0:
-			queue_free()
-		else:
-			for i : int in range(HEART_AMOUNT - health):
-				var icon_position : Vector2 = health_icons[i].position
-				var tween : Tween = create_tween()
-				tween.tween_property(health_icons[i], "position", Vector2(icon_position.x, 200), 0.5).set_ease(Tween.EASE_IN)
-	
+		for i : int in range(HEART_AMOUNT - clamp(health, 0, HEART_AMOUNT)):
+			var icon_position : Vector2 = health_icons[i].position
+			var tween : Tween = create_tween()
+			# Kill extra tweens if some appear due to gaining hp immediatly after taking damage
+			if tween_dict.has(health_icons[i]):
+				tween_dict[health_icons[i]].kill()
+			
+			tween.tween_property(health_icons[i], "position", Vector2(icon_position.x, 200), 3).set_ease(Tween.EASE_IN)
+			tween_dict[health_icons[i]] = tween
+			
+			
+			
+			
+			#tween.finished.connect(tween.kill)
+			#tween.finished.connect(print.bind("!"))
 	previous_health = health

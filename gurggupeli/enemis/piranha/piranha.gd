@@ -30,7 +30,10 @@ func _physics_process(_delta: float) -> void:
 	raycast.target_position = player_pos - position
 	match state:
 		STATE.CHASE:
-			velocity = position.direction_to(player_pos) * CHASE_SPEED
+			if Player.instance.is_close_to_surface():
+				velocity = position.direction_to(player_pos + Vector2(0, 10)) * CHASE_SPEED
+			else:
+				velocity = position.direction_to(player_pos) * CHASE_SPEED
 	
 			if position.distance_to(player_pos) > CHASE_THRESHOLD or raycast.is_colliding() or !Player.instance.is_in_water():
 				state = STATE.ROAM

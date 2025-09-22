@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2trf1846jb0b"]
+[gd_scene load_steps=6 format=3 uid="uid://d2trf1846jb0b"]
 
 [ext_resource type="PackedScene" uid="uid://betvs3gq1xrw7" path="res://GUI/health_bar.tscn" id="1_80edf"]
 [ext_resource type="Texture2D" uid="uid://dn3247ny3t3ch" path="res://random assets/vine.png" id="1_egdk1"]
+[ext_resource type="Script" uid="uid://dal06uv2b8l11" path="res://GUI/gui.gd" id="1_qtfhu"]
+[ext_resource type="Texture2D" uid="uid://dhyd4qc2si41b" path="res://random assets/DeathGui.png" id="4_2xed4"]
+[ext_resource type="Script" uid="uid://baoqwakqjl0f6" path="res://GUI/death_screen.gd" id="5_2xed4"]
 
 [node name="GUI" type="CanvasLayer"]
 follow_viewport_scale = 6.0
+script = ExtResource("1_qtfhu")
 
 [node name="HealthbarTexture" type="Sprite2D" parent="."]
-z_index = 99
 position = Vector2(198.00002, 84)
 scale = Vector2(6, 6)
 texture = ExtResource("1_egdk1")
@@ -15,3 +18,33 @@ texture = ExtResource("1_egdk1")
 [node name="HealthBarHealths" parent="." instance=ExtResource("1_80edf")]
 position = Vector2(960, 540)
 scale = Vector2(6, 6)
+
+[node name="DeathScreen" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_2xed4")
+script = ExtResource("5_2xed4")
+
+[node name="RespawnButton" type="Button" parent="DeathScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.072000004
+anchor_bottom = 0.066
+offset_left = 612.0
+offset_top = 706.0
+offset_right = 1177.76
+offset_bottom = 809.72
+
+[node name="ExitButton" type="Button" parent="DeathScreen"]
+layout_mode = 0
+offset_left = 804.0
+offset_top = 890.0
+offset_right = 1126.0
+offset_bottom = 1050.0
+
+[connection signal="pressed" from="DeathScreen/RespawnButton" to="DeathScreen" method="_on_respawn_button_pressed"]
+[connection signal="pressed" from="DeathScreen/ExitButton" to="DeathScreen" method="_on_exit_button_pressed"]

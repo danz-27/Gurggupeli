@@ -144,9 +144,9 @@ size = Vector2(16, 5)
 [node name="player" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_qhqgy")
+team = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(6, 6)
 
 [node name="Gurggu" type="Sprite2D" parent="."]
 texture = SubResource("CanvasTexture_qlg0r")
@@ -180,10 +180,9 @@ one_shot = true
 one_shot = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = -20.0
-offset_top = -26.0
-offset_right = 20.0
-offset_bottom = -3.0
+offset_left = -40.0
+offset_top = -38.0
+offset_bottom = -15.0
 metadata/_edit_use_anchors_ = true
 
 [node name="WaterDetector" type="Area2D" parent="."]
@@ -204,7 +203,7 @@ position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_yw30f")
 
 [node name="EntityHealth" parent="." instance=ExtResource("5_qjkh3")]
-health = 15
+health = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EntityHealth"]
 position = Vector2(0, 3)
