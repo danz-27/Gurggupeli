@@ -1,4 +1,5 @@
 extends Node
 
 func _ready() -> void:
-	Piranha.create(Vector2(80, -50))
+	Piranha.create(Vector2(100, 550))
+	Piranha.create(Vector2(-150, 40))
