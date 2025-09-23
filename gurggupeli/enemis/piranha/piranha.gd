@@ -18,7 +18,7 @@ var state : STATE = STATE.ROAM
 var spawn_pos : Vector2 
 var roam_pos : Vector2
 const ROAM_THRESHOLD := 1
-const CHASE_THRESHOLD := 100
+const CHASE_THRESHOLD := 200
 const CHASE_SPEED := 100
 const ROAM_SPEED := 50
 

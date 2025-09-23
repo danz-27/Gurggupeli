@@ -147,6 +147,7 @@ script = ExtResource("1_qhqgy")
 team = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(6, 6)
 
 [node name="Gurggu" type="Sprite2D" parent="."]
 texture = SubResource("CanvasTexture_qlg0r")
@@ -203,7 +204,6 @@ position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_yw30f")
 
 [node name="EntityHealth" parent="." instance=ExtResource("5_qjkh3")]
-health = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EntityHealth"]
 position = Vector2(0, 3)

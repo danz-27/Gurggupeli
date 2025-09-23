@@ -11,7 +11,10 @@ func _ready() -> void:
 func _on_respawn_button_pressed() -> void:
 	visible = false
 	Player.instance.position = Player.instance.respawn_pos
-	Player.instance.health.health = 15
+	# Wait a few frames after respawning to not bug out health
+	for i in range (1, 5):
+		await get_tree().physics_frame
+	Player.instance.health.health = 5
 
 
 

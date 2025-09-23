@@ -27,6 +27,7 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_0vyel")
 
 [node name="HurtBox" parent="." index="3" instance=ExtResource("5_tox65")]
+damage = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2(1, 0)

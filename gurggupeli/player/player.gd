@@ -157,15 +157,16 @@ func _physics_process(delta: float) -> void:
 
 
 	if Input.is_action_just_pressed("ui_focus_next"):
-		health.health += 1
-
+		health.health += 3
+	health.health = clamp(health.health, 0, 15)
+	
 	draw_debug_text()
 	set_player_flip_h()
 	animate_player()
 	move_and_slide()
 
 func draw_debug_text() -> void:
-	$Label.text = str(player_direction, "\n", $EntityHealth.health)
+	$Label.text = str(player_direction, "\n", health.health)
 
 func jump() -> void:
 	velocity.y = jump_speed
