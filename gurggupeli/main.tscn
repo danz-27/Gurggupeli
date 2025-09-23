@@ -1187,7 +1187,6 @@ visible = false
 script = ExtResource("13_w48qg")
 
 [node name="GUI" parent="." instance=ExtResource("12_dg77c")]
-visible = false
 
 [node name="PiranhaSpawnLocations" type="Node2D" parent="."]
 script = ExtResource("13_ycdy4")
@@ -1257,3 +1256,4 @@ position = Vector2(-1711, 590)
 [editable path="pipe3"]
 [editable path="pipe4"]
 [editable path="pipe5"]
+[editable path="GUI"]

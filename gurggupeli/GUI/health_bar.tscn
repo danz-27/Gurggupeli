@@ -7,28 +7,33 @@
 script = ExtResource("1_cdhan")
 
 [node name="HealthIcon1" type="Sprite2D" parent="."]
-position = Vector2(-89, -80)
+position = Vector2(48, 61.000004)
 texture = ExtResource("3_i8haq")
+offset = Vector2(15.5, -45.106785)
 
 [node name="HealthIcon2" type="Sprite2D" parent="."]
-position = Vector2(-124.3997, -81.646454)
+position = Vector2(48, 61)
 rotation = -3.1415927
 scale = Vector2(2.2313116, 1.7808452)
 texture = ExtResource("3_i8haq")
+offset = Vector2(8.918387, 26.253399)
 
 [node name="HealthIcon3" type="Sprite2D" parent="."]
-position = Vector2(-150, -75)
+position = Vector2(48, 61.000004)
 scale = Vector2(0.3125, 0.25)
 texture = ExtResource("3_i8haq")
+offset = Vector2(-145.6, -160.42714)
 
 [node name="HealthIcon4" type="Sprite2D" parent="."]
-position = Vector2(-113, -75)
+position = Vector2(48, 61.000008)
 rotation = -1.3788102
 scale = Vector2(0.3125, 1)
 texture = ExtResource("3_i8haq")
+offset = Vector2(120.793724, -15.996567)
 
 [node name="HealthIcon5" type="Sprite2D" parent="."]
-position = Vector2(-138, -63.000004)
+position = Vector2(48, 61.000004)
 rotation = -1.4573499
 scale = Vector2(1.4375, 0.625)
 texture = ExtResource("3_i8haq")
+offset = Vector2(16.788734, -58.3463)

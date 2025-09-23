@@ -54,7 +54,7 @@ func _physics_process(_delta: float) -> void:
 			icon.modulate = color2
 	
 	if previous_health > health and health < HEART_AMOUNT:
-		for i in range(previous_health - health):
+		for i in range(previous_health - clampi(health, 0, 5)):
 			var icon_position : Vector2 = health_icons[health + i].position
 			var tween : Tween = create_tween()
 			

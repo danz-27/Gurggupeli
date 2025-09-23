@@ -1,6 +1,9 @@
 extends CanvasLayer
 class_name GUI
 
+var scale_width : int = ProjectSettings.get_setting("display/window/size/viewport_width") / 320
+var scale_height : int = ProjectSettings.get_setting("display/window/size/viewport_height") / 180
+
 static var instance : GUI
 
 static func show_death_screen() -> void:
@@ -10,4 +13,4 @@ static func show_death_screen() -> void:
 
 func _ready() -> void:
 	instance = self
-	pass
+	set_scale(Vector2(scale_width, scale_height))
