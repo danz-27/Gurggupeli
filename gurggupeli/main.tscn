@@ -1188,9 +1188,6 @@ script = ExtResource("13_w48qg")
 
 [node name="GUI" parent="." instance=ExtResource("12_dg77c")]
 
-[node name="DeathScreen" parent="GUI" index="2"]
-visible = false
-
 [node name="PiranhaSpawnLocations" type="Node2D" parent="."]
 script = ExtResource("13_ycdy4")
 
