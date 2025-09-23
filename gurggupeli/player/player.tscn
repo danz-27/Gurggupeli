@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dvwl2b6vslbe4"]
+[gd_scene load_steps=18 format=3 uid="uid://dvwl2b6vslbe4"]
 
 [ext_resource type="Script" uid="uid://681j0yp4c50r" path="res://player/player.gd" id="1_qhqgy"]
+[ext_resource type="Script" uid="uid://cxvwqo2ivf8sq" path="res://player/camera_2d.gd" id="2_g6k8r"]
 [ext_resource type="Texture2D" uid="uid://wsv8yd7i70gb" path="res://player/textures/Gurggu sprite sheet.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://b27o3x5qppu10" path="res://player/textures/Gurggu normal map spritesheet.png" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://cvaorv00txcd1" path="res://player/AfterimageSpawner.gd" id="4_tuyoq"]
@@ -147,6 +148,8 @@ script = ExtResource("1_qhqgy")
 team = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(6, 6)
+script = ExtResource("2_g6k8r")
 
 [node name="Gurggu" type="Sprite2D" parent="."]
 texture = SubResource("CanvasTexture_qlg0r")

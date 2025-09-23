@@ -11,13 +11,10 @@ follow_viewport_scale = 6.0
 script = ExtResource("1_qtfhu")
 
 [node name="HealthbarTexture" type="Sprite2D" parent="."]
-position = Vector2(198.00002, 84)
-scale = Vector2(6, 6)
 texture = ExtResource("1_egdk1")
+offset = Vector2(33, 14)
 
 [node name="HealthBarHealths" parent="." instance=ExtResource("1_80edf")]
-position = Vector2(960, 540)
-scale = Vector2(6, 6)
 
 [node name="DeathScreen" type="TextureRect" parent="."]
 visible = false
@@ -34,17 +31,19 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.072000004
 anchor_bottom = 0.066
-offset_left = 612.0
-offset_top = 706.0
-offset_right = 1177.76
-offset_bottom = 809.72
+offset_left = 102.83333
+offset_top = 118.500015
+offset_right = 668.5934
+offset_bottom = 222.21997
+scale = Vector2(0.18869714, 0.24293652)
 
 [node name="ExitButton" type="Button" parent="DeathScreen"]
 layout_mode = 0
-offset_left = 804.0
-offset_top = 890.0
-offset_right = 1126.0
-offset_bottom = 1050.0
+offset_left = 129.0
+offset_top = 150.0
+offset_right = 451.0
+offset_bottom = 310.0
+scale = Vector2(0.18439238, 0.17757043)
 
 [connection signal="pressed" from="DeathScreen/RespawnButton" to="DeathScreen" method="_on_respawn_button_pressed"]
 [connection signal="pressed" from="DeathScreen/ExitButton" to="DeathScreen" method="_on_exit_button_pressed"]
