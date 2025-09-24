@@ -13,32 +13,33 @@ const friction := 15.0
 const dash_speed := 250
 var dash_count := 1
 var dash_direction := Vector2.ZERO
-var dash_multiplier := 1.0
-const dash_buffer_time := 0.5
+var jumping_air_velocity : Vector2
+const dash_buffer_time := 0.03
 const dash_duration := 0.25
 var is_dash_buffered := false
-
-var frame_counter := 0
+var coyote_time_duration := 0.1 
 
 var gravity := 15
 var fast_gravity := gravity * 2
+var water_gravity := gravity / 2.0
 const max_fall_speed := 300
 
 var respawn_pos : Vector2
 
+
 # Jump related
 const jump_speed := -250.0
 var can_jump := false
+var water_jump_time := 0.15
+var keep_jump_velocity := false
 
 var is_jump_buffered := false
 const jump_buffer_time := 0.3
-var jump_held := false
-var jump_hold_time := 0.0
-const jump_height_cut := 0.4
+const jump_height_cut := 0.3
 
 @onready var dash_timer := $DashTimer
-@onready var coyote_time_duration := $CoyoteTimer
-@onready var jump_buffer_duration := $JumpBufferTimer
+@onready var coyote_time_timer := $CoyoteTimer
+@onready var jump_buffer_timer := $JumpBufferTimer
 @onready var jump_timer := $JumpTimer
 @onready var gurggu := $Gurggu
 @onready var animation_player := $AnimationPlayer
@@ -53,76 +54,90 @@ var default_texture : Texture2D = preload("res://player/textures/Gurggu sprite s
 var interval_between_blinks: int = randi_range(210, 300)
 var blinking_duration := 5
 
+var random_var : int = 0
+var time_elapsed : int
+
 func _ready() -> void:
 	instance = self
 	respawn_pos = position
 
 func _physics_process(delta: float) -> void:
-	# Track jump hold time
-	if jump_held:
-		jump_hold_time += delta
-
+	# testing
+	if is_dashing() and is_on_floor() and (is_jump_buffered or Input.is_action_just_pressed("jump")):
+		dash_timer.stop()
+		on_dash_timer_timeout()
+	
+	# Handle jump
 	if !can_jump and (is_on_floor() or is_in_water()):
 		can_jump = true
-		
-
-	# Handle player jump press
+	
 	if Input.is_action_just_pressed("jump"):
-		jump_held = true
-		jump_hold_time = 0.0
-
 		if can_jump:
 			jump()
 		else:
 			is_jump_buffered = true
-			jump_buffer_duration.start(jump_buffer_time)
-
-	# Begin coyote time
-	if !is_on_floor() and can_jump and coyote_time_duration.is_stopped():
-		coyote_time_duration.start(0.1)
-
+			jump_buffer_timer.start(jump_buffer_time)
+	
+	# Coyote time
+	if !is_on_floor() and can_jump and coyote_time_timer.is_stopped():
+		coyote_time_timer.start(coyote_time_duration)
+	
+	# All stuff that happens when on floor
 	if is_on_floor():
-		coyote_time_duration.stop()
+		coyote_time_timer.stop()
+		time_elapsed = Main.game_time - random_var
+		if time_elapsed == 4:
+			keep_jump_velocity = false
+			print("man oon liia väsyny")
+			random_var = Main.game_time
+		
 		if dash_timer.is_stopped() and is_on_floor():
 			dash_count = 1
+		
 		if is_jump_buffered:
 			jump()
 			is_jump_buffered = false
-
-
-	# clamped fall speed
+		
+	# Clamped fall speed
 	if velocity.y > max_fall_speed:
 		velocity.y = max_fall_speed
-
-	# movement
-	player_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
+	# Movement
 	if is_dashing():
-		if dash_timer.time_left >= (dash_duration - dash_buffer_time) and !is_dash_buffered:
+		# Buffer dash inputs
+		if !is_dash_buffered and dash_timer.time_left >= (dash_duration - dash_buffer_time):
+			velocity = Vector2.ZERO
 			buffer_dash_inputs()
-		velocity = dash_direction * dash_speed * dash_multiplier
-
+		else:
+			velocity = dash_speed * dash_direction
 	else:
 		is_dash_buffered = false
+		
+		# Gravity
 		if !is_on_floor():
 			if velocity.y > 0:
 				velocity.y += (fast_gravity if Input.is_action_pressed("move_down") else gravity)
 			else: 
 				velocity.y += gravity
-
-		# check direction for only x axis
-		var player_direction_x := Input.get_axis("move_left", "move_right")
-		# lerp smoothen movement
-		var velocity_weight: float = delta * (acceleration if player_direction_x else friction)
-
-		# check for downleft and downright inputs and reset movement to zero
-		if is_on_floor() and player_direction.y > 0 and player_direction_x:
+		
+		player_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+		var velocity_weight: float = delta * (acceleration if player_direction.x else friction)
+		# Check for downleft and downright inputs and reset movement to zero with lerp, else move player
+		if (is_on_floor() and player_direction.y > 0) and player_direction.x and !is_dashing():
 			velocity.x = lerpf(velocity.x, 0.0, velocity_weight)
+			#print("väärä rivi")
 		else:
-			velocity.x = lerpf(velocity.x, player_direction_x * speed, velocity_weight)
-
+			if keep_jump_velocity:
+				velocity_weight = 0.9
+				velocity.x = lerpf(velocity.x, player_direction.x * dash_speed, velocity_weight)
+				#print("----")
+			else:
+				velocity.x = lerpf(velocity.x, player_direction.x * speed, velocity_weight)
+				#print(".")
+	
 		if abs(velocity.x) < 0.1:
 			velocity.x = 0
-
+	
 		# Dash
 		if Input.is_action_just_pressed("dash") and dash_count > 0:
 			dash_count -= 1
@@ -132,19 +147,21 @@ func _physics_process(delta: float) -> void:
 					dash_direction = Vector2.RIGHT
 				else:
 					dash_direction = Vector2.LEFT
+			
 			dash_timer.start(dash_duration)
+			
 			afterimage_spawner.make_afterimage()
 			afterimage_spawner.start_spawning()
-
+	
 	if is_in_water():
 		can_jump = true
 		if dash_timer.is_stopped():
 			dash_count = 1
-
+	
 		if !is_dashing():
 			if Input.is_action_just_pressed("jump"):
 				jump()
-				jump_timer.start(0.15)
+				jump_timer.start(water_jump_time)
 			elif jump_timer.is_stopped():
 				velocity = player_direction * water_speed 
 		if jump_timer.is_stopped():
@@ -153,11 +170,14 @@ func _physics_process(delta: float) -> void:
 					velocity.y = 0
 				velocity.y -= 10
 			else:
-				velocity.y += gravity / 2.0
+				velocity.y += water_gravity
+	
 
-
+	
+	
 	if Input.is_action_just_pressed("ui_focus_next"):
 		health.health += 3
+		keep_jump_velocity = false
 	health.health = clamp(health.health, 0, 15)
 	
 	draw_debug_text()
@@ -166,14 +186,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func draw_debug_text() -> void:
-	$Label.text = str(player_direction, "\n", health.health)
+	$Label.text = str(velocity, "\n", health.health, "\n", time_elapsed)
 
 func jump() -> void:
 	velocity.y = jump_speed
 	can_jump = false
 
-	# short hop after jump buffer
-	if not Input.is_action_pressed("jump"):
+	# If only pressed jump for a few frames in a buffer perform a small jump
+	if !Input.is_action_pressed("jump"):
 		velocity.y *= jump_height_cut
 
 func on_jump_buffer_timeout() -> void:
@@ -183,14 +203,17 @@ func on_coyote_timer_timeout() -> void:
 	can_jump = false
 
 func on_dash_timer_timeout() -> void:
-	velocity = Vector2.ZERO
+	if is_jump_buffered or Input.is_action_just_pressed("jump"):
+		
+		#jumping_air_velocity = velocity * 1.2
+		keep_jump_velocity = true
+	else:
+		velocity = velocity.lerp(Vector2.ZERO, 0.5)
 	afterimage_spawner.stop_spawning()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("jump"):
-		jump_held = false
-		
-		# reduce the jump by a certain amount if released jump before the apex
+		# Cut the jump height
 		if velocity.y < 0.0:
 			velocity.y *= jump_height_cut
 
@@ -201,9 +224,14 @@ func is_jumping() -> bool:
 	return !jump_timer.is_stopped()
 
 func buffer_dash_inputs() -> void:
-	if player_direction != Vector2.ZERO:
-		dash_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	is_dash_buffered = true
+	var buffered_dash_direction : Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
+	if buffered_dash_direction == Vector2.ZERO:
+		return
+	if buffered_dash_direction != dash_direction:
+		is_dash_buffered = true
+	dash_direction = buffered_dash_direction
+	
 
 func is_in_water() -> bool:
 	return water_detector.has_overlapping_bodies()
