@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://brraufw4h63vr"]
+[gd_scene load_steps=27 format=4 uid="uid://brraufw4h63vr"]
 
 [ext_resource type="PackedScene" uid="uid://dvwl2b6vslbe4" path="res://player/player.tscn" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://cxtrxt1qv4pk2" path="res://main.gd" id="1_ycdy4"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d2trf1846jb0b" path="res://GUI/gui.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://doejntmkit0nt" path="res://enemis/entities_container.gd" id="13_w48qg"]
 [ext_resource type="Script" uid="uid://ue44lh2wtgwp" path="res://piranha_spawn_locations.gd" id="13_ycdy4"]
+[ext_resource type="Script" uid="uid://d2qpyq0jwr52u" path="res://game_time.gd" id="14_w48qg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sugp2"]
 texture = ExtResource("2_272bh")
@@ -1076,7 +1077,7 @@ script = ExtResource("1_ycdy4")
 
 [node name="player" parent="." instance=ExtResource("1_7mycd")]
 z_index = 2
-position = Vector2(521, 584)
+position = Vector2(343, -123)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 
@@ -1250,6 +1251,9 @@ position = Vector2(-1714, 586)
 
 [node name="Node2D20" type="Node2D" parent="PiranhaSpawnLocations"]
 position = Vector2(-1711, 590)
+
+[node name="GameTime" type="Node2D" parent="."]
+script = ExtResource("14_w48qg")
 
 [editable path="pipe"]
 [editable path="pipe2"]
