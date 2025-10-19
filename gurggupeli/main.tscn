@@ -1160,7 +1160,7 @@ position = Vector2(0, 7)
 position = Vector2(196, -84)
 
 [node name="CollisionShape2D2" parent="pipe3/Head2" index="0"]
-position = Vector2(-7, 0)
+position = Vector2(-5, 0)
 
 [node name="pipe4" parent="." instance=ExtResource("5_4c57u")]
 head1_direction = 2
@@ -1170,6 +1170,10 @@ position = Vector2(-108, -28)
 
 [node name="Head2" parent="pipe4" index="1"]
 position = Vector2(-12, -4)
+
+[node name="Path2D" parent="pipe4" index="2"]
+position = Vector2(-12.65692, -94.45677)
+scale = Vector2(1.0104166, 1.5999998)
 
 [node name="pipe5" parent="." instance=ExtResource("5_4c57u")]
 head1_direction = 2

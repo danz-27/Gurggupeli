@@ -4,6 +4,7 @@ extends Node2D
 @export var head2_direction: Direction
 @onready var head_1: Area2D = $Head1
 @onready var head_2: Area2D = $Head2
+@onready var path: PathFollow2D = $Path2D/PathFollow2D
 var wait_for_release: bool = false
 
 enum Direction {
@@ -30,6 +31,8 @@ const action_for_direction: Dictionary[Direction, StringName] = {
 func _on_head_2_entered(player: Node2D) -> void:
 	while head_2.overlaps_body(player):
 		if !wait_for_release and Input.is_action_pressed(action_for_direction[head2_direction]):
+			for i in range(0.0, 1.0, 0.1):
+				player.position = $Path2D/PathFollow2D.set_progress(i)
 			player.position = head_1.position
 			change_velocity(head2_direction, head1_direction, player)
 			wait_for_release = true
@@ -43,7 +46,7 @@ func _on_head_2_entered(player: Node2D) -> void:
 func _on_head_1_entered(player: Node2D) -> void:
 	while head_1.overlaps_body(player):
 		if !wait_for_release and Input.is_action_pressed(action_for_direction[head1_direction]):
-			player.position = head_2.position
+			while path.progress_ratio < 1.0:
 			change_velocity(head1_direction, head2_direction, player)
 			wait_for_release = true
 			while Input.is_action_pressed(action_for_direction[head1_direction]):
