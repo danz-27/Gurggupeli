@@ -19,6 +19,7 @@ func _physics_process(_delta: float) -> void:
 	var health : int = entity_health_node.health
 	if previous_health == health:
 		return
+	print(previous_health, health, previous_health-health)
 	# Gain hp
 	if previous_health < health and previous_health < HEART_AMOUNT:
 		for i : int in range(len(health_icons)):
@@ -55,14 +56,14 @@ func _physics_process(_delta: float) -> void:
 	
 	if previous_health > health and health < HEART_AMOUNT:
 		for i in range(previous_health - clampi(health, 0, 5)):
-			var icon_position : Vector2 = health_icons[health + i].position
+			var icon_position : Vector2 = health_icons[clampi(health + i, 0, 4)].position
 			var tween : Tween = create_tween()
 			
 			# Kill extra tweens
-			if tween_dict.has(health_icons[health + i]):
-				tween_dict[health_icons[health + i]].kill()
+			if tween_dict.has(health_icons[clampi(health + i, 0, 4)]):
+				tween_dict[health_icons[clampi(health + i, 0, 4)]].kill()
 			
-			tween.tween_property(health_icons[health + i], "position", Vector2(icon_position.x, 300), 3).set_ease(Tween.EASE_IN)
-			tween_dict[health_icons[health + i]] = tween
+			tween.tween_property(health_icons[clampi(health + i, 0, 4)], "position", Vector2(icon_position.x, 300), 3).set_ease(Tween.EASE_IN)
+			tween_dict[health_icons[clampi(health + i, 0, 4)]] = tween
 	
 	previous_health = health
