@@ -31,7 +31,9 @@ const action_for_direction: Dictionary[Direction, StringName] = {
 }
 
 func _on_head_2_entered(player: Node2D) -> void:
-	var pipe_entered_velocity: int = abs(player.velocity.x / 100 + player.velocity.y / 100) + 1
+	var pipe_entered_velocity: float = player.velocity.length() / 10.0 + 1.0
+	print(pipe_entered_velocity)
+	path.progress_ratio = 0.0
 	while head_2.overlaps_body(player):
 		if !wait_for_release and Input.is_action_pressed(action_for_direction[head2_direction]):
 			path.progress_ratio = 1.0
@@ -51,10 +53,11 @@ func _on_head_2_entered(player: Node2D) -> void:
 
 
 func _on_head_1_entered(player: Node2D) -> void:
-	var pipe_entered_velocity: int = abs(player.velocity.x / 100 + player.velocity.y / 100) + 1
-	path.progress_ratio = 0.0
+	var pipe_entered_velocity: float = player.velocity.length() / 10.0 + 1.0
+	print(pipe_entered_velocity)
 	while head_1.overlaps_body(player):
 		if !wait_for_release and Input.is_action_pressed(action_for_direction[head1_direction]):
+			get_tree().paused = true
 			player.get_node("CollisionShape2D").set_deferred("disabled", true)
 			while path.progress_ratio < 1.0:
 				path.progress += pipe_entered_velocity

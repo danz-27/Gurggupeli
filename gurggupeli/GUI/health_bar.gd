@@ -62,7 +62,7 @@ func _physics_process(_delta: float) -> void:
 			if tween_dict.has(health_icons[health + i]):
 				tween_dict[health_icons[health + i]].kill()
 			
-			tween.tween_property(health_icons[health + i], "position", Vector2(icon_position.x, 200), 3).set_ease(Tween.EASE_IN)
+			tween.tween_property(health_icons[health + i], "position", Vector2(icon_position.x, 300), 3).set_ease(Tween.EASE_IN)
 			tween_dict[health_icons[health + i]] = tween
 	
 	previous_health = health

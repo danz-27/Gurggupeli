@@ -144,7 +144,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_focus_next"):
 		health.health += 3
 	health.health = clamp(health.health, 0, 15)
-	print(velocity.x)
+	#print(velocity.length())
 	
 	set_player_flip_h()
 	animate_player()
