@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://brraufw4h63vr"]
+[gd_scene load_steps=28 format=4 uid="uid://brraufw4h63vr"]
 
 [ext_resource type="PackedScene" uid="uid://dvwl2b6vslbe4" path="res://player/player.tscn" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://cxtrxt1qv4pk2" path="res://main.gd" id="1_ycdy4"]
@@ -1072,12 +1072,18 @@ terrain_set_0/terrain_0/name = "darkness"
 terrain_set_0/terrain_0/color = Color(0.703155, 0.0104309, 0.34401, 1)
 sources/1 = SubResource("TileSetAtlasSource_kek77")
 
+[sub_resource type="Curve2D" id="Curve2D_w48qg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -81, 16, 0, 0, 0, 0, -82, -36, 0, 0, 0, 0, -70, -45, 0, 0, 0, 0, 53, -44, 0, 0, 0, 0, 64, -55, 0, 0, 0, 0, 62, -83, 0, 0, 0, 0, 76, -94, 0, 0, 0, 0, 100, -94, 0, 0, 0, 0, 111, -81, 0, 0, 0, 0, 110, -29, 0, 0, 0, 0, 97, -20, 0, 0, 0, 0, 87, -12, 0, 0, 0, 0, 87, 15)
+}
+point_count = 13
+
 [node name="main" type="Node"]
 script = ExtResource("1_ycdy4")
 
 [node name="player" parent="." instance=ExtResource("1_7mycd")]
 z_index = 2
-position = Vector2(343, -123)
+position = Vector2(380.0811, -259.74185)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 
@@ -1092,7 +1098,7 @@ tile_set = SubResource("TileSet_sugp2")
 
 [node name="putkilo" type="TileMapLayer" parent="TileMapLayer"]
 z_index = 4
-tile_map_data = PackedByteArray("AAAFAPr/AQABAAAAAAAFAPv/AQAEAAAAAAAFAPz/AQACAAEAAAAGAPz/AQAEAAEAAAAHAPz/AQAAAAAAAAAAAPr/AQAAAAAAAAD///r/AQAEAAEAAAD+//r/AQAEAAEAAAD9//r/AQAAAAEAAAD5//f/AQABAAAAAAD5//j/AQAEAAAAAAD5//n/AQAEAAAAAAD5//r/AQAEAAAAAAD5//v/AQAEAAAAAAD5//z/AQABAAEAAAD7/wAAAQAEAAAAAAD7/wEAAQAEAAAAAAD7/wIAAQAEAAAAAAD7/wMAAQACAAEAAAD8/wMAAQAEAAEAAAD9/wMAAQAEAAEAAAD+/wMAAQAEAAEAAAD//wMAAQADAAEAAAD//wIAAQAEAAAAAAD//wEAAQAEAAAAAAD//wAAAQABAAAAAAD7////AQABAAAAAAAXAP//AQABAAEAAAAXAP7/AQAEAAAAAAAXAP3/AQAEAAAAAAAXAPz/AQABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAFAPr/AQABAAAAAAAFAPv/AQAEAAAAAAAFAPz/AQACAAEAAAAGAPz/AQAEAAEAAAAHAPz/AQAAAAAAAAAAAPr/AQAAAAAAAAD///r/AQAEAAEAAAD+//r/AQAEAAEAAAD9//r/AQAAAAEAAAD5//f/AQABAAAAAAD5//j/AQAEAAAAAAD5//n/AQAEAAAAAAD5//r/AQAEAAAAAAD5//v/AQAEAAAAAAD5//z/AQABAAEAAAD7/wAAAQAEAAAAAAD7/wEAAQAEAAAAAAD7/wIAAQAEAAAAAAD7/wMAAQACAAEAAAD8/wMAAQAEAAEAAAD9/wMAAQAEAAEAAAD+/wMAAQAEAAEAAAD//wMAAQADAAEAAAD//wIAAQAEAAAAAAD//wEAAQAEAAAAAAD//wAAAQABAAAAAAD7////AQABAAAAAAAXAP//AQABAAEAAAAXAP7/AQAEAAAAAAAXAP3/AQAEAAAAAAAXAPz/AQABAAAAAAAOAPT/AQABAAEAAAAOAPP/AQAEAAAAAAAOAPL/AQACAAAAAAAPAPL/AQAEAAEAAAAQAPL/AQAEAAEAAAARAPL/AQAEAAEAAAASAPL/AQAEAAEAAAATAPL/AQAEAAEAAAAUAPL/AQADAAEAAAAUAPH/AQAEAAAAAAAUAPD/AQACAAAAAAAVAPD/AQAEAAEAAAAWAPD/AQADAAAAAAAWAPH/AQAEAAAAAAAWAPL/AQAEAAAAAAAWAPP/AQADAAEAAAAVAPP/AQACAAAAAAAVAPT/AQABAAEAAAA=")
 tile_set = SubResource("TileSet_o6xl0")
 
 [node name="level_background" type="TileMapLayer" parent="TileMapLayer"]
@@ -1137,6 +1143,9 @@ position = Vector2(-76, -132)
 [node name="Head2" parent="pipe" index="1"]
 position = Vector2(28, -132)
 
+[node name="PathFollow2D" parent="pipe/Path2D" index="0"]
+position = Vector2(-4.7194586, 108.93295)
+
 [node name="pipe2" parent="." instance=ExtResource("5_4c57u")]
 head1_direction = 0
 
@@ -1145,6 +1154,9 @@ position = Vector2(-156, -68)
 
 [node name="Head2" parent="pipe2" index="1"]
 position = Vector2(-156, -220)
+
+[node name="PathFollow2D" parent="pipe2/Path2D" index="0"]
+position = Vector2(-4.7194586, 108.93295)
 
 [node name="pipe3" parent="." instance=ExtResource("5_4c57u")]
 head1_direction = 2
@@ -1162,6 +1174,9 @@ position = Vector2(196, -84)
 [node name="CollisionShape2D2" parent="pipe3/Head2" index="0"]
 position = Vector2(-5, 0)
 
+[node name="PathFollow2D" parent="pipe3/Path2D" index="0"]
+position = Vector2(-4.7194586, 108.93295)
+
 [node name="pipe4" parent="." instance=ExtResource("5_4c57u")]
 head1_direction = 2
 
@@ -1175,6 +1190,9 @@ position = Vector2(-12, -4)
 position = Vector2(-12.65692, -94.45677)
 scale = Vector2(1.0104166, 1.5999998)
 
+[node name="PathFollow2D" parent="pipe4/Path2D" index="0"]
+position = Vector2(-4.7194586, 108.93295)
+
 [node name="pipe5" parent="." instance=ExtResource("5_4c57u")]
 head1_direction = 2
 head2_direction = 0
@@ -1184,6 +1202,27 @@ position = Vector2(564, -100)
 
 [node name="Head2" parent="pipe5" index="1"]
 position = Vector2(564, 4)
+
+[node name="PathFollow2D" parent="pipe5/Path2D" index="0"]
+position = Vector2(-4.7194586, 108.93295)
+
+[node name="testpipe" parent="." instance=ExtResource("5_4c57u")]
+position = Vector2(439, -304)
+head1_direction = 0
+head2_direction = 0
+
+[node name="CollisionShape2D" parent="testpipe/Head1" index="0"]
+position = Vector2(-59, 40)
+
+[node name="CollisionShape2D2" parent="testpipe/Head2" index="0"]
+position = Vector2(77, 40)
+
+[node name="Path2D" parent="testpipe" index="2"]
+position = Vector2(-10, 23)
+curve = SubResource("Curve2D_w48qg")
+
+[node name="PathFollow2D" parent="testpipe/Path2D" index="0"]
+position = Vector2(-81, 16)
 
 [node name="Dash particle" parent="." instance=ExtResource("6_efxa6")]
 visible = false
@@ -1264,4 +1303,5 @@ script = ExtResource("14_w48qg")
 [editable path="pipe3"]
 [editable path="pipe4"]
 [editable path="pipe5"]
+[editable path="testpipe"]
 [editable path="GUI"]

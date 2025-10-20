@@ -150,6 +150,7 @@ team = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(6, 6)
+limit_enabled = false
 script = ExtResource("2_g6k8r")
 
 [node name="Gurggu" type="Sprite2D" parent="."]
@@ -184,10 +185,11 @@ one_shot = true
 one_shot = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = -22.0
-offset_top = -99.0
-offset_right = 18.0
-offset_bottom = -76.0
+z_index = 4096
+offset_left = -123.0
+offset_top = -62.0
+offset_right = -83.0
+offset_bottom = -39.0
 script = ExtResource("6_boad6")
 metadata/_edit_use_anchors_ = true
 

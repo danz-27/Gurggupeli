@@ -37,7 +37,7 @@ var water_jump_time := 0.15
 var keep_dash_velocity := false
 var keep_dash_speed_weight := 0.9
 var keep_dash_speed := speed * 1.5
-var keep_dash_speed_turnaround_threshold := speed / 2
+var keep_dash_speed_threshold := speed / 4
 
 var is_jump_buffered := false
 const jump_buffer_time := 0.3
@@ -116,16 +116,15 @@ func _physics_process(delta: float) -> void:
 		player_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		var velocity_weight: float = delta * (acceleration if player_direction.x else friction)
 		# Check for downleft and downright inputs and reset movement to zero with lerp, else move player
-		if (is_on_floor() and player_direction.y > 0) and player_direction.x and !is_dashing():
+		if (is_on_floor() and player_direction.y > 0) and player_direction.x:
 			velocity.x = lerpf(velocity.x, 0.0, velocity_weight)
+		elif keep_dash_velocity:
+			velocity.x = lerpf(velocity.x, player_direction.x * keep_dash_speed, keep_dash_speed_weight)
+			if is_on_wall() or abs(velocity.x) < keep_dash_speed_threshold:
+				keep_dash_velocity = false 
 		else:
-			if keep_dash_velocity:
-				velocity.x = lerpf(velocity.x, player_direction.x * keep_dash_speed, keep_dash_speed_weight)
-				if abs(velocity.x) < keep_dash_speed_turnaround_threshold:
-					keep_dash_velocity = false 
-			else:
-				velocity.x = lerpf(velocity.x, player_direction.x * speed, velocity_weight)
-	
+			velocity.x = lerpf(velocity.x, player_direction.x * speed, velocity_weight)
+
 		if abs(velocity.x) < velocity_reset_threshold:
 			velocity.x = 0
 		
@@ -145,6 +144,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_focus_next"):
 		health.health += 3
 	health.health = clamp(health.health, 0, 15)
+	print(velocity.x)
 	
 	set_player_flip_h()
 	animate_player()

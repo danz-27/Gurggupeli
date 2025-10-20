@@ -7,6 +7,8 @@ extends Node2D
 @onready var path: PathFollow2D = $Path2D/PathFollow2D
 var wait_for_release: bool = false
 
+
+
 enum Direction {
 	DOWN = 0,
 	UP = 2,
@@ -15,7 +17,7 @@ enum Direction {
 }
 
 const axis_for_direction: Dictionary[Direction, Vector2] = {
-	Direction.UP: Vector2(1, -1),
+	Direction.UP: Vector2.UP,
 	Direction.DOWN: Vector2(1, -1),
 	Direction.LEFT: Vector2(-1, 1),
 	Direction.RIGHT: Vector2(-1, 1)
@@ -29,11 +31,16 @@ const action_for_direction: Dictionary[Direction, StringName] = {
 }
 
 func _on_head_2_entered(player: Node2D) -> void:
+	var pipe_entered_velocity: int = abs(player.velocity.x / 100 + player.velocity.y / 100) + 1
 	while head_2.overlaps_body(player):
 		if !wait_for_release and Input.is_action_pressed(action_for_direction[head2_direction]):
-			for i in range(0.0, 1.0, 0.1):
-				player.position = $Path2D/PathFollow2D.set_progress(i)
-			player.position = head_1.position
+			path.progress_ratio = 1.0
+			player.get_node("CollisionShape2D").set_deferred("disabled", true)
+			while path.progress_ratio > 0.0:
+				path.progress -= pipe_entered_velocity
+				player.position = path.global_position
+				await get_tree().physics_frame
+			player.get_node("CollisionShape2D").set_deferred("disabled", false)
 			change_velocity(head2_direction, head1_direction, player)
 			wait_for_release = true
 			while Input.is_action_pressed(action_for_direction[head2_direction]):
@@ -44,9 +51,17 @@ func _on_head_2_entered(player: Node2D) -> void:
 
 
 func _on_head_1_entered(player: Node2D) -> void:
+	var pipe_entered_velocity: int = abs(player.velocity.x / 100 + player.velocity.y / 100) + 1
+	path.progress_ratio = 0.0
 	while head_1.overlaps_body(player):
 		if !wait_for_release and Input.is_action_pressed(action_for_direction[head1_direction]):
+			player.get_node("CollisionShape2D").set_deferred("disabled", true)
 			while path.progress_ratio < 1.0:
+				path.progress += pipe_entered_velocity
+				player.position = path.global_position
+				await get_tree().physics_frame
+			player.get_node("CollisionShape2D").set_deferred("disabled", false)
+			
 			change_velocity(head1_direction, head2_direction, player)
 			wait_for_release = true
 			while Input.is_action_pressed(action_for_direction[head1_direction]):
@@ -59,10 +74,6 @@ func change_velocity(entrance_direction: Direction, exit_direction:Direction, pl
 	if abs(entrance_direction-exit_direction) == 2: #suoraputki
 		return
 	elif entrance_direction == exit_direction: #180 putki
-		player.velocity *= axis_for_direction[entrance_direction]
-		player.dash_direction *= axis_for_direction[entrance_direction]
+		player.velocity *= -1
 	else:
 		player.velocity = player.velocity.rotated(PI/2 if posmod((entrance_direction - exit_direction), 4) == 1 else -PI/2)
-		player.dash_direction = player.dash_direction.rotated(PI/2 if posmod((entrance_direction - exit_direction), 4) == 1 else -PI/2)
-
-	
