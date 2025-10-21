@@ -61,28 +61,31 @@ var blinking_duration := 5
 
 @onready var health : EntityHealth = $EntityHealth
 
+enum STATE {
+	MOVING,
+	DASHING
+}
 
+var state: STATE = STATE.MOVING
+
+var frozen: bool = false
 
 func _ready() -> void:
 	instance = self
 	respawn_pos = position
 
 func _physics_process(delta: float) -> void:
-	# Handle jump if dashing
-	if is_dashing() and is_on_floor() and (is_jump_buffered or Input.is_action_just_pressed("jump")):
-		dash_timer.stop()
-		on_dash_timer_timeout()
+	# Debug stuff
+	if Input.is_action_just_pressed("ui_focus_next"):
+		health.health += 3
+	health.health = clamp(health.health, 0, 15)
+	#print(velocity.length())
 	
-	# Handle jump
-	if !can_jump and (is_on_floor() or is_in_water()):
-		can_jump = true
+	if frozen:
+		return
 	
-	if Input.is_action_just_pressed("jump"):
-		if can_jump:
-			jump()
-		else:
-			is_jump_buffered = true
-			jump_buffer_timer.start(jump_buffer_time)
+	if (Input.is_action_just_pressed("jump") or is_jump_buffered):
+		handle_jump()
 	
 	# Coyote time
 	if !is_on_floor() and can_jump and coyote_time_timer.is_stopped():
@@ -93,64 +96,77 @@ func _physics_process(delta: float) -> void:
 	
 	if is_on_floor():
 		on_floor()
-		
+	
 	
 	# Movement
-	if is_dashing():
-		# Buffer dash inputs
-		if !is_dash_buffered and dash_timer.time_left >= (dash_duration - dash_buffer_time):
-			velocity = Vector2.ZERO
-			buffer_dash_inputs()
-		else:
-			velocity = dash_speed * dash_direction
-	else:
-		is_dash_buffered = false
-		
-		# Gravity
-		if !is_on_floor():
-			if velocity.y > 0 and Input.is_action_pressed("move_down"):
-				velocity.y += fast_gravity
-			else: 
-				velocity.y += gravity
-		
-		player_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-		var velocity_weight: float = delta * (acceleration if player_direction.x else friction)
-		# Check for downleft and downright inputs and reset movement to zero with lerp, else move player
-		if (is_on_floor() and player_direction.y > 0) and player_direction.x:
-			velocity.x = lerpf(velocity.x, 0.0, velocity_weight)
-		elif keep_dash_velocity:
-			velocity.x = lerpf(velocity.x, player_direction.x * keep_dash_speed, keep_dash_speed_weight)
-			if is_on_wall() or abs(velocity.x) < keep_dash_speed_threshold:
-				keep_dash_velocity = false 
-		else:
-			velocity.x = lerpf(velocity.x, player_direction.x * speed, velocity_weight)
+	match state:
+		STATE.DASHING:
+			if !is_dashing():
+				state = STATE.MOVING
+			
+			# Buffer dash inputs
+			if !is_dash_buffered and dash_timer.time_left >= (dash_duration - dash_buffer_time):
+				velocity = Vector2.ZERO
+				buffer_dash_inputs()
+			else:
+				velocity = dash_speed * dash_direction
+	
+		STATE.MOVING:
+			is_dash_buffered = false
+			
+			# Gravity
+			if !is_on_floor():
+				if velocity.y > 0 and Input.is_action_pressed("move_down"):
+					velocity.y += fast_gravity
+				else: 
+					velocity.y += gravity
+			
+			player_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+			var velocity_weight: float = delta * (acceleration if player_direction.x else friction)
+			# Check for downleft and downright inputs and reset movement to zero with lerp, else move player
+			if (is_on_floor() and player_direction.y > 0) and player_direction.x:
+				velocity.x = lerpf(velocity.x, 0.0, velocity_weight)
+			elif keep_dash_velocity:
+				velocity.x = lerpf(velocity.x, player_direction.x * keep_dash_speed, keep_dash_speed_weight)
+				if is_on_wall() or abs(velocity.x) < keep_dash_speed_threshold:
+					keep_dash_velocity = false 
+			else:
+				velocity.x = lerpf(velocity.x, player_direction.x * speed, velocity_weight)
 
-		if abs(velocity.x) < velocity_reset_threshold:
-			velocity.x = 0
-		
-		# Clamped fall speed
-		if velocity.y > max_fall_speed:
-			velocity.y = max_fall_speed
-		
-		if Input.is_action_just_pressed("dash") and dash_count > 0:
-			dash()
+			if abs(velocity.x) < velocity_reset_threshold:
+				velocity.x = 0
+			
+			# Clamped fall speed
+			if velocity.y > max_fall_speed:
+				velocity.y = max_fall_speed
+			
+			if Input.is_action_just_pressed("dash") and dash_count > 0:
+				dash()
+				state = STATE.DASHING
 	
 	
 	# apply all environmental stuff after everything
 	if is_in_water():
 		while_in_water()
 	
-	# Debug stuff
-	if Input.is_action_just_pressed("ui_focus_next"):
-		health.health += 3
-	health.health = clamp(health.health, 0, 15)
-	#print(velocity.length())
-	
 	set_player_flip_h()
 	animate_player()
 	move_and_slide()
 
-
+func handle_jump() -> void:
+	if !can_jump and (is_on_floor() or is_in_water()):
+		can_jump = true
+	
+	# Handle jump if dashing
+	if is_dashing() and is_on_floor() and (is_jump_buffered or Input.is_action_just_pressed("jump")):
+		dash_timer.stop()
+		on_dash_timer_timeout()
+	
+	if can_jump:
+		jump()
+	else:
+		is_jump_buffered = true
+		jump_buffer_timer.start(jump_buffer_time)
 
 func jump() -> void:
 	velocity.y = jump_speed
@@ -172,6 +188,7 @@ func on_dash_timer_timeout() -> void:
 	else:
 		velocity = velocity.lerp(Vector2.ZERO, 0.5)
 	afterimage_spawner.stop_spawning()
+	state = STATE.MOVING
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("jump"):

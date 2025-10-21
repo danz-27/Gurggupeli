@@ -19,7 +19,6 @@ func _physics_process(_delta: float) -> void:
 	var health : int = entity_health_node.health
 	if previous_health == health:
 		return
-	print(previous_health, health, previous_health-health)
 	# Gain hp
 	if previous_health < health and previous_health < HEART_AMOUNT:
 		for i : int in range(len(health_icons)):

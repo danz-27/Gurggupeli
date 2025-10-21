@@ -38,11 +38,16 @@ func _on_head_2_entered(player: Node2D) -> void:
 		if !wait_for_release and Input.is_action_pressed(action_for_direction[head2_direction]):
 			path.progress_ratio = 1.0
 			player.get_node("CollisionShape2D").set_deferred("disabled", true)
+			player.visible = false
+			player.frozen = true
 			while path.progress_ratio > 0.0:
 				path.progress -= pipe_entered_velocity
 				player.position = path.global_position
 				await get_tree().physics_frame
 			player.get_node("CollisionShape2D").set_deferred("disabled", false)
+			player.visible = true
+			player.frozen = false
+			
 			change_velocity(head2_direction, head1_direction, player)
 			wait_for_release = true
 			while Input.is_action_pressed(action_for_direction[head2_direction]):
@@ -57,13 +62,16 @@ func _on_head_1_entered(player: Node2D) -> void:
 	print(pipe_entered_velocity)
 	while head_1.overlaps_body(player):
 		if !wait_for_release and Input.is_action_pressed(action_for_direction[head1_direction]):
-			#get_tree().paused = true
 			player.get_node("CollisionShape2D").set_deferred("disabled", true)
+			player.visible = false
+			player.frozen = true
 			while path.progress_ratio < 1.0:
 				path.progress += pipe_entered_velocity
 				player.position = path.global_position
 				await get_tree().physics_frame
 			player.get_node("CollisionShape2D").set_deferred("disabled", false)
+			player.visible = true
+			player.frozen = false
 			
 			change_velocity(head1_direction, head2_direction, player)
 			wait_for_release = true
