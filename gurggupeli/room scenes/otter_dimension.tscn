@@ -1,10 +1,10 @@
-[gd_scene load_steps=19 format=4 uid="uid://d1jnpuaquy7bp"]
+[gd_scene load_steps=18 format=4 uid="uid://d1jnpuaquy7bp"]
 
-[ext_resource type="Script" uid="uid://bgesfhjm2kgi" path="res://room scenes/roomtemplate_otter.gd" id="1_i3vxi"]
 [ext_resource type="Texture2D" uid="uid://bcpkm41dmh3tc" path="res://tilemaps/tiiliseinä tileset.png" id="2_0gaq1"]
 [ext_resource type="Texture2D" uid="uid://bc50v4iry6plj" path="res://player/textures/radioactive waste.png" id="3_f5txg"]
 [ext_resource type="Texture2D" uid="uid://dekn2512yw5bn" path="res://pipe/pipe.png" id="4_tfmeo"]
 [ext_resource type="Texture2D" uid="uid://7fx0kfswq7vo" path="res://tilemaps/darkness new.png" id="5_e6ll1"]
+[ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="5_i3vxi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i5tgt"]
 texture = ExtResource("2_0gaq1")
@@ -1067,13 +1067,9 @@ terrain_set_0/terrain_0/name = "darkness"
 terrain_set_0/terrain_0/color = Color(0.703155, 0.0104309, 0.34401, 1)
 sources/1 = SubResource("TileSetAtlasSource_sc1of")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_phe18"]
-size = Vector2(17.5, 16.5)
-
 [node name="Alternative dimension" type="Node2D"]
 
 [node name="roomtemplate" type="Node2D" parent="."]
-script = ExtResource("1_i3vxi")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="roomtemplate"]
 tile_set = SubResource("TileSet_njegr")
@@ -1111,12 +1107,7 @@ modulate = Color(0.691357, 0.691357, 0.691357, 1)
 z_index = 5
 tile_set = SubResource("TileSet_uj42j")
 
-[node name="EntranceUp" type="Area2D" parent="roomtemplate"]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="roomtemplate/EntranceUp"]
-position = Vector2(12, 5)
-shape = SubResource("RectangleShape2D_phe18")
-
-[connection signal="body_entered" from="roomtemplate/EntranceUp" to="roomtemplate" method="_on_enter_entrance_right"]
+[node name="RoomExit" parent="roomtemplate" instance=ExtResource("5_i3vxi")]
+position = Vector2(12, 1)
+room_path = "res://room scenes/main_room.tscn"
+spawn_location = Vector2(-300, -250)
