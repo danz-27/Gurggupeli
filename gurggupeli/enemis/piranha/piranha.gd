@@ -14,6 +14,7 @@ enum STATE {
 	CHASE
 }
 
+var is_girly_pop : bool = (randi_range(1, 100) > 95)
 var state : STATE = STATE.ROAM
 var spawn_pos : Vector2 
 var roam_pos : Vector2
@@ -23,8 +24,14 @@ const CHASE_SPEED := 100
 const ROAM_SPEED := 50
 
 @onready var sprite : Sprite2D = $Sprite2D
+@onready var rusetti : Sprite2D = $Sprite2D/Rusetti
 @onready var raycast : RayCast2D = $RayCast2D
 @onready var animation_player := $AnimationPlayer
+
+func _ready() -> void:
+	if is_girly_pop:
+		print("im girly")
+		rusetti.visible = true
 
 func _physics_process(_delta: float) -> void:
 	var player_pos : Vector2 = Player.instance.position
@@ -52,6 +59,7 @@ func _physics_process(_delta: float) -> void:
 				state = STATE.CHASE
 	
 	sprite.flip_h = velocity.x > 0
+	rusetti.flip_h = velocity.x > 0
 	var collided := move_and_slide()
 	if collided and is_on_wall():
 		recalculate_roam_pos()
