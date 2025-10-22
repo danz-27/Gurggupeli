@@ -1107,7 +1107,6 @@ use_parent_material = true
 tile_set = SubResource("TileSet_n0l7w")
 
 [node name="props" type="TileMapLayer" parent="roomtemplate/TileMapLayer"]
-modulate = Color(0.691357, 0.691357, 0.691357, 1)
 z_index = 5
 tile_set = SubResource("TileSet_uj42j")
 

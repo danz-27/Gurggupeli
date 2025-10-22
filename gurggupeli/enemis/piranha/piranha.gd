@@ -24,12 +24,14 @@ const ROAM_SPEED := 50
 
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var raycast : RayCast2D = $RayCast2D
+@onready var animation_player := $AnimationPlayer
 
 func _physics_process(_delta: float) -> void:
 	var player_pos : Vector2 = Player.instance.position
 	raycast.target_position = player_pos - position
 	match state:
 		STATE.CHASE:
+			animation_player.play("agressive")
 			if Player.instance.is_close_to_surface():
 				velocity = position.direction_to(player_pos + Vector2(0, 10)) * CHASE_SPEED
 			else:
@@ -40,6 +42,7 @@ func _physics_process(_delta: float) -> void:
 				roam_pos = spawn_pos
 	
 		STATE.ROAM:
+			animation_player.play("passive")
 			if position.distance_to(roam_pos) < ROAM_THRESHOLD:
 				recalculate_roam_pos()
 	
