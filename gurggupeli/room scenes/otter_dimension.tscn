@@ -1115,6 +1115,6 @@ room_path = "res://room scenes/main_room.tscn"
 spawn_location = Vector2(-300, -250)
 
 [node name="Otter12000177e1b6014e484b2b897864d12d76c296" type="Sprite2D" parent="."]
-position = Vector2(55.000008, -9.000006)
-scale = Vector2(0.43642163, 0.43642163)
+position = Vector2(47.00003, 42.00006)
+scale = Vector2(1.2272601, 1.22726)
 texture = ExtResource("7_tfmeo")
