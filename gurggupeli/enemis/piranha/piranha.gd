@@ -35,7 +35,13 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	var player_pos : Vector2 = Player.instance.position
-	raycast.target_position = player_pos - position
+
+	if position.distance_to(player_pos) <= CHASE_THRESHOLD:
+		raycast.target_position = player_pos - position
+		raycast.enabled = true
+	else:
+		raycast.enabled = false
+	
 	match state:
 		STATE.CHASE:
 			animation_player.play("agressive")
@@ -43,7 +49,7 @@ func _physics_process(_delta: float) -> void:
 				velocity = position.direction_to(player_pos + Vector2(0, 10)) * CHASE_SPEED
 			else:
 				velocity = position.direction_to(player_pos) * CHASE_SPEED
-	
+			
 			if position.distance_to(player_pos) > CHASE_THRESHOLD or raycast.is_colliding() or !Player.instance.is_in_water():
 				state = STATE.ROAM
 				roam_pos = spawn_pos
@@ -52,7 +58,7 @@ func _physics_process(_delta: float) -> void:
 			animation_player.play("passive")
 			if position.distance_to(roam_pos) < ROAM_THRESHOLD:
 				recalculate_roam_pos()
-	
+			
 			velocity = position.direction_to(roam_pos) * ROAM_SPEED
 	
 			if position.distance_to(player_pos) < CHASE_THRESHOLD and !raycast.is_colliding() and Player.instance.is_in_water():

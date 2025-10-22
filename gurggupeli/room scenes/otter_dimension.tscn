@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=4 uid="uid://d1jnpuaquy7bp"]
+[gd_scene load_steps=20 format=4 uid="uid://d1jnpuaquy7bp"]
 
+[ext_resource type="Script" uid="uid://dlot5em3mm3wi" path="res://room scenes/otter_dimension.gd" id="1_f5txg"]
 [ext_resource type="Texture2D" uid="uid://bcpkm41dmh3tc" path="res://tilemaps/tiiliseinä tileset.png" id="2_0gaq1"]
 [ext_resource type="Texture2D" uid="uid://bc50v4iry6plj" path="res://player/textures/radioactive waste.png" id="3_f5txg"]
 [ext_resource type="Texture2D" uid="uid://dekn2512yw5bn" path="res://pipe/pipe.png" id="4_tfmeo"]
 [ext_resource type="Texture2D" uid="uid://7fx0kfswq7vo" path="res://tilemaps/darkness new.png" id="5_e6ll1"]
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="5_i3vxi"]
+[ext_resource type="Texture2D" uid="uid://w8wyfx78oaps" path="res://room scenes/otter-1-2000-1-77e1b6014e484b2b897864d12d76c296.jpg" id="7_tfmeo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i5tgt"]
 texture = ExtResource("2_0gaq1")
@@ -1067,7 +1069,8 @@ terrain_set_0/terrain_0/name = "darkness"
 terrain_set_0/terrain_0/color = Color(0.703155, 0.0104309, 0.34401, 1)
 sources/1 = SubResource("TileSetAtlasSource_sc1of")
 
-[node name="Alternative dimension" type="Node2D"]
+[node name="OtterDimension" type="Node2D"]
+script = ExtResource("1_f5txg")
 
 [node name="roomtemplate" type="Node2D" parent="."]
 
@@ -1110,3 +1113,8 @@ tile_set = SubResource("TileSet_uj42j")
 position = Vector2(12, 1)
 room_path = "res://room scenes/main_room.tscn"
 spawn_location = Vector2(-300, -250)
+
+[node name="Otter12000177e1b6014e484b2b897864d12d76c296" type="Sprite2D" parent="."]
+position = Vector2(55.000008, -9.000006)
+scale = Vector2(0.43642163, 0.43642163)
+texture = ExtResource("7_tfmeo")
