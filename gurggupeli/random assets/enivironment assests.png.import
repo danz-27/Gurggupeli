@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6mv18yui283r"
-path="res://.godot/imported/rusetti.png-54fb111d8a15db2e883678c25660226b.ctex"
+uid="uid://bq44tjbliygpq"
+path="res://.godot/imported/enivironment assests.png-4804ad41568d524493966017504d0089.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rusetti.png"
-dest_files=["res://.godot/imported/rusetti.png-54fb111d8a15db2e883678c25660226b.ctex"]
+source_file="res://random assets/enivironment assests.png"
+dest_files=["res://.godot/imported/enivironment assests.png-4804ad41568d524493966017504d0089.ctex"]
 
 [params]
 
