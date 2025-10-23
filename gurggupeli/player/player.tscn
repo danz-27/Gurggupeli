@@ -176,13 +176,10 @@ libraries = {
 [node name="DashTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="CoyoteTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="JumpBufferTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="JumpTimer" type="Timer" parent="."]
+[node name="WaterJumpTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="Label" type="Label" parent="."]
@@ -219,5 +216,4 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qhqgy")
 
 [connection signal="timeout" from="DashTimer" to="." method="on_dash_timer_timeout"]
-[connection signal="timeout" from="CoyoteTimer" to="." method="on_coyote_timer_timeout"]
-[connection signal="timeout" from="JumpBufferTimer" to="." method="on_jump_buffer_timeout"]
+[connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timeout"]

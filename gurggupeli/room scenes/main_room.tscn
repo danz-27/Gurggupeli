@@ -1492,7 +1492,7 @@ position = Vector2(-1714, 586)
 position = Vector2(-1711, 590)
 
 [node name="RoomExit" parent="roomtemplate" instance=ExtResource("9_vvp1l")]
-position = Vector2(-318, -252)
+position = Vector2(-319, -252)
 room_path = "res://room scenes/otter_dimension.tscn"
 spawn_location = Vector2(50, -20)
 
