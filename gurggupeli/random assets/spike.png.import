@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhyd4qc2si41b"
-path="res://.godot/imported/DeathGui.png-d84a2f998a0cc0115f7c67c73084bb8b.ctex"
+uid="uid://b602hxr82bv2"
+path="res://.godot/imported/spike.png-367e725d2838df50f5d88da1d4740a7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://random assets/DeathGui.png"
-dest_files=["res://.godot/imported/DeathGui.png-d84a2f998a0cc0115f7c67c73084bb8b.ctex"]
+source_file="res://random assets/spike.png"
+dest_files=["res://.godot/imported/spike.png-367e725d2838df50f5d88da1d4740a7b.ctex"]
 
 [params]
 

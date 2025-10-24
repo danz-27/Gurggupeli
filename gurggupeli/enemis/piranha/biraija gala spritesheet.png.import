@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgy6n6mkyxjgc"
-path="res://.godot/imported/rusetti.png-e25256c758b39388f2e9fb2400878e0c.ctex"
+uid="uid://do4pfapa856ht"
+path="res://.godot/imported/biraija gala spritesheet.png-f2b655700c39378a9d9777cc98c71f23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://random assets/rusetti.png"
-dest_files=["res://.godot/imported/rusetti.png-e25256c758b39388f2e9fb2400878e0c.ctex"]
+source_file="res://enemis/piranha/biraija gala spritesheet.png"
+dest_files=["res://.godot/imported/biraija gala spritesheet.png-f2b655700c39378a9d9777cc98c71f23.ctex"]
 
 [params]
 

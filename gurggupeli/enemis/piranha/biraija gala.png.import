@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dycag0eh3iwkg"
-path="res://.godot/imported/biraija gala.png-fe26238eb85d1118fb9aa314fb834db6.ctex"
+path="res://.godot/imported/biraija gala.png-14b977536429d130e5535583bdc57bcb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://random assets/biraija gala.png"
-dest_files=["res://.godot/imported/biraija gala.png-fe26238eb85d1118fb9aa314fb834db6.ctex"]
+source_file="res://enemis/piranha/biraija gala.png"
+dest_files=["res://.godot/imported/biraija gala.png-14b977536429d130e5535583bdc57bcb.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnubnhu1moocx"
-path="res://.godot/imported/pauseGui.png-abb85fb12c6e6622773a20fe9f6e4aa4.ctex"
+uid="uid://iafnpkm0u6co"
+path="res://.godot/imported/health kurkku.png-13de0723cc1a722eb653063582e070a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://random assets/pauseGui.png"
-dest_files=["res://.godot/imported/pauseGui.png-abb85fb12c6e6622773a20fe9f6e4aa4.ctex"]
+source_file="res://GUI/health kurkku.png"
+dest_files=["res://.godot/imported/health kurkku.png-13de0723cc1a722eb653063582e070a0.ctex"]
 
 [params]
 
