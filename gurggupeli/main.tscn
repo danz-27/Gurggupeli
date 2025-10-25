@@ -14,7 +14,7 @@ script = ExtResource("1_ycdy4")
 
 [node name="player" parent="." instance=ExtResource("1_7mycd")]
 z_index = 2
-position = Vector2(1582, 19)
+position = Vector2(1000.05286, -238.70163)
 
 [node name="Dash particle" parent="." instance=ExtResource("6_efxa6")]
 
