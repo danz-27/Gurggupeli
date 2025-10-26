@@ -5,6 +5,7 @@ extends Area2D
 
 func _ready() -> void:
 	body_entered.connect(_on_enter)
+	LoadingScreen.instance._disable()
 
 func _on_enter(_player: Node2D) -> void:
 	var exit_scene: Resource = load(room_path)

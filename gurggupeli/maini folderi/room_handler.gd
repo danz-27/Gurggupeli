@@ -7,6 +7,7 @@ func _ready() -> void:
 	instance = self
 
 func _set_current_room(room: PackedScene, spawn_pos: Vector2) -> void:
+	LoadingScreen.instance._enable()
 	for child in get_children():
 		child.queue_free()
 	
