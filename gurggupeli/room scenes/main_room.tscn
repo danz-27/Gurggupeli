@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://dk3j1qax4xoq6"]
+[gd_scene load_steps=50 format=4 uid="uid://dk3j1qax4xoq6"]
 
 [ext_resource type="Script" uid="uid://kfc3arvhbqwf" path="res://room scenes/main_room.gd" id="1_vvp1l"]
 [ext_resource type="Texture2D" uid="uid://bcpkm41dmh3tc" path="res://tilemaps/tiiliseinä tileset.png" id="2_nsu1e"]
@@ -1323,6 +1323,9 @@ tile_size = Vector2i(8, 8)
 sources/0 = SubResource("TileSetAtlasSource_o06sh")
 sources/1 = SubResource("TileSetAtlasSource_etv41")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esrvc"]
+size = Vector2(23.333332, 25.166664)
+
 [sub_resource type="Curve2D" id="Curve2D_8flci"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -70, -132, 0, 0, 0, 0, 22, -133)
@@ -1335,11 +1338,20 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pla4y"]
+size = Vector2(22, 22.17709)
+
 [sub_resource type="Curve2D" id="Curve2D_wgmn7"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 132, -144, 0, 0, 0, 0, 132, -94, 0, 0, 0, 0, 142, -84, 0, 0, 0, 0, 192, -84)
 }
 point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o06sh"]
+size = Vector2(24, 21.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2qfoi"]
+size = Vector2(22, 11.25)
 
 [sub_resource type="Curve2D" id="Curve2D_0h68g"]
 _data = {
@@ -1436,13 +1448,14 @@ head2_direction = 3
 position = Vector2(-76, -132)
 
 [node name="CollisionShape2D" parent="roomtemplate/pipe/Head1" index="0"]
-position = Vector2(4, 0)
+position = Vector2(5, -0.4375)
 
 [node name="Head2" parent="roomtemplate/pipe" index="1"]
 position = Vector2(28, -132)
 
 [node name="CollisionShape2D2" parent="roomtemplate/pipe/Head2" index="0"]
-position = Vector2(-4, 0)
+position = Vector2(2.333334, 6.4166718)
+shape = SubResource("RectangleShape2D_esrvc")
 
 [node name="Path2D" parent="roomtemplate/pipe" index="2"]
 position = Vector2(0, -132)
@@ -1482,12 +1495,13 @@ position = Vector2(132, -148)
 
 [node name="CollisionShape2D" parent="roomtemplate/pipe3/Head1" index="0"]
 position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_pla4y")
 
 [node name="Head2" parent="roomtemplate/pipe3" index="1"]
 position = Vector2(196, -84)
 
 [node name="CollisionShape2D2" parent="roomtemplate/pipe3/Head2" index="0"]
-position = Vector2(-4, 0)
+position = Vector2(-1.6666718, 2.6458359)
 
 [node name="Path2D" parent="roomtemplate/pipe3" index="2"]
 curve = SubResource("Curve2D_wgmn7")
@@ -1502,13 +1516,18 @@ head1_direction = 2
 position = Vector2(-108, -28)
 
 [node name="CollisionShape2D" parent="roomtemplate/pipe4/Head1" index="0"]
-position = Vector2(0, 4)
+position = Vector2(0, -4.25)
+shape = SubResource("RectangleShape2D_o06sh")
 
 [node name="Head2" parent="roomtemplate/pipe4" index="1"]
 position = Vector2(-12, 0)
 
+[node name="CollisionShape2D2" parent="roomtemplate/pipe4/Head2" index="0"]
+position = Vector2(0, -2.625)
+shape = SubResource("RectangleShape2D_2qfoi")
+
 [node name="Path2D" parent="roomtemplate/pipe4" index="2"]
-position = Vector2(-12.65692, -94.45677)
+position = Vector2(-13.000001, -95.00001)
 scale = Vector2(1.0104166, 1.5999998)
 curve = SubResource("Curve2D_0h68g")
 
@@ -1635,10 +1654,10 @@ position = Vector2(-1714, 586)
 [node name="Node2D20" type="Node2D" parent="roomtemplate/PiranhaSpawnLocations"]
 position = Vector2(-1711, 590)
 
-[node name="RoomExit" parent="roomtemplate" instance=ExtResource("9_vvp1l")]
+[node name="OtterRoom" parent="roomtemplate" instance=ExtResource("9_vvp1l")]
 position = Vector2(-319, -252)
-room_path = "res://room scenes/otter_dimension.tscn"
-spawn_location = Vector2(50, -20)
+next_room_path = "res://room scenes/otter_dimension.tscn"
+next_room_spawn_location = Vector2(-75, 15)
 
 [editable path="roomtemplate/pipe"]
 [editable path="roomtemplate/pipe2"]
