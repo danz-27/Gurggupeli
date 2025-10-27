@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dvwl2b6vslbe4"]
+[gd_scene load_steps=21 format=3 uid="uid://dvwl2b6vslbe4"]
 
 [ext_resource type="Script" uid="uid://681j0yp4c50r" path="res://player/player.gd" id="1_qhqgy"]
 [ext_resource type="Script" uid="uid://cxvwqo2ivf8sq" path="res://player/camera_2d.gd" id="2_g6k8r"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://cvaorv00txcd1" path="res://player/AfterimageSpawner.gd" id="4_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://buf5pdb22e0bo" path="res://enemis/entity_health.tscn" id="5_qjkh3"]
 [ext_resource type="Script" uid="uid://b1gy7oj6u3lgm" path="res://player/label.gd" id="6_boad6"]
+[ext_resource type="Texture2D" uid="uid://bxgjf7m8oknvn" path="res://player/textures/Gurggu dash ready sprite sheet.png" id="6_hg6s5"]
+[ext_resource type="Script" uid="uid://de7d6j8elrthl" path="res://player/dash_blink.gd" id="8_rgyib"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_qlg0r"]
 diffuse_texture = ExtResource("2_qhqgy")
@@ -159,6 +161,15 @@ texture = SubResource("CanvasTexture_qlg0r")
 hframes = 16
 vframes = 4
 frame = 17
+
+[node name="dash_halo" type="Node2D" parent="Gurggu"]
+visible = false
+script = ExtResource("8_rgyib")
+
+[node name="Sprite2D" type="Sprite2D" parent="Gurggu/dash_halo"]
+texture = ExtResource("6_hg6s5")
+hframes = 16
+vframes = 4
 
 [node name="AfterimageSpawner" type="Node2D" parent="."]
 script = ExtResource("4_tuyoq")
