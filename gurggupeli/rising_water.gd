@@ -12,13 +12,13 @@ func _ready() -> void:
 	rise_level_in_tiles = rise_level_in_tiles * 8 #muutetaan rise_level_in_tiles tarkoittamaan tileja pixelien sijaan
 	rise_speed_in_px_per_frame = -rise_speed_in_px_per_frame #flipataan rise_speed_in_px_per_frame, sillä -y on ylöspäin
 
-func activate() -> void:
+func _activate() -> void:
 	activated = true
 	
-func deactivate() -> void:
+func _deactivate() -> void:
 	activated = false
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if activated:
 		if water.position.y > -rise_level_in_tiles:
 			saved_rise_level += rise_speed_in_px_per_frame

@@ -15,7 +15,7 @@ func stop_halo() -> void:
 	halo_sprite.visible = false
 	has_already_been_started = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	halo_sprite.set_frame(get_parent().get_frame())
 	halo_sprite.flip_h = get_parent().is_flipped_h()
 	if is_growing:

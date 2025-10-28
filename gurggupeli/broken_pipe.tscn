@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl0rlqpu7fbia"]
+
+[ext_resource type="Texture2D" uid="uid://c0eendxwqo31w" path="res://random assets/broken pipe.png" id="1_tks7g"]
+[ext_resource type="Script" uid="uid://cbvc75dr6jya5" path="res://broken_pipe.gd" id="2_i6a3g"]
+
+[sub_resource type="Animation" id="Animation_tks7g"]
+resource_name = "ma pipe leakin"
+length = 0.3
+loop_mode = 1
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_i6a3g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sffmm"]
+_data = {
+&"RESET": SubResource("Animation_i6a3g"),
+&"ma pipe leakin": SubResource("Animation_tks7g")
+}
+
+[node name="BrokenPipe" type="Sprite2D"]
+texture = ExtResource("1_tks7g")
+hframes = 4
+script = ExtResource("2_i6a3g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sffmm")
+}
