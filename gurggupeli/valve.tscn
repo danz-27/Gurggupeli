@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://hryjdy13d3t5"]
+[gd_scene load_steps=4 format=3 uid="uid://hryjdy13d3t5"]
 
 [ext_resource type="Script" uid="uid://c87e3fnqv6600" path="res://valve.gd" id="1_yr303"]
+[ext_resource type="Texture2D" uid="uid://c72b8w6x6qp1y" path="res://random assets/valve.png" id="2_h7264"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yr303"]
 
@@ -13,6 +14,10 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_yr303")
+
+[node name="Valve_sprite" type="Sprite2D" parent="."]
+z_index = -5
+texture = ExtResource("2_h7264")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
