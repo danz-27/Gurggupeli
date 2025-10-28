@@ -13,6 +13,7 @@ config_version=5
 config/name="Gurggupeli"
 run/main_scene="uid://brraufw4h63vr"
 config/features=PackedStringArray("4.5", "Forward Plus")
+config/icon="uid://bl63fmfjlqrp2"
 
 [debug]
 
