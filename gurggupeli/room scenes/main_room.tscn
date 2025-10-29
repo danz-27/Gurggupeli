@@ -1493,13 +1493,6 @@ rise_speed_in_px_per_frame = 0.1
 [node name="water" parent="roomtemplate/TileMapLayer/water/valve/rising water" index="0"]
 tile_map_data = PackedByteArray("AAD/////AQABAAkAAAD///7/AQABAAkAAAD///3/AQABAAkAAAD///z/AQABAAkAAAD///v/AQABAAkAAAAAAPv/AQABAAkAAAAAAPz/AQABAAkAAAAAAP3/AQABAAkAAAAAAP7/AQABAAkAAAAAAP//AQABAAkAAAD///r/AQABAAgAAAAAAPr/AQABAAgAAAABAPr/AQABAAgAAAABAPv/AQABAAkAAAABAPz/AQABAAkAAAABAP3/AQABAAkAAAABAP7/AQABAAkAAAABAP//AQABAAkAAAD+////AQABAAkAAAD+//7/AQABAAkAAAD+//3/AQABAAkAAAD+//z/AQABAAkAAAD+//v/AQABAAkAAAACAPv/AQACAAkAAAACAPz/AQACAAkAAAACAP3/AQACAAkAAAACAP7/AQACAAkAAAACAP//AQACAAkAAAD9//v/AQAAAAkAAAD9//z/AQAAAAkAAAD9//3/AQAAAAkAAAD9//7/AQAAAAkAAAD9////AQAAAAkAAAD9/wAAAQAAAAoAAAD+/wAAAQABAAoAAAD//wAAAQABAAoAAAAAAAAAAQABAAoAAAABAAAAAQABAAoAAAACAAAAAQACAAoAAAD+//r/AQABAAgAAAD9//r/AQAAAAgAAAACAPr/AQACAAgAAAA=")
 
-[node name="rising water2" parent="roomtemplate/TileMapLayer/water/valve" instance=ExtResource("7_o06sh")]
-rise_level_in_tiles = 4
-rise_speed_in_px_per_frame = 0.4
-
-[node name="water" parent="roomtemplate/TileMapLayer/water/valve/rising water2" index="0"]
-tile_map_data = PackedByteArray("AAD/////AQABAAoAAAD///7/AQABAAkAAAD///3/AQABAAkAAAD///z/AQABAAkAAAD///v/AQABAAkAAAAAAPv/AQACAAkAAAAAAPz/AQACAAkAAAAAAP3/AQACAAkAAAAAAP7/AQACAAkAAAAAAP//AQACAAoAAAD///r/AQABAAgAAAAAAPr/AQACAAgAAAD+//r/AQABAAgAAAD9//r/AQABAAgAAAD8//r/AQABAAgAAAD7//r/AQAAAAgAAAD7//v/AQAAAAkAAAD8//v/AQABAAkAAAD8//z/AQABAAkAAAD9//z/AQABAAkAAAD+//z/AQABAAkAAAD+//v/AQABAAkAAAD9//v/AQABAAkAAAD8//3/AQABAAkAAAD9//3/AQABAAkAAAD9//7/AQABAAkAAAD8//7/AQABAAkAAAD7////AQAAAAoAAAD8////AQABAAoAAAD9////AQABAAoAAAD+////AQABAAoAAAD+//7/AQABAAkAAAD7//z/AQAAAAkAAAD7//7/AQAAAAkAAAD7//3/AQAAAAkAAAD+//3/AQABAAkAAAA=")
-
 [node name="BrokenPipe" parent="roomtemplate/TileMapLayer/water/valve" instance=ExtResource("9_2qfoi")]
 z_index = -3
 position = Vector2(-76, 44)
@@ -1751,7 +1744,6 @@ next_room_spawn_location = Vector2(-75, 15)
 
 [editable path="roomtemplate/TileMapLayer/water/valve"]
 [editable path="roomtemplate/TileMapLayer/water/valve/rising water"]
-[editable path="roomtemplate/TileMapLayer/water/valve/rising water2"]
 [editable path="roomtemplate/TileMapLayer/water/valve/BrokenPipe"]
 [editable path="roomtemplate/pipe"]
 [editable path="roomtemplate/pipe2"]

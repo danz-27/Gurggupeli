@@ -49,7 +49,6 @@ offset_bottom = 310.0
 scale = Vector2(0.18439238, 0.17757043)
 
 [node name="LoadingScreen" parent="." instance=ExtResource("6_li1cn")]
-visible = false
 
 [connection signal="pressed" from="DeathScreen/RespawnButton" to="DeathScreen" method="_on_respawn_button_pressed"]
 [connection signal="pressed" from="DeathScreen/ExitButton" to="DeathScreen" method="_on_exit_button_pressed"]

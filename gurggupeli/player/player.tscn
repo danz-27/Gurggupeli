@@ -158,9 +158,11 @@ limit_enabled = false
 script = ExtResource("2_g6k8r")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(1.5258789e-05, -0.5000057)
 scale = Vector2(4.9999995, 2.7968748)
 blend_mode = 2
+range_item_cull_mask = 3
 texture = ExtResource("10_8t03j")
 
 [node name="Gurggu" type="Sprite2D" parent="."]
