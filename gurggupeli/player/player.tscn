@@ -148,6 +148,8 @@ size = Vector2(16, 5)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8t03j"]
 particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
 direction = Vector3(0, -1, 0)
 initial_velocity_min = 40.0
 initial_velocity_max = 60.0
@@ -165,11 +167,12 @@ limit_enabled = false
 script = ExtResource("2_g6k8r")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
 position = Vector2(1.5258789e-05, -0.5000057)
 scale = Vector2(4.9999995, 2.7968748)
 blend_mode = 2
-range_item_cull_mask = 3
+range_layer_min = -10
+range_layer_max = 10
+range_item_cull_mask = 15
 texture = ExtResource("10_8t03j")
 
 [node name="Gurggu" type="Sprite2D" parent="."]
