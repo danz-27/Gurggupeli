@@ -23,6 +23,7 @@ func _physics_process(_delta: float) -> void:
 				continue
 			if get_parent().team == entity_health.get_parent().team:
 				continue
+
 			hit_cooldown_timer.start(hit_cooldown)
 			entity_health.take_damage(damage)
 			return

@@ -69,7 +69,7 @@ var was_in_water_last_frame := false
 @onready var water_detector := $WaterDetector
 @onready var above_water_detector := $AboveWaterDetector
 @onready var afterimage_spawner := $AfterimageSpawner
-@onready var water_particle_spawner := $WaterParticleSpawner
+@onready var water_particle_system := $WaterParticleSystem
 
 @onready var health : EntityHealth = $EntityHealth
 
@@ -163,7 +163,7 @@ func _physics_process(delta: float) -> void:
 			player_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 			if keep_dash_speed:
 				# Sign the value due to not wanting intercardinal directions registered
-				player_direction = sign(player_direction)
+				player_direction.x = sign(player_direction.x)
 			
 			var velocity_weight: float = delta * (acceleration if player_direction.x else friction)
 			if reverse_hyper_dash_leeway_time:
@@ -199,8 +199,12 @@ func _physics_process(delta: float) -> void:
 		while_in_water()
 		
 	#check if particles should be emitted
-	if (!was_in_water_last_frame and is_in_water()) or (was_in_water_last_frame and !is_in_water):
-		play_water_particles()
+	if !was_in_water_last_frame and is_in_water():
+		play_water_enter_particles()
+	elif was_in_water_last_frame and !is_in_water():
+		play_water_exit_particles()
+	else:
+		stop_water_particles()
 	
 	set_player_flip_h()
 	animate_player()
@@ -371,8 +375,20 @@ func animate_player() -> void:
 			blinking_duration = 5
 			interval_between_blinks = randi_range(210, 300)
 
-func play_water_particles() -> void:
-	water_particle_spawner.spawn_water_particles()
+func play_water_enter_particles() -> void:
+	water_particle_system.get_process_material().set_direction(Vector3(-velocity.x,-velocity.y,0))
+	water_particle_system.get_process_material().set_param_max(0, 20 + velocity.length())
+	water_particle_system.get_process_material().set_param_min(0, 20 + velocity.length() - 10.0)
+	water_particle_system.emitting = true
+	
+func play_water_exit_particles() -> void:
+	water_particle_system.get_process_material().set_direction(Vector3(velocity.x,velocity.y,0))
+	water_particle_system.get_process_material().set_param_max(0, 20 + velocity.length())
+	water_particle_system.get_process_material().set_param_min(0, 20 + velocity.length() - 10.0)
+	water_particle_system.emitting = true
+
+func stop_water_particles() -> void:
+	water_particle_system.emitting = false
 
 func set_player_flip_h() -> void:
 	if player_direction.x != 0:
