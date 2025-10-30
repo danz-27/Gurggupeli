@@ -298,6 +298,7 @@ func dash() -> void:
 
 func while_in_water() -> void:
 	keep_dash_velocity = false
+	coyote_time_wait_for_jump = true
 	if dash_timer.is_stopped():
 		dash_count = max_dashes
 		gurggu.set_texture(charged_texture)

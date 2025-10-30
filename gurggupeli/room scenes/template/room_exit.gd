@@ -31,4 +31,4 @@ func _on_enter(_player: Node2D) -> void:
 		if child is RoomExit and exit_scene.next_room_path == get_parent().scene_file_path:
 			spawn_location = child.get_child(0).position
 	
-	RoomHandler.instance._set_current_room(exit_scene, spawn_location)
+	#RoomHandler.instance._set_current_room(exit_scene, spawn_location)
