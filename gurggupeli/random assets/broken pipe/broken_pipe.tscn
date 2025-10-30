@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cl0rlqpu7fbia"]
 
-[ext_resource type="Texture2D" uid="uid://c0eendxwqo31w" path="res://random assets/broken pipe.png" id="1_tks7g"]
-[ext_resource type="Script" uid="uid://cbvc75dr6jya5" path="res://broken_pipe.gd" id="2_i6a3g"]
+[ext_resource type="Texture2D" uid="uid://c0eendxwqo31w" path="res://random assets/broken pipe/broken pipe.png" id="1_tks7g"]
+[ext_resource type="Script" uid="uid://cbvc75dr6jya5" path="res://random assets/broken pipe/broken_pipe.gd" id="2_i6a3g"]
 
 [sub_resource type="Animation" id="Animation_tks7g"]
 resource_name = "ma pipe leakin"
