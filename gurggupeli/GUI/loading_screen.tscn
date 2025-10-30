@@ -10,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_vbtki")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -17,5 +18,6 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 222.62578
 offset_bottom = 144.0
+mouse_filter = 2
 texture = ExtResource("2_u1n88")
 stretch_mode = 3
