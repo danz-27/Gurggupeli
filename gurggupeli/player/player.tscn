@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dvwl2b6vslbe4"]
+[gd_scene load_steps=23 format=3 uid="uid://dvwl2b6vslbe4"]
 
 [ext_resource type="Script" uid="uid://681j0yp4c50r" path="res://player/player.gd" id="1_qhqgy"]
 [ext_resource type="Script" uid="uid://cxvwqo2ivf8sq" path="res://player/camera_2d.gd" id="2_g6k8r"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bxgjf7m8oknvn" path="res://player/textures/Gurggu dash ready sprite sheet.png" id="6_hg6s5"]
 [ext_resource type="Script" uid="uid://de7d6j8elrthl" path="res://player/dash_blink.gd" id="8_rgyib"]
 [ext_resource type="Texture2D" uid="uid://vm8gvap321st" path="res://random assets/light shape.png" id="10_8t03j"]
+[ext_resource type="Script" uid="uid://ctoath4ou45gc" path="res://player/water_particle_spawner.gd" id="11_2ieo8"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_qlg0r"]
 diffuse_texture = ExtResource("2_qhqgy")
@@ -234,6 +235,9 @@ shape = SubResource("RectangleShape2D_yw30f")
 position = Vector2(0, 3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qhqgy")
+
+[node name="WaterParticleSpawner" type="Node2D" parent="."]
+script = ExtResource("11_2ieo8")
 
 [connection signal="timeout" from="DashTimer" to="." method="on_dash_timer_timeout"]
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timeout"]
