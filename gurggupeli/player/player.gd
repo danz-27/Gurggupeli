@@ -59,6 +59,7 @@ var default_texture : Texture2D = preload("res://player/textures/Gurggu sprite s
 var charged_texture : Texture2D = preload("res://player/textures/Gurggu charged sprite sheet.png")
 var interval_between_blinks: int = randi_range(210, 300)
 var blinking_duration := 5
+var was_in_water_last_frame := false
 
 @onready var dash_timer := $DashTimer
 @onready var jump_buffer_timer := $JumpBufferTimer
@@ -68,6 +69,7 @@ var blinking_duration := 5
 @onready var water_detector := $WaterDetector
 @onready var above_water_detector := $AboveWaterDetector
 @onready var afterimage_spawner := $AfterimageSpawner
+@onready var water_particle_spawner := $WaterParticleSpawner
 
 @onready var health : EntityHealth = $EntityHealth
 
@@ -195,10 +197,20 @@ func _physics_process(delta: float) -> void:
 	# apply all environmental stuff after everything
 	if is_in_water():
 		while_in_water()
+		
+	#check if particles should be emitted
+	if (!was_in_water_last_frame and is_in_water()) or (was_in_water_last_frame and !is_in_water):
+		play_water_particles()
 	
 	set_player_flip_h()
 	animate_player()
 	move_and_slide()
+	
+	#set variables for next frame
+	if is_in_water():
+		was_in_water_last_frame = true
+	else:
+		was_in_water_last_frame = false
 
 func handle_jump() -> void:
 	# Handle jump if dashing
@@ -358,6 +370,9 @@ func animate_player() -> void:
 				gurggu.set_texture(default_texture)
 			blinking_duration = 5
 			interval_between_blinks = randi_range(210, 300)
+
+func play_water_particles() -> void:
+	water_particle_spawner.spawn_water_particles()
 
 func set_player_flip_h() -> void:
 	if player_direction.x != 0:
