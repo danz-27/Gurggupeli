@@ -1,11 +1,11 @@
 extends Control
-class_name LoadingScreen
+class_name RoomTransition
 
-static var instance: LoadingScreen
+static var instance: RoomTransition
 static var enabled: bool = false
 #static var fade_completed: bool = false
 
-@onready var loading_screen: TextureRect = $TextureRect
+@onready var room_transition: TextureRect = $TextureRect
 
 func _ready() -> void:
 	instance = self
@@ -30,15 +30,15 @@ func _physics_process(_delta: float) -> void:
 		show_loading = false
 	
 	if show_loading or enabled:
-		if loading_screen.modulate.a < 1:
-			loading_screen.modulate.a += 0.08
-		elif loading_screen.modulate.a >= 1 and first_time_fade_complete:
+		if room_transition.modulate.a < 1:
+			room_transition.modulate.a += 0.08
+		elif room_transition.modulate.a >= 1 and first_time_fade_complete:
 			fade_complete = true
 			first_time_fade_complete = false
 	
 	else:
-		if loading_screen.modulate.a > 0:
-			loading_screen.modulate.a -= 0.08
-		elif loading_screen.modulate.a <= 0:
+		if room_transition.modulate.a > 0:
+			room_transition.modulate.a -= 0.08
+		elif room_transition.modulate.a <= 0:
 			fade_complete = false
 			first_time_fade_complete = true

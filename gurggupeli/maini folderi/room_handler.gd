@@ -11,7 +11,7 @@ func _ready() -> void:
 	instance = self
 
 func _set_current_room(room: PackedScene, spawn_pos: Vector2) -> void:
-	LoadingScreen.enabled = true
+	RoomTransition.enabled = true
 	loaded_room = room.instantiate()
 	player_spawn_pos = spawn_pos
 	
@@ -21,7 +21,7 @@ func _set_current_room(room: PackedScene, spawn_pos: Vector2) -> void:
 		entities.append(child)
 
 func _physics_process(_delta: float) -> void:
-	if LoadingScreen.instance.fade_complete:
+	if RoomTransition.instance.fade_complete:
 		for room in rooms:
 			room.queue_free()
 		rooms = []
@@ -30,4 +30,4 @@ func _physics_process(_delta: float) -> void:
 		entities = []
 		add_child.call_deferred(loaded_room)
 		Player.instance.position = player_spawn_pos
-		LoadingScreen.instance.fade_complete = false
+		RoomTransition.instance.fade_complete = false

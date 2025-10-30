@@ -30,7 +30,7 @@ const ROAM_SPEED := 50
 
 func _ready() -> void:
 	if is_girly_pop:
-		print("im girly")
+		#print("im girly")
 		rusetti.visible = true
 
 func _physics_process(_delta: float) -> void:

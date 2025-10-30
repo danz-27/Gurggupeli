@@ -20,12 +20,9 @@ func _physics_process(_delta: float) -> void:
 		if area is EntityHealth:
 			var entity_health: EntityHealth = area
 			if get_parent() == entity_health.get_parent():
-				print("I was here")
 				continue
 			if get_parent().team == entity_health.get_parent().team:
 				continue
-			print("I was also here")
-			print(area)
 			hit_cooldown_timer.start(hit_cooldown)
 			entity_health.take_damage(damage)
 			return

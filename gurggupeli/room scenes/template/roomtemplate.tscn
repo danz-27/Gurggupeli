@@ -1104,3 +1104,4 @@ z_index = 5
 tile_set = SubResource("TileSet_uj42j")
 
 [node name="RoomExit" parent="." instance=ExtResource("5_sdgk7")]
+next_room_path = "<null>"
