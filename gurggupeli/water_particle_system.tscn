@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dni0pjdxwiwwf"]
+
+[ext_resource type="Script" path="res://water_particle_system.gd" id="1_7nr4k"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ye1g8"]
+particle_flag_disable_z = true
+inherit_velocity_ratio = 1.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 98, 0)
+
+[node name="WaterParticleSystem" type="GPUParticles2D"]
+modulate = Color(0.3254902, 0.3372549, 0.18431373, 1)
+emitting = false
+amount = 25
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ye1g8")
+script = ExtResource("1_7nr4k")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

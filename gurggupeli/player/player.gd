@@ -56,7 +56,6 @@ const jump_height_cut: float = 0.4
 # ----------------------
 var blinking_texture : Texture2D = preload("res://player/textures/Gurggu_spritesheet_eyes_closed.png")
 var default_texture : Texture2D = preload("res://player/textures/Gurggu sprite sheet.png")
-var charged_texture : Texture2D = preload("res://player/textures/Gurggu charged sprite sheet.png")
 var interval_between_blinks: int = randi_range(210, 300)
 var blinking_duration := 5
 
@@ -187,7 +186,7 @@ func _physics_process(delta: float) -> void:
 				velocity.y = max_fall_speed
 			
 			if Input.is_action_just_pressed("dash") and dash_count > 0:
-				gurggu.set_texture(default_texture)
+				gurggu.material.set_shader_parameter("new", Color(0.161, 0.247, 0.129))
 				dash()
 				state = STATE.DASHING
 	
@@ -285,8 +284,7 @@ func while_in_water() -> void:
 	coyote_time_wait_for_jump = true
 	if dash_timer.is_stopped():
 		dash_count = max_dashes
-		gurggu.set_texture(charged_texture)
-
+		gurggu.material.set_shader_parameter("new", Color(0.263, 0.518, 0.016))
 	if !is_dashing():
 		if Input.is_action_just_pressed("jump"):
 			jump()
@@ -325,7 +323,7 @@ func on_floor() -> void:
 	
 	if dash_timer.is_stopped():
 		dash_count = max_dashes
-		gurggu.set_texture(charged_texture)
+		gurggu.material.set_shader_parameter("new", Color(0.263, 0.518, 0.016))
 
 	if is_jump_buffered:
 		jump()
@@ -353,10 +351,11 @@ func animate_player() -> void:
 		gurggu.set_texture(blinking_texture)
 		blinking_duration -= 1
 		if blinking_duration == 0:
+			gurggu.set_texture(default_texture)
 			if dash_count > 0:
-				gurggu.set_texture(charged_texture)
+				gurggu.material.set_shader_parameter("new", Color(0.263, 0.518, 0.016))
 			else:
-				gurggu.set_texture(default_texture)
+				gurggu.material.set_shader_parameter("new", Color(0.161, 0.247, 0.129))
 			blinking_duration = 5
 			interval_between_blinks = randi_range(210, 300)
 
