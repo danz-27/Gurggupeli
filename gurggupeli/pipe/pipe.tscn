@@ -37,4 +37,6 @@ rotates = false
 loop = false
 
 [connection signal="body_entered" from="Head1" to="." method="_on_head_1_entered"]
+[connection signal="body_exited" from="Head1" to="." method="_reset_enterance_duration"]
 [connection signal="body_entered" from="Head2" to="." method="_on_head_2_entered"]
+[connection signal="body_exited" from="Head2" to="." method="_reset_enterance_duration"]
