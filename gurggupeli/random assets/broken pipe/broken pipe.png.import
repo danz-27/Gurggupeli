@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0eendxwqo31w"
-path="res://.godot/imported/broken pipe.png-57879c22c6d986ad3e5b358c72cdc214.ctex"
+path="res://.godot/imported/broken pipe.png-a48235aafa6aa0445793cb64163d7bc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://random assets/broken pipe.png"
-dest_files=["res://.godot/imported/broken pipe.png-57879c22c6d986ad3e5b358c72cdc214.ctex"]
+source_file="res://random assets/broken pipe/broken pipe.png"
+dest_files=["res://.godot/imported/broken pipe.png-a48235aafa6aa0445793cb64163d7bc0.ctex"]
 
 [params]
 

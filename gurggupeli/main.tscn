@@ -5,21 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://cjgdh508xyx7h" path="res://player/afterimage.tscn" id="6_efxa6"]
 [ext_resource type="Texture2D" uid="uid://vm8gvap321st" path="res://random assets/light shape.png" id="9_4c57u"]
 [ext_resource type="PackedScene" uid="uid://dk3j1qax4xoq6" path="res://room scenes/main_room.tscn" id="9_kek77"]
-[ext_resource type="Script" uid="uid://dv8tul6e2m1or" path="res://point_light_2d.gd" id="10_efxa6"]
+[ext_resource type="Script" path="res://point_light_2d.gd" id="10_efxa6"]
+[ext_resource type="Material" uid="uid://du1n6iwau11kg" path="res://particle systems/water particles/water_particles.tres" id="11_dg77c"]
 [ext_resource type="Script" uid="uid://dcvjsnyev2fla" path="res://player/water_particle_system.gd" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://d2trf1846jb0b" path="res://GUI/gui.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://doejntmkit0nt" path="res://enemis/entities_container.gd" id="13_w48qg"]
 [ext_resource type="Script" uid="uid://d2qpyq0jwr52u" path="res://maini folderi/game_time.gd" id="14_w48qg"]
 [ext_resource type="Script" uid="uid://bqeqcg0ahq7md" path="res://maini folderi/room_handler.gd" id="15_2cqfq"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dg77c"]
-particle_flag_disable_z = true
-angle_min = -720.0
-angle_max = 720.0
-direction = Vector3(0, -1, 0)
-initial_velocity_min = 40.0
-initial_velocity_max = 60.0
-gravity = Vector3(0, 98, 0)
 
 [node name="main" type="Node"]
 script = ExtResource("1_ycdy4")
@@ -43,8 +35,8 @@ script = ExtResource("15_2cqfq")
 
 [node name="MainRoom" parent="RoomHandler" instance=ExtResource("9_kek77")]
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(1.5258789e-05, -0.5000057)
+[node name="Vignette" type="PointLight2D" parent="."]
+visible = false
 scale = Vector2(4.9999995, 2.7968748)
 blend_mode = 2
 range_layer_min = -10
@@ -55,11 +47,15 @@ texture_scale = 2.0
 script = ExtResource("10_efxa6")
 
 [node name="WaterParticleSystem" type="GPUParticles2D" parent="."]
-modulate = Color(0.3254902, 0.3372549, 0.18431373, 1)
+modulate = Color(0.5649617, 0.5649616, 0.5649616, 1)
 position = Vector2(0, 3)
 emitting = false
 amount = 1000
-process_material = SubResource("ParticleProcessMaterial_dg77c")
+lifetime = 2.0
+trail_enabled = true
+trail_lifetime = 0.05
+trail_sections = 4
+process_material = ExtResource("11_dg77c")
 script = ExtResource("11_efxa6")
 
 [editable path="GUI"]
