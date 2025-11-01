@@ -10,15 +10,14 @@ var player_spawn_pos: Vector2
 func _ready() -> void:
 	instance = self
 
-func _set_current_room(room: PackedScene, spawn_pos: Vector2) -> void:
-	RoomTransition.enabled = true
-	loaded_room = room.instantiate()
+func _set_current_room(room: Node, spawn_pos: Vector2) -> void:
+	loaded_room = room
 	player_spawn_pos = spawn_pos
 	
 	for child in get_children():
 		rooms.append(child)
-	for child in EntitiesContainer.instance.get_children():
-		entities.append(child)
+	#for child in EntitiesContainer.instance.get_children():
+		#entities.append(child)
 
 func _physics_process(_delta: float) -> void:
 	if RoomTransition.instance.fade_complete:

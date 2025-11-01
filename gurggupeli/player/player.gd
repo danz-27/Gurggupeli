@@ -22,6 +22,7 @@ var coyote_time_duration := 4
 var coyote_time_start_time: int
 var coyote_time_wait_for_jump: bool = false
 var velocity_lerp_reset_threshold := 0.1
+var reset_velocity: bool = false
 
 var gravity := 15
 var fast_gravity := gravity * 2
@@ -36,6 +37,8 @@ var first_time_in_air: bool = !first_time_on_ground
 var last_movement_direction: int = -1
 var has_player_direction_changed: bool = false
 var first_time_changing_direction: bool = false
+var is_crouching: bool = false
+var last_pressed_input: float = -1.0
 
 # Jump related
 const jump_speed: float = -250.0
@@ -43,7 +46,7 @@ var last_dashed: int
 var water_jump_time: float = 0.15
 var keep_dash_velocity := false
 var keep_dash_speed_weight: float = 0.01
-var keep_dash_speed: float = SPEED * 1.5
+var keep_dash_speed: float = DASH_SPEED
 var keep_dash_speed_threshold: float = SPEED / 4.0
 var reverse_hyper_dash_leeway_time: bool = false
 var last_activated_keep_dash_speed: int
@@ -90,12 +93,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_text_delete"):
 		position = respawn_pos
 	health.health = clamp(health.health, 0, 15)
-	#print(signf(player_direction.x) != signf(dash_direction.x))
+	
+	#print(is_on_floor(), " on_floor")
 	
 	if frozen:
 		return
 	
 	first_time_in_air = !first_time_on_ground
+	is_crouching = false
 	
 	if (Input.is_action_just_pressed("jump") or is_jump_buffered):
 		handle_jump()
@@ -132,6 +137,8 @@ func _physics_process(delta: float) -> void:
 			
 		last_movement_direction = int(player_direction.x)
 	
+	last_pressed_direction()
+	
 	# Movement
 	match state:
 		STATE.DASHING:
@@ -159,26 +166,36 @@ func _physics_process(delta: float) -> void:
 					velocity.y += gravity
 			
 			player_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-			if keep_dash_speed:
+			if keep_dash_velocity:
 				# Sign the value due to not wanting intercardinal directions registered
-				player_direction.x = sign(player_direction.x)
+				player_direction = Vector2(sign(player_direction.x), 0)
 			
 			var velocity_weight: float = delta * (acceleration if player_direction.x else friction)
 			if reverse_hyper_dash_leeway_time:
-				keep_dash_speed_weight = 1.0 if reverse_hyper_dash_leeway_time and is_on_floor() else 0.01
+				keep_dash_speed_weight = 1.0 if is_on_floor() and reverse_hyper_dash_leeway_time and player_direction.x else 0.01
 			
 			# Check for downleft and downright inputs and reset movement to zero with lerp, else move player
 			if (is_on_floor() and player_direction.y > 0) and player_direction.x:
+				is_crouching = true
 				velocity.x = lerpf(velocity.x, 0.0, velocity_weight)
 				
 			elif keep_dash_velocity:
 				if abs(velocity.x) < keep_dash_speed_threshold or is_on_wall() or (!is_on_floor() and has_player_direction_changed and !reverse_hyper_dash_leeway_time):
 					deactivate_keep_dash_velocity()
 				else:
-					velocity.x = lerpf(velocity.x, player_direction.x * keep_dash_speed, keep_dash_speed_weight)
+					#print(velocity.x, "first velocity")
+					if reset_velocity:
+						velocity.x = 0.0
+						keep_dash_speed_weight = 1.0
+						reset_velocity = false
+						#nothing happens cuz player direction = 0
+					velocity.x = lerpf(velocity.x, sign(last_pressed_direction()) * keep_dash_speed, keep_dash_speed_weight)
+					#print(velocity.x)
+					#print(last_pressed_direction(), "why how is 0")
+					#print(keep_dash_speed_weight, "\n")
 			else:
 				velocity.x = lerpf(velocity.x, player_direction.x * SPEED, velocity_weight)
-
+				#print("lerppi 2")
 			if abs(velocity.x) < velocity_lerp_reset_threshold:
 				velocity.x = 0
 			
@@ -239,6 +256,7 @@ func _on_jump_buffer_timeout() -> void:
 func on_dash_timer_timeout() -> void:
 	if (is_jump_buffered or Input.is_action_just_pressed("jump")) and velocity.x != 0 and dash_direction != Vector2.DOWN and is_on_floor():
 		keep_dash_velocity = true
+		reset_velocity = true
 		# last time wavedashed to know when to disable it
 		last_activated_keep_dash_speed = GameTime.current_time
 	else:
@@ -270,7 +288,7 @@ func dash() -> void:
 	dash_count -= 1
 	dash_direction = player_direction
 	if player_direction == Vector2.ZERO:
-		if gurggu.flip_h:
+		if last_pressed_direction() > 0:
 			dash_direction = Vector2.RIGHT
 		else:
 			dash_direction = Vector2.LEFT
@@ -308,14 +326,25 @@ func is_close_to_surface() -> bool:
 	return !above_water_detector.has_overlapping_bodies()
 
 func deactivate_keep_dash_velocity() -> void:
-	keep_dash_velocity = false
+	if keep_dash_velocity:
+		keep_dash_velocity = false
 
 func buffer_jump_direction() -> void:
 	if player_direction != Vector2.ZERO:
 		player_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
-func on_floor() -> void:
+func last_pressed_direction() -> float:
+	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if direction.x != 0.0:
+		last_pressed_input = direction.x
+	if direction == Vector2.ZERO:
+		#print(last_pressed_input)
+		return last_pressed_input
+	else:
+		#print(direction)
+		return direction.x
 
+func on_floor() -> void:
 	if first_time_on_ground:
 		next_reset_time = GameTime.current_time
 		first_time_on_ground = false
@@ -361,6 +390,9 @@ func animate_player() -> void:
 			interval_between_blinks = randi_range(210, 300)
 
 func set_player_flip_h() -> void:
-	if player_direction.x != 0:
-		gurggu.flip_h = false if last_movement_direction <= 0 else true
-		
+	if last_pressed_direction() > 0:
+		gurggu.flip_h = true
+	elif last_pressed_direction() == 0:
+		gurggu.flip_h = true if last_pressed_input > 0 else false
+	else:
+		gurggu.flip_h = false

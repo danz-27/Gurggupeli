@@ -1109,12 +1109,16 @@ tile_set = SubResource("TileSet_n0l7w")
 z_index = 5
 tile_set = SubResource("TileSet_uj42j")
 
-[node name="RoomExit" parent="roomtemplate" instance=ExtResource("5_i3vxi")]
-position = Vector2(-43, 12)
-next_room_path = "res://room scenes/main_room.tscn"
-next_room_spawn_location = Vector2(-290, -260)
-
-[node name="Otter12000177e1b6014e484b2b897864d12d76c296" type="Sprite2D" parent="."]
+[node name="Otter12000177e1b6014e484b2b897864d12d76c296" type="Sprite2D" parent="roomtemplate"]
 position = Vector2(47.00003, 42.00006)
 scale = Vector2(1.2272601, 1.22726)
 texture = ExtResource("7_tfmeo")
+
+[node name="RoomExit" parent="roomtemplate" instance=ExtResource("5_i3vxi")]
+position = Vector2(-57.846466, 12.058212)
+next_room_path = "res://room scenes/main_room.tscn"
+
+[node name="CollisionShape2D" parent="roomtemplate/RoomExit" index="0"]
+position = Vector2(2.846466, 0.9417877)
+
+[editable path="roomtemplate/RoomExit"]
