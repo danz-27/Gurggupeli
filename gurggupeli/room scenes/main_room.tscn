@@ -1395,11 +1395,11 @@ sources/0 = SubResource("TileSetAtlasSource_o06sh")
 sources/1 = SubResource("TileSetAtlasSource_etv41")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_esrvc"]
-size = Vector2(23.333332, 25.166664)
+size = Vector2(11.083333, 24)
 
 [sub_resource type="Curve2D" id="Curve2D_8flci"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -70, -132, 0, 0, 0, 0, 22, -133)
+"points": PackedVector2Array(0, 0, 0, 0, -74, 0, 0, 0, 0, 0, 27, 0)
 }
 point_count = 2
 
@@ -1583,7 +1583,7 @@ position = Vector2(5, -0.4375)
 position = Vector2(28, -132)
 
 [node name="CollisionShape2D2" parent="roomtemplate/pipe/Head2" index="0"]
-position = Vector2(2.333334, 6.4166718)
+position = Vector2(-2.458334, 0)
 shape = SubResource("RectangleShape2D_esrvc")
 
 [node name="Path2D" parent="roomtemplate/pipe" index="2"]
@@ -1592,7 +1592,7 @@ scale = Vector2(1, 1e-05)
 curve = SubResource("Curve2D_8flci")
 
 [node name="PathFollow2D" parent="roomtemplate/pipe/Path2D" index="0"]
-position = Vector2(-70, -132)
+position = Vector2(-74, 0)
 
 [node name="pipe2" parent="roomtemplate" instance=ExtResource("8_o06sh")]
 head1_direction = 0
