@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cyxmti5pufta7" path="res://random assets/sparkle_animation.png" id="9_esrvc"]
 [ext_resource type="Script" uid="uid://ue44lh2wtgwp" path="res://enemis/piranha/piranha_spawn_locations.gd" id="9_nsu1e"]
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="9_vvp1l"]
+[ext_resource type="Texture2D" uid="uid://cc0d8aqs7qqfw" path="res://random assets/light_assets.png" id="14_q0aco"]
 [ext_resource type="Texture2D" uid="uid://vm8gvap321st" path="res://random assets/light shape.png" id="17_etv41"]
 [ext_resource type="PackedScene" uid="uid://co0eict3arxk0" path="res://pipe/pipe_intersection.tscn" id="18_q0aco"]
 
@@ -1422,6 +1423,18 @@ physics_layer_0/collision_layer = 16
 sources/0 = SubResource("TileSetAtlasSource_o06sh")
 sources/1 = SubResource("TileSetAtlasSource_etv41")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wgmn7"]
+texture = ExtResource("14_q0aco")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:1/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0h68g"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_wgmn7")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_esrvc"]
 size = Vector2(11.083333, 24)
 
@@ -1525,16 +1538,6 @@ script = ExtResource("1_vvp1l")
 
 [node name="Parallax2D" type="Parallax2D" parent="roomtemplate"]
 
-[node name="PointLight2D" type="PointLight2D" parent="roomtemplate"]
-position = Vector2(395, -148)
-color = Color(0.9999998, 0.8356605, 0.43547353, 1)
-energy = 3.0
-range_layer_min = -2
-range_layer_max = 3
-shadow_color = Color(0, 0, 0, 1)
-texture = ExtResource("17_etv41")
-texture_scale = 2.1
-
 [node name="TileMapLayer" type="TileMapLayer" parent="roomtemplate"]
 z_as_relative = false
 tile_set = SubResource("TileSet_s35yh")
@@ -1618,6 +1621,41 @@ tile_set = SubResource("TileSet_o06sh")
 [node name="spikes" type="TileMapLayer" parent="roomtemplate/TileMapLayer"]
 tile_map_data = PackedByteArray("AAC5AAQAAAAFAAEAAAC6AAQAAAAHAAQAAAC7AAQAAAABAAEAAAC8AAQAAAAHAAAAAAC9AAQAAAAFAAAAAAC+AAQAAAAAAAQAAAC/AAQAAAAAAAEAAADAAAQAAAAHAAAAAADBAAQAAAAGAAQAAADCAAQAAAAHAAQAAADDAAQAAAAAAAQAAADEAAQAAAAEAAAAAADFAAQAAAAEAAQAAADGAAQAAAAFAAQAAADHAAQAAAAEAAEAAADIAAQAAAAGAAQAAADJAAQAAAADAAQAAADKAAQAAAAEAAQAAADDAAMAAQAAAAEAAAC6AAMAAQAAAAEAAADGAAMAAQAAAAAAAADKAAMAAQAAAAEAAAA=")
 tile_set = SubResource("TileSet_2qfoi")
+
+[node name="Lights" type="TileMapLayer" parent="roomtemplate/TileMapLayer"]
+modulate = Color(0.45064795, 0.45064837, 0.45064825, 1)
+tile_map_data = PackedByteArray("AAAvAO3/AAABAAEAAGAuAO3/AAABAAAAAGA2AO3/AAABAAAAAGA3AO3/AAABAAEAAGA+AO3/AAABAAAAAGA/AO3/AAABAAEAAGA=")
+tile_set = SubResource("TileSet_0h68g")
+
+[node name="PointLight2D" type="PointLight2D" parent="roomtemplate/TileMapLayer/Lights"]
+position = Vector2(376, -148)
+color = Color(0.9999998, 0.8356605, 0.43547353, 1)
+energy = 3.0
+range_layer_min = -2
+range_layer_max = 3
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("17_etv41")
+texture_scale = 2.1
+
+[node name="PointLight2D2" type="PointLight2D" parent="roomtemplate/TileMapLayer/Lights"]
+position = Vector2(440, -148)
+color = Color(0.9999998, 0.8356605, 0.43547353, 1)
+energy = 3.0
+range_layer_min = -2
+range_layer_max = 3
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("17_etv41")
+texture_scale = 2.1
+
+[node name="PointLight2D3" type="PointLight2D" parent="roomtemplate/TileMapLayer/Lights"]
+position = Vector2(504, -148)
+color = Color(0.9999998, 0.8356605, 0.43547353, 1)
+energy = 3.0
+range_layer_min = -2
+range_layer_max = 3
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("17_etv41")
+texture_scale = 2.1
 
 [node name="ParallaxBackground" parent="roomtemplate" instance=ExtResource("7_pla4y")]
 

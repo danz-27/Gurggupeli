@@ -70,7 +70,7 @@ func _on_intersection_entered(player: Node2D) -> void:
 	var input_vector: Vector2i = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	# Check if nothing was pressed when entering, to just go to the default exit
 	if input_vector == Vector2i.ZERO:
-		move_from_intersection(player, default_exit_area, default_path)
+		#move_from_intersection(player, default_exit_area, default_path)
 		return
 	
 	# Turn the input_vector into a Direction
@@ -183,29 +183,29 @@ func check_if_direction_exists_left(exit_dir: Direction) -> Vector2:
 		return exit_path[(exit_dir + 1) % 4].global_position
 
 
-func move_from_intersection(player, head_1: Area2D, path: PathFollow2D) -> void:
-	pipe_entered_velocity_length = player.velocity.length()
-	var pipe_travel_speed: float = pipe_entered_velocity_length / 75.0 + 5.0
-	
-	path.progress_ratio = 1.0
-	player.get_node("CollisionShape2D").set_deferred("disabled", true)
-	player.gurggu.visible = false
-	player.frozen = true
-	while path.progress_ratio > 0.0:
-		path.progress -= pipe_travel_speed
-		player.position = path.global_position
-		await get_tree().physics_frame
-	
-	dash_direction = Vector2.ZERO
-	change_velocity(head1_direction, pipe_entered_velocity_length, player)
-	
-	player.get_node("CollisionShape2D").set_deferred("disabled", false)
-	player.gurggu.visible = true
-	player.frozen = false
-	can_enter = false
-	
-	wait_for_release = true
-	while Input.is_action_pressed(action_for_direction[head2_direction]):
-		await get_tree().physics_frame
-	wait_for_release = false
-	return
+#func move_from_intersection(player, head_1: Area2D, path: PathFollow2D) -> void:
+	#pipe_entered_velocity_length = player.velocity.length()
+	#var pipe_travel_speed: float = pipe_entered_velocity_length / 75.0 + 5.0
+	#
+	#path.progress_ratio = 1.0
+	#player.get_node("CollisionShape2D").set_deferred("disabled", true)
+	#player.gurggu.visible = false
+	#player.frozen = true
+	#while path.progress_ratio > 0.0:
+		#path.progress -= pipe_travel_speed
+		#player.position = path.global_position
+		#await get_tree().physics_frame
+	#
+	#dash_direction = Vector2.ZERO
+	#change_velocity(head1_direction, pipe_entered_velocity_length, player)
+	#
+	#player.get_node("CollisionShape2D").set_deferred("disabled", false)
+	#player.gurggu.visible = true
+	#player.frozen = false
+	#can_enter = false
+	#
+	#wait_for_release = true
+	#while Input.is_action_pressed(action_for_direction[head2_direction]):
+		#await get_tree().physics_frame
+	#wait_for_release = false
+	#return
