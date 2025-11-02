@@ -1,10 +1,14 @@
 extends Node2D
+class_name Pipe
+
+static var instance: Pipe
 
 @export var head1_direction: Direction
 @export var head2_direction: Direction
 @onready var head_1: Area2D = $Head1
 @onready var head_2: Area2D = $Head2
 @onready var path: PathFollow2D = $Path2D/PathFollow2D
+
 var wait_for_release: bool = false
 var dash_direction: Vector2
 var pipe_entered_velocity_length: float
@@ -34,6 +38,9 @@ const action_for_direction: Dictionary[Direction, StringName] = {
 	Direction.RIGHT: "move_left"
 }
 
+func _ready() -> void:
+	instance = self
+
 func _physics_process(_delta: float) -> void:
 	#print(GameTime.current_time)
 	if (last_entered + DURATION == GameTime.current_time):
@@ -43,7 +50,13 @@ func _physics_process(_delta: float) -> void:
 		can_enter = true
 		wait_for_release = false
 
-func _on_head_1_entered(player: Node2D) -> void:
+func _on_head_1_entered(player: Node2D, 
+						head_1: Area2D = head_1,
+						head_2: Area2D = head_2,
+						head1_direction: Direction = head1_direction, 
+						head2_direction: Direction = head2_direction, 
+						path: PathFollow2D = path
+						) -> void:
 	last_entered = GameTime.current_time
 	
 	while !can_enter:
@@ -82,7 +95,13 @@ func _on_head_1_entered(player: Node2D) -> void:
 			return
 		await get_tree().physics_frame
 
-func _on_head_2_entered(player: Node2D) -> void:
+func _on_head_2_entered(player: Node2D, 
+						head_1: Area2D = head_1,
+						head_2: Area2D = head_2,
+						head1_direction: Direction = head1_direction, 
+						head2_direction: Direction = head2_direction, 
+						path: PathFollow2D = path
+						) -> void:
 	path.progress_ratio = 0.0
 	last_entered = GameTime.current_time
 	

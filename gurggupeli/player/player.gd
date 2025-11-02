@@ -93,8 +93,8 @@ func _physics_process(delta: float) -> void:
 		position = respawn_pos
 	health.health = clamp(health.health, 0, 15)
 	
-	#print(first_time_in_air)
-	
+	#var testtest: Vector2i = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	#print(testtest)
 	if frozen:
 		return
 	
