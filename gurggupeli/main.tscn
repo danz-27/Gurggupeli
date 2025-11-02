@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cjgdh508xyx7h" path="res://player/afterimage.tscn" id="6_efxa6"]
 [ext_resource type="Texture2D" uid="uid://vm8gvap321st" path="res://random assets/light shape.png" id="9_4c57u"]
 [ext_resource type="PackedScene" uid="uid://dk3j1qax4xoq6" path="res://room scenes/main_room.tscn" id="9_kek77"]
-[ext_resource type="Script" uid="uid://dv8tul6e2m1or" path="res://vignette.gd" id="10_dg77c"]
+[ext_resource type="Script" path="res://vignette.gd" id="10_dg77c"]
 [ext_resource type="Material" uid="uid://du1n6iwau11kg" path="res://particle systems/water particles/water_particles.tres" id="11_dg77c"]
 [ext_resource type="Script" uid="uid://dcvjsnyev2fla" path="res://player/water_particle_system.gd" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://d2trf1846jb0b" path="res://GUI/gui.tscn" id="12_dg77c"]
@@ -36,6 +36,8 @@ orbit_velocity_min = -0.07599991
 orbit_velocity_max = -0.07599991
 orbit_velocity_curve = SubResource("CurveTexture_ycdy4")
 gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w48qg"]
 particle_flag_align_y = true
@@ -50,6 +52,8 @@ orbit_velocity_min = 0.0760001
 orbit_velocity_max = 0.0760001
 orbit_velocity_curve = SubResource("CurveTexture_ycdy4")
 gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
 
 [node name="main" type="Node"]
 script = ExtResource("1_ycdy4")
@@ -104,6 +108,7 @@ position = Vector2(2, -36)
 emitting = false
 amount = 32
 lifetime = 1.8
+one_shot = true
 speed_scale = 5.0
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_dg77c")
@@ -113,6 +118,7 @@ position = Vector2(2, -36)
 emitting = false
 amount = 32
 lifetime = 1.8
+one_shot = true
 speed_scale = 5.0
 process_material = SubResource("ParticleProcessMaterial_w48qg")
 

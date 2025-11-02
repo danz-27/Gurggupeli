@@ -93,7 +93,7 @@ func _physics_process(delta: float) -> void:
 		position = respawn_pos
 	health.health = clamp(health.health, 0, 15)
 	
-	#print(is_on_floor(), " on_floor")
+	#print(first_time_in_air)
 	
 	if frozen:
 		return
