@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://dk3j1qax4xoq6"]
+[gd_scene load_steps=67 format=4 uid="uid://dk3j1qax4xoq6"]
 
 [ext_resource type="Script" uid="uid://kfc3arvhbqwf" path="res://room scenes/main_room.gd" id="1_vvp1l"]
 [ext_resource type="Texture2D" uid="uid://bcpkm41dmh3tc" path="res://tilemaps/tiiliseinä tileset.png" id="2_nsu1e"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://ue44lh2wtgwp" path="res://enemis/piranha/piranha_spawn_locations.gd" id="9_nsu1e"]
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="9_vvp1l"]
 [ext_resource type="Texture2D" uid="uid://cc0d8aqs7qqfw" path="res://random assets/light_assets.png" id="14_q0aco"]
+[ext_resource type="Script" uid="uid://dfgmgxnuxbvg6" path="res://room scenes/light.gd" id="16_ud8jp"]
 [ext_resource type="Texture2D" uid="uid://vm8gvap321st" path="res://random assets/light shape.png" id="17_etv41"]
 [ext_resource type="PackedScene" uid="uid://co0eict3arxk0" path="res://pipe/pipe_intersection.tscn" id="18_q0aco"]
 
@@ -1630,32 +1631,35 @@ tile_set = SubResource("TileSet_0h68g")
 [node name="PointLight2D" type="PointLight2D" parent="roomtemplate/TileMapLayer/Lights"]
 position = Vector2(376, -148)
 color = Color(0.9999998, 0.8356605, 0.43547353, 1)
-energy = 3.0
+energy = 2.5
 range_layer_min = -2
 range_layer_max = 3
 shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("17_etv41")
 texture_scale = 2.1
+script = ExtResource("16_ud8jp")
 
 [node name="PointLight2D2" type="PointLight2D" parent="roomtemplate/TileMapLayer/Lights"]
 position = Vector2(440, -148)
 color = Color(0.9999998, 0.8356605, 0.43547353, 1)
-energy = 3.0
+energy = 0.5
 range_layer_min = -2
 range_layer_max = 3
 shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("17_etv41")
 texture_scale = 2.1
+script = ExtResource("16_ud8jp")
 
 [node name="PointLight2D3" type="PointLight2D" parent="roomtemplate/TileMapLayer/Lights"]
 position = Vector2(504, -148)
 color = Color(0.9999998, 0.8356605, 0.43547353, 1)
-energy = 3.0
+energy = 2.5
 range_layer_min = -2
 range_layer_max = 3
 shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("17_etv41")
 texture_scale = 2.1
+script = ExtResource("16_ud8jp")
 
 [node name="ParallaxBackground" parent="roomtemplate" instance=ExtResource("7_pla4y")]
 

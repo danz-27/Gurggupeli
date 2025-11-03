@@ -143,7 +143,7 @@ func _on_left_entrance_body_entered(player: Node2D) -> void:
 	)
 
 func _on_down_entrance_body_entered(player: Node2D) -> void:
-	print(Pipe.instance.path_progress_ratio)
+	#print(Pipe.instance)
 	default_exit_dir = Direction.UP
 	default_exit_area = up_area
 	default_path = up_entrance_path
