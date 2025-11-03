@@ -45,6 +45,7 @@ func _physics_process(_delta: float) -> void:
 	#print(GameTime.current_time)
 	if (last_entered + DURATION == GameTime.current_time):
 		can_enter = true
+	#print(can_enter)
 	
 	if Player.instance.is_dashing():
 		can_enter = true
@@ -95,13 +96,7 @@ func _on_head_1_entered(player: Node2D,
 			return
 		await get_tree().physics_frame
 
-func _on_head_2_entered(player: Node2D, 
-						head_1: Area2D = head_1,
-						head_2: Area2D = head_2,
-						head1_direction: Direction = head1_direction, 
-						head2_direction: Direction = head2_direction, 
-						path: PathFollow2D = path
-						) -> void:
+func _on_head_2_entered(player: Node2D) -> void:
 	path.progress_ratio = 0.0
 	last_entered = GameTime.current_time
 	

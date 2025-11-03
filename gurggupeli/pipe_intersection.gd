@@ -39,6 +39,10 @@ var vector_to_dir: Dictionary[Vector2i, Direction] = {
 	Vector2i.LEFT: Direction.LEFT,
 	Vector2i.DOWN: Direction.DOWN
 }
+
+var path_to_area: Dictionary[PathFollow2D, Area2D] = { }
+var area_to_dir: Dictionary[Area2D, Direction] = { }
+
 # Convert to string for handling the directions between scenes
 var dir_to_string: Dictionary[Direction, String] = {
 	 Direction.RIGHT: "RIGHT",
@@ -47,21 +51,28 @@ var dir_to_string: Dictionary[Direction, String] = {
 	Direction.DOWN: "DOWN"
 }
 
-var allowed_exits: Dictionary[Vector2, Direction] = {
-	Vector2(1.0, 0.0): right_entrance_direction,
-	Vector2.UP: up_entrance_direction,
-	Vector2.LEFT: left_entrance_direction,
-	Vector2.DOWN: down_entrance_direction
-}
-
 # change the area2D to path2d once implemented
-var exit_path: Dictionary[Direction, CollisionShape2D] = {}
+var exit_path: Dictionary[Direction, PathFollow2D] = { }
 
 func _ready() -> void:
-	exit_path[Direction.RIGHT] = right_entrance
-	exit_path[Direction.UP] = up_entrance
-	exit_path[Direction.LEFT] = left_entrance
-	exit_path[Direction.DOWN] = down_entrance
+	path_to_area[right_entrance_path] = right_area
+	path_to_area[up_entrance_path] = up_area
+	path_to_area[left_entrance_path] = left_area
+	path_to_area[down_entrance_path] = down_area
+	
+	area_to_dir[right_area] = Direction.RIGHT
+	area_to_dir[up_area] = Direction.UP
+	area_to_dir[left_area] = Direction.LEFT
+	area_to_dir[down_area] = Direction.DOWN
+	
+	exit_path[Direction.RIGHT] = right_entrance_path
+	exit_path[Direction.UP] = up_entrance_path
+	exit_path[Direction.LEFT] = left_entrance_path
+	exit_path[Direction.DOWN] = down_entrance_path
+
+func _physics_process(delta: float) -> void:
+	#print(defau)
+	pass
 
 func _on_intersection_entered(player: Node2D) -> void:
 	if default_exit_dir == Direction.NONE:
@@ -70,27 +81,32 @@ func _on_intersection_entered(player: Node2D) -> void:
 	var input_vector: Vector2i = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	# Check if nothing was pressed when entering, to just go to the default exit
 	if input_vector == Vector2i.ZERO:
-		#move_from_intersection(player, default_exit_area, default_path)
+		move_from_intersection(player, path_to_area[default_path], default_path)
 		return
 	
 	# Turn the input_vector into a Direction
 	var input_direction: Direction = vector_to_dir[input_vector]
 	
+	
+	# CALL THE FUNCTION WITH THE LINE PARAMETER
 	# Check forward
+	var selected_path: PathFollow2D
 	if input_direction == default_exit_dir:
-		player.position = check_if_direction_exists_default(default_exit_dir)
+		selected_path = check_if_direction_exists_default(default_exit_dir)
 	# Check right
 	elif input_direction == (default_exit_dir + 1) % 4:
-		player.position = check_if_direction_exists_right((default_exit_dir + 1) % 4)
+		selected_path = check_if_direction_exists_right((default_exit_dir + 1) % 4)
 	# Check left
 	else:
-		player.position = check_if_direction_exists_left((default_exit_dir + 3) % 4)
-
+		selected_path = check_if_direction_exists_left((default_exit_dir + 3) % 4)
+	
+	move_from_intersection(player, path_to_area[selected_path], selected_path)
 
 func _on_right_entrance_body_entered(player: Node2D) -> void:
+	print("whar")
 	default_exit_dir = Direction.LEFT
-	default_exit_area = right_area
-	default_path = right_entrance_path
+	default_exit_area = left_area
+	default_path = left_entrance_path
 	Pipe.instance._on_head_1_entered(
 		player,
 		right_area,
@@ -102,8 +118,8 @@ func _on_right_entrance_body_entered(player: Node2D) -> void:
 
 func _on_up_entrance_body_entered(player: Node2D) -> void:
 	default_exit_dir = Direction.DOWN
-	default_exit_area = up_area
-	default_path = up_entrance_path
+	default_exit_area = down_area
+	default_path = down_entrance_path
 	Pipe.instance._on_head_1_entered(
 		player,
 		up_area,
@@ -115,8 +131,8 @@ func _on_up_entrance_body_entered(player: Node2D) -> void:
 
 func _on_left_entrance_body_entered(player: Node2D) -> void:
 	default_exit_dir = Direction.RIGHT
-	default_exit_area = left_area
-	default_path = left_entrance_path
+	default_exit_area = right_area
+	default_path = right_entrance_path
 	Pipe.instance._on_head_1_entered(
 		player,
 		left_area,
@@ -127,9 +143,10 @@ func _on_left_entrance_body_entered(player: Node2D) -> void:
 	)
 
 func _on_down_entrance_body_entered(player: Node2D) -> void:
+	print(Pipe.instance.path_progress_ratio)
 	default_exit_dir = Direction.UP
-	default_exit_area = down_area
-	default_path = down_entrance_path
+	default_exit_area = up_area
+	default_path = up_entrance_path
 	Pipe.instance._on_head_1_entered(
 		player,
 		down_area,
@@ -139,73 +156,72 @@ func _on_down_entrance_body_entered(player: Node2D) -> void:
 		down_entrance_path
 	)
 
-func check_if_direction_exists_default(exit_dir: Direction) -> Vector2:
+func check_if_direction_exists_default(exit_dir: Direction) -> PathFollow2D:
 	if exit_dir != Direction.NONE:
-		return exit_path[exit_dir].global_position
+		return exit_path[exit_dir]
 	
 	# Check if intersection enterance direction +90 deg exists
 	elif (exit_dir + 1) % 4 != Direction.NONE:
-		return exit_path[(exit_dir + 1) % 4].global_position
+		return exit_path[(exit_dir + 1) % 4]
 	# Check if intersection enterance direction +270 deg exists
 	elif (exit_dir + 3) % 4 != Direction.NONE:
-		return exit_path[(exit_dir + 3) % 4].global_position
+		return exit_path[(exit_dir + 3) % 4]
 	# Return the path that the player came from if nothing else worked
 	else:
-		return exit_path[(exit_dir + 2) % 4].global_position
+		return exit_path[(exit_dir + 2) % 4]
 		
 
-func check_if_direction_exists_right(exit_dir: Direction) -> Vector2:
+func check_if_direction_exists_right(exit_dir: Direction) -> PathFollow2D:
 	if exit_dir != Direction.NONE:
-		return exit_path[exit_dir].global_position
+		return exit_path[exit_dir]
 	
 	# Check if intersection enterance direction +90 deg exists
 	elif (exit_dir + 1) % 4 != Direction.NONE:
-		return exit_path[(exit_dir + 1) % 4].global_position
+		return exit_path[(exit_dir + 1) % 4]
 	# Check if intersection enterance direction +180 deg exists
 	elif (exit_dir + 2) % 4 != Direction.NONE:
-		return exit_path[(exit_dir + 2) % 4].global_position
+		return exit_path[(exit_dir + 2) % 4]
 	# Return the path that the player came from if nothing else worked
 	else:
-		return exit_path[(exit_dir + 3) % 4].global_position
+		return exit_path[(exit_dir + 3) % 4]
 
-func check_if_direction_exists_left(exit_dir: Direction) -> Vector2:
+func check_if_direction_exists_left(exit_dir: Direction) -> PathFollow2D:
 	if exit_dir != Direction.NONE:
-		return exit_path[exit_dir].global_position
+		return exit_path[exit_dir]
 	
 	# Check if intersection enterance direction +270 deg exists
 	elif (exit_dir + 3) % 4 != Direction.NONE:
-		return exit_path[(exit_dir + 3) % 4].global_position
+		return exit_path[(exit_dir + 3) % 4]
 	# Check if intersection enterance direction +180 deg exists
 	elif (exit_dir + 2) % 4 != Direction.NONE:
-		return exit_path[(exit_dir + 2) % 4].global_position
+		return exit_path[(exit_dir + 2) % 4]
 	# Return the path that the player came from if nothing else worked
 	else:
-		return exit_path[(exit_dir + 1) % 4].global_position
+		return exit_path[(exit_dir + 1) % 4]
 
 
-#func move_from_intersection(player, head_1: Area2D, path: PathFollow2D) -> void:
-	#pipe_entered_velocity_length = player.velocity.length()
-	#var pipe_travel_speed: float = pipe_entered_velocity_length / 75.0 + 5.0
-	#
-	#path.progress_ratio = 1.0
-	#player.get_node("CollisionShape2D").set_deferred("disabled", true)
-	#player.gurggu.visible = false
-	#player.frozen = true
-	#while path.progress_ratio > 0.0:
-		#path.progress -= pipe_travel_speed
-		#player.position = path.global_position
-		#await get_tree().physics_frame
-	#
-	#dash_direction = Vector2.ZERO
-	#change_velocity(head1_direction, pipe_entered_velocity_length, player)
-	#
-	#player.get_node("CollisionShape2D").set_deferred("disabled", false)
-	#player.gurggu.visible = true
-	#player.frozen = false
-	#can_enter = false
-	#
-	#wait_for_release = true
-	#while Input.is_action_pressed(action_for_direction[head2_direction]):
-		#await get_tree().physics_frame
-	#wait_for_release = false
-	#return
+func move_from_intersection(player: Node2D, head_1_area: Area2D, path: PathFollow2D) -> void:
+	var pipe_entered_velocity_length: float = Pipe.instance.pipe_entered_velocity_length
+	var pipe_travel_speed: float = pipe_entered_velocity_length / 75.0 + 5.0
+	var head_1_direction: Pipe.Direction = Pipe.Direction[dir_to_string[area_to_dir[head_1_area]]]
+	path.progress_ratio = 1.0
+	while path.progress_ratio > 0.0:
+		path.progress -= pipe_travel_speed
+		player.position = path.global_position
+		await get_tree().physics_frame
+	
+	Pipe.instance.dash_direction = Vector2.ZERO
+	Pipe.instance.change_velocity(head_1_direction, pipe_entered_velocity_length, player)
+	
+	player.get_node("CollisionShape2D").set_deferred("disabled", false)
+	player.gurggu.visible = true
+	player.frozen = false
+	Pipe.instance.can_enter = false
+	
+	Pipe.instance.wait_for_release = true
+	while Input.is_action_pressed(Pipe.action_for_direction[head_1_direction]):
+		await get_tree().physics_frame
+	Pipe.instance.wait_for_release = false
+
+func _reset_intersection_enterance_duration(player: Node2D) -> void:
+	Pipe.instance._reset_enterance_duration(player)

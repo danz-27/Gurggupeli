@@ -7,10 +7,6 @@ size = Vector2(16.25, 16.25)
 
 [node name="PipeIntersection" type="Node2D"]
 script = ExtResource("1_0qhj1")
-right_entrance_direction = null
-up_entrance_direction = null
-left_entrance_direction = null
-down_entrance_direction = null
 
 [node name="Intersection" type="Area2D" parent="."]
 collision_layer = 0
@@ -83,6 +79,10 @@ loop = false
 
 [connection signal="body_entered" from="Intersection" to="." method="_on_intersection_entered"]
 [connection signal="body_entered" from="RightEntrance" to="." method="_on_right_entrance_body_entered"]
+[connection signal="body_exited" from="RightEntrance" to="." method="_reset_intersection_enterance_duration"]
 [connection signal="body_entered" from="UpEntrance" to="." method="_on_up_entrance_body_entered"]
+[connection signal="body_exited" from="UpEntrance" to="." method="_reset_intersection_enterance_duration"]
 [connection signal="body_entered" from="LeftEntrance" to="." method="_on_left_entrance_body_entered"]
+[connection signal="body_exited" from="LeftEntrance" to="." method="_reset_intersection_enterance_duration"]
 [connection signal="body_entered" from="DownEntrance" to="." method="_on_down_entrance_body_entered"]
+[connection signal="body_exited" from="DownEntrance" to="." method="_reset_intersection_enterance_duration"]
