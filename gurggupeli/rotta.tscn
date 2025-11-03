@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://cptupmeqygulr"]
+
+[ext_resource type="Script" uid="uid://dcs3qc800r40p" path="res://enemis/entity.gd" id="1_xaol7"]
+[ext_resource type="Texture2D" uid="uid://tlc8vv0uqo1s" path="res://enemis/Rotta/Rat spritesheet.png" id="2_abuis"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37wr3"]
+size = Vector2(13, 5)
+
+[sub_resource type="Animation" id="Animation_3rxqv"]
+resource_name = "Run"
+length = 0.40001002
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_av6fj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_0g7rb"]
+resource_name = "Angry_run"
+length = 0.40001002
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_cp4qd"]
+resource_name = "Look around"
+length = 0.80001
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 21, 22, 23]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eildp"]
+_data = {
+&"Angry_run": SubResource("Animation_0g7rb"),
+&"Look around": SubResource("Animation_cp4qd"),
+&"RESET": SubResource("Animation_av6fj"),
+&"Run": SubResource("Animation_3rxqv")
+}
+
+[node name="Rotta" type="CharacterBody2D"]
+script = ExtResource("1_xaol7")
+metadata/_custom_type_script = "uid://dcs3qc800r40p"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_abuis")
+hframes = 8
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 4.5)
+shape = SubResource("RectangleShape2D_37wr3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_eildp")
+}
