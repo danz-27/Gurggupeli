@@ -62,6 +62,8 @@ var default_texture : Texture2D = preload("res://player/textures/Gurggu sprite s
 var interval_between_blinks: int = randi_range(210, 300)
 var blinking_duration := 5
 
+signal just_jumped()
+
 @onready var dash_timer := $DashTimer
 @onready var jump_buffer_timer := $JumpBufferTimer
 @onready var water_jump_timer := $WaterJumpTimer
@@ -225,11 +227,13 @@ func handle_jump() -> void:
 	# Coyote time
 	if coyote_time_wait_for_jump:
 		jump()
+		just_jumped.emit()
 		coyote_time_wait_for_jump = false
 		return
 	
 	if is_on_floor() or is_in_water():
 		jump()
+		just_jumped.emit()
 	else:
 		if !is_jump_buffered:
 			jump_buffer_timer.start(jump_buffer_duration)
