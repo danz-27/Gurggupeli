@@ -40,10 +40,10 @@ gravity = Vector3(0, 0, 0)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yaehf"]
 particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(16, 16, 1)
+emission_shape = 1
+emission_sphere_radius = 11.35
 gravity = Vector3(0, 0, 0)
-color = Color(0.0770692, 0.9920731, 0.096061, 1)
+color = Color(0.079199985, 0.99, 0.09437995, 0.6509804)
 
 [node name="main" type="Node"]
 script = ExtResource("1_ycdy4")
