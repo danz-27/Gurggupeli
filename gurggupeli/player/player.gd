@@ -312,14 +312,9 @@ func while_in_water() -> void:
 			jump()
 			water_jump_timer.start(water_jump_time)
 		elif water_jump_timer.is_stopped():
-			velocity = player_direction * water_speed 
+			velocity += player_direction * water_speed 
 	if water_jump_timer.is_stopped():
-		#if is_close_to_surface():
-			#if player_direction.y < 0:
-				#velocity.y = 0
-			#velocity.y -= 10
-		#else:
-			velocity.y += water_gravity
+		velocity.y += water_gravity
 
 func is_in_water() -> bool:
 	return water_detector.has_overlapping_bodies()

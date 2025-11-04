@@ -102,7 +102,6 @@ func _on_head_2_entered(player: Node2D) -> void:
 	while head_2.overlaps_body(player):
 		if player.is_dashing() and !(player.dash_timer.time_left >= (player.dash_duration - player.dash_buffer_time)):
 			dash_direction = player.dash_direction
-			print("wharrar2")
 		else:
 			dash_direction = Vector2.ZERO
 		
@@ -143,6 +142,8 @@ func change_velocity(exit_direction: Direction, velocity: float, player:Node2D) 
 		if velocity <= 50:
 			velocity += 50
 		velocity *= 3.0
+		player.coyote_time_wait_for_jump = true
+		player.coyote_time_start_time = GameTime.current_time
 	player.velocity = axis_for_direction[exit_direction] * velocity
 
 func _reset_enterance_duration(_player: Node2D) -> void:

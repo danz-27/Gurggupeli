@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dvwl2b6vslbe4"]
+[gd_scene load_steps=24 format=3 uid="uid://dvwl2b6vslbe4"]
 
 [ext_resource type="Script" uid="uid://681j0yp4c50r" path="res://player/player.gd" id="1_qhqgy"]
 [ext_resource type="Script" uid="uid://cxvwqo2ivf8sq" path="res://player/camera_2d.gd" id="2_g6k8r"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://b1gy7oj6u3lgm" path="res://player/label.gd" id="6_boad6"]
 [ext_resource type="Texture2D" uid="uid://bxgjf7m8oknvn" path="res://player/textures/Gurggu dash ready sprite sheet.png" id="6_hg6s5"]
 [ext_resource type="Script" uid="uid://de7d6j8elrthl" path="res://player/dash_blink.gd" id="8_rgyib"]
+[ext_resource type="PackedScene" uid="uid://dcfljpyeu8gif" path="res://enemis/soft_collision.tscn" id="11_2ieo8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ieo8"]
 shader = ExtResource("3_8t03j")
@@ -229,6 +230,13 @@ shape = SubResource("RectangleShape2D_yw30f")
 [node name="EntityHealth" parent="." instance=ExtResource("5_qjkh3")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EntityHealth"]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qhqgy")
+
+[node name="SoftCollision" parent="." instance=ExtResource("11_2ieo8")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SoftCollision"]
 position = Vector2(0, 3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qhqgy")

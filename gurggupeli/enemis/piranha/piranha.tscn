@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhheud15brxyj"]
+[gd_scene load_steps=13 format=3 uid="uid://dhheud15brxyj"]
 
 [ext_resource type="PackedScene" uid="uid://ompoeyannnan" path="res://enemis/entity.tscn" id="1_3ffjx"]
 [ext_resource type="Script" uid="uid://bxgwkj11821t0" path="res://enemis/piranha/piranha.gd" id="2_aj3yv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://buf5pdb22e0bo" path="res://enemis/entity_health.tscn" id="4_alpqo"]
 [ext_resource type="PackedScene" uid="uid://bnka5lngeyuhl" path="res://enemis/hurtbox.tscn" id="5_tox65"]
 [ext_resource type="Texture2D" uid="uid://dgy6n6mkyxjgc" path="res://enemis/piranha/rusetti.png" id="6_aj3yv"]
+[ext_resource type="PackedScene" uid="uid://dcfljpyeu8gif" path="res://enemis/soft_collision.tscn" id="7_7a7oj"]
 
 [sub_resource type="Animation" id="Animation_7a7oj"]
 length = 0.001
@@ -105,3 +106,17 @@ shape = SubResource("RectangleShape2D_0vyel")
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="5"]
 enabled = false
+
+[node name="SoftCollision" parent="." index="6" instance=ExtResource("7_7a7oj")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SoftCollision" index="0"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_0vyel")
+
+[node name="WaterDetector" type="Area2D" parent="." index="7"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterDetector" index="0"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_0vyel")

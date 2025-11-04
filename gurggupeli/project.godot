@@ -76,7 +76,8 @@ interact={
 2d_physics/layer_2="water collision"
 2d_physics/layer_3="player layer"
 2d_physics/layer_4="entity health"
-2d_physics/layer_5="spike"
+2d_physics/layer_5="Spike"
+2d_physics/layer_6="SoftCollision"
 
 [rendering]
 
