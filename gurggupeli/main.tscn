@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://brraufw4h63vr"]
+[gd_scene load_steps=22 format=3 uid="uid://brraufw4h63vr"]
 
 [ext_resource type="PackedScene" uid="uid://dvwl2b6vslbe4" path="res://player/player.tscn" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://cxtrxt1qv4pk2" path="res://main.gd" id="1_ycdy4"]
@@ -38,12 +38,20 @@ initial_velocity_min = 9.389999
 initial_velocity_max = 9.389999
 gravity = Vector3(0, 0, 0)
 
+[sub_resource type="Curve" id="Curve_2cqfq"]
+_data = [Vector2(0.002577316, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.4226842, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yaehf"]
+curve = SubResource("Curve_2cqfq")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yaehf"]
 particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 11.35
 gravity = Vector3(0, 0, 0)
-color = Color(0.079199985, 0.99, 0.09437995, 0.6509804)
+color = Color(0.079199985, 0.99, 0.09437995, 1)
+alpha_curve = SubResource("CurveTexture_yaehf")
 
 [node name="main" type="Node"]
 script = ExtResource("1_ycdy4")
