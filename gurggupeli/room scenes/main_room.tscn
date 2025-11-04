@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cc0d8aqs7qqfw" path="res://random assets/light_assets.png" id="14_q0aco"]
 [ext_resource type="Script" uid="uid://dfgmgxnuxbvg6" path="res://room scenes/light.gd" id="16_ud8jp"]
 [ext_resource type="Texture2D" uid="uid://vm8gvap321st" path="res://random assets/light shape.png" id="17_etv41"]
-[ext_resource type="PackedScene" uid="uid://co0eict3arxk0" path="res://pipe/pipe_intersection.tscn" id="18_q0aco"]
+[ext_resource type="PackedScene" uid="uid://pwbg6eqe5b86" path="res://pipe/pipe_intersection.tscn" id="21_ud8jp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mwhox"]
 texture = ExtResource("2_nsu1e")
@@ -1513,25 +1513,25 @@ point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_t10vw"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -15, -4, 0, 0, 0, 0, -86, -4)
+"points": PackedVector2Array(0, 0, 0, 0, 49.353394, 2.0491943, 0, 0, 0, 0, 81.35339, 2.0491943)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_w7rfc"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -80, -71, 0, 0, 0, 0, -79, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_xpisw"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -150, -5, 0, 0, 0, 0, -78, -5)
+"points": PackedVector2Array(0, 0, 0, 0, -45.475098, -3.104126, 0, 0, 0, 0, -77.4751, -3.104126)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_mducc"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -80, 62, 0, 0, 0, 0, -79, -17)
+"points": PackedVector2Array(0, 0, 0, 0, 5.6593018, -19.417786, 0, 0, 0, 0, 5.6593018, -51.417786)
 }
 point_count = 2
 
@@ -1571,7 +1571,7 @@ shape = SubResource("RectangleShape2D_8flci")
 
 [node name="putkilo" type="TileMapLayer" parent="roomtemplate/TileMapLayer"]
 z_index = 4
-tile_map_data = PackedByteArray("AAAFAPr/AQABAAAAAAAFAPv/AQAEAAAAAAAFAPz/AQACAAEAAAAGAPz/AQAEAAEAAAAHAPz/AQAAAAAAAAAAAPr/AQAAAAAAAAD///r/AQAEAAEAAAD+//r/AQAEAAEAAAD9//r/AQAAAAEAAAD5//f/AQABAAAAAAD5//j/AQAEAAAAAAD5//n/AQAEAAAAAAD5//r/AQAEAAAAAAD5//v/AQAEAAAAAAD5//z/AQABAAEAAAD7/wAAAQAEAAAAAAD7/wEAAQAEAAAAAAD7/wIAAQAEAAAAAAD7/wMAAQACAAEAAAD8/wMAAQAEAAEAAAD9/wMAAQAEAAEAAAD+/wMAAQAEAAEAAAD//wMAAQADAAEAAAD//wIAAQAEAAAAAAD//wEAAQAEAAAAAAD//wAAAQABAAAAAAD7////AQABAAAAAAAXAP//AQABAAEAAAAXAP7/AQAEAAAAAAAXAP3/AQAEAAAAAAAXAPz/AQABAAAAAAAOAPT/AQABAAEAAAAOAPP/AQAEAAAAAAAOAPL/AQACAAAAAAAPAPL/AQAEAAEAAAAQAPL/AQAEAAEAAAARAPL/AQAEAAEAAAASAPL/AQAEAAEAAAATAPL/AQAEAAEAAAAUAPL/AQADAAEAAAAUAPH/AQAEAAAAAAAUAPD/AQACAAAAAAAVAPD/AQAEAAEAAAAWAPD/AQADAAAAAAAWAPH/AQAEAAAAAAAWAPL/AQAEAAAAAAAWAPP/AQADAAEAAAAVAPP/AQACAAAAAAAVAPT/AQABAAEAAABFABYAAQABAAAAAABFABcAAQACAAEAAABGABcAAQAEAAEAAABHABcAAQADAAAAAABIABgAAQAGAAAAAABJABgAAQAEAAEAAABKABgAAQAEAAEAAABLABgAAQAEAAEAAABMABgAAQADAAEAAABMABcAAQACAAAAAABNABcAAQADAAEAAABNABYAAQAEAAAAAABNABUAAQAEAAAAAABNABQAAQAEAAAAAABNABMAAQAEAAAAAABNABIAAQAEAAAAAABNABEAAQAEAAAAAABNABAAAQACAAAAAABOABAAAQAEAAEAAABPABAAAQAEAAEAAABQABAAAQAEAAEAAABRABEAAQACAAEAAABSABEAAQAEAAEAAABTABEAAQADAAAAAABTABIAAQACAAEAAABUABIAAQADAAAAAABUABMAAQAEAAAAAABUABQAAQAEAAAAAABUABUAAQAEAAAAAABUABYAAQAEAAAAAABUABcAAQAEAAAAAABUABgAAQAEAAAAAABUABkAAQAEAAAAAABUABoAAQACAAEAAABVABoAAQAEAAEAAABWABoAAQADAAEAAABWABkAAQAEAAAAAABWABgAAQAEAAAAAABWABcAAQACAAAAAABXABcAAQAEAAEAAABYABcAAQADAAAAAABYABgAAQAEAAAAAABYABkAAQAEAAAAAABYABoAAQAEAAAAAABYABsAAQAEAAAAAABYABwAAQADAAEAAABXABwAAQACAAAAAABXAB0AAQADAAEAAABWAB0AAQAEAAEAAABVAB0AAQAEAAEAAABUAB0AAQACAAEAAABUABwAAQADAAAAAABTABwAAQAEAAEAAABSABkAAQAEAAAAAABSABgAAQADAAAAAABRABgAAQAEAAEAAABQABgAAQACAAAAAABQABkAAQAEAAAAAABQABoAAQAEAAAAAABQABsAAQAEAAAAAABQABwAAQAEAAAAAABQAB0AAQADAAEAAABPAB0AAQACAAAAAABPAB4AAQADAAEAAABOAB4AAQACAAAAAABOAB8AAQADAAEAAABNAB8AAQAEAAEAAABMAB8AAQACAAEAAABMAB4AAQAEAAAAAABMAB0AAQAEAAAAAABMABwAAQAEAAAAAABMABsAAQADAAAAAABLABsAAQAEAAEAAABKABwAAQADAAEAAABJABwAAQACAAAAAABJAB0AAQAEAAAAAABIAB4AAQAEAAEAAABHAB4AAQAEAAEAAABGAB4AAQACAAEAAABGAB0AAQADAAAAAABFAB0AAQACAAEAAABFABwAAQAEAAAAAABFABsAAQAHAAAAAABGABsAAQADAAEAAABGABoAAQADAAAAAABFABoAAQACAAAAAABEABsAAQAEAAEAAABDABsAAQACAAAAAABDABwAAQADAAEAAABCABwAAQACAAAAAABCAB0AAQAEAAAAAABCAB4AAQADAAEAAABBAB4AAQAEAAEAAABAAB4AAQAEAAEAAAA/AB4AAQACAAEAAAA/AB0AAQAEAAAAAAA/ABwAAQAEAAAAAAA/ABsAAQAEAAAAAAA/ABoAAQACAAAAAABAABoAAQAEAAEAAABBABoAAQADAAEAAABBABkAAQACAAAAAABCABkAAQADAAEAAABCABgAAQAEAAAAAABCABcAAQAEAAAAAABCABYAAQABAAAAAABHABgAAQACAAEAAABRABAAAQADAAAAAABSABoAAQAEAAAAAABSABsAAQAEAAAAAABSABwAAQACAAEAAABKABsAAQACAAAAAABJAB4AAQADAAEAAADy//X/AQAAAAAAAAA4ABsAAQACAAAAAAA4ABwAAQAFAAAAAAA5ABwAAQADAAEAAAA5ABsAAQADAAAAAAA4AB0AAQAEAAAAAAA4AB4AAQAGAAEAAAA3AB4AAQAAAAEAAAA7AB0AAQABAAAAAAA7AB4AAQACAAEAAAA8AB4AAQAAAAAAAAA2AB8AAQABAAAAAAA2ACAAAQADAAEAAAA4AB8AAQAEAAAAAAA4ACAAAQACAAEAAAA5ACAAAQAAAAAAAAA5ACIAAQAEAAEAAAA4ACIAAQACAAAAAAA4ACMAAQABAAEAAAA2ACMAAQABAAEAAAA2ACIAAQADAAAAAAA1ACIAAQAEAAEAAAA0ACIAAQAAAAEAAAA1ACAAAQAAAAEAAAA6ACIAAQAAAAAAAABIABkAAQABAAEAAAAcABcAAQABAAEAAAAcABYAAQAEAAAAAAAcABUAAQAEAAAAAAAcABQAAQAGAAAAAAAbABQAAQAEAAEAAAAaABQAAQAEAAEAAAAZABQAAQAEAAEAAAAYABQAAQAEAAEAAAAdABQAAQAEAAEAAAAeABQAAQAEAAEAAAAfABQAAQAEAAEAAAAgABQAAQAEAAEAAAAXABQAAQACAAAAAAAXABUAAQAEAAAAAAAXABYAAQAEAAAAAAAXABcAAQABAAEAAAAhABQAAQADAAAAAAAhABUAAQAEAAAAAAAhABYAAQAEAAAAAAAhABcAAQABAAEAAAA0ABUAAQAEAAEAAAAzABUAAQAHAAAAAAAyABUAAQAEAAEAAAAxABUAAQAAAAEAAAAzABYAAQAEAAAAAAAzABcAAQABAAEAAAAzABQAAQAEAAAAAAAzABMAAQABAAAAAAA1ABUAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAFAPr/AQABAAAAAAAFAPv/AQAEAAAAAAAFAPz/AQACAAEAAAAGAPz/AQAEAAEAAAAHAPz/AQAAAAAAAAAAAPr/AQAAAAAAAAD///r/AQAEAAEAAAD+//r/AQAEAAEAAAD9//r/AQAAAAEAAAD5//f/AQABAAAAAAD5//j/AQAEAAAAAAD5//n/AQAEAAAAAAD5//r/AQAEAAAAAAD5//v/AQAEAAAAAAD5//z/AQABAAEAAAD7/wAAAQAEAAAAAAD7/wEAAQAEAAAAAAD7/wIAAQAEAAAAAAD7/wMAAQACAAEAAAD8/wMAAQAEAAEAAAD9/wMAAQAEAAEAAAD+/wMAAQAEAAEAAAD//wMAAQADAAEAAAD//wIAAQAEAAAAAAD//wEAAQAEAAAAAAD//wAAAQABAAAAAAD7////AQABAAAAAAAXAP//AQABAAEAAAAXAP7/AQAEAAAAAAAXAP3/AQAEAAAAAAAXAPz/AQABAAAAAAAOAPT/AQABAAEAAAAOAPP/AQAEAAAAAAAOAPL/AQACAAAAAAAPAPL/AQAEAAEAAAAQAPL/AQAEAAEAAAARAPL/AQAEAAEAAAASAPL/AQAEAAEAAAATAPL/AQAEAAEAAAAUAPL/AQADAAEAAAAUAPH/AQAEAAAAAAAUAPD/AQACAAAAAAAVAPD/AQAEAAEAAAAWAPD/AQADAAAAAAAWAPH/AQAEAAAAAAAWAPL/AQAEAAAAAAAWAPP/AQADAAEAAAAVAPP/AQACAAAAAAAVAPT/AQABAAEAAABFABYAAQABAAAAAABFABcAAQACAAEAAABGABcAAQAEAAEAAABHABcAAQADAAAAAABIABgAAQAGAAAAAABJABgAAQAEAAEAAABKABgAAQAEAAEAAABLABgAAQAEAAEAAABMABgAAQADAAEAAABMABcAAQACAAAAAABNABcAAQADAAEAAABNABYAAQAEAAAAAABNABUAAQAEAAAAAABNABQAAQAEAAAAAABNABMAAQAEAAAAAABNABIAAQAEAAAAAABNABEAAQAEAAAAAABNABAAAQACAAAAAABOABAAAQAEAAEAAABPABAAAQAEAAEAAABQABAAAQAEAAEAAABRABEAAQACAAEAAABSABEAAQAEAAEAAABTABEAAQADAAAAAABTABIAAQACAAEAAABUABIAAQADAAAAAABUABMAAQAEAAAAAABUABQAAQAEAAAAAABUABUAAQAEAAAAAABUABYAAQAEAAAAAABUABcAAQAEAAAAAABUABgAAQAEAAAAAABUABkAAQAEAAAAAABUABoAAQACAAEAAABVABoAAQAEAAEAAABWABoAAQADAAEAAABWABkAAQAEAAAAAABWABgAAQAEAAAAAABWABcAAQACAAAAAABXABcAAQAEAAEAAABYABcAAQADAAAAAABYABgAAQAEAAAAAABYABkAAQAEAAAAAABYABoAAQAEAAAAAABYABsAAQAEAAAAAABYABwAAQADAAEAAABXABwAAQACAAAAAABXAB0AAQADAAEAAABWAB0AAQAEAAEAAABVAB0AAQAEAAEAAABUAB0AAQACAAEAAABUABwAAQADAAAAAABTABwAAQAEAAEAAABSABkAAQAEAAAAAABSABgAAQADAAAAAABRABgAAQAEAAEAAABQABgAAQACAAAAAABQABkAAQAEAAAAAABQABoAAQAEAAAAAABQABsAAQAEAAAAAABQABwAAQAEAAAAAABQAB0AAQADAAEAAABPAB0AAQACAAAAAABPAB4AAQADAAEAAABOAB4AAQACAAAAAABOAB8AAQADAAEAAABNAB8AAQAEAAEAAABMAB8AAQACAAEAAABMAB4AAQAEAAAAAABMAB0AAQAEAAAAAABMABwAAQAEAAAAAABMABsAAQADAAAAAABLABsAAQAEAAEAAABKABwAAQADAAEAAABJABwAAQACAAAAAABJAB0AAQAEAAAAAABIAB4AAQAEAAEAAABHAB4AAQAEAAEAAABGAB4AAQACAAEAAABGAB0AAQADAAAAAABFAB0AAQACAAEAAABFABwAAQAEAAAAAABFABsAAQAHAAAAAABGABsAAQADAAEAAABGABoAAQADAAAAAABFABoAAQACAAAAAABEABsAAQAEAAEAAABDABsAAQACAAAAAABDABwAAQADAAEAAABCABwAAQACAAAAAABCAB0AAQAEAAAAAABCAB4AAQADAAEAAABBAB4AAQAEAAEAAABAAB4AAQAEAAEAAAA/AB4AAQACAAEAAAA/AB0AAQAEAAAAAAA/ABwAAQAEAAAAAAA/ABsAAQAEAAAAAAA/ABoAAQACAAAAAABAABoAAQAEAAEAAABBABoAAQADAAEAAABBABkAAQACAAAAAABCABkAAQADAAEAAABCABgAAQAEAAAAAABCABcAAQAEAAAAAABCABYAAQABAAAAAABHABgAAQACAAEAAABRABAAAQADAAAAAABSABoAAQAEAAAAAABSABsAAQAEAAAAAABSABwAAQACAAEAAABKABsAAQACAAAAAABJAB4AAQADAAEAAADy//X/AQAAAAAAAAA4ABsAAQACAAAAAAA4ABwAAQAFAAAAAAA5ABwAAQADAAEAAAA5ABsAAQADAAAAAAA4AB0AAQAEAAAAAAA4AB4AAQAGAAEAAAA3AB4AAQAAAAEAAAA7AB0AAQABAAAAAAA7AB4AAQACAAEAAAA8AB4AAQAAAAAAAAA2AB8AAQABAAAAAAA2ACAAAQADAAEAAAA4AB8AAQAEAAAAAAA4ACAAAQACAAEAAAA5ACAAAQAAAAAAAAA5ACIAAQAEAAEAAAA4ACIAAQACAAAAAAA4ACMAAQABAAEAAAA2ACMAAQABAAEAAAA2ACIAAQADAAAAAAA1ACIAAQAEAAEAAAA0ACIAAQAAAAEAAAA1ACAAAQAAAAEAAAA6ACIAAQAAAAAAAABIABkAAQABAAEAAAAcABcAAQABAAEAAAAcABYAAQAEAAAAAAAcABUAAQAEAAAAAAAcABQAAQAGAAAAAAAbABQAAQAEAAEAAAAaABQAAQAEAAEAAAAZABQAAQAEAAEAAAAYABQAAQAEAAEAAAAdABQAAQAEAAEAAAAeABQAAQAEAAEAAAAfABQAAQAEAAEAAAAgABQAAQAEAAEAAAAXABQAAQACAAAAAAAXABUAAQAEAAAAAAAXABYAAQAEAAAAAAAXABcAAQABAAEAAAAhABQAAQADAAAAAAAhABUAAQAEAAAAAAAhABYAAQAEAAAAAAAhABcAAQABAAEAAAA0ABUAAQAEAAEAAAAzABUAAQAHAAAAAAAyABUAAQAEAAEAAAAxABUAAQAAAAEAAAAzABYAAQAEAAAAAAAzABcAAQABAAEAAAAzABQAAQAEAAAAAAAzABMAAQABAAAAAAA1ABUAAQAAAAAAAADf/xcAAQAAAAEAAADg/xcAAQAEAAEAAADh/xcAAQADAAEAAADh/xYAAQABAAAAAADj/xUAAQAAAAAAAADi/xUAAQAAAAEAAADh/xQAAQABAAEAAADd/xUAAQAAAAEAAADe/xUAAQAEAAEAAADf/xUAAQAEAAEAAADg/xUAAQAAAAAAAADR/xYAAQABAAEAAADR/xUAAQAHAAAAAADQ/xUAAQAAAAEAAADS/xUAAQAAAAAAAADR/xQAAQABAAAAAAA=")
 tile_set = SubResource("TileSet_etv41")
 
 [node name="level_background" type="TileMapLayer" parent="roomtemplate/TileMapLayer"]
@@ -1680,160 +1680,6 @@ script = ExtResource("16_ud8jp")
 
 [node name="ParallaxBackground" parent="roomtemplate" instance=ExtResource("7_pla4y")]
 
-[node name="pipe" parent="roomtemplate" instance=ExtResource("8_o06sh")]
-head1_direction = 1
-head2_direction = 3
-
-[node name="Head1" parent="roomtemplate/pipe" index="0"]
-position = Vector2(-76, -132)
-
-[node name="CollisionShape2D" parent="roomtemplate/pipe/Head1" index="0"]
-position = Vector2(5, -0.4375)
-
-[node name="Head2" parent="roomtemplate/pipe" index="1"]
-position = Vector2(28, -132)
-
-[node name="CollisionShape2D2" parent="roomtemplate/pipe/Head2" index="0"]
-position = Vector2(-2.458334, 0)
-shape = SubResource("RectangleShape2D_esrvc")
-
-[node name="Path2D" parent="roomtemplate/pipe" index="2"]
-position = Vector2(0, -132)
-scale = Vector2(1, 1e-05)
-curve = SubResource("Curve2D_8flci")
-
-[node name="PathFollow2D" parent="roomtemplate/pipe/Path2D" index="0"]
-position = Vector2(-74, 0)
-
-[node name="pipe2" parent="roomtemplate" instance=ExtResource("8_o06sh")]
-head1_direction = 0
-
-[node name="Head1" parent="roomtemplate/pipe2" index="0"]
-position = Vector2(-156, -68)
-
-[node name="CollisionShape2D" parent="roomtemplate/pipe2/Head1" index="0"]
-position = Vector2(0, -4)
-
-[node name="Head2" parent="roomtemplate/pipe2" index="1"]
-position = Vector2(-156, -220)
-
-[node name="CollisionShape2D2" parent="roomtemplate/pipe2/Head2" index="0"]
-position = Vector2(0, 4)
-
-[node name="Path2D" parent="roomtemplate/pipe2" index="2"]
-curve = SubResource("Curve2D_ud8jp")
-
-[node name="PathFollow2D" parent="roomtemplate/pipe2/Path2D" index="0"]
-position = Vector2(-156, -68)
-
-[node name="pipe3" parent="roomtemplate" instance=ExtResource("8_o06sh")]
-head1_direction = 2
-head2_direction = 3
-
-[node name="Head1" parent="roomtemplate/pipe3" index="0"]
-position = Vector2(132, -148)
-
-[node name="CollisionShape2D" parent="roomtemplate/pipe3/Head1" index="0"]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_pla4y")
-
-[node name="Head2" parent="roomtemplate/pipe3" index="1"]
-position = Vector2(196, -84)
-
-[node name="CollisionShape2D2" parent="roomtemplate/pipe3/Head2" index="0"]
-position = Vector2(-1.6666718, 2.6458359)
-
-[node name="Path2D" parent="roomtemplate/pipe3" index="2"]
-curve = SubResource("Curve2D_wgmn7")
-
-[node name="PathFollow2D" parent="roomtemplate/pipe3/Path2D" index="0"]
-position = Vector2(132, -144)
-
-[node name="pipe4" parent="roomtemplate" instance=ExtResource("8_o06sh")]
-head1_direction = 2
-
-[node name="Head1" parent="roomtemplate/pipe4" index="0"]
-position = Vector2(-108, -28)
-
-[node name="CollisionShape2D" parent="roomtemplate/pipe4/Head1" index="0"]
-position = Vector2(0, -4.25)
-shape = SubResource("RectangleShape2D_o06sh")
-
-[node name="Head2" parent="roomtemplate/pipe4" index="1"]
-position = Vector2(-12, 0)
-
-[node name="CollisionShape2D2" parent="roomtemplate/pipe4/Head2" index="0"]
-position = Vector2(0, -2.625)
-shape = SubResource("RectangleShape2D_2qfoi")
-
-[node name="Path2D" parent="roomtemplate/pipe4" index="2"]
-position = Vector2(-13.000001, -95.00001)
-scale = Vector2(1.0104166, 1.5999998)
-curve = SubResource("Curve2D_0h68g")
-
-[node name="PathFollow2D" parent="roomtemplate/pipe4/Path2D" index="0"]
-position = Vector2(-94.36016, 44.035484)
-
-[node name="pipe5" parent="roomtemplate" instance=ExtResource("8_o06sh")]
-head1_direction = 2
-head2_direction = 0
-
-[node name="Head1" parent="roomtemplate/pipe5" index="0"]
-position = Vector2(564, -100)
-
-[node name="CollisionShape2D" parent="roomtemplate/pipe5/Head1" index="0"]
-position = Vector2(0, 4)
-
-[node name="Head2" parent="roomtemplate/pipe5" index="1"]
-position = Vector2(564, 4)
-
-[node name="CollisionShape2D2" parent="roomtemplate/pipe5/Head2" index="0"]
-position = Vector2(0, -4)
-
-[node name="Path2D" parent="roomtemplate/pipe5" index="2"]
-position = Vector2(0, -1)
-curve = SubResource("Curve2D_as4y7")
-
-[node name="PathFollow2D" parent="roomtemplate/pipe5/Path2D" index="0"]
-position = Vector2(564, -96)
-
-[node name="testpipe" parent="roomtemplate" instance=ExtResource("8_o06sh")]
-position = Vector2(439, -304)
-head1_direction = 0
-head2_direction = 0
-
-[node name="CollisionShape2D" parent="roomtemplate/testpipe/Head1" index="0"]
-position = Vector2(-59, 40)
-
-[node name="CollisionShape2D2" parent="roomtemplate/testpipe/Head2" index="0"]
-position = Vector2(77, 40)
-
-[node name="Path2D" parent="roomtemplate/testpipe" index="2"]
-position = Vector2(-10, 23)
-curve = SubResource("Curve2D_qequa")
-
-[node name="PathFollow2D" parent="roomtemplate/testpipe/Path2D" index="0"]
-position = Vector2(-81, 16)
-
-[node name="pipe6" parent="roomtemplate" instance=ExtResource("8_o06sh")]
-position = Vector2(439, -304)
-head1_direction = 2
-
-[node name="Head1" parent="roomtemplate/pipe6" index="0"]
-position = Vector2(1221.7013, 778.6915)
-
-[node name="CollisionShape2D" parent="roomtemplate/pipe6/Head1" index="0"]
-position = Vector2(7.298706, 53.30847)
-
-[node name="CollisionShape2D2" parent="roomtemplate/pipe6/Head2" index="0"]
-position = Vector2(1157, 832)
-
-[node name="Path2D" parent="roomtemplate/pipe6" index="2"]
-curve = SubResource("Curve2D_trbjl")
-
-[node name="PathFollow2D" parent="roomtemplate/pipe6/Path2D" index="0"]
-position = Vector2(1229, 830)
-
 [node name="PiranhaSpawnLocations" type="Node2D" parent="roomtemplate"]
 script = ExtResource("9_nsu1e")
 
@@ -1898,110 +1744,252 @@ position = Vector2(-1711, 590)
 position = Vector2(-319, -252)
 next_room_path = "res://room scenes/otter_dimension.tscn"
 
-[node name="pipe8" parent="roomtemplate" instance=ExtResource("8_o06sh")]
+[node name="Pipes" type="Node2D" parent="roomtemplate"]
+
+[node name="pipe" parent="roomtemplate/Pipes" instance=ExtResource("8_o06sh")]
+head1_direction = 1
+head2_direction = 3
+
+[node name="Head1" parent="roomtemplate/Pipes/pipe" index="0"]
+position = Vector2(-76, -132)
+
+[node name="CollisionShape2D" parent="roomtemplate/Pipes/pipe/Head1" index="0"]
+position = Vector2(5, -0.4375)
+
+[node name="Head2" parent="roomtemplate/Pipes/pipe" index="1"]
+position = Vector2(28, -132)
+
+[node name="CollisionShape2D2" parent="roomtemplate/Pipes/pipe/Head2" index="0"]
+position = Vector2(-2.458334, 0)
+shape = SubResource("RectangleShape2D_esrvc")
+
+[node name="Path2D" parent="roomtemplate/Pipes/pipe" index="2"]
+position = Vector2(0, -132)
+scale = Vector2(1, 1e-05)
+curve = SubResource("Curve2D_8flci")
+
+[node name="PathFollow2D" parent="roomtemplate/Pipes/pipe/Path2D" index="0"]
+position = Vector2(-74, 0)
+
+[node name="pipe2" parent="roomtemplate/Pipes" instance=ExtResource("8_o06sh")]
+head1_direction = 0
+
+[node name="Head1" parent="roomtemplate/Pipes/pipe2" index="0"]
+position = Vector2(-156, -68)
+
+[node name="CollisionShape2D" parent="roomtemplate/Pipes/pipe2/Head1" index="0"]
+position = Vector2(0, -4)
+
+[node name="Head2" parent="roomtemplate/Pipes/pipe2" index="1"]
+position = Vector2(-156, -220)
+
+[node name="CollisionShape2D2" parent="roomtemplate/Pipes/pipe2/Head2" index="0"]
+position = Vector2(0, 4)
+
+[node name="Path2D" parent="roomtemplate/Pipes/pipe2" index="2"]
+curve = SubResource("Curve2D_ud8jp")
+
+[node name="PathFollow2D" parent="roomtemplate/Pipes/pipe2/Path2D" index="0"]
+position = Vector2(-156, -68)
+
+[node name="pipe3" parent="roomtemplate/Pipes" instance=ExtResource("8_o06sh")]
+head1_direction = 2
+head2_direction = 3
+
+[node name="Head1" parent="roomtemplate/Pipes/pipe3" index="0"]
+position = Vector2(132, -148)
+
+[node name="CollisionShape2D" parent="roomtemplate/Pipes/pipe3/Head1" index="0"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_pla4y")
+
+[node name="Head2" parent="roomtemplate/Pipes/pipe3" index="1"]
+position = Vector2(196, -84)
+
+[node name="CollisionShape2D2" parent="roomtemplate/Pipes/pipe3/Head2" index="0"]
+position = Vector2(-1.6666718, 2.6458359)
+
+[node name="Path2D" parent="roomtemplate/Pipes/pipe3" index="2"]
+curve = SubResource("Curve2D_wgmn7")
+
+[node name="PathFollow2D" parent="roomtemplate/Pipes/pipe3/Path2D" index="0"]
+position = Vector2(132, -144)
+
+[node name="pipe4" parent="roomtemplate/Pipes" instance=ExtResource("8_o06sh")]
+head1_direction = 2
+
+[node name="Head1" parent="roomtemplate/Pipes/pipe4" index="0"]
+position = Vector2(-108, -28)
+
+[node name="CollisionShape2D" parent="roomtemplate/Pipes/pipe4/Head1" index="0"]
+position = Vector2(0, -4.25)
+shape = SubResource("RectangleShape2D_o06sh")
+
+[node name="Head2" parent="roomtemplate/Pipes/pipe4" index="1"]
+position = Vector2(-12, 0)
+
+[node name="CollisionShape2D2" parent="roomtemplate/Pipes/pipe4/Head2" index="0"]
+position = Vector2(0, -2.625)
+shape = SubResource("RectangleShape2D_2qfoi")
+
+[node name="Path2D" parent="roomtemplate/Pipes/pipe4" index="2"]
+position = Vector2(-13.000001, -95.00001)
+scale = Vector2(1.0104166, 1.5999998)
+curve = SubResource("Curve2D_0h68g")
+
+[node name="PathFollow2D" parent="roomtemplate/Pipes/pipe4/Path2D" index="0"]
+position = Vector2(-94.36016, 44.035484)
+
+[node name="pipe5" parent="roomtemplate/Pipes" instance=ExtResource("8_o06sh")]
+head1_direction = 2
+head2_direction = 0
+
+[node name="Head1" parent="roomtemplate/Pipes/pipe5" index="0"]
+position = Vector2(564, -100)
+
+[node name="CollisionShape2D" parent="roomtemplate/Pipes/pipe5/Head1" index="0"]
+position = Vector2(0, 4)
+
+[node name="Head2" parent="roomtemplate/Pipes/pipe5" index="1"]
+position = Vector2(564, 4)
+
+[node name="CollisionShape2D2" parent="roomtemplate/Pipes/pipe5/Head2" index="0"]
+position = Vector2(0, -4)
+
+[node name="Path2D" parent="roomtemplate/Pipes/pipe5" index="2"]
+position = Vector2(0, -1)
+curve = SubResource("Curve2D_as4y7")
+
+[node name="PathFollow2D" parent="roomtemplate/Pipes/pipe5/Path2D" index="0"]
+position = Vector2(564, -96)
+
+[node name="testpipe" parent="roomtemplate/Pipes" instance=ExtResource("8_o06sh")]
+position = Vector2(439, -304)
+head1_direction = 0
+head2_direction = 0
+
+[node name="CollisionShape2D" parent="roomtemplate/Pipes/testpipe/Head1" index="0"]
+position = Vector2(-59, 40)
+
+[node name="CollisionShape2D2" parent="roomtemplate/Pipes/testpipe/Head2" index="0"]
+position = Vector2(77, 40)
+
+[node name="Path2D" parent="roomtemplate/Pipes/testpipe" index="2"]
+position = Vector2(-10, 23)
+curve = SubResource("Curve2D_qequa")
+
+[node name="PathFollow2D" parent="roomtemplate/Pipes/testpipe/Path2D" index="0"]
+position = Vector2(-81, 16)
+
+[node name="pipe6" parent="roomtemplate/Pipes" instance=ExtResource("8_o06sh")]
+position = Vector2(439, -304)
+head1_direction = 2
+
+[node name="Head1" parent="roomtemplate/Pipes/pipe6" index="0"]
+position = Vector2(1221.7013, 778.6915)
+
+[node name="CollisionShape2D" parent="roomtemplate/Pipes/pipe6/Head1" index="0"]
+position = Vector2(7.298706, 53.30847)
+
+[node name="CollisionShape2D2" parent="roomtemplate/Pipes/pipe6/Head2" index="0"]
+position = Vector2(1157, 832)
+
+[node name="Path2D" parent="roomtemplate/Pipes/pipe6" index="2"]
+curve = SubResource("Curve2D_trbjl")
+
+[node name="PathFollow2D" parent="roomtemplate/Pipes/pipe6/Path2D" index="0"]
+position = Vector2(1229, 830)
+
+[node name="pipe8" parent="roomtemplate/Pipes" instance=ExtResource("8_o06sh")]
 position = Vector2(804, 567)
 head1_direction = 0
 head2_direction = 1
 
-[node name="Head1" parent="roomtemplate/pipe8" index="0"]
+[node name="Head1" parent="roomtemplate/Pipes/pipe8" index="0"]
 position = Vector2(0, 9)
 
-[node name="Head2" parent="roomtemplate/pipe8" index="1"]
+[node name="Head2" parent="roomtemplate/Pipes/pipe8" index="1"]
 position = Vector2(-120, -75)
 
-[node name="Path2D" parent="roomtemplate/pipe8" index="2"]
+[node name="Path2D" parent="roomtemplate/Pipes/pipe8" index="2"]
 curve = SubResource("Curve2D_etv41")
 
-[node name="PathFollow2D" parent="roomtemplate/pipe8/Path2D" index="0"]
+[node name="PathFollow2D" parent="roomtemplate/Pipes/pipe8/Path2D" index="0"]
 position = Vector2(0, 9)
 
-[node name="pipe9" parent="roomtemplate" instance=ExtResource("8_o06sh")]
+[node name="pipe9" parent="roomtemplate/Pipes" instance=ExtResource("8_o06sh")]
 position = Vector2(684, 567)
 head1_direction = 0
 
-[node name="Head1" parent="roomtemplate/pipe9" index="0"]
+[node name="Head1" parent="roomtemplate/Pipes/pipe9" index="0"]
 position = Vector2(0, 9)
 
-[node name="Head2" parent="roomtemplate/pipe9" index="1"]
+[node name="Head2" parent="roomtemplate/Pipes/pipe9" index="1"]
 position = Vector2(0, -75)
 
-[node name="Path2D" parent="roomtemplate/pipe9" index="2"]
+[node name="Path2D" parent="roomtemplate/Pipes/pipe9" index="2"]
 curve = SubResource("Curve2D_q0aco")
 
-[node name="pipe7" parent="roomtemplate" instance=ExtResource("8_o06sh")]
+[node name="pipe7" parent="roomtemplate/Pipes" instance=ExtResource("8_o06sh")]
 position = Vector2(596, 568)
 head1_direction = 0
 head2_direction = 3
 
-[node name="Head1" parent="roomtemplate/pipe7" index="0"]
+[node name="Head1" parent="roomtemplate/Pipes/pipe7" index="0"]
 position = Vector2(-32, 2)
 
-[node name="CollisionShape2D" parent="roomtemplate/pipe7/Head1" index="0"]
+[node name="CollisionShape2D" parent="roomtemplate/Pipes/pipe7/Head1" index="0"]
 position = Vector2(0, 6)
 
-[node name="Head2" parent="roomtemplate/pipe7" index="1"]
+[node name="Head2" parent="roomtemplate/Pipes/pipe7" index="1"]
 position = Vector2(88, -76)
 
-[node name="Path2D" parent="roomtemplate/pipe7" index="2"]
+[node name="Path2D" parent="roomtemplate/Pipes/pipe7" index="2"]
 position = Vector2(-32, 0)
 curve = SubResource("Curve2D_e2evx")
 
-[node name="PipeIntersection" parent="roomtemplate" instance=ExtResource("18_q0aco")]
-position = Vector2(1316, 520)
-right_entrance_direction = 2
-up_entrance_direction = 3
-down_entrance_direction = 1
+[node name="PipeIntersection" parent="roomtemplate/Pipes" instance=ExtResource("21_ud8jp")]
+position = Vector2(-1115.9922, 516)
 
-[node name="CollisionShape2D" parent="roomtemplate/PipeIntersection/Intersection" index="0"]
-position = Vector2(-79, -4)
-
-[node name="CollisionShape2D" parent="roomtemplate/PipeIntersection/RightEntrance" index="0"]
-position = Vector2(-20, -4)
-
-[node name="Path2D" parent="roomtemplate/PipeIntersection/RightEntrance" index="1"]
+[node name="Path2D" parent="roomtemplate/Pipes/PipeIntersection/LeftPipe" index="2"]
 curve = SubResource("Curve2D_t10vw")
 
-[node name="PathFollow2D" parent="roomtemplate/PipeIntersection/RightEntrance/Path2D" index="0"]
-position = Vector2(-15, -4)
+[node name="PathFollow2D" parent="roomtemplate/Pipes/PipeIntersection/LeftPipe/Path2D" index="0"]
+position = Vector2(49.353394, 2.0491943)
 
-[node name="CollisionShape2D" parent="roomtemplate/PipeIntersection/UpEntrance" index="0"]
-position = Vector2(-81, -62)
-
-[node name="Path2D" parent="roomtemplate/PipeIntersection/UpEntrance" index="1"]
+[node name="Path2D" parent="roomtemplate/Pipes/PipeIntersection/UpPipe" index="2"]
 curve = SubResource("Curve2D_w7rfc")
 
-[node name="PathFollow2D" parent="roomtemplate/PipeIntersection/UpEntrance/Path2D" index="0"]
-position = Vector2(-80, -71)
+[node name="PathFollow2D" parent="roomtemplate/Pipes/PipeIntersection/UpPipe/Path2D" index="0"]
+position = Vector2(0, 0)
 
-[node name="CollisionShape2D" parent="roomtemplate/PipeIntersection/LeftEntrance" index="0"]
-position = Vector2(-139, -4)
-
-[node name="Path2D" parent="roomtemplate/PipeIntersection/LeftEntrance" index="1"]
+[node name="Path2D" parent="roomtemplate/Pipes/PipeIntersection/RightPipe" index="2"]
 curve = SubResource("Curve2D_xpisw")
 
-[node name="PathFollow2D" parent="roomtemplate/PipeIntersection/LeftEntrance/Path2D" index="0"]
-position = Vector2(-150, -5)
+[node name="PathFollow2D" parent="roomtemplate/Pipes/PipeIntersection/RightPipe/Path2D" index="0"]
+position = Vector2(-45.475098, -3.104126)
 
-[node name="CollisionShape2D" parent="roomtemplate/PipeIntersection/DownEntrance" index="0"]
-position = Vector2(-80, 53)
-
-[node name="Path2D" parent="roomtemplate/PipeIntersection/DownEntrance" index="1"]
+[node name="Path2D" parent="roomtemplate/Pipes/PipeIntersection/DownPipe" index="2"]
 curve = SubResource("Curve2D_mducc")
 
-[node name="PathFollow2D" parent="roomtemplate/PipeIntersection/DownEntrance/Path2D" index="0"]
-position = Vector2(-80, 62)
+[node name="PathFollow2D" parent="roomtemplate/Pipes/PipeIntersection/DownPipe/Path2D" index="0"]
+position = Vector2(5.6593018, -19.417786)
 
 [editable path="roomtemplate/TileMapLayer/water/valve"]
 [editable path="roomtemplate/TileMapLayer/water/valve/rising water"]
 [editable path="roomtemplate/TileMapLayer/water/valve/BrokenPipe"]
-[editable path="roomtemplate/pipe"]
-[editable path="roomtemplate/pipe2"]
-[editable path="roomtemplate/pipe3"]
-[editable path="roomtemplate/pipe4"]
-[editable path="roomtemplate/pipe5"]
-[editable path="roomtemplate/testpipe"]
-[editable path="roomtemplate/pipe6"]
-[editable path="roomtemplate/pipe8"]
-[editable path="roomtemplate/pipe9"]
-[editable path="roomtemplate/pipe7"]
-[editable path="roomtemplate/PipeIntersection"]
+[editable path="roomtemplate/Pipes/pipe"]
+[editable path="roomtemplate/Pipes/pipe2"]
+[editable path="roomtemplate/Pipes/pipe3"]
+[editable path="roomtemplate/Pipes/pipe4"]
+[editable path="roomtemplate/Pipes/pipe5"]
+[editable path="roomtemplate/Pipes/testpipe"]
+[editable path="roomtemplate/Pipes/pipe6"]
+[editable path="roomtemplate/Pipes/pipe8"]
+[editable path="roomtemplate/Pipes/pipe9"]
+[editable path="roomtemplate/Pipes/pipe7"]
+[editable path="roomtemplate/Pipes/PipeIntersection"]
+[editable path="roomtemplate/Pipes/PipeIntersection/LeftPipe"]
+[editable path="roomtemplate/Pipes/PipeIntersection/UpPipe"]
+[editable path="roomtemplate/Pipes/PipeIntersection/RightPipe"]
+[editable path="roomtemplate/Pipes/PipeIntersection/DownPipe"]

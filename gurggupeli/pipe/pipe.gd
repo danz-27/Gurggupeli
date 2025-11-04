@@ -31,18 +31,17 @@ const axis_for_direction: Dictionary[Direction, Vector2] = {
 	Direction.RIGHT: Vector2.RIGHT
 }
 
-const action_for_direction: Dictionary[Direction, StringName] = {
-	Direction.UP: "move_down",
-	Direction.DOWN: "move_up",
-	Direction.LEFT: "move_right",
-	Direction.RIGHT: "move_left"
+const vector_for_direction: Dictionary[Direction, Vector2] = {
+	Direction.UP: Vector2.DOWN,
+	Direction.DOWN: Vector2.UP,
+	Direction.LEFT: Vector2.RIGHT,
+	Direction.RIGHT: Vector2.LEFT
 }
 
 func _ready() -> void:
 	instance = self
 
 func _physics_process(_delta: float) -> void:
-	#print(GameTime.current_time)
 	if (last_entered + DURATION == GameTime.current_time):
 		can_enter = true
 	#print(can_enter)
@@ -51,25 +50,21 @@ func _physics_process(_delta: float) -> void:
 		can_enter = true
 		wait_for_release = false
 
-func _on_head_1_entered(player: Node2D, 
-						head_1: Area2D = head_1,
-						head_2: Area2D = head_2,
-						head1_direction: Direction = head1_direction, 
-						head2_direction: Direction = head2_direction, 
-						path: PathFollow2D = path
-						) -> void:
+func _on_head_1_entered(player: Node2D) -> void:
 	last_entered = GameTime.current_time
 	
 	while !can_enter:
 		await get_tree().physics_frame
 	
 	while head_1.overlaps_body(player):
-		if player.is_dashing():
+		if player.is_dashing() and !(player.dash_timer.time_left >= (player.dash_duration - player.dash_buffer_time)):
 			dash_direction = player.dash_direction
 		else:
 			dash_direction = Vector2.ZERO
-		if !wait_for_release and (Input.is_action_pressed(action_for_direction[head1_direction]) or (dash_direction == axis_for_direction[(head1_direction + 2) % 4])):
-			
+		
+		if !wait_for_release and Input.get_vector("move_left", "move_right", "move_up", "move_down") == vector_for_direction[head1_direction] or (dash_direction == vector_for_direction[(head2_direction + 2) % 4]):
+			player.dash_timer.stop()
+			player.on_dash_timer_timeout()
 			pipe_entered_velocity_length = player.velocity.length()
 			var pipe_travel_speed: float = pipe_entered_velocity_length / 75.0 + 5.0
 			
@@ -90,11 +85,12 @@ func _on_head_1_entered(player: Node2D,
 			can_enter = false
 			
 			wait_for_release = true
-			while Input.is_action_pressed(action_for_direction[head1_direction]):
+			while Input.get_vector("move_left", "move_right", "move_up", "move_down") == vector_for_direction[head1_direction]:
 				await get_tree().physics_frame
 			wait_for_release = false
 			return
 		await get_tree().physics_frame
+
 
 func _on_head_2_entered(player: Node2D) -> void:
 	path.progress_ratio = 0.0
@@ -104,11 +100,15 @@ func _on_head_2_entered(player: Node2D) -> void:
 		await get_tree().physics_frame
 	
 	while head_2.overlaps_body(player):
-		if player.is_dashing():
+		if player.is_dashing() and !(player.dash_timer.time_left >= (player.dash_duration - player.dash_buffer_time)):
 			dash_direction = player.dash_direction
+			print("wharrar2")
 		else:
 			dash_direction = Vector2.ZERO
-		if !wait_for_release and (Input.is_action_pressed(action_for_direction[head2_direction]) or (dash_direction == axis_for_direction[(head2_direction + 2) % 4])):
+		
+		if !wait_for_release and Input.get_vector("move_left", "move_right", "move_up", "move_down") == vector_for_direction[head2_direction] or (dash_direction == vector_for_direction[(head1_direction + 2) % 4]):
+			player.dash_timer.stop()
+			player.on_dash_timer_timeout()
 			pipe_entered_velocity_length = player.velocity.length()
 			var pipe_travel_speed: float = pipe_entered_velocity_length / 75.0 + 5.0
 			
@@ -130,7 +130,7 @@ func _on_head_2_entered(player: Node2D) -> void:
 			can_enter = false
 			
 			wait_for_release = true
-			while Input.is_action_pressed(action_for_direction[head2_direction]):
+			while Input.get_vector("move_left", "move_right", "move_up", "move_down") == vector_for_direction[head2_direction]:
 				await get_tree().physics_frame
 			wait_for_release = false
 			return

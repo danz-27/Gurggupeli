@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://d0mmva72vvmh" path="res://pipe/pipe.gd" id="1_bepn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxxyv"]
-size = Vector2(15.999995, 15.708341)
+size = Vector2(16, 15.999999)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxrpf"]
-size = Vector2(15.333339, 16.70833)
+size = Vector2(16.000004, 16)
 
 [node name="pipe" type="Node2D"]
 script = ExtResource("1_bepn3")
@@ -21,6 +21,7 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head1"]
 shape = SubResource("RectangleShape2D_yxxyv")
+debug_color = Color(0, 0.62380296, 0.5372975, 0.41960785)
 
 [node name="Head2" type="Area2D" parent="."]
 collision_layer = 0
@@ -29,6 +30,7 @@ monitorable = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Head2"]
 shape = SubResource("RectangleShape2D_hxrpf")
+debug_color = Color(0.9593739, 0, 0.52466154, 0.41960785)
 
 [node name="Path2D" type="Path2D" parent="."]
 

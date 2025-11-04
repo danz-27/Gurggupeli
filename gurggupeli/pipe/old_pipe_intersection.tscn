@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://co0eict3arxk0"]
+
+[ext_resource type="Script" uid="uid://fdoqveknthcm" path="res://pipe_intersection.gd" id="1_0qhj1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhysa"]
+size = Vector2(16.25, 16.25)
+
+[node name="PipeIntersection" type="Node2D"]
+script = ExtResource("1_0qhj1")
+
+[node name="Intersection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Intersection"]
+position = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_bhysa")
+debug_color = Color(0.5601269, 0.52765435, 0.5233596, 0.41960785)
+
+[node name="RightEntrance" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightEntrance"]
+position = Vector2(24, 0)
+shape = SubResource("RectangleShape2D_bhysa")
+debug_color = Color(0.96056336, 0, 0.5180459, 0.41960785)
+
+[node name="Path2D" type="Path2D" parent="RightEntrance"]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="RightEntrance/Path2D"]
+rotates = false
+loop = false
+
+[node name="UpEntrance" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpEntrance"]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_bhysa")
+debug_color = Color(0.37261373, 0.47746456, 1, 0.41960785)
+
+[node name="Path2D" type="Path2D" parent="UpEntrance"]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="UpEntrance/Path2D"]
+rotates = false
+loop = false
+
+[node name="LeftEntrance" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftEntrance"]
+position = Vector2(-24, 0)
+shape = SubResource("RectangleShape2D_bhysa")
+debug_color = Color(0, 0.6257758, 0.5200602, 0.41960785)
+
+[node name="Path2D" type="Path2D" parent="LeftEntrance"]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="LeftEntrance/Path2D"]
+rotates = false
+loop = false
+
+[node name="DownEntrance" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DownEntrance"]
+position = Vector2(0, 24)
+shape = SubResource("RectangleShape2D_bhysa")
+debug_color = Color(0.65573734, 0.5173106, 3.85046e-07, 0.41960785)
+
+[node name="Path2D" type="Path2D" parent="DownEntrance"]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="DownEntrance/Path2D"]
+rotates = false
+loop = false
+
+[connection signal="body_entered" from="Intersection" to="." method="_on_intersection_entered"]
+[connection signal="body_entered" from="RightEntrance" to="." method="_on_right_entrance_body_entered"]
+[connection signal="body_exited" from="RightEntrance" to="." method="_reset_intersection_enterance_duration"]
+[connection signal="body_entered" from="UpEntrance" to="." method="_on_up_entrance_body_entered"]
+[connection signal="body_exited" from="UpEntrance" to="." method="_reset_intersection_enterance_duration"]
+[connection signal="body_entered" from="LeftEntrance" to="." method="_on_left_entrance_body_entered"]
+[connection signal="body_exited" from="LeftEntrance" to="." method="_reset_intersection_enterance_duration"]
+[connection signal="body_entered" from="DownEntrance" to="." method="_on_down_entrance_body_entered"]
+[connection signal="body_exited" from="DownEntrance" to="." method="_reset_intersection_enterance_duration"]

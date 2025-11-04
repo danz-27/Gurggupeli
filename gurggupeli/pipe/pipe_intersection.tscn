@@ -1,88 +1,85 @@
-[gd_scene load_steps=3 format=3 uid="uid://co0eict3arxk0"]
+[gd_scene load_steps=2 format=3 uid="uid://pwbg6eqe5b86"]
 
-[ext_resource type="Script" uid="uid://fdoqveknthcm" path="res://pipe_intersection.gd" id="1_0qhj1"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhysa"]
-size = Vector2(16.25, 16.25)
+[ext_resource type="PackedScene" uid="uid://c757qtqwmyrb5" path="res://pipe/pipe.tscn" id="1_3vmip"]
 
 [node name="PipeIntersection" type="Node2D"]
-script = ExtResource("1_0qhj1")
 
-[node name="Intersection" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
+[node name="LeftPipe" parent="." instance=ExtResource("1_3vmip")]
+position = Vector2(-81.35341, -2.0491867)
+head1_direction = 1
+head2_direction = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Intersection"]
-position = Vector2(0.25, 0.25)
-shape = SubResource("RectangleShape2D_bhysa")
-debug_color = Color(0.5601269, 0.52765435, 0.5233596, 0.41960785)
+[node name="Head1" parent="LeftPipe" index="0"]
+position = Vector2(49.35341, 2.0491867)
 
-[node name="RightEntrance" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
+[node name="Head2" parent="LeftPipe" index="1"]
+position = Vector2(81.35341, 2.0491867)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightEntrance"]
-position = Vector2(24, 0)
-shape = SubResource("RectangleShape2D_bhysa")
-debug_color = Color(0.96056336, 0, 0.5180459, 0.41960785)
+[node name="CollisionShape2D2" parent="LeftPipe/Head2" index="0"]
+debug_color = Color(0.5373514, 0.53786546, 0.5253521, 0.41960785)
 
-[node name="Path2D" type="Path2D" parent="RightEntrance"]
+[node name="PathFollow2D" parent="LeftPipe/Path2D" index="0"]
+position = Vector2(49.35341, 2.0491867)
 
-[node name="PathFollow2D" type="PathFollow2D" parent="RightEntrance/Path2D"]
-rotates = false
-loop = false
+[node name="UpPipe" parent="." instance=ExtResource("1_3vmip")]
+position = Vector2(0, -32)
+head1_direction = 2
+head2_direction = 0
 
-[node name="UpEntrance" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
+[node name="Head1" parent="UpPipe" index="0"]
+position = Vector2(0, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UpEntrance"]
-position = Vector2(0, -24)
-shape = SubResource("RectangleShape2D_bhysa")
-debug_color = Color(0.37261373, 0.47746456, 1, 0.41960785)
+[node name="CollisionShape2D" parent="UpPipe/Head1" index="0"]
+debug_color = Color(0.36493704, 0.47931373, 1, 0.41960785)
 
-[node name="Path2D" type="Path2D" parent="UpEntrance"]
+[node name="Head2" parent="UpPipe" index="1"]
+position = Vector2(0, 32)
 
-[node name="PathFollow2D" type="PathFollow2D" parent="UpEntrance/Path2D"]
-rotates = false
-loop = false
+[node name="CollisionShape2D2" parent="UpPipe/Head2" index="0"]
+debug_color = Color(0.5160965, 0.5467629, 0.5188174, 0.41960785)
 
-[node name="LeftEntrance" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
+[node name="PathFollow2D" parent="UpPipe/Path2D" index="0"]
+position = Vector2(16, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftEntrance"]
-position = Vector2(-24, 0)
-shape = SubResource("RectangleShape2D_bhysa")
-debug_color = Color(0, 0.6257758, 0.5200602, 0.41960785)
+[node name="RightPipe" parent="." instance=ExtResource("1_3vmip")]
+position = Vector2(77.47505, 3.1041336)
+head2_direction = 1
 
-[node name="Path2D" type="Path2D" parent="LeftEntrance"]
+[node name="Head1" parent="RightPipe" index="0"]
+position = Vector2(-45.47505, -3.1041336)
 
-[node name="PathFollow2D" type="PathFollow2D" parent="LeftEntrance/Path2D"]
-rotates = false
-loop = false
+[node name="CollisionShape2D" parent="RightPipe/Head1" index="0"]
+debug_color = Color(0.9576873, 0, 0.5315944, 0.41960785)
 
-[node name="DownEntrance" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
+[node name="Head2" parent="RightPipe" index="1"]
+position = Vector2(-77.47505, -3.1041336)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DownEntrance"]
-position = Vector2(0, 24)
-shape = SubResource("RectangleShape2D_bhysa")
-debug_color = Color(0.65573734, 0.5173106, 3.85046e-07, 0.41960785)
+[node name="CollisionShape2D2" parent="RightPipe/Head2" index="0"]
+debug_color = Color(0.54409254, 0.53524804, 0.52507216, 0.41960785)
 
-[node name="Path2D" type="Path2D" parent="DownEntrance"]
+[node name="PathFollow2D" parent="RightPipe/Path2D" index="0"]
+position = Vector2(-45.47505, -3.1041336)
 
-[node name="PathFollow2D" type="PathFollow2D" parent="DownEntrance/Path2D"]
-rotates = false
-loop = false
+[node name="DownPipe" parent="." instance=ExtResource("1_3vmip")]
+position = Vector2(-5.659256, 51.417778)
+head1_direction = 0
 
-[connection signal="body_entered" from="Intersection" to="." method="_on_intersection_entered"]
-[connection signal="body_entered" from="RightEntrance" to="." method="_on_right_entrance_body_entered"]
-[connection signal="body_exited" from="RightEntrance" to="." method="_reset_intersection_enterance_duration"]
-[connection signal="body_entered" from="UpEntrance" to="." method="_on_up_entrance_body_entered"]
-[connection signal="body_exited" from="UpEntrance" to="." method="_reset_intersection_enterance_duration"]
-[connection signal="body_entered" from="LeftEntrance" to="." method="_on_left_entrance_body_entered"]
-[connection signal="body_exited" from="LeftEntrance" to="." method="_reset_intersection_enterance_duration"]
-[connection signal="body_entered" from="DownEntrance" to="." method="_on_down_entrance_body_entered"]
-[connection signal="body_exited" from="DownEntrance" to="." method="_reset_intersection_enterance_duration"]
+[node name="Head1" parent="DownPipe" index="0"]
+position = Vector2(5.659256, -19.417778)
+
+[node name="CollisionShape2D" parent="DownPipe/Head1" index="0"]
+debug_color = Color(0.6601702, 0.5146406, 1.92523e-07, 0.41960785)
+
+[node name="Head2" parent="DownPipe" index="1"]
+position = Vector2(5.659256, -51.417778)
+
+[node name="CollisionShape2D2" parent="DownPipe/Head2" index="0"]
+debug_color = Color(0.52772015, 0.54046625, 0.53322697, 0.41960785)
+
+[node name="PathFollow2D" parent="DownPipe/Path2D" index="0"]
+position = Vector2(5.659256, -19.417778)
+
+[editable path="LeftPipe"]
+[editable path="UpPipe"]
+[editable path="RightPipe"]
+[editable path="DownPipe"]

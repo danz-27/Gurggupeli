@@ -94,9 +94,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_text_delete"):
 		position = respawn_pos
 	health.health = clamp(health.health, 0, 15)
+	#print(dash_timer.is_stopped())
 	
-	#var testtest: Vector2i = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	#print(testtest)
 	if frozen:
 		return
 	
@@ -138,6 +137,7 @@ func _physics_process(delta: float) -> void:
 			
 		last_movement_direction = int(player_direction.x)
 	
+	# Idk this shit is for turning and stuff the one above didn't work
 	last_pressed_direction()
 	
 	# Movement
@@ -181,7 +181,7 @@ func _physics_process(delta: float) -> void:
 				velocity.x = lerpf(velocity.x, 0.0, velocity_weight)
 				
 			elif keep_dash_velocity:
-				if abs(velocity.x) < keep_dash_speed_threshold or is_on_wall() or (!is_on_floor() and has_player_direction_changed and !reverse_hyper_dash_leeway_time):
+				if abs(velocity.x) < keep_dash_speed_threshold or (is_on_wall() and !reverse_hyper_dash_leeway_time) or (!is_on_floor() and has_player_direction_changed and !reverse_hyper_dash_leeway_time):
 					deactivate_keep_dash_velocity()
 				else:
 					#print(velocity.x, "first velocity")
