@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://dk3j1qax4xoq6"]
+[gd_scene load_steps=69 format=4 uid="uid://dk3j1qax4xoq6"]
 
 [ext_resource type="Script" uid="uid://kfc3arvhbqwf" path="res://room scenes/main_room.gd" id="1_vvp1l"]
 [ext_resource type="Texture2D" uid="uid://bcpkm41dmh3tc" path="res://tilemaps/tiiliseinä tileset.png" id="2_nsu1e"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://dfgmgxnuxbvg6" path="res://room scenes/light.gd" id="16_ud8jp"]
 [ext_resource type="Texture2D" uid="uid://vm8gvap321st" path="res://random assets/light shape.png" id="17_etv41"]
 [ext_resource type="PackedScene" uid="uid://pwbg6eqe5b86" path="res://pipe/pipe_intersection.tscn" id="21_ud8jp"]
+[ext_resource type="PackedScene" uid="uid://cptupmeqygulr" path="res://rotta.tscn" id="21_wgmn7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mwhox"]
 texture = ExtResource("2_nsu1e")
@@ -1974,6 +1975,11 @@ curve = SubResource("Curve2D_mducc")
 
 [node name="PathFollow2D" parent="roomtemplate/Pipes/PipeIntersection/DownPipe/Path2D" index="0"]
 position = Vector2(5.6593018, -19.417786)
+
+[node name="Rats" type="Node2D" parent="roomtemplate"]
+
+[node name="Rotta" parent="roomtemplate/Rats" instance=ExtResource("21_wgmn7")]
+position = Vector2(75.244804, 4.491699)
 
 [editable path="roomtemplate/TileMapLayer/water/valve"]
 [editable path="roomtemplate/TileMapLayer/water/valve/rising water"]

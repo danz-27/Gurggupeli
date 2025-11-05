@@ -11,9 +11,7 @@ func _physics_process(_delta: float) -> void:
 			if area is SoftCollision:
 				if area.automatically_apply:
 					get_parent().velocity += area.global_position.direction_to(global_position) * push_force
-			await get_tree().physics_frame
 	else:
 		for area: Area2D in get_overlapping_areas():
 			if area is SoftCollision:
-				velocity_to_add += get_parent().velocity + area.global_position.direction_to(global_position) * push_force
-			await get_tree().physics_frame
+				velocity_to_add += area.global_position.direction_to(global_position) * area.push_force

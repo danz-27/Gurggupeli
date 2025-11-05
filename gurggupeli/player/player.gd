@@ -216,8 +216,9 @@ func _physics_process(delta: float) -> void:
 	
 	set_player_flip_h()
 	animate_player()
+	
+	# Add softcollision push after everything else
 	velocity += SoftCollision.velocity_to_add
-	print(SoftCollision.velocity_to_add)
 	SoftCollision.velocity_to_add = Vector2.ZERO
 	move_and_slide()
 
@@ -282,7 +283,7 @@ func is_jumping() -> bool:
 	return !water_jump_timer.is_stopped()
 
 func buffer_dash_inputs() -> void:
-	var buffered_dash_direction : Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var buffered_dash_direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	if buffered_dash_direction == Vector2.ZERO:
 		return
@@ -316,7 +317,7 @@ func while_in_water() -> void:
 			water_jump_timer.start(water_jump_time)
 		elif water_jump_timer.is_stopped():
 			#velocity = lerp(velocity, abs(velocity) * player_direction * WATER_SPEED, 0.15)
-			velocity = player_direction * WATER_SPEED
+			velocity = velocity.lerp(player_direction * WATER_SPEED, 0.5)
 	if water_jump_timer.is_stopped():
 		#velocity.y = lerpf(velocity.y, velocity.y - water_gravity, 0.01)
 		velocity.y += water_gravity
