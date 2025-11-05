@@ -4,8 +4,8 @@ class_name Player
 static var instance : Player
 
 # Movement & dash related
-const SPEED := 128.0
-const water_speed := SPEED / 2
+const SPEED: float = 128.0
+const WATER_SPEED: float = SPEED / 2
 var player_direction := Vector2.ZERO
 const acceleration := 10.0
 const friction := 15.0
@@ -26,7 +26,7 @@ var reset_velocity: bool = false
 
 var gravity := 15
 var fast_gravity := gravity * 2
-var water_gravity := gravity / 2.0
+var water_gravity := 5
 const max_fall_speed := 300
 
 var respawn_pos : Vector2
@@ -216,6 +216,9 @@ func _physics_process(delta: float) -> void:
 	
 	set_player_flip_h()
 	animate_player()
+	velocity += SoftCollision.velocity_to_add
+	print(SoftCollision.velocity_to_add)
+	SoftCollision.velocity_to_add = Vector2.ZERO
 	move_and_slide()
 
 func handle_jump() -> void:
@@ -312,8 +315,10 @@ func while_in_water() -> void:
 			jump()
 			water_jump_timer.start(water_jump_time)
 		elif water_jump_timer.is_stopped():
-			velocity += player_direction * water_speed 
+			#velocity = lerp(velocity, abs(velocity) * player_direction * WATER_SPEED, 0.15)
+			velocity = player_direction * WATER_SPEED
 	if water_jump_timer.is_stopped():
+		#velocity.y = lerpf(velocity.y, velocity.y - water_gravity, 0.01)
 		velocity.y += water_gravity
 
 func is_in_water() -> bool:

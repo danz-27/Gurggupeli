@@ -2,9 +2,18 @@ extends Area2D
 class_name SoftCollision
 
 @export var push_force: float = 5.0
+@export var automatically_apply: bool = true
+static var velocity_to_add: Vector2
 
 func _physics_process(_delta: float) -> void:
-	for area: Area2D in get_overlapping_areas():
-		if area is SoftCollision:
-			get_parent().velocity += area.global_position.direction_to(global_position) * push_force
-			area.get_parent().velocity += global_position.direction_to(area.global_position) * push_force
+	if automatically_apply:
+		for area: Area2D in get_overlapping_areas():
+			if area is SoftCollision:
+				if area.automatically_apply:
+					get_parent().velocity += area.global_position.direction_to(global_position) * push_force
+			await get_tree().physics_frame
+	else:
+		for area: Area2D in get_overlapping_areas():
+			if area is SoftCollision:
+				velocity_to_add += get_parent().velocity + area.global_position.direction_to(global_position) * push_force
+			await get_tree().physics_frame
