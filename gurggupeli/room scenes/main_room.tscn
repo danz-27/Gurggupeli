@@ -1964,6 +1964,9 @@ curve = SubResource("Curve2D_w7rfc")
 [node name="PathFollow2D" parent="roomtemplate/Pipes/PipeIntersection/UpPipe/Path2D" index="0"]
 position = Vector2(0, 0)
 
+[node name="RightPipe" parent="roomtemplate/Pipes/PipeIntersection" index="2"]
+head1_direction = 0
+
 [node name="Path2D" parent="roomtemplate/Pipes/PipeIntersection/RightPipe" index="2"]
 curve = SubResource("Curve2D_xpisw")
 

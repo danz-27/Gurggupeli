@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://brraufw4h63vr"]
+[gd_scene load_steps=26 format=3 uid="uid://brraufw4h63vr"]
 
 [ext_resource type="PackedScene" uid="uid://dvwl2b6vslbe4" path="res://player/player.tscn" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://cxtrxt1qv4pk2" path="res://main.gd" id="1_ycdy4"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://bqeqcg0ahq7md" path="res://maini folderi/room_handler.gd" id="15_2cqfq"]
 [ext_resource type="Script" uid="uid://blxoajrevqln2" path="res://ground_particles.gd" id="15_vivmo"]
 [ext_resource type="Script" uid="uid://dvumgycdotb3r" path="res://DashParticles.gd" id="16_2cqfq"]
+[ext_resource type="Script" uid="uid://dsmbkcdqitjdx" path="res://hyper_particles.gd" id="17_yaehf"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vivmo"]
 particle_flag_disable_z = true
@@ -53,6 +54,21 @@ gravity = Vector3(0, 0, 0)
 color = Color(0.079199985, 0.99, 0.09437995, 1)
 alpha_curve = SubResource("CurveTexture_yaehf")
 
+[sub_resource type="Curve" id="Curve_yaehf"]
+_data = [Vector2(0, 0), 0.0, 1.9897437, 0, 1, Vector2(0.5025773, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.0103626, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_074og"]
+curve = SubResource("Curve_yaehf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_074og"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 8.0
+spread = 1.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_074og")
+
 [node name="main" type="Node"]
 script = ExtResource("1_ycdy4")
 
@@ -86,7 +102,9 @@ texture = ExtResource("9_4c57u")
 texture_scale = 2.0
 script = ExtResource("10_dg77c")
 
-[node name="WaterParticleSystem" type="GPUParticles2D" parent="."]
+[node name="Particles" type="Node" parent="."]
+
+[node name="WaterParticleSystem" type="GPUParticles2D" parent="Particles"]
 modulate = Color(0.5649617, 0.5649616, 0.5649616, 1)
 position = Vector2(0, 3)
 emitting = false
@@ -98,10 +116,10 @@ trail_sections = 4
 process_material = ExtResource("11_dg77c")
 script = ExtResource("11_efxa6")
 
-[node name="LandingParticleSpawner" type="Node2D" parent="."]
+[node name="LandingParticleSpawner" type="Node2D" parent="Particles"]
 script = ExtResource("13_ycdy4")
 
-[node name="JumpParticles" type="GPUParticles2D" parent="."]
+[node name="JumpParticles" type="GPUParticles2D" parent="Particles"]
 z_index = 99
 position = Vector2(0, 3)
 emitting = false
@@ -110,7 +128,7 @@ trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_vivmo")
 script = ExtResource("3_w48qg")
 
-[node name="GroundParticles" type="GPUParticles2D" parent="."]
+[node name="GroundParticles" type="GPUParticles2D" parent="Particles"]
 position = Vector2(0, 3)
 emitting = false
 amount = 15
@@ -118,13 +136,21 @@ lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_2cqfq")
 script = ExtResource("15_vivmo")
 
-[node name="DashParticles" type="GPUParticles2D" parent="."]
+[node name="DashParticles" type="GPUParticles2D" parent="Particles"]
 emitting = false
 amount = 20
 lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_yaehf")
 script = ExtResource("16_2cqfq")
 
-[connection signal="just_jumped" from="player" to="JumpParticles" method="_on_player_just_jumped"]
+[node name="HyperParticles" type="GPUParticles2D" parent="Particles"]
+emitting = false
+amount = 15
+lifetime = 0.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_074og")
+script = ExtResource("17_yaehf")
+
+[connection signal="just_jumped" from="player" to="Particles/JumpParticles" method="_on_player_just_jumped"]
 
 [editable path="GUI"]

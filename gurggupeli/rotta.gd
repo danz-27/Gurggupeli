@@ -46,6 +46,10 @@ func _physics_process(_delta: float) -> void:
 					jump_up_next = true
 					
 			else:
+				if velocity.angle() > 0 and velocity.angle() < PI: #check if falling or going up and set aniamtion based on that
+					rotta.frame = 11
+				else:
+					rotta.frame = 9
 				grounded_frames = 0
 				
 			#if position.distance_to(Player.instance.global_position) > CHASE_THRESHOLD or raycast.is_colliding() or Player.instance.is_in_water():
