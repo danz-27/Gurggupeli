@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://xhca1v1elpg0"]
+
+[ext_resource type="Script" uid="uid://d23uxbnblst23" path="res://rope_physics.gd" id="1_j0fsk"]
+[ext_resource type="Script" uid="uid://cxvwqo2ivf8sq" path="res://player/camera_2d.gd" id="2_owrb4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owrb4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_owrb4"]
+height = 82.0
+
+[node name="RopePhysics" type="Node2D"]
+script = ExtResource("1_j0fsk")
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(6, 6)
+script = ExtResource("2_owrb4")
+metadata/_custom_type_script = "uid://cxvwqo2ivf8sq"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -64)
+shape = SubResource("RectangleShape2D_owrb4")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0, -48)
+node_a = NodePath("../StaticBody2D")
+node_b = NodePath("../RigidBody2D")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CapsuleShape2D_owrb4")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(0, 48)
+node_a = NodePath("../RigidBody2D")
+node_b = NodePath("../RigidBody2D2")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+position = Vector2(0, 96)
+shape = SubResource("CapsuleShape2D_owrb4")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(0, 144)
+node_a = NodePath("../RigidBody2D2")
+node_b = NodePath("../RigidBody2D3")
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+position = Vector2(0, 192)
+shape = SubResource("CapsuleShape2D_owrb4")
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2(0, 240)
+node_a = NodePath("../RigidBody2D3")
+node_b = NodePath("../RigidBody2D4")
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4"]
+position = Vector2(0, 288)
+shape = SubResource("CapsuleShape2D_owrb4")
