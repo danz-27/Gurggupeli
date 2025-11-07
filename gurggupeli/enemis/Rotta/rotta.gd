@@ -40,7 +40,7 @@ const ROAM_THRESHOLD: int = 1
 
 
 func _physics_process(_delta: float) -> void:
-	var player_pos: Vector2 = Player.instance.position
+	var player_pos: Vector2 = Player.instance.global_position
 	
 	match state:
 		STATE.CHASE:
@@ -74,7 +74,12 @@ func _physics_process(_delta: float) -> void:
 					rotta.frame = 9
 				grounded_frames = 0
 			
-			if position.distance_to(player_pos) > CHASE_THRESHOLD: # Tried some shit where if the rat is ontop it also switches or (position.angle_to(Vector2(1.0, -1.0)) < player_pos.angle() and position.angle_to(Vector2(-1.0, -1.0)) < player_pos.angle()):
+			if (
+				position.distance_to(player_pos) > CHASE_THRESHOLD# or 
+				# Check if rat is below or under the player to move the rat to right or left
+				#(position.angle_to(Vector2(1.0, -1.0)) < position.angle_to(player_pos) and position.angle_to(Vector2(-1.0, -1.0)) < position.angle_to(player_pos)) or 
+				#(position.angle_to(Vector2(1.0, 1.0)) < position.angle_to(player_pos) and position.angle_to(Vector2(-1.0, 1.0)) < position.angle_to(player_pos))
+				):
 				state_switch_timer += 1
 				if state_switch_timer == required_duration:
 					state = STATE.ROAM

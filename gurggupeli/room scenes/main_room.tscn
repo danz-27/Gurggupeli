@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://dk3j1qax4xoq6"]
+[gd_scene load_steps=72 format=4 uid="uid://dk3j1qax4xoq6"]
 
 [ext_resource type="Script" uid="uid://kfc3arvhbqwf" path="res://room scenes/main_room.gd" id="1_vvp1l"]
 [ext_resource type="Texture2D" uid="uid://bcpkm41dmh3tc" path="res://tilemaps/tiiliseinä tileset.png" id="2_nsu1e"]
@@ -20,8 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://cc0d8aqs7qqfw" path="res://random assets/light_assets.png" id="14_q0aco"]
 [ext_resource type="Script" uid="uid://dfgmgxnuxbvg6" path="res://room scenes/light.gd" id="16_ud8jp"]
 [ext_resource type="Texture2D" uid="uid://vm8gvap321st" path="res://random assets/light shape.png" id="17_etv41"]
+[ext_resource type="Script" uid="uid://24iqjqsdya03" path="res://room scenes/rats.gd" id="18_0h68g"]
 [ext_resource type="PackedScene" uid="uid://pwbg6eqe5b86" path="res://pipe/pipe_intersection.tscn" id="21_ud8jp"]
 [ext_resource type="PackedScene" uid="uid://bix0v4xhowapv" path="res://hideable_wall.tscn" id="22_0h68g"]
+[ext_resource type="PackedScene" uid="uid://xhca1v1elpg0" path="res://Ropes/rope_physics.tscn" id="24_as4y7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mwhox"]
 texture = ExtResource("2_nsu1e")
@@ -1659,7 +1661,7 @@ texture_scale = 2.1
 script = ExtResource("16_ud8jp")
 
 [node name="PointLight2D2" type="PointLight2D" parent="roomtemplate/TileMapLayer/Lights"]
-position = Vector2(440, -148)
+position = Vector2(438, -144)
 color = Color(0.9999998, 0.8356605, 0.43547353, 1)
 energy = 0.5
 range_layer_min = -2
@@ -1763,6 +1765,9 @@ position = Vector2(-1714, 586)
 
 [node name="Node2D20" type="Node2D" parent="roomtemplate/PiranhaSpawnLocations"]
 position = Vector2(-1711, 590)
+
+[node name="Rats" type="Node2D" parent="roomtemplate"]
+script = ExtResource("18_0h68g")
 
 [node name="OtterRoom" parent="roomtemplate" instance=ExtResource("9_vvp1l")]
 position = Vector2(-319, -252)
@@ -2022,10 +2027,6 @@ tile_map_data = PackedByteArray("AAA0AOL/AQAAAAAAAAA0AOP/AQABAAEAAAA1AOP/AQADAAE
 [node name="CollisionPolygon2D" parent="roomtemplate/ManholeCover/Hideable wall/Area2D" index="0"]
 polygon = PackedVector2Array(415.9903, -239.82777, 431.9903, -239.82777, 431.9903, -231.82777, 543.9903, -231.82777, 543.9903, -158.82777, 335.9903, -159.82777, 335.9903, -231.82777, 415.9903, -231.82777)
 
-[node name="Rats" type="Node2D" parent="roomtemplate"]
-
-[node name="Rats2" type="Node2D" parent="roomtemplate"]
-
 [node name="ManholeCover2" parent="roomtemplate" instance=ExtResource("10_wgmn7")]
 position = Vector2(244, -24)
 
@@ -2037,6 +2038,9 @@ tile_map_data = PackedByteArray("AAAcAP//AQAAAAAAAAAdAAAAAQABAAMAAAAdAAEAAQACAAI
 
 [node name="CollisionPolygon2D" parent="roomtemplate/ManholeCover2/Hideable wall/Area2D" index="0"]
 polygon = PackedVector2Array(240, -16, 256, -16, 256, -8, 320, -8, 320, 56, 240, 56)
+
+[node name="RopePhysics" parent="roomtemplate" instance=ExtResource("24_as4y7")]
+position = Vector2(414, -157)
 
 [editable path="roomtemplate/TileMapLayer/water/valve"]
 [editable path="roomtemplate/TileMapLayer/water/valve/rising water"]
