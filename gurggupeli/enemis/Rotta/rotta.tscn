@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cptupmeqygulr"]
 
-[ext_resource type="Script" uid="uid://b5w66ikrmckne" path="res://rotta.gd" id="1_3rxqv"]
+[ext_resource type="Script" uid="uid://b5w66ikrmckne" path="res://enemis/Rotta/rotta.gd" id="1_3rxqv"]
 [ext_resource type="Texture2D" uid="uid://tlc8vv0uqo1s" path="res://enemis/Rotta/Rat spritesheet.png" id="2_abuis"]
 [ext_resource type="PackedScene" uid="uid://bnka5lngeyuhl" path="res://enemis/hurtbox.tscn" id="3_av6fj"]
 [ext_resource type="PackedScene" uid="uid://buf5pdb22e0bo" path="res://enemis/entity_health.tscn" id="4_0g7rb"]
