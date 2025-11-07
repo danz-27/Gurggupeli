@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bix0v4xhowapv"]
+[gd_scene load_steps=7 format=3 uid="uid://bix0v4xhowapv"]
 
 [ext_resource type="Script" uid="uid://crqjbsq870rg" path="res://hideable_wall.gd" id="1_iv2bn"]
+[ext_resource type="Shader" uid="uid://b1rph4dtqljcw" path="res://hideable_wall.gdshader" id="2_6f3k0"]
 [ext_resource type="Texture2D" uid="uid://7fx0kfswq7vo" path="res://tilemaps/darkness new.png" id="2_50rxp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vvwa2"]
+shader = ExtResource("2_6f3k0")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_50rxp"]
 texture = ExtResource("2_50rxp")
@@ -257,11 +261,21 @@ terrain_set_0/terrain_0/color = Color(0.703155, 0.0104309, 0.34401, 1)
 sources/1 = SubResource("TileSetAtlasSource_50rxp")
 
 [node name="Hideable wall" type="Node2D"]
+light_mask = 16
 script = ExtResource("1_iv2bn")
 
 [node name="darkness" type="TileMapLayer" parent="."]
-light_mask = 2
+light_mask = 16
 z_index = 6
+material = SubResource("ShaderMaterial_vvwa2")
 use_parent_material = true
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 2, 0, 0, 0, 255, 255, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0, 255, 255, 255, 255, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 1, 0, 4, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_6f3k0")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
