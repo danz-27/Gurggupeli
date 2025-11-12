@@ -5,28 +5,15 @@ static var instance: RoomHandler
 
 var rooms: Array[Node]
 var entities: Array[Node]
-var loaded_room: Node2D
-var player_spawn_pos: Vector2
+
 func _ready() -> void:
 	instance = self
 
-func _set_current_room(room: Node, spawn_pos: Vector2) -> void:
-	loaded_room = room
-	player_spawn_pos = spawn_pos
-	
+func _change_room(next_room: Node2D, spawn_pos: Vector2) -> void:
 	for child in get_children():
-		rooms.append(child)
-	#for child in EntitiesContainer.instance.get_children():
-		#entities.append(child)
-
-func _physics_process(_delta: float) -> void:
-	if RoomTransition.instance.fade_complete:
-		for room in rooms:
-			room.queue_free()
-		rooms = []
-		for entity in EntitiesContainer.instance.get_children():
-			entity.queue_free()
-		entities = []
-		add_child.call_deferred(loaded_room)
-		Player.instance.position = player_spawn_pos
-		RoomTransition.instance.fade_complete = false
+		child.queue_free()
+	for entity in EntitiesContainer.instance.get_children():
+		entity.queue_free()
+	
+	add_child.call_deferred(next_room)
+	Player.instance.position = spawn_pos

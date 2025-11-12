@@ -10,7 +10,8 @@ var player_direction := Vector2.ZERO
 const acceleration := 10.0
 const friction := 15.0
 
-const DASH_SPEED := 250.0
+const DEFAULT_DASH_SPEED: float = 250.0
+var dash_speed := 250.0
 var dash_count := 1
 var max_dashes := 1
 var dash_multiplier: float = 1.2
@@ -46,11 +47,11 @@ var last_dashed: int
 var water_jump_time: float = 0.15
 var keep_dash_velocity := false
 var keep_dash_speed_weight: float = 0.01
-var keep_dash_speed: float = DASH_SPEED
+var keep_dash_speed: float = dash_speed
 var keep_dash_speed_threshold: float = SPEED / 4.0
 var reverse_hyper_dash_leeway_time: bool = false
 var last_activated_keep_dash_speed: int
-var keep_dash_speed_reset_interval: int = 40
+var keep_dash_speed_reset_interval: int = 100
 
 var is_jump_buffered: bool = false
 const jump_buffer_duration: float = 0.2
@@ -92,6 +93,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_focus_next"):
 		health.health += 3
 	if Input.is_action_just_pressed("ui_text_delete"):
+		velocity = Vector2.ZERO
 		position = respawn_pos
 	health.health = clamp(health.health, 0, 15)
 	#print(dash_timer.is_stopped())
@@ -101,6 +103,12 @@ func _physics_process(delta: float) -> void:
 	
 	first_time_in_air = !first_time_on_ground
 	is_crouching = false
+	if keep_dash_speed:
+		dash_speed += velocity.length() / 600.0
+		dash_speed = clamp(dash_speed, DEFAULT_DASH_SPEED, 9999)
+		keep_dash_speed = dash_speed
+	else:
+		dash_speed = DEFAULT_DASH_SPEED
 	
 	if (Input.is_action_just_pressed("jump") or is_jump_buffered):
 		handle_jump()
@@ -152,9 +160,9 @@ func _physics_process(delta: float) -> void:
 				buffer_dash_inputs()
 			else:
 				if keep_dash_velocity:
-					velocity = DASH_SPEED * dash_direction
+					velocity = dash_speed * dash_direction
 				else:
-					velocity = DASH_SPEED * dash_direction
+					velocity = dash_speed * dash_direction
 	
 		STATE.MOVING:
 			is_dash_buffered = false
@@ -331,6 +339,7 @@ func is_close_to_surface() -> bool:
 func deactivate_keep_dash_velocity() -> void:
 	if keep_dash_velocity:
 		keep_dash_velocity = false
+		dash_speed = DEFAULT_DASH_SPEED
 
 func buffer_jump_direction() -> void:
 	if player_direction != Vector2.ZERO:
