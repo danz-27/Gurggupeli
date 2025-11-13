@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://blj8f6rpgx5ol"]
+[gd_scene load_steps=6 format=3 uid="uid://blj8f6rpgx5ol"]
 
 [ext_resource type="Script" uid="uid://0hpevredtosp" path="res://pipe_connect_minigame.gd" id="1_olkef"]
 [ext_resource type="Texture2D" uid="uid://dekn2512yw5bn" path="res://pipe/pipe.png" id="2_41en3"]
 [ext_resource type="Texture2D" uid="uid://d1pe07qp6otxu" path="res://random assets/Gurggu_graffiti.png" id="3_fy6wm"]
+[ext_resource type="PackedScene" uid="uid://c757qtqwmyrb5" path="res://pipe/pipe.tscn" id="4_noq6a"]
+
+[sub_resource type="Curve2D" id="Curve2D_noq6a"]
 
 [node name="Pipe_connect_minigame" type="Node2D"]
 script = ExtResource("1_olkef")
@@ -15,6 +18,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 48, 48)
 
 [node name="starting_location" type="Sprite2D" parent="."]
+position = Vector2(41, 0)
 texture = ExtResource("2_41en3")
 hframes = 2
 vframes = 2
@@ -25,3 +29,16 @@ region_rect = Rect2(0, 0, 48, 48)
 [node name="hieno onnittelu" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("3_fy6wm")
+
+[node name="pipe" parent="." instance=ExtResource("4_noq6a")]
+
+[node name="Head1" parent="pipe" index="0"]
+position = Vector2(29, 0)
+
+[node name="Head2" parent="pipe" index="1"]
+position = Vector2(12, 0)
+
+[node name="Path2D" parent="pipe" index="2"]
+curve = SubResource("Curve2D_noq6a")
+
+[editable path="pipe"]
