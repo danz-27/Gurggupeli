@@ -1117,8 +1117,9 @@ texture = ExtResource("7_tfmeo")
 [node name="RoomExit" parent="roomtemplate" instance=ExtResource("5_i3vxi")]
 position = Vector2(-57.846466, 12.058212)
 next_room_path = "res://room scenes/main_room.tscn"
+enterance_direction = 2
 
 [node name="CollisionShape2D" parent="roomtemplate/RoomExit" index="0"]
-position = Vector2(2.846466, 0.9417877)
+position = Vector2(16.846466, -0.05821228)
 
 [editable path="roomtemplate/RoomExit"]

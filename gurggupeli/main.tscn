@@ -74,17 +74,17 @@ script = ExtResource("1_ycdy4")
 
 [node name="player" parent="." instance=ExtResource("1_7mycd")]
 z_index = 2
-position = Vector2(241.14142, -85.413086)
+position = Vector2(-1900.979, 604.8313)
 
 [node name="Dash particle" parent="." instance=ExtResource("6_efxa6")]
-
-[node name="Entities" type="Node2D" parent="."]
-script = ExtResource("13_w48qg")
 
 [node name="GUI" parent="." instance=ExtResource("12_dg77c")]
 
 [node name="GameTime" type="Node2D" parent="."]
 script = ExtResource("14_w48qg")
+
+[node name="Entities" type="Node2D" parent="."]
+script = ExtResource("13_w48qg")
 
 [node name="RoomHandler" type="Node2D" parent="."]
 script = ExtResource("15_2cqfq")

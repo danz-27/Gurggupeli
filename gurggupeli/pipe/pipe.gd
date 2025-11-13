@@ -62,10 +62,11 @@ func _on_head_1_entered(player: Node2D) -> void:
 		else:
 			dash_direction = Vector2.ZERO
 		
-		if !wait_for_release and Input.get_vector("move_left", "move_right", "move_up", "move_down") == vector_for_direction[head1_direction] or (dash_direction == vector_for_direction[(head2_direction + 2) % 4]):
+		if !wait_for_release and Input.get_vector("move_left", "move_right", "move_up", "move_down") == vector_for_direction[head1_direction] or (dash_direction == vector_for_direction[head1_direction]):
 			player.dash_timer.stop()
 			player.on_dash_timer_timeout()
 			pipe_entered_velocity_length = player.velocity.length()
+			#print(pipe_entered_velocity_length)
 			var pipe_travel_speed: float = pipe_entered_velocity_length / 75.0 + 5.0
 			
 			player.get_node("CollisionShape2D").set_deferred("disabled", true)
@@ -105,10 +106,11 @@ func _on_head_2_entered(player: Node2D) -> void:
 		else:
 			dash_direction = Vector2.ZERO
 		
-		if !wait_for_release and Input.get_vector("move_left", "move_right", "move_up", "move_down") == vector_for_direction[head2_direction] or (dash_direction == vector_for_direction[(head1_direction + 2) % 4]):
+		if !wait_for_release and Input.get_vector("move_left", "move_right", "move_up", "move_down") == vector_for_direction[head2_direction] or (dash_direction == vector_for_direction[head2_direction]):
 			player.dash_timer.stop()
 			player.on_dash_timer_timeout()
 			pipe_entered_velocity_length = player.velocity.length()
+			#print(pipe_entered_velocity_length)
 			var pipe_travel_speed: float = pipe_entered_velocity_length / 75.0 + 5.0
 			
 			path.progress_ratio = 1.0
@@ -135,16 +137,18 @@ func _on_head_2_entered(player: Node2D) -> void:
 			return
 		await get_tree().physics_frame
 
-func change_velocity(exit_direction: Direction, velocity: float, player:Node2D) -> void:
+func change_velocity(exit_direction: Direction, entered_velocity: float, player: Node2D) -> void:
 	# Special case for right and left because it wasn't as fast as expected
 	if exit_direction == Direction.LEFT or exit_direction == Direction.RIGHT:
 		# Add min enterance velocity
-		if velocity <= 50:
-			velocity += 50
-		velocity *= 3.0
+		if entered_velocity <= 50:
+			entered_velocity = 50
+		entered_velocity *= 3.0
 		player.coyote_time_wait_for_jump = true
 		player.coyote_time_start_time = GameTime.current_time
-	player.velocity = axis_for_direction[exit_direction] * velocity
-
+	
+	player.velocity = vector_for_direction[(exit_direction + 2) % 4] * entered_velocity * 2
+	#print(entered_velocity)
+	#print(player.velocity.length())
 func _reset_enterance_duration(_player: Node2D) -> void:
 	can_enter = true
