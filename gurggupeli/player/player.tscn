@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://b27o3x5qppu10" path="res://player/textures/Gurggu normal map spritesheet.png" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://cvaorv00txcd1" path="res://player/AfterimageSpawner.gd" id="4_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://buf5pdb22e0bo" path="res://enemis/entity_health.tscn" id="5_qjkh3"]
-[ext_resource type="Script" uid="uid://b1gy7oj6u3lgm" path="res://player/label.gd" id="6_boad6"]
+[ext_resource type="Script" path="res://player/label.gd" id="6_boad6"]
 [ext_resource type="Texture2D" uid="uid://bxgjf7m8oknvn" path="res://player/textures/Gurggu dash ready sprite sheet.png" id="6_hg6s5"]
-[ext_resource type="Script" uid="uid://de7d6j8elrthl" path="res://player/dash_blink.gd" id="8_rgyib"]
+[ext_resource type="Script" path="res://player/dash_blink.gd" id="8_rgyib"]
 [ext_resource type="PackedScene" uid="uid://dcfljpyeu8gif" path="res://enemis/soft_collision.tscn" id="11_2ieo8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ieo8"]

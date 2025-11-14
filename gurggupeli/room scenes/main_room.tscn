@@ -2047,7 +2047,7 @@ position = Vector2(414, -157)
 position = Vector2(1221, 457)
 
 [node name="ending_location" parent="Pipe_connect_minigame" index="0"]
-position = Vector2(120, 48)
+position = Vector2(240, 48)
 
 [node name="starting_location" parent="Pipe_connect_minigame" index="1"]
 position = Vector2(-24, 48)
@@ -2064,7 +2064,7 @@ head2_direction = 3
 position = Vector2(-35, 48)
 
 [node name="Head2" parent="Pipe_connect_minigame/pipe" index="1"]
-position = Vector2(132, 48)
+position = Vector2(252, 48)
 
 [node name="Path2D" parent="Pipe_connect_minigame/pipe" index="2"]
 z_index = 3

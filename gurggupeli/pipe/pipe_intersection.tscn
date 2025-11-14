@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://pwbg6eqe5b86"]
+[gd_scene load_steps=6 format=3 uid="uid://pwbg6eqe5b86"]
 
 [ext_resource type="PackedScene" uid="uid://c757qtqwmyrb5" path="res://pipe/pipe.tscn" id="1_3vmip"]
+
+[sub_resource type="Curve2D" id="Curve2D_bhysa"]
+
+[sub_resource type="Curve2D" id="Curve2D_0qhj1"]
+
+[sub_resource type="Curve2D" id="Curve2D_yq3s5"]
+
+[sub_resource type="Curve2D" id="Curve2D_3dcte"]
 
 [node name="PipeIntersection" type="Node2D"]
 
@@ -17,6 +25,9 @@ position = Vector2(81.35341, 2.0491867)
 
 [node name="CollisionShape2D2" parent="LeftPipe/Head2" index="0"]
 debug_color = Color(0.5373514, 0.53786546, 0.5253521, 0.41960785)
+
+[node name="Path2D" parent="LeftPipe" index="2"]
+curve = SubResource("Curve2D_bhysa")
 
 [node name="PathFollow2D" parent="LeftPipe/Path2D" index="0"]
 position = Vector2(49.35341, 2.0491867)
@@ -38,6 +49,9 @@ position = Vector2(0, 32)
 [node name="CollisionShape2D2" parent="UpPipe/Head2" index="0"]
 debug_color = Color(0.5160965, 0.5467629, 0.5188174, 0.41960785)
 
+[node name="Path2D" parent="UpPipe" index="2"]
+curve = SubResource("Curve2D_0qhj1")
+
 [node name="PathFollow2D" parent="UpPipe/Path2D" index="0"]
 position = Vector2(16, 0)
 
@@ -57,6 +71,9 @@ position = Vector2(-77.47505, -3.1041336)
 [node name="CollisionShape2D2" parent="RightPipe/Head2" index="0"]
 debug_color = Color(0.54409254, 0.53524804, 0.52507216, 0.41960785)
 
+[node name="Path2D" parent="RightPipe" index="2"]
+curve = SubResource("Curve2D_yq3s5")
+
 [node name="PathFollow2D" parent="RightPipe/Path2D" index="0"]
 position = Vector2(-45.47505, -3.1041336)
 
@@ -75,6 +92,9 @@ position = Vector2(5.659256, -51.417778)
 
 [node name="CollisionShape2D2" parent="DownPipe/Head2" index="0"]
 debug_color = Color(0.52772015, 0.54046625, 0.53322697, 0.41960785)
+
+[node name="Path2D" parent="DownPipe" index="2"]
+curve = SubResource("Curve2D_3dcte")
 
 [node name="PathFollow2D" parent="DownPipe/Path2D" index="0"]
 position = Vector2(5.659256, -19.417778)
