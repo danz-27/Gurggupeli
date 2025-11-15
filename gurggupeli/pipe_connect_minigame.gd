@@ -40,7 +40,6 @@ class agent:
 func calculate_if_possible(starting_position: Array[int], ending_position: Array[int], direction_coming_from: int) -> bool:
 	var agents: Array[agent]
 	var winning_positions_path: Array
-	var has_intersection: bool = false
 	var times_run: int = 0
 	var maximum_times_to_run: int = 200
 	agents.append(agent.new())
@@ -67,8 +66,6 @@ func calculate_if_possible(starting_position: Array[int], ending_position: Array
 				A.positions_path.append([A.positionX, A.positionY])
 				A.positions_path_in_pipe_numbers.append(A.positionX * pieces_in_y_direction + A.positionY)
 			elif pipes[A.positionX * pieces_in_y_direction + A.positionY].shape != "4-way_cross":
-				has_intersection = true
-			else:
 				#print("Was already in this tile")
 				agents.erase(A)
 				A = null
@@ -86,14 +83,14 @@ func calculate_if_possible(starting_position: Array[int], ending_position: Array
 				new_agent1.positionX = A.positionX
 				new_agent1.positionY = A.positionY
 				new_agent1.max_lifetime = A.max_lifetime
-				new_agent1.positions_path = A.positions_path
-				new_agent1.positions_path_in_pipe_numbers = A.positions_path_in_pipe_numbers
+				new_agent1.positions_path = A.positions_path.duplicate(true)
+				new_agent1.positions_path_in_pipe_numbers = A.positions_path_in_pipe_numbers.duplicate(true)
 				new_agent2.direction_going_to = (A.direction_going_to + 3) % 4
 				new_agent2.positionX = A.positionX
 				new_agent2.positionY = A.positionY
 				new_agent2.max_lifetime = A.max_lifetime
-				new_agent2.positions_path = A.positions_path
-				new_agent2.positions_path_in_pipe_numbers = A.positions_path_in_pipe_numbers
+				new_agent2.positions_path = A.positions_path.duplicate(true)
+				new_agent2.positions_path_in_pipe_numbers = A.positions_path_in_pipe_numbers.duplicate(true)
 				agents.append(new_agent1)
 				agents.append(new_agent2)
 				agents.erase(A)
@@ -171,6 +168,9 @@ func create_tiles() -> void:
 			pipe_instance.queue_free()
 		pipes.clear()
 		create_tiles()
+		
+func _activate() -> void:
+	create_tiles()
 
 func _ready() -> void:
 	create_tiles()
