@@ -91,7 +91,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Debug stuff
 	if Input.is_action_just_pressed("ui_focus_next"):
-		health.health += 3
+		_take_damage(3)
 	if Input.is_action_just_pressed("ui_text_delete"):
 		velocity = Vector2.ZERO
 		position = respawn_pos
@@ -377,6 +377,13 @@ func on_floor() -> void:
 func _die() -> void:
 	GUI.show_death_screen()
 	position = respawn_pos
+
+func _take_damage(damage_amount: int = 1) -> void:
+	health.health -= damage_amount
+	if health.health <= 0:
+		_die()
+	else:
+		position = respawn_pos
 
 func animate_player() -> void:
 	if velocity.x != 0:

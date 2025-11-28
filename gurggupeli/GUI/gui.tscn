@@ -19,13 +19,8 @@ offset = Vector2(33, 14)
 
 [node name="DeathScreen" type="TextureRect" parent="."]
 visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1600.0
-offset_bottom = -900.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 320.0
+offset_bottom = 180.0
 mouse_filter = 2
 texture = ExtResource("4_2xed4")
 script = ExtResource("5_2xed4")
@@ -50,7 +45,6 @@ offset_bottom = 310.0
 scale = Vector2(0.18439238, 0.17757043)
 
 [node name="LoadingScreen" parent="." instance=ExtResource("6_li1cn")]
-mouse_filter = 2
 
 [connection signal="pressed" from="DeathScreen/RespawnButton" to="DeathScreen" method="_on_respawn_button_pressed"]
 [connection signal="pressed" from="DeathScreen/ExitButton" to="DeathScreen" method="_on_exit_button_pressed"]

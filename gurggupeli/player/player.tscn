@@ -243,7 +243,6 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qhqgy")
 
 [node name="SpikeDetector" parent="." instance=ExtResource("12_ebec5")]
-collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeDetector"]
 position = Vector2(0, 3)

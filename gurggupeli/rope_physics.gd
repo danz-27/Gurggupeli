@@ -6,13 +6,15 @@ func _physics_process(_delta: float) -> void:
 	for segment: RigidBody2D in get_children().filter(func(node: Node2D) -> bool: return node is RigidBody2D):
 		for joint: PinJoint2D in segment.get_children().filter(func(node: Node2D) -> bool: return node is PinJoint2D):
 			points.append(joint.global_position - line2D.global_position)
+	@warning_ignore("untyped_declaration")
 	var smooth_points = catmull_rom_spline(points)
 	line2D.points = smooth_points
 
 
 func catmull_rom_spline(
-	_points: Array, resolution: int = 10, extrapolate_end_points = true
+	_points: Array, resolution: int = 10, extrapolate_end_points: bool = true
 ) -> PackedVector2Array:
+	@warning_ignore("untyped_declaration")
 	var points = _points.duplicate()
 	if extrapolate_end_points:
 		points.insert(0, points[0] - (points[1] - points[0]))
@@ -23,16 +25,24 @@ func catmull_rom_spline(
 		return points
 
 	for i in range(1, points.size() - 2):
+		@warning_ignore("untyped_declaration")
 		var p0 = points[i - 1]
+		@warning_ignore("untyped_declaration")
 		var p1 = points[i]
+		@warning_ignore("untyped_declaration")
 		var p2 = points[i + 1]
+		@warning_ignore("untyped_declaration")
 		var p3 = points[i + 2]
 
 		for t in range(0, resolution):
+			@warning_ignore("untyped_declaration")
 			var tt = t / float(resolution)
+			@warning_ignore("untyped_declaration")
 			var tt2 = tt * tt
+			@warning_ignore("untyped_declaration")
 			var tt3 = tt2 * tt
 
+			@warning_ignore("untyped_declaration")
 			var q = (
 				0.5
 				* (
