@@ -1,12 +1,7 @@
 extends TextureRect
 
-
 @onready var respawn_button := $RespawnButton
 @onready var exit_button := $ExitButton
-
-func _ready() -> void:
-	pass
-
 
 func _on_respawn_button_pressed() -> void:
 	visible = false

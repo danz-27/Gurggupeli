@@ -135,3 +135,6 @@ func _call_this() -> void:
 	if is_on_floor():
 		velocity += velocity.lerp(velocity.direction_to(roam_pos + Vector2.UP * 1000) * 200, 0.5)
 	#print(roam_pos)
+
+func _die() -> void:
+	get_parent().queue_free()

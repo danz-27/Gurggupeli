@@ -93,3 +93,6 @@ func recalculate_roam_pos() -> void:
 
 func is_in_water() -> bool:
 	return water_detector.has_overlapping_bodies()
+
+func _die() -> void:
+	get_parent().queue_free()

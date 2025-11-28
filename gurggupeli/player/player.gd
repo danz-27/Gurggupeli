@@ -376,6 +376,7 @@ func on_floor() -> void:
 
 func _die() -> void:
 	GUI.show_death_screen()
+	position = respawn_pos
 
 func animate_player() -> void:
 	if velocity.x != 0:

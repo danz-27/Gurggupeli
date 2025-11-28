@@ -16,7 +16,7 @@ func _physics_process(_delta: float) -> void:
 	
 	var overlapping_areas: Array[Area2D] = get_overlapping_areas()
 	
-	for area : Area2D in overlapping_areas:
+	for area: Area2D in overlapping_areas:
 		if area is EntityHealth:
 			var entity_health: EntityHealth = area
 			if get_parent() == entity_health.get_parent():

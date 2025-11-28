@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh7fcqrbcj7bb"]
+
+[ext_resource type="Script" uid="uid://803kgfkkl2v5" path="res://spike_detector.gd" id="1_535bt"]
+
+[node name="SpikeDetector" type="Area2D"]
+collision_mask = 16
+script = ExtResource("1_535bt")
