@@ -1,15 +1,16 @@
 extends CanvasLayer
 class_name GUI
 
-var scale_width : int = ProjectSettings.get_setting("display/window/size/viewport_width") / 320
-var scale_height : int = ProjectSettings.get_setting("display/window/size/viewport_height") / 180
+var scale_width: int = ProjectSettings.get_setting("display/window/size/viewport_width") / 320
+var scale_height: int = ProjectSettings.get_setting("display/window/size/viewport_height") / 180
 
-static var instance : GUI
+static var instance: GUI
 
 static func show_death_screen() -> void:
-	instance.death_screen.visible = true
+	if !instance.death_screen.visible:
+		instance.death_screen.visible = true
 
-@onready var death_screen := $DeathScreen
+@onready var death_screen: = $DeathScreen
 
 func _ready() -> void:
 	instance = self

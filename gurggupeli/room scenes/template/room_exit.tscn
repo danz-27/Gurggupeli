@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://brodvah2kdovd"]
+[gd_scene load_steps=4 format=3 uid="uid://brodvah2kdovd"]
 
 [ext_resource type="Script" uid="uid://bd7qacbg60ib0" path="res://room scenes/template/room_exit.gd" id="1_tg3bb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phe18"]
 size = Vector2(16.5, 16.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6b6y7"]
+size = Vector2(8, 8)
 
 [node name="RoomExit" type="Area2D"]
 collision_layer = 0
@@ -12,3 +15,8 @@ script = ExtResource("1_tg3bb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_phe18")
+
+[node name="SpawnPosition" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6b6y7")
+disabled = true
+debug_color = Color(0.857284, 0.006226579, 0.8822837, 0.41960785)

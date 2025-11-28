@@ -54,6 +54,7 @@ func _on_enter(player: Node2D) -> void:
 					while !RoomTransition.fade_complete:
 						await get_tree().physics_frame
 					RoomHandler.instance._change_room(exit_scene, spawn_location)
+					Player.instance.respawn_pos = child.get_child(1).global_position
 					
 				await get_tree().physics_frame
 			
