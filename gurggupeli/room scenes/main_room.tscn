@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://dk3j1qax4xoq6"]
+[gd_scene load_steps=55 format=4 uid="uid://dk3j1qax4xoq6"]
 
 [ext_resource type="Script" uid="uid://kfc3arvhbqwf" path="res://room scenes/main_room.gd" id="1_vvp1l"]
 [ext_resource type="Texture2D" uid="uid://bcpkm41dmh3tc" path="res://tilemaps/tiiliseinä tileset.png" id="2_nsu1e"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://hryjdy13d3t5" path="res://random assets/valve/valve.tscn" id="7_2qfoi"]
 [ext_resource type="PackedScene" uid="uid://cpd7uvkqcf58v" path="res://rising water/rising_water.tscn" id="7_o06sh"]
 [ext_resource type="PackedScene" uid="uid://crjqkjsi3uyms" path="res://background/parallax_background.tscn" id="7_pla4y"]
+[ext_resource type="PackedScene" uid="uid://pwbg6eqe5b86" path="res://pipe/pipe_intersection.tscn" id="7_qequa"]
 [ext_resource type="PackedScene" uid="uid://c757qtqwmyrb5" path="res://pipe/pipe.tscn" id="8_o06sh"]
 [ext_resource type="Texture2D" uid="uid://b602hxr82bv2" path="res://random assets/spike.png" id="8_s35yh"]
 [ext_resource type="PackedScene" uid="uid://cl0rlqpu7fbia" path="res://random assets/broken pipe/broken_pipe.tscn" id="9_2qfoi"]
@@ -1491,13 +1492,12 @@ shape = SubResource("RectangleShape2D_8flci")
 
 [node name="putkilo" type="TileMapLayer" parent="roomtemplate/TileMapLayer"]
 z_index = 4
-tile_map_data = PackedByteArray("AABFABYAAQABAAAAAABFABcAAQACAAEAAABGABcAAQAEAAEAAABHABcAAQADAAAAAABIABgAAQAGAAAAAABJABgAAQAEAAEAAABKABgAAQAEAAEAAABLABgAAQAEAAEAAABMABgAAQADAAEAAABMABcAAQACAAAAAABNABcAAQADAAEAAABNABYAAQAEAAAAAABNABUAAQAEAAAAAABNABQAAQAEAAAAAABNABMAAQAEAAAAAABNABIAAQAEAAAAAABNABEAAQAEAAAAAABNABAAAQACAAAAAABOABAAAQAEAAEAAABPABAAAQAEAAEAAABQABAAAQAEAAEAAABRABEAAQACAAEAAABSABEAAQAEAAEAAABTABEAAQADAAAAAABTABIAAQACAAEAAABUABIAAQADAAAAAABUABMAAQAEAAAAAABUABQAAQAEAAAAAABUABUAAQAEAAAAAABUABYAAQAEAAAAAABUABcAAQAEAAAAAABUABgAAQAEAAAAAABUABkAAQAEAAAAAABUABoAAQACAAEAAABVABoAAQAEAAEAAABWABoAAQADAAEAAABWABkAAQAEAAAAAABWABgAAQAEAAAAAABWABcAAQACAAAAAABXABcAAQAEAAEAAABYABcAAQADAAAAAABYABgAAQAEAAAAAABYABkAAQAEAAAAAABYABoAAQAEAAAAAABYABsAAQAEAAAAAABYABwAAQADAAEAAABXABwAAQACAAAAAABXAB0AAQADAAEAAABWAB0AAQAEAAEAAABVAB0AAQAEAAEAAABUAB0AAQACAAEAAABUABwAAQADAAAAAABTABwAAQAEAAEAAABSABkAAQAEAAAAAABSABgAAQADAAAAAABRABgAAQAEAAEAAABQABgAAQACAAAAAABQABkAAQAEAAAAAABQABoAAQAEAAAAAABQABsAAQAEAAAAAABQABwAAQAEAAAAAABQAB0AAQADAAEAAABPAB0AAQACAAAAAABPAB4AAQADAAEAAABOAB4AAQACAAAAAABOAB8AAQADAAEAAABNAB8AAQAEAAEAAABMAB8AAQACAAEAAABMAB4AAQAEAAAAAABMAB0AAQAEAAAAAABMABwAAQAEAAAAAABMABsAAQADAAAAAABLABsAAQAEAAEAAABKABwAAQADAAEAAABJABwAAQACAAAA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")
+tile_map_data = PackedByteArray("AABFABYAAQABAAAAAABFABcAAQACAAEAAABGABcAAQAEAAEAAABHABcAAQADAAAAAABIABgAAQAGAAAAAABJABgAAQAEAAEAAABKABgAAQAEAAEAAABLABgAAQAEAAEAAABMABgAAQADAAEAAABMABcAAQACAAAAAABNABcAAQADAAEAAABNABYAAQAEAAAAAABNABUAAQAEAAAAAABNABQAAQAEAAAAAABNABMAAQAEAAAAAABNABIAAQAEAAAAAABNABEAAQAEAAAAAABNABAAAQACAAAAAABOABAAAQAEAAEAAABPABAAAQAEAAEAAABQABAAAQAEAAEAAABRABEAAQACAAEAAABSABEAAQAEAAEAAABTABEAAQADAAAAAABTABIAAQACAAEAAABUABIAAQADAAAAAABUABMAAQAEAAAAAABUABQAAQAEAAAAAABUABUAAQAEAAAAAABUABYAAQAEAAAAAABUABcAAQAEAAAAAABUABgAAQAEAAAAAABUABkAAQAEAAAAAABUABoAAQACAAEAAABVABoAAQAEAAEAAABWABoAAQADAAEAAABWABkAAQAEAAAAAABWABgAAQAEAAAAAABWABcAAQACAAAAAABXABcAAQAEAAEAAABYABcAAQADAAAAAABYABgAAQAEAAAAAABYABkAAQAEAAAAAABYABoAAQAEAAAAAABYABsAAQAEAAAAAABYABwAAQADAAEAAABXABwAAQACAAAAAABXAB0AAQADAAEAAABWAB0AAQAEAAEAAABVAB0AAQAEAAEAAABUAB0AAQACAAEAAABUABwAAQADAAAAAABTABwAAQAEAAEAAABSABkAAQAEAAAAAABSABgAAQADAAAAAABRABgAAQAEAAEAAABQABgAAQACAAAAAABQABkAAQAEAAAAAABQABoAAQAEAAAAAABQABsAAQAEAAAAAABQABwAAQAEAAAAAABQAB0AAQADAAEAAABPAB0AAQACAAAAAABPAB4AAQADAAEAAABOAB4AAQACAAAAAABOAB8AAQADAAEAAABNAB8AAQAEAAEAAABMAB8AAQACAAEAAABMAB4AAQAEAAAAAABMAB0AAQAEAAAAAABMABwAAQAEAAAAAABMABsAAQADAAAAAABLABsAAQAEAAEAAABKABwAAQADAAEAAABJABwAAQACAAAA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AAD8//b/AQAEAAEAAAD9//b/AQAEAAEAAAD+//b/AQAEAAEAAAD///b/AQAEAAEAAAAAAPb/AQAEAAEAAAABAPb/AQAEAAEAAAACAPb/AQAEAAEAAAADAPb/AQADAAAAAAADAPf/AQAEAAAAAAADAPj/AQAEAAAAAAADAPn/AQAEAAAAAAADAPr/AQAEAAAAAAADAPv/AQAEAAAAAAADAPz/AQADAAEAAAACAPz/AQAEAAEAAAABAPz/AQAEAAEAAAAAAPz/AQAEAAEAAAD///z/AQAEAAEAAAD+//z/AQAEAAEAAAD9//z/AQAEAAEAAAD8//z/AQAEAAEAAAD7//z/AQACAAEAAAD7//v/AQADAAAAAAD6//v/AQAEAAEAAAASAPH/AQAEAAAAAAASAPL/AQAHAAAAAAASAPP/AQAEAAAAAAASAPT/AQADAAEAAAARAPT/AQAEAAEAAAAQAPT/AQACAAEAAAAQAPP/AQAEAAAAAAAQAPL/AQACAAAAAAARAPL/AQAEAAEAAAAOAPH/AQAEAAAAAAAOAPD/AQACAAAAAAAPAPD/AQAEAAEAAAAQAPD/AQAEAAEAAAARAPD/AQAEAAEAAAASAPD/AQADAAAAAAA=")
 tile_set = SubResource("TileSet_etv41")
 
 [node name="Pipes" type="Node2D" parent="roomtemplate/TileMapLayer/putkilo"]
 
 [node name="pipe" parent="roomtemplate/TileMapLayer/putkilo/Pipes" instance=ExtResource("8_o06sh")]
-unique_name_in_owner = true
 head1_direction = 2
 head2_direction = 0
 
@@ -1511,7 +1511,6 @@ position = Vector2(22, -132)
 z_index = 5
 
 [node name="pipe2" parent="roomtemplate/TileMapLayer/putkilo/Pipes" instance=ExtResource("8_o06sh")]
-unique_name_in_owner = true
 head2_direction = 0
 
 [node name="Head1" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe2" index="0"]
@@ -1522,6 +1521,91 @@ position = Vector2(190, -84)
 
 [node name="Path2D" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe2" index="2"]
 z_index = 5
+
+[node name="pipe3" parent="roomtemplate/TileMapLayer/putkilo/Pipes" instance=ExtResource("8_o06sh")]
+head2_direction = 3
+
+[node name="Head1" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe3" index="0"]
+position = Vector2(-108, -22)
+
+[node name="Head2" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe3" index="1"]
+position = Vector2(-12, 2)
+
+[node name="pipe4" parent="roomtemplate/TileMapLayer/putkilo/Pipes" instance=ExtResource("8_o06sh")]
+head1_direction = 1
+head2_direction = 3
+
+[node name="Head1" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe4" index="0"]
+position = Vector2(-156, -74)
+
+[node name="Head2" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe4" index="1"]
+position = Vector2(-156, -214)
+
+[node name="pipe5" parent="roomtemplate/TileMapLayer/putkilo/Pipes" instance=ExtResource("8_o06sh")]
+head1_direction = 1
+head2_direction = 1
+
+[node name="Head1" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe5" index="0"]
+position = Vector2(348, -266)
+
+[node name="Head2" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe5" index="1"]
+position = Vector2(516, -266)
+
+[node name="pipe6" parent="roomtemplate/TileMapLayer/putkilo/Pipes" instance=ExtResource("8_o06sh")]
+head2_direction = 1
+
+[node name="Head1" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe6" index="0"]
+position = Vector2(564, -94)
+
+[node name="Head2" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe6" index="1"]
+position = Vector2(564, -2)
+
+[node name="pipe7" parent="roomtemplate/TileMapLayer/putkilo/Pipes" instance=ExtResource("8_o06sh")]
+head2_direction = 3
+
+[node name="Head1" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe7" index="0"]
+position = Vector2(1596, 530)
+
+[node name="Head2" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe7" index="1"]
+position = Vector2(1668, 530)
+
+[node name="PipeIntersection" parent="roomtemplate/TileMapLayer/putkilo" instance=ExtResource("7_qequa")]
+
+[node name="Head1" parent="roomtemplate/TileMapLayer/putkilo/PipeIntersection/LeftPipe" index="0"]
+position = Vector2(-1174, 516)
+
+[node name="Head2" parent="roomtemplate/TileMapLayer/putkilo/PipeIntersection/LeftPipe" index="1"]
+position = Vector2(-1116, 516)
+
+[node name="Path2D" parent="roomtemplate/TileMapLayer/putkilo/PipeIntersection/LeftPipe" index="2"]
+position = Vector2(-1116, 516)
+
+[node name="Head1" parent="roomtemplate/TileMapLayer/putkilo/PipeIntersection/UpPipe" index="0"]
+position = Vector2(-1116, 482)
+
+[node name="Head2" parent="roomtemplate/TileMapLayer/putkilo/PipeIntersection/UpPipe" index="1"]
+position = Vector2(-1116, 516)
+
+[node name="Path2D" parent="roomtemplate/TileMapLayer/putkilo/PipeIntersection/UpPipe" index="2"]
+position = Vector2(-1116, 516)
+
+[node name="Head1" parent="roomtemplate/TileMapLayer/putkilo/PipeIntersection/RightPipe" index="0"]
+position = Vector2(-1082, 516)
+
+[node name="Head2" parent="roomtemplate/TileMapLayer/putkilo/PipeIntersection/RightPipe" index="1"]
+position = Vector2(-1116, 516)
+
+[node name="Path2D" parent="roomtemplate/TileMapLayer/putkilo/PipeIntersection/RightPipe" index="2"]
+position = Vector2(-1116, 516)
+
+[node name="Head1" parent="roomtemplate/TileMapLayer/putkilo/PipeIntersection/DownPipe" index="0"]
+position = Vector2(-1116, 550)
+
+[node name="Head2" parent="roomtemplate/TileMapLayer/putkilo/PipeIntersection/DownPipe" index="1"]
+position = Vector2(-1116, 516)
+
+[node name="Path2D" parent="roomtemplate/TileMapLayer/putkilo/PipeIntersection/DownPipe" index="2"]
+position = Vector2(-1116, 516)
 
 [node name="level_background" type="TileMapLayer" parent="roomtemplate/TileMapLayer"]
 modulate = Color(0.568973, 0.568973, 0.568973, 1)
@@ -1753,39 +1837,49 @@ polygon = PackedVector2Array(240, -16, 256, -16, 256, -8, 320, -8, 320, 56, 240,
 [node name="RopePhysics" parent="roomtemplate" instance=ExtResource("24_as4y7")]
 position = Vector2(414, -157)
 
-[node name="Pipe_connect_minigame" parent="." instance=ExtResource("25_qequa")]
+[node name="Pipe_connect_minigame" parent="roomtemplate" instance=ExtResource("25_qequa")]
 position = Vector2(1221, 457)
 
-[node name="ending_location" parent="Pipe_connect_minigame" index="0"]
+[node name="ending_location" parent="roomtemplate/Pipe_connect_minigame" index="0"]
 position = Vector2(240, 48)
 
-[node name="starting_location" parent="Pipe_connect_minigame" index="1"]
+[node name="starting_location" parent="roomtemplate/Pipe_connect_minigame" index="1"]
 position = Vector2(-24, 48)
 
-[node name="hieno onnittelu" parent="Pipe_connect_minigame" index="2"]
+[node name="hieno onnittelu" parent="roomtemplate/Pipe_connect_minigame" index="2"]
 z_index = 1
 position = Vector2(49, 33)
 
-[node name="pipe" parent="Pipe_connect_minigame" index="3"]
+[node name="pipe" parent="roomtemplate/Pipe_connect_minigame" index="3"]
 head1_direction = 1
 head2_direction = 3
 
-[node name="Head1" parent="Pipe_connect_minigame/pipe" index="0"]
+[node name="Head1" parent="roomtemplate/Pipe_connect_minigame/pipe" index="0"]
 position = Vector2(-35, 48)
 
-[node name="Head2" parent="Pipe_connect_minigame/pipe" index="1"]
+[node name="Head2" parent="roomtemplate/Pipe_connect_minigame/pipe" index="1"]
 position = Vector2(252, 48)
 
-[node name="Path2D" parent="Pipe_connect_minigame/pipe" index="2"]
+[node name="Path2D" parent="roomtemplate/Pipe_connect_minigame/pipe" index="2"]
 z_index = 3
 
 [editable path="roomtemplate/TileMapLayer/putkilo/Pipes/pipe"]
 [editable path="roomtemplate/TileMapLayer/putkilo/Pipes/pipe2"]
+[editable path="roomtemplate/TileMapLayer/putkilo/Pipes/pipe3"]
+[editable path="roomtemplate/TileMapLayer/putkilo/Pipes/pipe4"]
+[editable path="roomtemplate/TileMapLayer/putkilo/Pipes/pipe5"]
+[editable path="roomtemplate/TileMapLayer/putkilo/Pipes/pipe6"]
+[editable path="roomtemplate/TileMapLayer/putkilo/Pipes/pipe7"]
+[editable path="roomtemplate/TileMapLayer/putkilo/PipeIntersection"]
+[editable path="roomtemplate/TileMapLayer/putkilo/PipeIntersection/LeftPipe"]
+[editable path="roomtemplate/TileMapLayer/putkilo/PipeIntersection/UpPipe"]
+[editable path="roomtemplate/TileMapLayer/putkilo/PipeIntersection/RightPipe"]
+[editable path="roomtemplate/TileMapLayer/putkilo/PipeIntersection/DownPipe"]
 [editable path="roomtemplate/TileMapLayer/water/valve"]
 [editable path="roomtemplate/TileMapLayer/water/valve/rising water"]
 [editable path="roomtemplate/TileMapLayer/water/valve/BrokenPipe"]
 [editable path="roomtemplate/ManholeCover"]
 [editable path="roomtemplate/ManholeCover/Hideable wall"]
 [editable path="roomtemplate/ManholeCover2/Hideable wall"]
-[editable path="Pipe_connect_minigame"]
-[editable path="Pipe_connect_minigame/pipe"]
+[editable path="roomtemplate/Pipe_connect_minigame"]
+[editable path="roomtemplate/Pipe_connect_minigame/pipe"]
