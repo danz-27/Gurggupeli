@@ -39,8 +39,8 @@ const vector_for_direction: Dictionary[Direction, Vector2] = {
 }
 	
 func calclulate_path() -> void:
-	var starting_position: Vector2 = head_1.position
-	var ending_position: Vector2 = head_2.position
+	var starting_position: Vector2 = head_1.global_position
+	var ending_position: Vector2 = head_2.global_position
 	print(tilemap)
 	var starting_position_in_tilemap: Vector2i = tilemap.local_to_map(starting_position)
 	var current_position: Vector2 = starting_position_in_tilemap
@@ -51,16 +51,18 @@ func calclulate_path() -> void:
 	if !current_cell:
 		return
 	var directions: Array = current_cell.get_custom_data("pipe directions")
+	print(directions)
 	var direction_going_to: int
 	var return_other_direction: Dictionary = {
 		directions[0]: directions[1],
 		directions[1]: directions[0]
 	}
 	direction_going_to = return_other_direction[direction_coming_from]
+	points_in_path.global_position = Vector2i(0,0)
 	points_in_path.curve.clear_points()
-	points_in_path.curve.add_point(Vector2(starting_position))
+	points_in_path.curve.add_point(to_global(Vector2(starting_position)))
 	print(starting_position_in_tilemap, " ", direction_coming_from)
-	points_in_path.curve.add_point(Vector2(tilemap.map_to_local(current_position)))
+	points_in_path.curve.add_point(to_global(Vector2(tilemap.map_to_local(current_position))))
 	#current_cell.get_custom_data("pipe directions")
 	#tilemap.get_neighbor_cell(current_position, direction_going_to * 4)
 	iterations = 0
@@ -77,10 +79,12 @@ func calclulate_path() -> void:
 			current_position = tilemap.get_neighbor_cell(current_position, direction_going_to * 4)
 			current_cell = tilemap.get_cell_tile_data(current_position)
 			if current_cell:
-				points_in_path.curve.add_point(Vector2(tilemap.map_to_local(current_position)))
+				points_in_path.curve.add_point(to_global(Vector2(tilemap.map_to_local(current_position))))
 				direction_coming_from = (direction_going_to + 2) % 4
 		iterations += 1
 	points_in_path.curve.add_point(Vector2(ending_position))
+	print(points_in_path)
+	print(points_in_path.curve.get_baked_points())
 
 func _ready() -> void:
 	calclulate_path()

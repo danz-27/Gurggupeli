@@ -966,57 +966,67 @@ texture_region_size = Vector2i(24, 24)
 0:0/0/terrain = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -9, 5, -9, 5, -10, 8, -12, 12, -12, 12, -9, 8, -5, 8, 5, 12, 9, 12, 12, 8, 12, 5, 10, 5, 9, -12, 9)
 0:0/0/terrains_peering_bit/left_side = 0
+0:0/0/custom_data_0 = [2, 0]
 1:0/0 = 0
 1:0/0/terrain_set = 0
 1:0/0/terrain = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, 12, -9, -5, -10, -5, -12, -8, -12, -12, -9, -12, -5, -8, 5, -8, 9, -12, 12, -12, 12, -8, 10, -5, 9, -5, 9, 12)
 1:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0/custom_data_0 = [3, 1]
 2:0/0 = 0
 2:0/0/terrain_set = 0
 2:0/0/terrain = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, 12, -9, 8, -8, 5, -7, 3, -6, 1, -5, 0, -4, -2, -3, -3, -2, -4, 0, -5, 1, -6, 3, -7, 5, -8, 8, -9, 12, -9, 12, 9, 10, 10, 9, 12)
 2:0/0/terrains_peering_bit/right_side = 0
 2:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0/custom_data_0 = [1, 0]
 3:0/0 = 0
 3:0/0/terrain_set = 0
 3:0/0/terrain = 0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -9, -8, -9, -5, -8, -3, -7, -1, -6, 0, -5, 2, -4, 3, -3, 4, -2, 5, 0, 6, 1, 7, 3, 8, 5, 9, 8, 9, 12, -9, 12, -10, 10, -12, 9)
 3:0/0/terrains_peering_bit/bottom_side = 0
 3:0/0/terrains_peering_bit/left_side = 0
+3:0/0/custom_data_0 = [2, 1]
 4:0/0 = 0
 4:0/0/terrain_set = 0
 4:0/0/terrain = 0
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, -12, 9, -12, 9, 12, -9, 12)
 4:0/0/terrains_peering_bit/bottom_side = 0
 4:0/0/terrains_peering_bit/top_side = 0
+4:0/0/custom_data_0 = [3, 1]
 0:1/0 = 0
 0:1/0/terrain_set = 0
 0:1/0/terrain = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, 9, -5, 9, -5, 10, -8, 12, -12, 12, -12, 9, -8, 5, -8, -5, -12, -9, -12, -12, -8, -12, -5, -10, -5, -9, 12, -9)
 0:1/0/terrains_peering_bit/right_side = 0
+0:1/0/custom_data_0 = [2, 0]
 1:1/0 = 0
 1:1/0/terrain_set = 0
 1:1/0/terrain = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(9, -12, 9, 5, 10, 5, 12, 8, 12, 12, 9, 12, 5, 8, -5, 8, -9, 12, -12, 12, -12, 8, -10, 5, -9, 5, -9, -12)
 1:1/0/terrains_peering_bit/top_side = 0
+1:1/0/custom_data_0 = [3, 1]
 2:1/0 = 0
 2:1/0/terrain_set = 0
 2:1/0/terrain = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, 9, 8, 9, 5, 8, 3, 7, 1, 6, 0, 5, -2, 4, -3, 3, -4, 2, -5, 0, -6, -1, -7, -3, -8, -5, -9, -8, -9, -12, 9, -12, 10, -10, 12, -9)
 2:1/0/terrains_peering_bit/right_side = 0
 2:1/0/terrains_peering_bit/top_side = 0
+2:1/0/custom_data_0 = [3, 0]
 3:1/0 = 0
 3:1/0/terrain_set = 0
 3:1/0/terrain = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(9, -12, 9, -8, 8, -5, 7, -3, 6, -1, 5, 0, 4, 2, 3, 3, 2, 4, 0, 5, -1, 6, -3, 7, -5, 8, -8, 9, -12, 9, -12, -9, -10, -10, -9, -12)
 3:1/0/terrains_peering_bit/left_side = 0
 3:1/0/terrains_peering_bit/top_side = 0
+3:1/0/custom_data_0 = [3, 2]
 4:1/0 = 0
 4:1/0/terrain_set = 0
 4:1/0/terrain = 0
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, -9, 12, 9, -12, 9, -12, -9)
 4:1/0/terrains_peering_bit/right_side = 0
 4:1/0/terrains_peering_bit/left_side = 0
+4:1/0/custom_data_0 = [2, 0]
 5:0/0 = 0
 5:0/0/terrain_set = 0
 5:0/0/terrain = 0
@@ -1062,7 +1072,7 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 2
 terrain_set_0/terrain_0/name = "pipe 0"
 terrain_set_0/terrain_0/color = Color(1, 1, 1, 1)
-custom_data_layer_0/name = ""
+custom_data_layer_0/name = "pipe directions"
 custom_data_layer_0/type = 28
 sources/1 = SubResource("TileSetAtlasSource_2qfoi")
 
@@ -1488,29 +1498,27 @@ tile_set = SubResource("TileSet_etv41")
 
 [node name="pipe" parent="roomtemplate/TileMapLayer/putkilo/Pipes" instance=ExtResource("8_o06sh")]
 unique_name_in_owner = true
-position = Vector2(-1, -166)
-head1_direction = 1
-head2_direction = 1
+head1_direction = 2
+head2_direction = 0
 
 [node name="Head1" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe" index="0"]
-position = Vector2(-60, -2)
+position = Vector2(-70, -132)
 
 [node name="Head2" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe" index="1"]
-position = Vector2(-12, -2)
+position = Vector2(22, -132)
 
 [node name="Path2D" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe" index="2"]
 z_index = 5
 
 [node name="pipe2" parent="roomtemplate/TileMapLayer/putkilo/Pipes" instance=ExtResource("8_o06sh")]
 unique_name_in_owner = true
-position = Vector2(168, -72)
 head2_direction = 0
 
 [node name="Head1" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe2" index="0"]
-position = Vector2(-36, -70)
+position = Vector2(132, -142)
 
 [node name="Head2" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe2" index="1"]
-position = Vector2(22, -12)
+position = Vector2(190, -84)
 
 [node name="Path2D" parent="roomtemplate/TileMapLayer/putkilo/Pipes/pipe2" index="2"]
 z_index = 5
