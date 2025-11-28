@@ -1,13 +1,13 @@
 extends Node2D
 class_name Pipe
 
-static var instance: Pipe
-
 @export var head1_direction: Direction
 @export var head2_direction: Direction
 @onready var head_1: Area2D = $Head1
 @onready var head_2: Area2D = $Head2
 @onready var path: PathFollow2D = $Path2D/PathFollow2D
+@onready var points_in_path: Path2D = $Path2D
+@onready var tilemap: TileMapLayer = get_tree().root.get_node("/root/main/RoomHandler/MainRoom/roomtemplate/TileMapLayer/putkilo")
 
 var wait_for_release: bool = false
 var dash_direction: Vector2
@@ -18,10 +18,10 @@ var last_entered: int = GameTime.current_time
 var DURATION: int = 10
 
 enum Direction {
-	DOWN = 0,
-	UP = 2,
-	RIGHT = 3,
-	LEFT = 1
+	DOWN = 1,
+	UP = 3,
+	RIGHT = 0,
+	LEFT = 2
 }
 
 const axis_for_direction: Dictionary[Direction, Vector2] = {
@@ -37,9 +37,53 @@ const vector_for_direction: Dictionary[Direction, Vector2] = {
 	Direction.LEFT: Vector2.RIGHT,
 	Direction.RIGHT: Vector2.LEFT
 }
+	
+func calclulate_path() -> void:
+	var starting_position: Vector2 = head_1.position
+	var ending_position: Vector2 = head_2.position
+	print(tilemap)
+	var starting_position_in_tilemap: Vector2i = tilemap.local_to_map(starting_position)
+	var current_position: Vector2 = starting_position_in_tilemap
+	var direction_coming_from: int = head1_direction
+	var maximum_tiles: int = 20
+	var iterations: int
+	var current_cell: TileData = tilemap.get_cell_tile_data(starting_position_in_tilemap)
+	if !current_cell:
+		return
+	var directions: Array = current_cell.get_custom_data("pipe directions")
+	var direction_going_to: int
+	var return_other_direction: Dictionary = {
+		directions[0]: directions[1],
+		directions[1]: directions[0]
+	}
+	direction_going_to = return_other_direction[direction_coming_from]
+	points_in_path.curve.clear_points()
+	points_in_path.curve.add_point(Vector2(starting_position))
+	print(starting_position_in_tilemap, " ", direction_coming_from)
+	points_in_path.curve.add_point(Vector2(tilemap.map_to_local(current_position)))
+	#current_cell.get_custom_data("pipe directions")
+	#tilemap.get_neighbor_cell(current_position, direction_going_to * 4)
+	iterations = 0
+	while current_cell and iterations < maximum_tiles: #check if cell is empty
+		directions = current_cell.get_custom_data("pipe directions")
+		return_other_direction = {
+		directions[0]: directions[1],
+		directions[1]: directions[0]
+		}
+		print(directions)
+		print(current_position)
+		if direction_coming_from in directions:
+			direction_going_to = return_other_direction[direction_coming_from]
+			current_position = tilemap.get_neighbor_cell(current_position, direction_going_to * 4)
+			current_cell = tilemap.get_cell_tile_data(current_position)
+			if current_cell:
+				points_in_path.curve.add_point(Vector2(tilemap.map_to_local(current_position)))
+				direction_coming_from = (direction_going_to + 2) % 4
+		iterations += 1
+	points_in_path.curve.add_point(Vector2(ending_position))
 
 func _ready() -> void:
-	instance = self
+	calclulate_path()
 
 func _physics_process(_delta: float) -> void:
 	if (last_entered + DURATION == GameTime.current_time):

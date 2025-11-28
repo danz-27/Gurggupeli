@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c757qtqwmyrb5"]
+[gd_scene load_steps=5 format=3 uid="uid://c757qtqwmyrb5"]
 
 [ext_resource type="Script" uid="uid://d0mmva72vvmh" path="res://pipe/pipe.gd" id="1_bepn3"]
 
@@ -7,6 +7,8 @@ size = Vector2(16, 15.999999)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxrpf"]
 size = Vector2(16.000004, 16)
+
+[sub_resource type="Curve2D" id="Curve2D_hxrpf"]
 
 [node name="pipe" type="Node2D"]
 script = ExtResource("1_bepn3")
@@ -33,6 +35,7 @@ shape = SubResource("RectangleShape2D_hxrpf")
 debug_color = Color(0.9593739, 0, 0.52466154, 0.41960785)
 
 [node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_hxrpf")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 rotates = false

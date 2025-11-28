@@ -1,5 +1,6 @@
 extends Node2D
 
+var pipe_size: int = 24
 var pieces_in_x_direction: int = 10
 var pieces_in_y_direction: int = 5
 var pipes: Array = []
@@ -103,9 +104,9 @@ func calculate_if_possible(starting_position: Array[int], ending_position: Array
 			pipe_instance.has_agent = false
 			if pipe_instance.position_in_array in winning_positions_path:
 				pipe_instance.has_agent = true
-		print(winning_positions_path)
+		#print(winning_positions_path)
 		return true
-	print(times_run)
+	#print(times_run)
 	return false
 
 func check_for_win(starting_position: Array, ending_position: Array, direction_coming_from: int) -> bool:
@@ -114,7 +115,7 @@ func check_for_win(starting_position: Array, ending_position: Array, direction_c
 	var position_trying_to_go_to_x: int = starting_position[0] + move_position_to_direction[direction_coming_from][0]
 	var position_trying_to_go_to_y: int = starting_position[1] + move_position_to_direction[direction_coming_from][1]
 	path.curve.add_point(Vector2(head1.position))
-	path.curve.add_point(Vector2(position_trying_to_go_to_x*24, position_trying_to_go_to_y*24))
+	path.curve.add_point(Vector2(position_trying_to_go_to_x*pipe_size, position_trying_to_go_to_y*pipe_size))
 	var pipe_trying_to_go_to: Node = pipes[position_trying_to_go_to_x * pieces_in_y_direction + position_trying_to_go_to_y]
 	var iterations: int = 0
 	for _steps in maximum_steps:
@@ -131,21 +132,21 @@ func check_for_win(starting_position: Array, ending_position: Array, direction_c
 				#print("direction coming from: ", direction_coming_from)
 				position_trying_to_go_to_x += move_position_to_direction[pipe_trying_to_go_to.get_pipe_hole_directions()[iterations % 4]][0]
 				position_trying_to_go_to_y += move_position_to_direction[pipe_trying_to_go_to.get_pipe_hole_directions()[iterations % 4]][1]
-				path.curve.add_point(Vector2(position_trying_to_go_to_x*24, position_trying_to_go_to_y*24))
+				path.curve.add_point(Vector2(position_trying_to_go_to_x*pipe_size, position_trying_to_go_to_y*pipe_size))
 				#print("position after trying to move: ", position_trying_to_go_to_x, position_trying_to_go_to_y)
 				#print("Current pipe trying to get to: ", position_trying_to_go_to_x * 5 + position_trying_to_go_to_y)
 				if position_trying_to_go_to_x <= pieces_in_x_direction - 1 and position_trying_to_go_to_x >= 0 and position_trying_to_go_to_y >= 0 and position_trying_to_go_to_y <= pieces_in_y_direction - 1:
 					pipe_trying_to_go_to = pipes[position_trying_to_go_to_x * pieces_in_y_direction + position_trying_to_go_to_y]
 				if position_trying_to_go_to_x == ending_position[0] and position_trying_to_go_to_y == ending_position[1]:
 					path.curve.add_point(Vector2(head2.position))
-					print("connected!")
+					#print("connected!")
 					return true
 				break
 			iterations -= 1
 			
 	#print(position_trying_to_go_to_x, position_trying_to_go_to_y)
 	if position_trying_to_go_to_x == ending_position[0] and position_trying_to_go_to_y == ending_position[1]:
-		print("connected!")
+		#print("connected!")
 		return true
 	else:
 		return false
@@ -156,14 +157,12 @@ func create_tiles() -> void:
 			var pipe_piece: pipe = preload("res://pipe_minigame_pipe.tscn").instantiate()
 			add_child(pipe_piece)
 			pipe_piece.global_position = position
-			pipe_piece.position.x = i * 24
-			pipe_piece.position.y = j * 24
+			pipe_piece.position.x = i * pipe_size
+			pipe_piece.position.y = j * pipe_size
 			pipes.append(pipe_piece)
 			pipe_piece.update_position_in_array()
-	if await calculate_if_possible([-1, 2], [10, 2], 1):
-		print("possible")
-	else:
-		print("busted")
+	if !await calculate_if_possible([-1, 2], [10, 2], 1):
+		#print("busted")
 		for pipe_instance: pipe in pipes:
 			pipe_instance.queue_free()
 		pipes.clear()
