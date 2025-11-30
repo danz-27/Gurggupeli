@@ -87,6 +87,7 @@ enum STATE {
 
 var state: STATE = STATE.MOVING
 var frozen: bool = false
+var keep_moving: bool = true
 
 func _ready() -> void:
 	instance = self
@@ -100,14 +101,22 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		position = respawn_pos
 	health.health = clamp(health.health, 0, 15)
-	print(DeathScreen.instance.modulate.a)
+	#print(velocity.y)
 	
 	update_shaders()
 	
 	if frozen:
-		velocity.y += gravity
-		move_and_slide()
-		return
+		if keep_moving:
+			print(is_in_water())
+			if is_in_water():
+				velocity.y = 14 # idk random number that just seems fine to add when dying in water
+			else:
+				velocity.y += gravity
+			move_and_slide()
+			return
+		else:
+			return
+		
 	
 	first_time_in_air = !first_time_on_ground
 	is_crouching = false
@@ -425,15 +434,16 @@ func _respawn() -> void:
 	health.health = 5
 	# Give a bit of invisibility
 	health.iframes_timer.start(2.0)
-	frozen = false
 	position = respawn_pos
 	velocity = Vector2.ZERO
 	SoftCollision.velocity_to_add = Vector2.ZERO
 	health.monitoring = true
+	frozen = false
 
 func _take_damage(damage_amount: int = 1, teleport: bool = false) -> void:
 	health.health -= damage_amount
 	frozen = true
+	keep_moving = false
 	await create_tween().tween_property(gurggu, "modulate:a", 0.0, 0.5).set_ease(Tween.EASE_IN).finished
 	frozen = false
 	
@@ -442,6 +452,7 @@ func _take_damage(damage_amount: int = 1, teleport: bool = false) -> void:
 	elif teleport:
 		velocity = Vector2.ZERO
 		position = respawn_pos
+		keep_moving = true
 	await create_tween().tween_property(gurggu, "modulate:a", 1.0, 0.2).set_ease(Tween.EASE_OUT).finished
 
 func animate_player() -> void:
