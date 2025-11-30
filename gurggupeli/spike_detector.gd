@@ -1,14 +1,13 @@
 extends Area2D
 
 @onready var parent: CharacterBody2D = get_parent()
+@onready var hit_particles: GPUParticles2D = $"../HitParticles"
 
-func _physics_process(_delta: float) -> void:
-	var overlapping_bodies: Array[Node2D] = get_overlapping_bodies()
-	
-	for area in overlapping_bodies:
-		if parent is Player:
-			parent._take_damage()
-		elif parent.has_method("_die"):
-			parent._die()
-		else:
-			push_error("something hit the spikes but nothing was done?")
+func _spike_hit(_body: Node2D) -> void:
+	if parent is Player:
+		parent._take_damage(1, true)
+		hit_particles.emitting = true
+	elif parent.has_method("_die"):
+		parent._die()
+	else:
+		push_error("something hit the spikes but nothing was done?")

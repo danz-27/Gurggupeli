@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b602hxr82bv2" path="res://random assets/spike.png" id="8_s35yh"]
 [ext_resource type="PackedScene" uid="uid://cl0rlqpu7fbia" path="res://random assets/broken pipe/broken_pipe.tscn" id="9_2qfoi"]
 [ext_resource type="Texture2D" uid="uid://cyxmti5pufta7" path="res://random assets/sparkle_animation.png" id="9_esrvc"]
-[ext_resource type="Script" path="res://enemis/piranha/piranha_spawn_locations.gd" id="9_nsu1e"]
+[ext_resource type="Script" uid="uid://ue44lh2wtgwp" path="res://enemis/piranha/piranha_spawn_locations.gd" id="9_nsu1e"]
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="9_vvp1l"]
 [ext_resource type="PackedScene" uid="uid://crf0k4un1wh5m" path="res://manhole_cover.tscn" id="10_wgmn7"]
 [ext_resource type="Texture2D" uid="uid://cc0d8aqs7qqfw" path="res://random assets/light_assets.png" id="14_q0aco"]
@@ -1803,6 +1803,9 @@ script = ExtResource("18_0h68g")
 [node name="OtterRoom" parent="roomtemplate" instance=ExtResource("9_vvp1l")]
 position = Vector2(-319, -252)
 next_room_path = "res://room scenes/otter_dimension.tscn"
+
+[node name="SpawnPosition" parent="roomtemplate/OtterRoom" index="1"]
+position = Vector2(34, 8)
 
 [node name="ManholeCover" parent="roomtemplate" instance=ExtResource("10_wgmn7")]
 position = Vector2(421, -248)

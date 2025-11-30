@@ -6,12 +6,6 @@ var scale_height: int = ProjectSettings.get_setting("display/window/size/viewpor
 
 static var instance: GUI
 
-static func show_death_screen() -> void:
-	if !instance.death_screen.visible:
-		instance.death_screen.visible = true
-
-@onready var death_screen: = $DeathScreen
-
 func _ready() -> void:
 	instance = self
 	set_scale(Vector2(scale_width, scale_height))

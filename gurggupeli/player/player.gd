@@ -22,7 +22,7 @@ var is_dash_buffered := false
 var coyote_time_duration := 4
 var coyote_time_start_time: int
 var coyote_time_wait_for_jump: bool = false
-var velocity_lerp_reset_threshold := 0.1
+var velocity_lerp_reset_threshold: = 0.1
 var reset_velocity: bool = false
 
 var gravity := 15
@@ -56,6 +56,10 @@ var keep_dash_speed_reset_interval: int = 100
 var is_jump_buffered: bool = false
 const jump_buffer_duration: float = 0.2
 const jump_height_cut: float = 0.4
+var first_time_leaving_water: bool = false
+var first_time_activating: bool = true
+var last_left_water: int
+const WATER_JUMP_BUFFER_DURATION: int = 5
 
 # ----------------------
 var blinking_texture : Texture2D = preload("res://player/textures/Gurggu_spritesheet_eyes_closed.png")
@@ -91,12 +95,14 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Debug stuff
 	if Input.is_action_just_pressed("ui_focus_next"):
-		_take_damage(3)
+		health.health += 3
 	if Input.is_action_just_pressed("ui_text_delete"):
 		velocity = Vector2.ZERO
 		position = respawn_pos
 	health.health = clamp(health.health, 0, 15)
-	#print(dash_timer.is_stopped())
+	#print(is_in_water())
+	
+	animate_player()
 	
 	if frozen:
 		return
@@ -123,6 +129,8 @@ func _physics_process(delta: float) -> void:
 	if coyote_time_start_time + coyote_time_duration == GameTime.current_time:
 		coyote_time_wait_for_jump = false
 	
+	if last_left_water + WATER_JUMP_BUFFER_DURATION == GameTime.current_time:
+		first_time_leaving_water = false
 	#----#
 	
 	if !is_on_floor():
@@ -200,6 +208,7 @@ func _physics_process(delta: float) -> void:
 						reset_velocity = false
 						#nothing happens cuz player direction = 0
 					velocity.x = lerpf(velocity.x, sign(last_pressed_direction()) * keep_dash_speed, keep_dash_speed_weight)
+					velocity.x *= 0.99
 					#print(velocity.x)
 					#print(last_pressed_direction(), "why how is 0")
 					#print(keep_dash_speed_weight, "\n")
@@ -222,9 +231,13 @@ func _physics_process(delta: float) -> void:
 	# apply all environmental stuff after everything
 	if is_in_water():
 		while_in_water()
+	else:
+		if first_time_leaving_water and first_time_activating:
+			last_left_water = GameTime.current_time
+			first_time_activating = false
 	
 	set_player_flip_h()
-	animate_player()
+
 	
 	# Add softcollision push after everything else
 	velocity += SoftCollision.velocity_to_add
@@ -237,23 +250,35 @@ func handle_jump() -> void:
 		dash_timer.stop()
 		on_dash_timer_timeout()
 	
+	if first_time_leaving_water:
+		if is_dashing():
+			dash_timer.stop()
+			on_dash_timer_timeout()
+		jump()
+		reset_dashes()
+		first_time_leaving_water = false
+		return
+	
 	# Coyote time
 	if coyote_time_wait_for_jump:
 		jump()
-		just_jumped.emit()
 		coyote_time_wait_for_jump = false
 		return
 	
 	if is_on_floor() or is_in_water():
 		jump()
-		just_jumped.emit()
+		
 	else:
 		if !is_jump_buffered:
 			jump_buffer_timer.start(jump_buffer_duration)
 			is_jump_buffered = true
+	
+	
+	
 
 func jump() -> void:
-
+	just_jumped.emit()
+	water_jump_timer.start(water_jump_time)
 	velocity.y = jump_speed
 	
 	# If only pressed jump for a few frames in a buffer perform a small jump
@@ -270,7 +295,7 @@ func _on_jump_buffer_timeout() -> void:
 	is_jump_buffered = false
 
 func on_dash_timer_timeout() -> void:
-	if (is_jump_buffered or Input.is_action_just_pressed("jump")) and dash_direction != Vector2.DOWN and is_on_floor():
+	if (is_jump_buffered or Input.is_action_just_pressed("jump")) and dash_direction.x != 0.0 and (is_on_floor() or is_in_water() or first_time_leaving_water):
 		keep_dash_velocity = true
 		reset_velocity = true
 		# last time wavedashed to know when to disable it
@@ -315,21 +340,34 @@ func dash() -> void:
 	afterimage_spawner.make_afterimage()
 	afterimage_spawner.start_spawning()
 
+func reset_dashes() -> void:
+	dash_count = max_dashes
+	gurggu.material.set_shader_parameter("new", Color(0.263, 0.518, 0.016))
+
 func while_in_water() -> void:
-	keep_dash_velocity = false
-	coyote_time_wait_for_jump = true
+	first_time_leaving_water = true
+	first_time_activating = true
+
+	if Input.is_action_just_pressed("jump") or is_jump_buffered:
+		if is_dashing():
+			dash_timer.stop()
+			on_dash_timer_timeout()
+		is_jump_buffered = false
+		handle_jump()
+		
 	if dash_timer.is_stopped():
-		dash_count = max_dashes
-		gurggu.material.set_shader_parameter("new", Color(0.263, 0.518, 0.016))
-	if !is_dashing():
-		if Input.is_action_just_pressed("jump"):
-			jump()
-			water_jump_timer.start(water_jump_time)
-		elif water_jump_timer.is_stopped():
-			#velocity = lerp(velocity, abs(velocity) * player_direction * WATER_SPEED, 0.15)
-			velocity = velocity.lerp(player_direction * WATER_SPEED, 0.5)
+		reset_dashes()
+		
+	if water_jump_timer.is_stopped() and !is_dashing():
+		if abs(velocity.x) > SPEED:
+			velocity.x = lerpf(velocity.x, sign(velocity.x) * WATER_SPEED, 0.05)
+			#velocity.y -= 3
+			velocity.y = clamp(velocity.y, max_fall_speed, 15)
+		else:
+			deactivate_keep_dash_velocity()
+			velocity = velocity.lerp(player_direction * WATER_SPEED, 0.7)
+		
 	if water_jump_timer.is_stopped():
-		#velocity.y = lerpf(velocity.y, velocity.y - water_gravity, 0.01)
 		velocity.y += water_gravity
 
 func is_in_water() -> bool:
@@ -367,23 +405,35 @@ func on_floor() -> void:
 		deactivate_keep_dash_velocity()
 	
 	if dash_timer.is_stopped():
-		dash_count = max_dashes
-		gurggu.material.set_shader_parameter("new", Color(0.263, 0.518, 0.016))
+		reset_dashes()
 
 	if is_jump_buffered:
 		jump()
 		is_jump_buffered = false
 
 func _die() -> void:
-	GUI.show_death_screen()
+	frozen = true
+	DeathScreen.instance._show_death_screen()
+
+func _respawn() -> void:
+	health.health = 5
+	# Stop the timer to stop the flashing
+	health.iframes_timer.stop()
+	frozen = false
 	position = respawn_pos
 
-func _take_damage(damage_amount: int = 1) -> void:
+func _take_damage(damage_amount: int = 1, teleport: bool = false) -> void:
 	health.health -= damage_amount
+	frozen = true
+	await create_tween().tween_property(gurggu, "modulate:a", 0.0, 0.5).set_ease(Tween.EASE_IN).finished
+	frozen = false
+	
 	if health.health <= 0:
 		_die()
-	else:
+	elif teleport:
+		velocity = Vector2.ZERO
 		position = respawn_pos
+	await create_tween().tween_property(gurggu, "modulate:a", 1.0, 0.2).set_ease(Tween.EASE_OUT).finished
 
 func animate_player() -> void:
 	if velocity.x != 0:
@@ -411,6 +461,13 @@ func animate_player() -> void:
 				gurggu.material.set_shader_parameter("new", Color(0.161, 0.247, 0.129))
 			blinking_duration = 5
 			interval_between_blinks = randi_range(210, 300)
+	
+	if !health.iframes_timer.is_stopped():
+		gurggu.modulate.a = 0.75 if Engine.get_frames_drawn() % 2 == 0 else 1.0
+	else:
+		gurggu.modulate.a = 1.0
+	
+	gurggu.material.set_shader_parameter("modulate", gurggu.modulate * gurggu.self_modulate)
 
 func set_player_flip_h() -> void:
 	if last_pressed_direction() > 0:
