@@ -12,9 +12,10 @@ func _ready() -> void:
 	instance = self
 
 func _show_death_screen() -> void:
-	var show_screen: PropertyTweener = create_tween().tween_property(self, "modulate:a", 1.0, 0.5).set_ease(Tween.EASE_OUT)
+	set_visibility(true)
+	create_tween().tween_property(self, "modulate:a", 1.0, 0.2).set_ease(Tween.EASE_OUT)
 	
-	show_screen.finished.connect(set_visibility.bind(true))
+	#show_screen.finished.connect(set_visibility.bind(true))
 	#await show_screen.finished
 
 func _on_respawn_button_pressed() -> void:

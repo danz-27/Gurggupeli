@@ -100,11 +100,13 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		position = respawn_pos
 	health.health = clamp(health.health, 0, 15)
-	#print(is_in_water())
+	print(DeathScreen.instance.modulate.a)
 	
-	animate_player()
+	update_shaders()
 	
 	if frozen:
+		velocity.y += gravity
+		move_and_slide()
 		return
 	
 	first_time_in_air = !first_time_on_ground
@@ -236,8 +238,9 @@ func _physics_process(delta: float) -> void:
 			last_left_water = GameTime.current_time
 			first_time_activating = false
 	
+	
 	set_player_flip_h()
-
+	animate_player()
 	
 	# Add softcollision push after everything else
 	velocity += SoftCollision.velocity_to_add
@@ -412,15 +415,21 @@ func on_floor() -> void:
 		is_jump_buffered = false
 
 func _die() -> void:
+	# Stop the timer to stop the I-frames flashing
+	health.iframes_timer.stop()
+	health.monitoring = false
 	frozen = true
 	DeathScreen.instance._show_death_screen()
 
 func _respawn() -> void:
 	health.health = 5
-	# Stop the timer to stop the flashing
-	health.iframes_timer.stop()
+	# Give a bit of invisibility
+	health.iframes_timer.start(2.0)
 	frozen = false
 	position = respawn_pos
+	velocity = Vector2.ZERO
+	SoftCollision.velocity_to_add = Vector2.ZERO
+	health.monitoring = true
 
 func _take_damage(damage_amount: int = 1, teleport: bool = false) -> void:
 	health.health -= damage_amount
@@ -463,10 +472,11 @@ func animate_player() -> void:
 			interval_between_blinks = randi_range(210, 300)
 	
 	if !health.iframes_timer.is_stopped():
-		gurggu.modulate.a = 0.75 if Engine.get_frames_drawn() % 2 == 0 else 1.0
+		gurggu.modulate.g = 0.9 if Engine.get_frames_drawn() % 2 == 0 else 1.0
 	else:
-		gurggu.modulate.a = 1.0
-	
+		gurggu.modulate.g = 1.0
+
+func update_shaders() -> void:
 	gurggu.material.set_shader_parameter("modulate", gurggu.modulate * gurggu.self_modulate)
 
 func set_player_flip_h() -> void:
