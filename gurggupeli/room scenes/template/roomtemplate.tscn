@@ -2087,6 +2087,8 @@ tile_set = SubResource("TileSet_uj42j")
 z_index = 4
 tile_set = SubResource("TileSet_lb5op")
 
+[node name="putket tämän alle" type="Node2D" parent="TileMapLayer/putkilo"]
+
 [node name="level_background" type="TileMapLayer" parent="TileMapLayer"]
 modulate = Color(0.568973, 0.568973, 0.568973, 1)
 z_index = -1

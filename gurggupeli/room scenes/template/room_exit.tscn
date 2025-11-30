@@ -16,7 +16,7 @@ script = ExtResource("1_tg3bb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_phe18")
 
-[node name="SpawnPosition" type="CollisionShape2D" parent="."]
+[node name="RespawnPosition" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6b6y7")
 disabled = true
 debug_color = Color(0.857284, 0.006226579, 0.8822837, 0.41960785)

@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var rise_level_in_tiles: int
-@export var rise_speed_in_px_per_frame: float
+@export var rise_level_in_tiles: int = 1
+@export var rise_speed_in_px_per_frame: float = 0.1
 @onready var water := $water
 
 var activated := false
@@ -20,16 +20,16 @@ func _deactivate() -> void:
 	
 func _physics_process(_delta: float) -> void:
 	if activated:
-		if water.position.y > -rise_level_in_tiles:
+		if abs(water.position.y) < abs(rise_level_in_tiles):
 			saved_rise_level += rise_speed_in_px_per_frame
-			if saved_rise_level <= 1:
+			if abs(saved_rise_level) >= 1:
 				rounded_rise = floor(saved_rise_level)
 				water.position.y += rounded_rise
 				saved_rise_level -= rounded_rise
 	else:
 		if water.position.y != 0:
 			saved_rise_level -= rise_speed_in_px_per_frame
-			if saved_rise_level >= 1:
+			if abs(saved_rise_level) >= 1:
 				rounded_rise = floor(saved_rise_level)
 				water.position.y += rounded_rise
 				saved_rise_level -= rounded_rise
