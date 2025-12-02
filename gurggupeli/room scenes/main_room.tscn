@@ -12,12 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://crjqkjsi3uyms" path="res://background/parallax_background.tscn" id="7_pla4y"]
 [ext_resource type="PackedScene" uid="uid://pwbg6eqe5b86" path="res://pipe/pipe_intersection.tscn" id="7_qequa"]
 [ext_resource type="PackedScene" uid="uid://c757qtqwmyrb5" path="res://pipe/pipe.tscn" id="8_o06sh"]
-[ext_resource type="Texture2D" uid="uid://b602hxr82bv2" path="res://random assets/spike.png" id="8_s35yh"]
 [ext_resource type="PackedScene" uid="uid://cl0rlqpu7fbia" path="res://random assets/broken pipe/broken_pipe.tscn" id="9_2qfoi"]
 [ext_resource type="Texture2D" uid="uid://cyxmti5pufta7" path="res://random assets/sparkle_animation.png" id="9_esrvc"]
 [ext_resource type="Script" uid="uid://ue44lh2wtgwp" path="res://enemis/piranha/piranha_spawn_locations.gd" id="9_nsu1e"]
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="9_vvp1l"]
 [ext_resource type="PackedScene" uid="uid://crf0k4un1wh5m" path="res://manhole_cover.tscn" id="10_wgmn7"]
+[ext_resource type="Texture2D" uid="uid://dyrn2eup2xn5e" path="res://random assets/white spike.png" id="13_t10vw"]
 [ext_resource type="Texture2D" uid="uid://cc0d8aqs7qqfw" path="res://random assets/light_assets.png" id="14_q0aco"]
 [ext_resource type="PackedScene" uid="uid://ctf1m12u42fhp" path="res://room scenes/light.tscn" id="16_t10vw"]
 [ext_resource type="Script" uid="uid://dfgmgxnuxbvg6" path="res://room scenes/light.gd" id="16_ud8jp"]
@@ -1315,7 +1315,7 @@ terrain_set_0/terrain_0/color = Color(0.703155, 0.0104309, 0.34401, 1)
 sources/1 = SubResource("TileSetAtlasSource_xpisw")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mducc"]
-texture = ExtResource("8_s35yh")
+texture = ExtResource("13_t10vw")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
 0:0/0/modulate = Color(0.6901961, 0.6901961, 0.6901961, 1)
