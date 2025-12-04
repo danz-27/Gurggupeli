@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcpkm41dmh3tc"
-path="res://.godot/imported/tiiliseinä tileset.png-d6e82b31955dbbbb1b4fe33bd504a53d.ctex"
+uid="uid://dyrn2eup2xn5e"
+path="res://.godot/imported/white spike.png-614bee5465c51af6efa33be74a0972f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilemaps/tiiliseinä tileset.png"
-dest_files=["res://.godot/imported/tiiliseinä tileset.png-d6e82b31955dbbbb1b4fe33bd504a53d.ctex"]
+source_file="res://random assets/white spike.png"
+dest_files=["res://.godot/imported/white spike.png-614bee5465c51af6efa33be74a0972f6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcpkm41dmh3tc"
-path="res://.godot/imported/tiiliseinä tileset.png-d6e82b31955dbbbb1b4fe33bd504a53d.ctex"
+uid="uid://defsbd0nnkgjh"
+path="res://.godot/imported/Vignette.png-c307ca6e5eeea1b8302b667bd4919235.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilemaps/tiiliseinä tileset.png"
-dest_files=["res://.godot/imported/tiiliseinä tileset.png-d6e82b31955dbbbb1b4fe33bd504a53d.ctex"]
+source_file="res://random assets/Vignette.png"
+dest_files=["res://.godot/imported/Vignette.png-c307ca6e5eeea1b8302b667bd4919235.ctex"]
 
 [params]
 

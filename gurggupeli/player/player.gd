@@ -200,7 +200,7 @@ func _physics_process(delta: float) -> void:
 			
 			var velocity_weight: float = delta * (acceleration if player_direction.x else friction)
 			if reverse_hyper_dash_leeway_time:
-				keep_dash_speed_weight = 0.5 if is_on_floor() and reverse_hyper_dash_leeway_time and player_direction.x else 0.01
+				keep_dash_speed_weight = 1.0 if is_on_floor() and reverse_hyper_dash_leeway_time and player_direction.x else 0.01
 			
 			# Check for downleft and downright inputs and reset movement to zero with lerp, else move player
 			if (is_on_floor() and player_direction.y > 0) and player_direction.x:

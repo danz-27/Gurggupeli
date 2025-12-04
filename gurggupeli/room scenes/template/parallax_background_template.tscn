@@ -1,7 +1,15 @@
-[gd_scene format=3 uid="uid://ctgwq71dsbxtr"]
+[gd_scene format=3 uid="uid://dp8k64wold6vs"]
 
 [node name="ParallaxBackgroundTemplate" type="ParallaxBackground"]
 layer = -3
+
+[node name="foreground 1" type="ParallaxLayer" parent="."]
+z_index = -3
+motion_scale = Vector2(1.1, 1.1)
+
+[node name="foreground 2" type="ParallaxLayer" parent="."]
+z_index = -3
+motion_scale = Vector2(1.5, 1.5)
 
 [node name="background 0_1" type="ParallaxLayer" parent="."]
 z_index = -3

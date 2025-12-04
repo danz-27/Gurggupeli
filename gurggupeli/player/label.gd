@@ -1,4 +1,4 @@
 extends Label
 
 func _physics_process(_delta: float) -> void:
-	text = str(Player.instance.velocity.length(), "\n", Player.instance.health.health, "\n", Player.instance.last_pressed_direction())
+	text = str(Player.instance.velocity.length(), "\n", Player.instance.health.health, "\n", Player.instance.is_on_floor())
