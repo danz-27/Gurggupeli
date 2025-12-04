@@ -200,7 +200,7 @@ func _physics_process(delta: float) -> void:
 			
 			var velocity_weight: float = delta * (acceleration if player_direction.x else friction)
 			if reverse_hyper_dash_leeway_time:
-				keep_dash_speed_weight = 1.0 if is_on_floor() and reverse_hyper_dash_leeway_time and player_direction.x else 0.01
+				keep_dash_speed_weight = 0.5 if is_on_floor() and reverse_hyper_dash_leeway_time and player_direction.x else 0.01
 			
 			# Check for downleft and downright inputs and reset movement to zero with lerp, else move player
 			if (is_on_floor() and player_direction.y > 0) and player_direction.x:
@@ -284,9 +284,6 @@ func handle_jump() -> void:
 		if !is_jump_buffered:
 			jump_buffer_timer.start(jump_buffer_duration)
 			is_jump_buffered = true
-	
-	
-	
 
 func jump() -> void:
 	just_jumped.emit()
@@ -401,12 +398,8 @@ func last_pressed_direction() -> float:
 	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if direction.x != 0.0:
 		last_pressed_input = direction.x
-	if direction == Vector2.ZERO:
-		#print(last_pressed_input)
-		return last_pressed_input
-	else:
-		#print(direction)
-		return direction.x
+	
+	return last_pressed_input
 
 func on_floor() -> void:
 	if first_time_on_ground:

@@ -1,9 +1,18 @@
 extends Node2D
 @onready var line2D: Line2D = $Line2D
 
+func _ready() -> void:
+	for segment: RigidBody2D in get_children().filter(func(node: Node2D) -> bool: return node is RigidBody2D):
+		segment.linear_damp = 3.0
+		#segment.linear_damp_mode = RigidBody2D.DAMP_MODE_REPLACE
+
 func _physics_process(_delta: float) -> void:
 	var points: Array[Vector2] = []
 	for segment: RigidBody2D in get_children().filter(func(node: Node2D) -> bool: return node is RigidBody2D):
+		#segment.linear_velocity = segment.linear_velocity.clamp(Vector2(0.0, 0.0), Vector2(30.0, 30.0)) 
+		if segment.linear_velocity.length() >= 40:
+			segment.linear_velocity.x = 40
+			segment.linear_velocity.y = 40
 		for joint: PinJoint2D in segment.get_children().filter(func(node: Node2D) -> bool: return node is PinJoint2D):
 			points.append(joint.global_position - line2D.global_position)
 	@warning_ignore("untyped_declaration")
