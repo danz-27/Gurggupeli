@@ -3281,7 +3281,6 @@ enterance_direction = 1
 door_ID = 1
 
 [node name="Hideable wall" parent="roomtemplate" instance=ExtResource("11_gvb8v")]
-visible = false
 z_index = 1
 
 [node name="darkness" parent="roomtemplate/Hideable wall" index="0"]

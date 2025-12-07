@@ -471,10 +471,10 @@ func animate_player() -> void:
 	if interval_between_blinks != 0:
 		interval_between_blinks -= 1
 	else:
-		gurggu.set_texture(blinking_texture)
+		gurggu.texture.set_diffuse_texture(blinking_texture)
 		blinking_duration -= 1
 		if blinking_duration == 0:
-			gurggu.set_texture(default_texture)
+			gurggu.texture.set_diffuse_texture(default_texture)
 			if dash_count > 0:
 				gurggu.material.set_shader_parameter("new", Color(0.263, 0.518, 0.016))
 			else:
