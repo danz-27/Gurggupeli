@@ -130,6 +130,7 @@ func _on_head_1_entered(player: Node2D) -> void:
 			player.get_node("CollisionShape2D").set_deferred("disabled", true)
 			player.gurggu.visible = false
 			player.frozen = true
+			player.keep_moving = false
 			while path.progress_ratio < 1.0:
 				path.progress += pipe_travel_speed
 				player.position = path.global_position
@@ -141,6 +142,7 @@ func _on_head_1_entered(player: Node2D) -> void:
 			player.get_node("CollisionShape2D").set_deferred("disabled", false)
 			player.gurggu.visible = true
 			player.frozen = false
+			player.keep_moving = true
 			can_enter = false
 			
 			wait_for_release = true
@@ -175,6 +177,7 @@ func _on_head_2_entered(player: Node2D) -> void:
 			player.get_node("CollisionShape2D").set_deferred("disabled", true)
 			player.gurggu.visible = false
 			player.frozen = true
+			player.keep_moving = false
 			while path.progress_ratio > 0.0:
 				path.progress -= pipe_travel_speed
 				player.position = path.global_position
@@ -186,6 +189,7 @@ func _on_head_2_entered(player: Node2D) -> void:
 			player.get_node("CollisionShape2D").set_deferred("disabled", false)
 			player.gurggu.visible = true
 			player.frozen = false
+			player.keep_moving = true
 			can_enter = false
 			
 			wait_for_release = true
