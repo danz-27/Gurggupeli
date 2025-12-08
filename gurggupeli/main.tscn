@@ -2,21 +2,21 @@
 
 [ext_resource type="PackedScene" uid="uid://dvwl2b6vslbe4" path="res://player/player.tscn" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://cxtrxt1qv4pk2" path="res://main.gd" id="1_ycdy4"]
-[ext_resource type="Script" path="res://JumpParticles.gd" id="3_w48qg"]
+[ext_resource type="Script" uid="uid://ii2yc220q1u" path="res://JumpParticles.gd" id="3_w48qg"]
 [ext_resource type="PackedScene" uid="uid://cjgdh508xyx7h" path="res://player/afterimage.tscn" id="6_efxa6"]
-[ext_resource type="PackedScene" uid="uid://dk3j1qax4xoq6" path="res://room scenes/main_room.tscn" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://dyc83n3556rbn" path="res://cool_platforming_room.tscn" id="8_yaehf"]
 [ext_resource type="Texture2D" uid="uid://defsbd0nnkgjh" path="res://random assets/Vignette.png" id="9_yaehf"]
 [ext_resource type="Script" uid="uid://dv8tul6e2m1or" path="res://vignette.gd" id="10_dg77c"]
 [ext_resource type="Material" uid="uid://du1n6iwau11kg" path="res://particle systems/water particles/water_particles.tres" id="11_dg77c"]
-[ext_resource type="Script" path="res://player/water_particle_system.gd" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://dcvjsnyev2fla" path="res://player/water_particle_system.gd" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://d2trf1846jb0b" path="res://GUI/gui.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://doejntmkit0nt" path="res://enemis/entities_container.gd" id="13_w48qg"]
-[ext_resource type="Script" path="res://landing_particle_spawner.gd" id="13_ycdy4"]
+[ext_resource type="Script" uid="uid://c3emcfajdb86a" path="res://landing_particle_spawner.gd" id="13_ycdy4"]
 [ext_resource type="Script" uid="uid://d2qpyq0jwr52u" path="res://maini folderi/game_time.gd" id="14_w48qg"]
 [ext_resource type="Script" uid="uid://bqeqcg0ahq7md" path="res://maini folderi/room_handler.gd" id="15_2cqfq"]
-[ext_resource type="Script" path="res://ground_particles.gd" id="15_vivmo"]
-[ext_resource type="Script" path="res://DashParticles.gd" id="16_2cqfq"]
-[ext_resource type="Script" path="res://hyper_particles.gd" id="17_yaehf"]
+[ext_resource type="Script" uid="uid://blxoajrevqln2" path="res://ground_particles.gd" id="15_vivmo"]
+[ext_resource type="Script" uid="uid://dvumgycdotb3r" path="res://DashParticles.gd" id="16_2cqfq"]
+[ext_resource type="Script" uid="uid://dsmbkcdqitjdx" path="res://hyper_particles.gd" id="17_yaehf"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vivmo"]
 particle_flag_disable_z = true
@@ -74,7 +74,7 @@ script = ExtResource("1_ycdy4")
 
 [node name="player" parent="." instance=ExtResource("1_7mycd")]
 z_index = 2
-position = Vector2(485.56372, -129.23285)
+position = Vector2(-6, -14)
 
 [node name="Dash particle" parent="." instance=ExtResource("6_efxa6")]
 
@@ -91,7 +91,7 @@ script = ExtResource("13_w48qg")
 [node name="RoomHandler" type="Node2D" parent="."]
 script = ExtResource("15_2cqfq")
 
-[node name="MainRoom" parent="RoomHandler" instance=ExtResource("9_kek77")]
+[node name="cool platforming room" parent="RoomHandler" instance=ExtResource("8_yaehf")]
 
 [node name="Vignette" type="PointLight2D" parent="."]
 energy = 0.49
