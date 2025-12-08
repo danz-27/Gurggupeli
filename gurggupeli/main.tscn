@@ -8,15 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://defsbd0nnkgjh" path="res://random assets/Vignette.png" id="9_yaehf"]
 [ext_resource type="Script" uid="uid://dv8tul6e2m1or" path="res://vignette.gd" id="10_dg77c"]
 [ext_resource type="Material" uid="uid://du1n6iwau11kg" path="res://particle systems/water particles/water_particles.tres" id="11_dg77c"]
-[ext_resource type="Script" uid="uid://dcvjsnyev2fla" path="res://player/water_particle_system.gd" id="11_efxa6"]
+[ext_resource type="Script" path="res://player/water_particle_system.gd" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://d2trf1846jb0b" path="res://GUI/gui.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://doejntmkit0nt" path="res://enemis/entities_container.gd" id="13_w48qg"]
 [ext_resource type="Script" path="res://landing_particle_spawner.gd" id="13_ycdy4"]
 [ext_resource type="Script" uid="uid://d2qpyq0jwr52u" path="res://maini folderi/game_time.gd" id="14_w48qg"]
 [ext_resource type="Script" uid="uid://bqeqcg0ahq7md" path="res://maini folderi/room_handler.gd" id="15_2cqfq"]
-[ext_resource type="Script" uid="uid://blxoajrevqln2" path="res://ground_particles.gd" id="15_vivmo"]
+[ext_resource type="Script" path="res://ground_particles.gd" id="15_vivmo"]
 [ext_resource type="Script" path="res://DashParticles.gd" id="16_2cqfq"]
-[ext_resource type="Script" uid="uid://dsmbkcdqitjdx" path="res://hyper_particles.gd" id="17_yaehf"]
+[ext_resource type="Script" path="res://hyper_particles.gd" id="17_yaehf"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vivmo"]
 particle_flag_disable_z = true

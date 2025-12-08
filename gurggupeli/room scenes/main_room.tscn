@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c757qtqwmyrb5" path="res://pipe/pipe.tscn" id="8_o06sh"]
 [ext_resource type="PackedScene" uid="uid://cl0rlqpu7fbia" path="res://random assets/broken pipe/broken_pipe.tscn" id="9_2qfoi"]
 [ext_resource type="Texture2D" uid="uid://cyxmti5pufta7" path="res://random assets/sparkle_animation.png" id="9_esrvc"]
-[ext_resource type="Script" uid="uid://ue44lh2wtgwp" path="res://enemis/piranha/piranha_spawn_locations.gd" id="9_nsu1e"]
+[ext_resource type="Script" path="res://enemis/piranha/piranha_spawn_locations.gd" id="9_nsu1e"]
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="9_vvp1l"]
 [ext_resource type="PackedScene" uid="uid://crf0k4un1wh5m" path="res://manhole_cover.tscn" id="10_wgmn7"]
 [ext_resource type="Texture2D" uid="uid://dyrn2eup2xn5e" path="res://random assets/white spike.png" id="13_t10vw"]
@@ -2750,10 +2750,12 @@ color = Color(0.9999998, 0.8356605, 0.43547353, 1)
 energy = 0.5
 range_layer_min = -2
 range_layer_max = 3
+range_item_cull_mask = 3
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("17_etv41")
 texture_scale = 2.1
+height = 30.0
 script = ExtResource("16_ud8jp")
 
 [node name="PointLight2D3" type="PointLight2D" parent="roomtemplate/TileMapLayer/Lights"]
@@ -2762,10 +2764,12 @@ color = Color(0.9999998, 0.8356605, 0.43547353, 1)
 energy = 2.5
 range_layer_min = -2
 range_layer_max = 3
+range_item_cull_mask = 3
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("17_etv41")
 texture_scale = 2.1
+height = 30.0
 script = ExtResource("16_ud8jp")
 
 [node name="PointLight2D4" type="PointLight2D" parent="roomtemplate/TileMapLayer/Lights"]
@@ -2774,10 +2778,12 @@ color = Color(0.9999998, 0.8356605, 0.43547353, 1)
 energy = 2.5
 range_layer_min = -2
 range_layer_max = 3
+range_item_cull_mask = 3
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("17_etv41")
 texture_scale = 1.02
+height = 30.0
 script = ExtResource("16_ud8jp")
 
 [node name="PointLight2D5" type="PointLight2D" parent="roomtemplate/TileMapLayer/Lights"]
@@ -2786,10 +2792,12 @@ color = Color(0.9999998, 0.8356605, 0.43547353, 1)
 energy = 2.5
 range_layer_min = -2
 range_layer_max = 3
+range_item_cull_mask = 3
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("17_etv41")
 texture_scale = 0.8
+height = 30.0
 script = ExtResource("16_ud8jp")
 
 [node name="ParallaxBackground" parent="roomtemplate" instance=ExtResource("7_pla4y")]
@@ -2859,7 +2867,7 @@ script = ExtResource("18_0h68g")
 
 [node name="StartingRoom" parent="roomtemplate" instance=ExtResource("9_vvp1l")]
 position = Vector2(268, 36)
-next_room_path = "res://room scenes/starting_room.tscn"
+next_room_path = "res://room scenes/challenge_room.tscn"
 door_ID = 1
 
 [node name="OtterRoom" parent="roomtemplate" instance=ExtResource("9_vvp1l")]
