@@ -5592,6 +5592,7 @@ position = Vector2(-153, 213)
 [node name="Falling water" type="GPUParticles2D" parent="roomtemplate/valve"]
 self_modulate = Color(0.9079417, 0.9079417, 0.90794164, 1)
 position = Vector2(-82, -148)
+emitting = false
 amount = 150
 sub_emitter = NodePath("../watersplash")
 lifetime = 3.0
@@ -5604,6 +5605,7 @@ script = ExtResource("12_m3xws")
 [node name="Falling water2" type="GPUParticles2D" parent="roomtemplate/valve"]
 z_index = 7
 position = Vector2(-211, -149)
+emitting = false
 amount = 150
 sub_emitter = NodePath("../watersplash")
 lifetime = 3.0
@@ -5616,6 +5618,7 @@ script = ExtResource("12_m3xws")
 [node name="Falling water3" type="GPUParticles2D" parent="roomtemplate/valve"]
 z_index = 7
 position = Vector2(-40, -148)
+emitting = false
 amount = 150
 sub_emitter = NodePath("../watersplash")
 lifetime = 3.49
@@ -5627,7 +5630,6 @@ script = ExtResource("12_m3xws")
 
 [node name="watersplash" type="GPUParticles2D" parent="roomtemplate/valve"]
 unique_name_in_owner = true
-visible = false
 modulate = Color(0.5649617, 0.5649616, 0.5649616, 1)
 position = Vector2(0, 3)
 emitting = false
