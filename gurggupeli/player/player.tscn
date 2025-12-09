@@ -182,6 +182,7 @@ vframes = 4
 frame = 17
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Gurggu"]
+visible = false
 occluder = SubResource("OccluderPolygon2D_yllr7")
 
 [node name="dash_halo" type="Node2D" parent="Gurggu"]
