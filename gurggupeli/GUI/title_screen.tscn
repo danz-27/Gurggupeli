@@ -1,42 +1,42 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0gsfqutb1xqi"]
 
-[ext_resource type="Script" uid="uid://efv0lw07ce4y" path="res://GUI/title_screen.gd" id="1_y0dik"]
+[ext_resource type="Script" uid="uid://efv0lw07ce4y" path="res://GUI/main_menu.gd" id="1_y0dik"]
 [ext_resource type="Texture2D" uid="uid://1x0amq151cs7" path="res://GUI/title.png" id="1_y1mc1"]
 [ext_resource type="Texture2D" uid="uid://b205wy6yad0ep" path="res://GUI/title_screen_background.png" id="2_gmc7t"]
 
-[node name="titlescreen" type="Node2D"]
+[node name="MainMenu" type="Node2D"]
 script = ExtResource("1_y0dik")
 
 [node name="UI" type="Sprite2D" parent="."]
 z_index = 99
 texture = ExtResource("1_y1mc1")
 
-[node name="background1" type="Sprite2D" parent="."]
+[node name="BG" type="Sprite2D" parent="."]
 z_index = 98
 texture = ExtResource("2_gmc7t")
 
-[node name="background2" type="Sprite2D" parent="."]
+[node name="BG2" type="Sprite2D" parent="."]
 z_index = 98
 texture = ExtResource("2_gmc7t")
 
-[node name="play_button" type="Button" parent="."]
+[node name="PlayButton" type="Button" parent="."]
 offset_left = -152.0
 offset_top = -7.0
 offset_right = -88.0
 offset_bottom = 19.0
 
-[node name="options_button" type="Button" parent="."]
+[node name="OptionsButton" type="Button" parent="."]
 offset_left = -152.0
 offset_top = 24.0
 offset_right = -61.0
 offset_bottom = 50.0
 
-[node name="quit_button" type="Button" parent="."]
+[node name="QuitButton" type="Button" parent="."]
 offset_left = -152.0
 offset_top = 55.0
 offset_right = -100.0
 offset_bottom = 81.0
 
-[connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="options_button" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

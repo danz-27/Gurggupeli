@@ -107,7 +107,6 @@ func _physics_process(delta: float) -> void:
 	
 	if frozen:
 		if keep_moving:
-			print(is_in_water())
 			if is_in_water():
 				velocity.y = 14 # idk random number that just seems fine to add when dying in water
 			else:

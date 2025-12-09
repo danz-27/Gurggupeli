@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2trf1846jb0b"]
+[gd_scene load_steps=13 format=3 uid="uid://d2trf1846jb0b"]
 
 [ext_resource type="PackedScene" uid="uid://betvs3gq1xrw7" path="res://GUI/health_bar.tscn" id="1_80edf"]
 [ext_resource type="Texture2D" uid="uid://dn3247ny3t3ch" path="res://GUI/vine.png" id="1_egdk1"]
@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://dhyd4qc2si41b" path="res://GUI/DeathGui.png" id="4_2xed4"]
 [ext_resource type="Script" uid="uid://baoqwakqjl0f6" path="res://GUI/death_screen.gd" id="5_2xed4"]
 [ext_resource type="PackedScene" uid="uid://c4jfi106ve2yu" path="res://GUI/loading_screen.tscn" id="6_li1cn"]
+[ext_resource type="Texture2D" uid="uid://bnubnhu1moocx" path="res://GUI/pauseGui.png" id="7_mgksq"]
+[ext_resource type="Script" uid="uid://camaq3mjlggfm" path="res://GUI/pause_screen.gd" id="8_kijb2"]
+[ext_resource type="Script" uid="uid://djbmlrmf5m7sq" path="res://GUI/options_menu.gd" id="10_j5h0c"]
+[ext_resource type="Script" uid="uid://efv0lw07ce4y" path="res://GUI/main_menu.gd" id="11_gedss"]
+[ext_resource type="Texture2D" uid="uid://b205wy6yad0ep" path="res://GUI/title_screen_background.png" id="11_hra2n"]
+[ext_resource type="Texture2D" uid="uid://1x0amq151cs7" path="res://GUI/title.png" id="12_rikqw"]
 
 [node name="GUI" type="CanvasLayer"]
 layer = 1000
@@ -19,6 +25,7 @@ offset = Vector2(33, 14)
 [node name="HealthBarHealths" parent="." instance=ExtResource("1_80edf")]
 
 [node name="DeathScreen" type="TextureRect" parent="."]
+visible = false
 z_index = 99
 offset_right = 320.0
 offset_bottom = 180.0
@@ -47,5 +54,140 @@ scale = Vector2(0.18439238, 0.17757043)
 
 [node name="LoadingScreen" parent="." instance=ExtResource("6_li1cn")]
 
+[node name="PauseScreen" type="TextureRect" parent="."]
+visible = false
+z_index = 2
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("7_mgksq")
+script = ExtResource("8_kijb2")
+
+[node name="ColorRect" type="ColorRect" parent="PauseScreen"]
+self_modulate = Color(1, 1, 1, 0.654902)
+z_index = -1
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.19434929, 0.19434926, 0.19434926, 1)
+
+[node name="ContinueButton" type="Button" parent="PauseScreen"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 63.0
+offset_right = 201.0
+offset_bottom = 91.0
+
+[node name="OptionsButton" type="Button" parent="PauseScreen"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 96.0
+offset_right = 198.0
+offset_bottom = 124.0
+
+[node name="ExitButton" type="Button" parent="PauseScreen"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 129.0
+offset_right = 184.0
+offset_bottom = 156.0
+
+[node name="OptionsMenu" type="TextureRect" parent="."]
+visible = false
+z_index = 200
+offset_left = 164.0
+offset_top = 90.0
+offset_right = 204.0
+offset_bottom = 130.0
+mouse_filter = 2
+script = ExtResource("10_j5h0c")
+
+[node name="BG" type="Sprite2D" parent="OptionsMenu"]
+z_index = 98
+texture = ExtResource("11_hra2n")
+
+[node name="BG2" type="Sprite2D" parent="OptionsMenu"]
+z_index = 98
+texture = ExtResource("11_hra2n")
+
+[node name="KeyBindButton" type="Button" parent="OptionsMenu"]
+z_index = 201
+layout_mode = 0
+offset_left = -91.0
+offset_top = -40.0
+offset_right = 90.41966
+offset_bottom = -8.731323
+text = "KeyBinds"
+
+[node name="MusicVolumeButton" type="Button" parent="OptionsMenu"]
+z_index = 201
+layout_mode = 0
+offset_left = -32.0
+offset_top = -10.0
+offset_right = 33.0
+offset_bottom = 21.0
+text = "Sounds"
+
+[node name="BackButton" type="Button" parent="OptionsMenu"]
+z_index = 201
+layout_mode = 0
+offset_left = -21.0
+offset_top = 16.0
+offset_right = 24.0
+offset_bottom = 47.0
+text = "Back"
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 163.92459
+offset_top = 89.798676
+offset_right = 203.92459
+offset_bottom = 129.79868
+mouse_filter = 2
+script = ExtResource("11_gedss")
+
+[node name="UI" type="Sprite2D" parent="MainMenu"]
+z_index = 99
+texture = ExtResource("12_rikqw")
+
+[node name="BG" type="Sprite2D" parent="MainMenu"]
+z_index = 98
+texture = ExtResource("11_hra2n")
+
+[node name="BG2" type="Sprite2D" parent="MainMenu"]
+z_index = 98
+texture = ExtResource("11_hra2n")
+
+[node name="PlayButton" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = -151.92459
+offset_top = -6.7986755
+offset_right = -87.92459
+offset_bottom = 19.201324
+
+[node name="OptionsButton" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = -152.0
+offset_top = 24.0
+offset_right = -61.0
+offset_bottom = 50.0
+
+[node name="QuitButton" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = -151.92459
+offset_top = 55.201332
+offset_right = -99.92459
+offset_bottom = 81.20133
+
 [connection signal="pressed" from="DeathScreen/RespawnButton" to="DeathScreen" method="_on_respawn_button_pressed"]
 [connection signal="pressed" from="DeathScreen/ExitButton" to="DeathScreen" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="PauseScreen/ContinueButton" to="PauseScreen" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PauseScreen/OptionsButton" to="PauseScreen" method="_on_options_button_pressed"]
+[connection signal="pressed" from="PauseScreen/ExitButton" to="PauseScreen" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="OptionsMenu/KeyBindButton" to="OptionsMenu" method="_on_key_bind_button_pressed"]
+[connection signal="pressed" from="OptionsMenu/MusicVolumeButton" to="OptionsMenu" method="_on_music_volume_button_pressed"]
+[connection signal="pressed" from="OptionsMenu/BackButton" to="OptionsMenu" method="_on_back_button_pressed"]
+[connection signal="pressed" from="MainMenu/PlayButton" to="MainMenu" method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/OptionsButton" to="MainMenu" method="_on_options_button_pressed"]
+[connection signal="pressed" from="MainMenu/QuitButton" to="MainMenu" method="_on_quit_button_pressed"]

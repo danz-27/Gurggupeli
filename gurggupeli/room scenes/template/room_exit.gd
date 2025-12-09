@@ -36,15 +36,14 @@ func _ready() -> void:
 
 func _on_enter(player: Node2D) -> void:
 	var spawn_location: Vector2
-	var exit_scene: Node = load(next_room_path).instantiate()
-	var exit_scene_first_child: Node = exit_scene.get_child(0)
 	
 	while overlaps_body(player):
 		if RoomTransition.enabled:
 			RoomTransition.enabled = false
 		
 		if Input.get_vector("move_left", "move_right", "move_up", "move_down") == enterance_vectors[enterance_direction]:
-			
+			var exit_scene: Node = load(next_room_path).instantiate()
+			var exit_scene_first_child: Node = exit_scene.get_child(0)
 			for child: Node in exit_scene_first_child.get_children():
 				# Check if the child's class is RoomExit and check if the two rooms ID's are same
 				if child is RoomExit and child.door_ID == door_ID:
