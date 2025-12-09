@@ -75,7 +75,7 @@ func calculate_if_possible(starting_position: Array[int], ending_position: Array
 				agents.erase(A)
 				A = null
 				break
-			pipes[A.positionX * pieces_in_y_direction + A.positionY].has_agent = true
+			#pipes[A.positionX * pieces_in_y_direction + A.positionY].has_agent = true
 			if pipes[A.positionX * pieces_in_y_direction + A.positionY].shape == "turn":
 				#print(A.positionX * pieces_in_y_direction + A.positionY, " is a turn")
 				var new_agent1: agent = agent.new()
@@ -100,10 +100,10 @@ func calculate_if_possible(starting_position: Array[int], ending_position: Array
 			await get_tree().physics_frame
 			times_run += 1
 	if reached_end:
-		for pipe_instance: pipe in pipes:
-			pipe_instance.has_agent = false
-			if pipe_instance.position_in_array in winning_positions_path:
-				pipe_instance.has_agent = true
+		#for pipe_instance: pipe in pipes:
+			#pipe_instance.has_agent = false
+			#if pipe_instance.position_in_array in winning_positions_path:
+				#pipe_instance.has_agent = true
 		#print(winning_positions_path)
 		return true
 	#print(times_run)

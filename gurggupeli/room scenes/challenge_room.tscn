@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://hryjdy13d3t5" path="res://random assets/valve/valve.tscn" id="8_t56ak"]
 [ext_resource type="PackedScene" uid="uid://cpd7uvkqcf58v" path="res://rising water/rising_water.tscn" id="9_4fmbu"]
 [ext_resource type="PackedScene" uid="uid://bix0v4xhowapv" path="res://hideable_wall.tscn" id="11_gvb8v"]
-[ext_resource type="Script" uid="uid://dcvjsnyev2fla" path="res://player/water_particle_system.gd" id="11_rhps5"]
+[ext_resource type="Script" path="res://player/water_particle_system.gd" id="11_rhps5"]
 [ext_resource type="Script" uid="uid://8or5lgs1860v" path="res://room scenes/falling_water.gd" id="12_m3xws"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_chuao"]
@@ -5547,12 +5547,10 @@ tile_map_data = PackedByteArray("AAA1AAAAAAAAAAAAAAA1AAEAAAAAAAEAAAA1APT/AAAAAAA
 [node name="PointLight2D" parent="roomtemplate/TileMapLayer/Lights" index="0" instance=ExtResource("5_gvb8v")]
 position = Vector2(428, 9)
 range_z_max = 4
-shadow_enabled = true
 texture_scale = 1.45
 
 [node name="PointLight2D2" parent="roomtemplate/TileMapLayer/Lights" index="1" instance=ExtResource("5_gvb8v")]
 position = Vector2(427, -88)
-shadow_enabled = true
 texture_scale = 0.99
 
 [node name="RoomExit" parent="roomtemplate" index="1"]
@@ -5562,7 +5560,6 @@ enterance_direction = 1
 door_ID = 1
 
 [node name="Hideable wall" parent="roomtemplate" instance=ExtResource("11_gvb8v")]
-visible = false
 z_index = 1
 
 [node name="darkness" parent="roomtemplate/Hideable wall" index="0"]
