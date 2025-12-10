@@ -1,13 +1,13 @@
 extends PointLight2D
 
 var flicking_interval: int = randi_range(0, 2000)
+@export_category("LightBehavior")
 @export var flickers: bool = true
-@export var is_fire: bool = false
+@export var fades: bool = false
 
-@export_category("Colours")
+@export_category("ColourPresets")
 @export var is_electiric: bool
 @export var is_natural: bool
-@export var custom_colour: bool = false
 
 var brightness_range: float = randf_range(0.4, 0.6)
 var min_brightness: float = energy - brightness_range
@@ -16,11 +16,10 @@ var brightening_speed: float = randf_range(0.005, 0.007)
 var brightening: bool = false
 
 func _ready() -> void:
-	if !custom_colour:
-		if is_electiric:
-			color = Color(1.0, 0.894, 0.647)
-		if is_natural:
-			color = Color(1.0, 0.835, 0.435)
+	if is_electiric:
+		color = Color(1.0, 0.924, 0.748)
+	if is_natural:
+		color = Color(1.0, 0.835, 0.435)
 	energy = randf_range(min_brightness, max_brightness)
 
 func flicker() -> void:
@@ -38,7 +37,7 @@ func _physics_process(_delta: float) -> void:
 			flicking_interval = randi_range(500, 2000)
 		else:
 			flicking_interval -= 1
-	if is_fire:
+	if fades:
 		if !brightening:
 			energy -= brightening_speed
 			texture_scale -= brightening_speed
