@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctf1m12u42fhp"]
 
-[ext_resource type="Texture2D" uid="uid://vm8gvap321st" path="res://random assets/light shape.png" id="1_7rbwh"]
-[ext_resource type="Script" uid="uid://dfgmgxnuxbvg6" path="res://room scenes/light.gd" id="2_421t6"]
+[ext_resource type="Texture2D" uid="uid://vm8gvap321st" path="res://lights/light shape.png" id="1_7rbwh"]
+[ext_resource type="Script" uid="uid://dfgmgxnuxbvg6" path="res://lights/light.gd" id="2_421t6"]
 
 [node name="PointLight2D" type="PointLight2D"]
 color = Color(0.9999998, 0.8356605, 0.43547353, 1)

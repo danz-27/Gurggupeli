@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ptkbfit5odt3"]
 
 [ext_resource type="Texture2D" uid="uid://cxa20lyko2l2q" path="res://particle systems/landParticle animation.png" id="1_svh2v"]
-[ext_resource type="Script" uid="uid://o3de3vk3ml71" path="res://landing_particle_animation.gd" id="2_tw3q4"]
+[ext_resource type="Script" uid="uid://o3de3vk3ml71" path="res://particle systems/landing_particle_animation.gd" id="2_tw3q4"]
 
 [sub_resource type="Animation" id="Animation_tw3q4"]
 resource_name = "LandingAnimation"

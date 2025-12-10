@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7lp2i3utjnfd"
-path="res://.godot/imported/darkness shape.png-6bc05a8b4cc4eed6fe776c7cd0a39a8c.ctex"
+uid="uid://bxgjf7m8oknvn"
+path="res://.godot/imported/Gurggu dash ready sprite sheet.png-7107f82352039125c9a209d5636d81d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://random assets/darkness shape.png"
-dest_files=["res://.godot/imported/darkness shape.png-6bc05a8b4cc4eed6fe776c7cd0a39a8c.ctex"]
+source_file="res://player/textures/Gurggu dash ready sprite sheet.png"
+dest_files=["res://.godot/imported/Gurggu dash ready sprite sheet.png-7107f82352039125c9a209d5636d81d2.ctex"]
 
 [params]
 

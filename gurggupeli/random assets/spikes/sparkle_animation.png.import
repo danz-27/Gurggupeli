@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyrn2eup2xn5e"
-path="res://.godot/imported/white spike.png-614bee5465c51af6efa33be74a0972f6.ctex"
+uid="uid://cyxmti5pufta7"
+path="res://.godot/imported/sparkle_animation.png-e9a099e06bec69b06a82d4cfec84bdd0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://random assets/white spike.png"
-dest_files=["res://.godot/imported/white spike.png-614bee5465c51af6efa33be74a0972f6.ctex"]
+source_file="res://random assets/spikes/sparkle_animation.png"
+dest_files=["res://.godot/imported/sparkle_animation.png-e9a099e06bec69b06a82d4cfec84bdd0.ctex"]
 
 [params]
 

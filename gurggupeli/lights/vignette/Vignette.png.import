@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b602hxr82bv2"
-path="res://.godot/imported/spike.png-367e725d2838df50f5d88da1d4740a7b.ctex"
+uid="uid://defsbd0nnkgjh"
+path="res://.godot/imported/Vignette.png-c533b27ed005f4f40694a217383ca08f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://random assets/spike.png"
-dest_files=["res://.godot/imported/spike.png-367e725d2838df50f5d88da1d4740a7b.ctex"]
+source_file="res://lights/vignette/Vignette.png"
+dest_files=["res://.godot/imported/Vignette.png-c533b27ed005f4f40694a217383ca08f.ctex"]
 
 [params]
 

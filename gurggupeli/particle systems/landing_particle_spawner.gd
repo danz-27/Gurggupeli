@@ -14,7 +14,7 @@ func _physics_process(_delta: float) -> void:
 		first_time_triggering = true
 		
 func instantiate_particles(spawn_position: Vector2) -> void:
-	var scene_instance: Node = preload("res://landing_particle_animation.tscn").instantiate()
+	var scene_instance: Node = preload("res://particle systems/landing_particle_animation.tscn").instantiate()
 	get_tree().current_scene.add_child(scene_instance)
 	scene_instance.position = spawn_position + Vector2(randi_range(-1,1), randf_range(4.5,3.5))
 

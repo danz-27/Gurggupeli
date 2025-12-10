@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://c7wn1s4w7tv" path="res://room scenes/template/checkpoint.tscn" id="2_l5di8"]
 [ext_resource type="Texture2D" uid="uid://bc50v4iry6plj" path="res://player/textures/radioactive waste.png" id="3_3gsno"]
 [ext_resource type="Texture2D" uid="uid://bcpkm41dmh3tc" path="res://tilemaps/tiiliseinä tileset.png" id="4_jvkvm"]
-[ext_resource type="PackedScene" uid="uid://ctf1m12u42fhp" path="res://room scenes/light.tscn" id="5_gvb8v"]
+[ext_resource type="PackedScene" uid="uid://ctf1m12u42fhp" path="res://lights/light.tscn" id="5_gvb8v"]
 [ext_resource type="Texture2D" uid="uid://bq44tjbliygpq" path="res://random assets/enivironment assests.png" id="5_p77y1"]
 [ext_resource type="PackedScene" uid="uid://dp8k64wold6vs" path="res://room scenes/template/parallax_background_template.tscn" id="6_8q7c2"]
 [ext_resource type="PackedScene" uid="uid://cl0rlqpu7fbia" path="res://random assets/broken pipe/broken_pipe.tscn" id="7_4fmbu"]
 [ext_resource type="PackedScene" uid="uid://hryjdy13d3t5" path="res://random assets/valve/valve.tscn" id="8_t56ak"]
 [ext_resource type="PackedScene" uid="uid://cpd7uvkqcf58v" path="res://rising water/rising_water.tscn" id="9_4fmbu"]
-[ext_resource type="PackedScene" uid="uid://bix0v4xhowapv" path="res://hideable_wall.tscn" id="11_gvb8v"]
-[ext_resource type="Script" path="res://player/water_particle_system.gd" id="11_rhps5"]
+[ext_resource type="PackedScene" uid="uid://bix0v4xhowapv" path="res://hideableWall/hideable_wall.tscn" id="11_gvb8v"]
+[ext_resource type="Script" uid="uid://dcvjsnyev2fla" path="res://player/water_particle_system.gd" id="11_rhps5"]
 [ext_resource type="Script" uid="uid://8or5lgs1860v" path="res://room scenes/falling_water.gd" id="12_m3xws"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_chuao"]
@@ -7811,62 +7811,74 @@ position = Vector2(428, 9)
 color = Color(0.99999994, 0.89347714, 0.6471841, 1)
 range_z_max = 4
 texture_scale = 1.45
+is_electiric = true
 
 [node name="PointLight2D2" parent="roomtemplate/TileMapLayer/Lights" index="1" instance=ExtResource("5_gvb8v")]
 position = Vector2(427, -88)
 color = Color(1, 0.89411765, 0.64705884, 1)
 texture_scale = 0.99
+is_electiric = true
 
 [node name="PointLight2D3" parent="roomtemplate/TileMapLayer/Lights" index="2" instance=ExtResource("5_gvb8v")]
 position = Vector2(261, -39)
 color = Color(1, 0.89411765, 0.64705884, 1)
+is_electiric = true
 
 [node name="PointLight2D4" parent="roomtemplate/TileMapLayer/Lights" index="3" instance=ExtResource("5_gvb8v")]
 position = Vector2(660, -312)
 color = Color(1, 0.89411765, 0.64705884, 1)
+is_electiric = true
 
 [node name="PointLight2D5" parent="roomtemplate/TileMapLayer/Lights" index="4" instance=ExtResource("5_gvb8v")]
 position = Vector2(501, -207)
 flickers = false
-is_fire = true
+fades = true
+is_natural = true
 
 [node name="PointLight2D6" parent="roomtemplate/TileMapLayer/Lights" index="5" instance=ExtResource("5_gvb8v")]
 position = Vector2(331, -199)
 flickers = false
-is_fire = true
+fades = true
+is_natural = true
 
 [node name="PointLight2D7" parent="roomtemplate/TileMapLayer/Lights" index="6" instance=ExtResource("5_gvb8v")]
 position = Vector2(853, -235)
 color = Color(1, 0.89411765, 0.64705884, 1)
+is_electiric = true
 
 [node name="PointLight2D8" parent="roomtemplate/TileMapLayer/Lights" index="7" instance=ExtResource("5_gvb8v")]
 position = Vector2(587.13477, -64.21157)
 texture_scale = 2.38
 flickers = false
-is_fire = true
+fades = true
+is_natural = true
 
 [node name="PointLight2D9" parent="roomtemplate/TileMapLayer/Lights" index="8" instance=ExtResource("5_gvb8v")]
 position = Vector2(578.5654, -225.41513)
 color = Color(1, 0.8352941, 0.43529412, 1)
 texture_scale = 2.38
 flickers = false
-is_fire = true
+fades = true
+is_natural = true
 
 [node name="PointLight2D10" parent="roomtemplate/TileMapLayer/Lights" index="9" instance=ExtResource("5_gvb8v")]
 position = Vector2(612, -101)
 texture_scale = 2.38
 flickers = false
-is_fire = true
+fades = true
+is_natural = true
 
 [node name="PointLight2D11" parent="roomtemplate/TileMapLayer/Lights" index="10" instance=ExtResource("5_gvb8v")]
 position = Vector2(157, -92)
 color = Color(1, 0.89411765, 0.64705884, 1)
 texture_scale = 2.38
+is_electiric = true
 
 [node name="PointLight2D12" parent="roomtemplate/TileMapLayer/Lights" index="11" instance=ExtResource("5_gvb8v")]
 position = Vector2(4, -29)
 color = Color(1, 0.89411765, 0.64705884, 1)
 texture_scale = 2.38
+is_electiric = true
 
 [node name="RoomExit" parent="roomtemplate" index="1"]
 position = Vector2(12, -4)

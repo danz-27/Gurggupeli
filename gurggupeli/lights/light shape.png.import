@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://defsbd0nnkgjh"
-path="res://.godot/imported/Vignette.png-c307ca6e5eeea1b8302b667bd4919235.ctex"
+uid="uid://vm8gvap321st"
+path="res://.godot/imported/light shape.png-712c794cb55ee06c07f3618909a801ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://random assets/Vignette.png"
-dest_files=["res://.godot/imported/Vignette.png-c307ca6e5eeea1b8302b667bd4919235.ctex"]
+source_file="res://lights/light shape.png"
+dest_files=["res://.godot/imported/light shape.png-712c794cb55ee06c07f3618909a801ae.ctex"]
 
 [params]
 

@@ -10,22 +10,22 @@
 [ext_resource type="PackedScene" uid="uid://hryjdy13d3t5" path="res://random assets/valve/valve.tscn" id="7_2qfoi"]
 [ext_resource type="PackedScene" uid="uid://cpd7uvkqcf58v" path="res://rising water/rising_water.tscn" id="7_o06sh"]
 [ext_resource type="PackedScene" uid="uid://crjqkjsi3uyms" path="res://background/parallax_background.tscn" id="7_pla4y"]
-[ext_resource type="PackedScene" uid="uid://pwbg6eqe5b86" path="res://pipe/pipe_intersection.tscn" id="7_qequa"]
+[ext_resource type="PackedScene" uid="uid://pwbg6eqe5b86" path="res://pipe/pipeIntersection/pipe_intersection.tscn" id="7_qequa"]
 [ext_resource type="PackedScene" uid="uid://c757qtqwmyrb5" path="res://pipe/pipe.tscn" id="8_o06sh"]
 [ext_resource type="PackedScene" uid="uid://cl0rlqpu7fbia" path="res://random assets/broken pipe/broken_pipe.tscn" id="9_2qfoi"]
-[ext_resource type="Texture2D" uid="uid://cyxmti5pufta7" path="res://random assets/sparkle_animation.png" id="9_esrvc"]
-[ext_resource type="Script" path="res://enemis/piranha/piranha_spawn_locations.gd" id="9_nsu1e"]
+[ext_resource type="Texture2D" uid="uid://cyxmti5pufta7" path="res://random assets/spikes/sparkle_animation.png" id="9_esrvc"]
+[ext_resource type="Script" uid="uid://ue44lh2wtgwp" path="res://enemis/piranha/piranha_spawn_locations.gd" id="9_nsu1e"]
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="9_vvp1l"]
-[ext_resource type="PackedScene" uid="uid://crf0k4un1wh5m" path="res://manhole_cover.tscn" id="10_wgmn7"]
-[ext_resource type="Texture2D" uid="uid://dyrn2eup2xn5e" path="res://random assets/white spike.png" id="13_t10vw"]
-[ext_resource type="Texture2D" uid="uid://cc0d8aqs7qqfw" path="res://random assets/light_assets.png" id="14_q0aco"]
-[ext_resource type="PackedScene" uid="uid://ctf1m12u42fhp" path="res://room scenes/light.tscn" id="16_t10vw"]
-[ext_resource type="Script" uid="uid://dfgmgxnuxbvg6" path="res://room scenes/light.gd" id="16_ud8jp"]
-[ext_resource type="Texture2D" uid="uid://vm8gvap321st" path="res://random assets/light shape.png" id="17_etv41"]
+[ext_resource type="PackedScene" uid="uid://crf0k4un1wh5m" path="res://ManholeCover/manhole_cover.tscn" id="10_wgmn7"]
+[ext_resource type="Texture2D" uid="uid://dyrn2eup2xn5e" path="res://random assets/spikes/white spike.png" id="13_t10vw"]
+[ext_resource type="Texture2D" uid="uid://cc0d8aqs7qqfw" path="res://lights/light_assets.png" id="14_q0aco"]
+[ext_resource type="PackedScene" uid="uid://ctf1m12u42fhp" path="res://lights/light.tscn" id="16_t10vw"]
+[ext_resource type="Script" uid="uid://dfgmgxnuxbvg6" path="res://lights/light.gd" id="16_ud8jp"]
+[ext_resource type="Texture2D" uid="uid://vm8gvap321st" path="res://lights/light shape.png" id="17_etv41"]
 [ext_resource type="Script" uid="uid://24iqjqsdya03" path="res://room scenes/rats.gd" id="18_0h68g"]
-[ext_resource type="PackedScene" uid="uid://bix0v4xhowapv" path="res://hideable_wall.tscn" id="22_0h68g"]
+[ext_resource type="PackedScene" uid="uid://bix0v4xhowapv" path="res://hideableWall/hideable_wall.tscn" id="22_0h68g"]
 [ext_resource type="PackedScene" uid="uid://xhca1v1elpg0" path="res://Ropes/rope_physics.tscn" id="24_as4y7"]
-[ext_resource type="PackedScene" uid="uid://blj8f6rpgx5ol" path="res://pipe_connect_minigame.tscn" id="25_qequa"]
+[ext_resource type="PackedScene" uid="uid://blj8f6rpgx5ol" path="res://pipe/pipeMinigame/pipe_connect_minigame.tscn" id="25_qequa"]
 [ext_resource type="PackedScene" uid="uid://c7wn1s4w7tv" path="res://room scenes/template/checkpoint.tscn" id="25_trbjl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_as4y7"]
@@ -2803,9 +2803,6 @@ tile_set = SubResource("TileSet_0h68g")
 [node name="PointLight2D" parent="roomtemplate/TileMapLayer/Lights" instance=ExtResource("16_t10vw")]
 position = Vector2(376, -147)
 range_z_max = 4
-shadow_enabled = true
-shadow_filter = 1
-shadow_filter_smooth = 25.0
 
 [node name="PointLight2D3" type="PointLight2D" parent="roomtemplate/TileMapLayer/Lights"]
 position = Vector2(504, -148)

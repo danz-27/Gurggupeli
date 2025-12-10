@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://7fx0kfswq7vo" path="res://tilemaps/darkness new.png" id="4_8ucbx"]
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="5_sdgk7"]
 [ext_resource type="Texture2D" uid="uid://bq44tjbliygpq" path="res://random assets/enivironment assests.png" id="5_x8ttf"]
-[ext_resource type="Texture2D" uid="uid://dyrn2eup2xn5e" path="res://random assets/white spike.png" id="6_0xbjd"]
-[ext_resource type="Texture2D" uid="uid://cyxmti5pufta7" path="res://random assets/sparkle_animation.png" id="7_6myjh"]
-[ext_resource type="Texture2D" uid="uid://cc0d8aqs7qqfw" path="res://random assets/light_assets.png" id="9_st1lc"]
+[ext_resource type="Texture2D" uid="uid://dyrn2eup2xn5e" path="res://random assets/spikes/white spike.png" id="6_0xbjd"]
+[ext_resource type="Texture2D" uid="uid://cyxmti5pufta7" path="res://random assets/spikes/sparkle_animation.png" id="7_6myjh"]
+[ext_resource type="Texture2D" uid="uid://cc0d8aqs7qqfw" path="res://lights/light_assets.png" id="9_st1lc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i5tgt"]
 texture = ExtResource("1_sdgk7")

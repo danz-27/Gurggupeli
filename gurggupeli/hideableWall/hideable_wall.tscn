@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bix0v4xhowapv"]
 
-[ext_resource type="Script" path="res://hideable_wall.gd" id="1_iv2bn"]
-[ext_resource type="Shader" uid="uid://b1rph4dtqljcw" path="res://hideable_wall.gdshader" id="2_6f3k0"]
+[ext_resource type="Script" uid="uid://crqjbsq870rg" path="res://hideableWall/hideable_wall.gd" id="1_iv2bn"]
+[ext_resource type="Shader" uid="uid://b1rph4dtqljcw" path="res://hideableWall/hideable_wall.gdshader" id="2_6f3k0"]
 [ext_resource type="Texture2D" uid="uid://7fx0kfswq7vo" path="res://tilemaps/darkness new.png" id="2_50rxp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vvwa2"]

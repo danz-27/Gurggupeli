@@ -154,7 +154,7 @@ func check_for_win(starting_position: Array, ending_position: Array, direction_c
 func create_tiles() -> void:
 	for i in range(0, pieces_in_x_direction):
 		for j in range(0, pieces_in_y_direction):
-			var pipe_piece: pipe = preload("res://pipe_minigame_pipe.tscn").instantiate()
+			var pipe_piece: pipe = preload("res://pipe/pipeMinigame/pipe_minigame_pipe.tscn").instantiate()
 			add_child(pipe_piece)
 			pipe_piece.global_position = position
 			pipe_piece.position.x = i * pipe_size

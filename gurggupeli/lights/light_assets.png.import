@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxgjf7m8oknvn"
-path="res://.godot/imported/Gurggu dash ready sprite sheet.png-75a4433caf5efb8e69269da9239d96f5.ctex"
+uid="uid://cc0d8aqs7qqfw"
+path="res://.godot/imported/light_assets.png-07c310132a7e3b6f79be67f9cede4f07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Gurggu dash ready sprite sheet.png"
-dest_files=["res://.godot/imported/Gurggu dash ready sprite sheet.png-75a4433caf5efb8e69269da9239d96f5.ctex"]
+source_file="res://lights/light_assets.png"
+dest_files=["res://.godot/imported/light_assets.png-07c310132a7e3b6f79be67f9cede4f07.ctex"]
 
 [params]
 
