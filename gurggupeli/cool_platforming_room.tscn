@@ -8632,18 +8632,24 @@ tile_map_data = PackedByteArray("AABFAPj/AAAAAAAAAFBEAPj/AAAAAAEAAFBDAOz/AAAAAAA
 
 [node name="PointLight2D" parent="roomtemplate/TileMapLayer/Lights" index="0" instance=ExtResource("5_iaubd")]
 position = Vector2(132, -57)
+color = Color(1, 0.8352941, 0.43529412, 1)
+is_electiric = true
 
 [node name="PointLight2D2" parent="roomtemplate/TileMapLayer/Lights" index="1" instance=ExtResource("5_iaubd")]
 position = Vector2(293, -79)
+is_electiric = true
 
 [node name="PointLight2D3" parent="roomtemplate/TileMapLayer/Lights" index="2" instance=ExtResource("5_iaubd")]
 position = Vector2(366, -174)
+is_electiric = true
 
 [node name="PointLight2D4" parent="roomtemplate/TileMapLayer/Lights" index="3" instance=ExtResource("5_iaubd")]
 position = Vector2(536, -157)
+is_electiric = true
 
 [node name="PointLight2D5" parent="roomtemplate/TileMapLayer/Lights" index="4" instance=ExtResource("5_iaubd")]
 position = Vector2(553, -59)
+is_electiric = true
 
 [node name="RoomExit" parent="roomtemplate" index="1"]
 position = Vector2(-24, 0)
