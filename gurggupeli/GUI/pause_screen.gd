@@ -11,6 +11,11 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		visible = true
 		OptionsMenu.instance.is_on_pause_menu = true
+	
+	if visible:
+		get_tree().paused = true
+	else:
+		get_tree().paused = false
 
 
 func _on_continue_button_pressed() -> void:
@@ -19,7 +24,7 @@ func _on_continue_button_pressed() -> void:
 
 
 func _on_options_button_pressed() -> void:
-	visible = false
+	#visible = false
 	OptionsMenu.instance.visible = true
 
 

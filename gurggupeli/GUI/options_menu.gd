@@ -30,8 +30,12 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_key_bind_button_pressed() -> void:
-	pass # Replace with function body.
-
+	$KeyBindButton.hide()
+	$MusicVolumeButton.hide()
+	$BackButton.hide()
+	
+	$"../InputMapper".show()
+	
 
 func _on_music_volume_button_pressed() -> void:
 	pass # Replace with function body.

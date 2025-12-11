@@ -30,7 +30,9 @@ func _on_respawn_button_pressed() -> void:
 	Player.instance._respawn()
 
 func _on_exit_button_pressed() -> void:
-	get_tree().quit()
+	Player.instance._respawn()
+	visible = false
+	MainMenu.instance.visible = true
 
 func set_visibility(state: bool) -> void:
 	visible = state

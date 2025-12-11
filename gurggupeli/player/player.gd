@@ -285,6 +285,7 @@ func handle_jump() -> void:
 			is_jump_buffered = true
 
 func jump() -> void:
+	is_jump_buffered = false
 	just_jumped.emit()
 	water_jump_timer.start(water_jump_time)
 	velocity.y = jump_speed

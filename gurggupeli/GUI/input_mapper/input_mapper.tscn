@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://rnf12mxa410b"]
+
+[ext_resource type="Script" uid="uid://bot452upw0dhl" path="res://GUI/input_mapper/input_mapper.gd" id="1_y10dg"]
+[ext_resource type="Script" uid="uid://b70dm11w8of58" path="res://GUI/input_mapper/remapper.gd" id="2_20rny"]
+
+[node name="InputMapper" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y10dg")
+
+[node name="Right" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("2_20rny")
+action = "move_right"
+
+[node name="Left" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("2_20rny")
+action = "move_left"
+
+[node name="Up" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("2_20rny")
+action = "move_up"
+
+[node name="Down" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("2_20rny")
+action = "move_down"
+
+[node name="Jump" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("2_20rny")
+action = "jump"
+
+[node name="Dash" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("2_20rny")
+action = "dash"
+
+[node name="Interact" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("2_20rny")
+action = "interact"

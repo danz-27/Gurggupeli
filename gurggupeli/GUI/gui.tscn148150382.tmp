@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2trf1846jb0b"]
+[gd_scene load_steps=13 format=3 uid="uid://d2trf1846jb0b"]
 
 [ext_resource type="PackedScene" uid="uid://betvs3gq1xrw7" path="res://GUI/health_bar.tscn" id="1_80edf"]
 [ext_resource type="Texture2D" uid="uid://dn3247ny3t3ch" path="res://GUI/vine.png" id="1_egdk1"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://efv0lw07ce4y" path="res://GUI/main_menu.gd" id="11_gedss"]
 [ext_resource type="Texture2D" uid="uid://b205wy6yad0ep" path="res://GUI/title_screen_background.png" id="11_hra2n"]
 [ext_resource type="Texture2D" uid="uid://1x0amq151cs7" path="res://GUI/title.png" id="12_rikqw"]
-[ext_resource type="PackedScene" uid="uid://rnf12mxa410b" path="res://GUI/input_mapper/input_mapper.tscn" id="13_gedss"]
 
 [node name="GUI" type="CanvasLayer"]
 process_mode = 3
@@ -182,61 +181,6 @@ offset_top = 55.201332
 offset_right = -99.92459
 offset_bottom = 81.20133
 
-[node name="InputMapper" parent="." instance=ExtResource("13_gedss")]
-visible = false
-z_index = 300
-
-[node name="Right" parent="InputMapper" index="0"]
-offset_left = 200.0
-offset_top = 48.0
-offset_right = 248.59813
-offset_bottom = 64.0
-
-[node name="Left" parent="InputMapper" index="1"]
-offset_left = 80.0
-offset_top = 48.0
-offset_right = 130.07248
-offset_bottom = 65.29251
-
-[node name="Up" parent="InputMapper" index="2"]
-offset_left = 144.0
-offset_top = 24.0
-offset_right = 192.0
-offset_bottom = 40.0
-
-[node name="Down" parent="InputMapper" index="3"]
-offset_left = 144.0
-offset_top = 64.0
-offset_right = 193.39493
-offset_bottom = 82.008316
-
-[node name="Jump" parent="InputMapper" index="4"]
-offset_left = 80.0
-offset_top = 96.0
-offset_right = 128.0
-offset_bottom = 112.0
-
-[node name="Dash" parent="InputMapper" index="5"]
-offset_left = 144.0
-offset_top = 96.0
-offset_right = 192.0
-offset_bottom = 112.0
-
-[node name="Interact" parent="InputMapper" index="6"]
-offset_left = 208.0
-offset_top = 96.0
-offset_right = 256.0
-offset_bottom = 112.0
-
-[node name="BackButton" type="Button" parent="InputMapper"]
-z_index = 201
-layout_mode = 0
-offset_left = 144.0
-offset_top = 136.0
-offset_right = 192.0
-offset_bottom = 167.0
-text = "Back"
-
 [connection signal="pressed" from="DeathScreen/RespawnButton" to="DeathScreen" method="_on_respawn_button_pressed"]
 [connection signal="pressed" from="DeathScreen/ExitButton" to="DeathScreen" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="PauseScreen/ContinueButton" to="PauseScreen" method="_on_continue_button_pressed"]
@@ -248,6 +192,3 @@ text = "Back"
 [connection signal="pressed" from="MainMenu/PlayButton" to="MainMenu" method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenu/OptionsButton" to="MainMenu" method="_on_options_button_pressed"]
 [connection signal="pressed" from="MainMenu/QuitButton" to="MainMenu" method="_on_quit_button_pressed"]
-[connection signal="pressed" from="InputMapper/BackButton" to="InputMapper" method="_on_back_button_pressed"]
-
-[editable path="InputMapper"]

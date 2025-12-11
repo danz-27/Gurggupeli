@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cjgdh508xyx7h" path="res://player/afterimage.tscn" id="6_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dyc83n3556rbn" path="res://cool_platforming_room.tscn" id="8_yaehf"]
 [ext_resource type="Texture2D" uid="uid://defsbd0nnkgjh" path="res://random assets/Vignette.png" id="9_yaehf"]
-[ext_resource type="Script" uid="uid://dv8tul6e2m1or" path="res://vignette.gd" id="10_dg77c"]
+[ext_resource type="Script" path="res://vignette.gd" id="10_dg77c"]
 [ext_resource type="Material" uid="uid://du1n6iwau11kg" path="res://particle systems/water particles/water_particles.tres" id="11_dg77c"]
 [ext_resource type="Script" uid="uid://dcvjsnyev2fla" path="res://player/water_particle_system.gd" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://d2trf1846jb0b" path="res://GUI/gui.tscn" id="12_dg77c"]
@@ -154,3 +154,4 @@ script = ExtResource("17_yaehf")
 [connection signal="just_jumped" from="player" to="Particles/JumpParticles" method="_on_player_just_jumped"]
 
 [editable path="GUI"]
+[editable path="GUI/InputMapper"]

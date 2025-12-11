@@ -22,6 +22,11 @@ func _physics_process(_delta: float) -> void:
 		BG.position.x = abs(BG.position.x)
 	if BG2.position.x <= -328:
 		BG2.position.x = abs(BG2.position.x)
+	
+	if visible:
+		get_tree().paused = true
+	elif !get_tree().is_paused:
+		get_tree().paused = false
 
 
 func _on_play_button_pressed() -> void:
