@@ -13,7 +13,7 @@ func stop_spawning() -> void:
 	timer = 0.0
 
 func make_afterimage() -> void:
-	var scene_instance: Node = preload("res://player/afterimage.tscn").instantiate()
+	var scene_instance: Node = preload("res://player/afterimage/afterimage.tscn").instantiate()
 	scene_instance.flip_h = get_parent().gurggu.flip_h
 	get_tree().current_scene.add_child(scene_instance)
 	scene_instance.global_position = get_parent().global_position

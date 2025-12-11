@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vm8gvap321st"
-path="res://.godot/imported/light shape.png-ba5ca8439cd9a9d8b1e3d9bc62defd18.ctex"
+uid="uid://bifcguomsjubs"
+path="res://.godot/imported/manhole cover animation spritesheet.png-2dc42f36087db5b50b56f30ade7269dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://random assets/light shape.png"
-dest_files=["res://.godot/imported/light shape.png-ba5ca8439cd9a9d8b1e3d9bc62defd18.ctex"]
+source_file="res://ManholeCover/manhole cover animation spritesheet.png"
+dest_files=["res://.godot/imported/manhole cover animation spritesheet.png-2dc42f36087db5b50b56f30ade7269dd.ctex"]
 
 [params]
 

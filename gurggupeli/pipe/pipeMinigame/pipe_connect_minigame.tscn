@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://blj8f6rpgx5ol"]
 
-[ext_resource type="Script" uid="uid://0hpevredtosp" path="res://pipe_connect_minigame.gd" id="1_olkef"]
+[ext_resource type="Script" uid="uid://0hpevredtosp" path="res://pipe/pipeMinigame/pipe_connect_minigame.gd" id="1_olkef"]
 [ext_resource type="Texture2D" uid="uid://dekn2512yw5bn" path="res://pipe/pipe.png" id="2_41en3"]
 [ext_resource type="Texture2D" uid="uid://d1pe07qp6otxu" path="res://random assets/Gurggu_graffiti.png" id="3_fy6wm"]
 [ext_resource type="PackedScene" uid="uid://c757qtqwmyrb5" path="res://pipe/pipe.tscn" id="4_noq6a"]
-[ext_resource type="Script" uid="uid://qqv3sx3q1m7c" path="res://pipe/connect_minigame_pipe.gd" id="5_susij"]
+[ext_resource type="Script" uid="uid://qqv3sx3q1m7c" path="res://pipe/pipeMinigame/connect_minigame_pipe.gd" id="5_susij"]
 
 [node name="Pipe_connect_minigame" type="Node2D"]
 script = ExtResource("1_olkef")

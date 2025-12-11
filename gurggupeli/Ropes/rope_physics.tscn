@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://xhca1v1elpg0"]
 
-[ext_resource type="Script" uid="uid://d23uxbnblst23" path="res://rope_physics.gd" id="1_j0fsk"]
+[ext_resource type="Script" uid="uid://d23uxbnblst23" path="res://Ropes/rope_physics.gd" id="1_j0fsk"]
 [ext_resource type="Texture2D" uid="uid://cn50r8k2jqjwr" path="res://player/textures/Gurggu dash spritesheet.png" id="2_qn7u1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owrb4"]

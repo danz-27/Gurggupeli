@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://crf0k4un1wh5m"]
 
-[ext_resource type="Script" uid="uid://0ftjfvwrotvx" path="res://manhole_cover.gd" id="1_ihuje"]
-[ext_resource type="Texture2D" uid="uid://bifcguomsjubs" path="res://random assets/manhole cover animation spritesheet.png" id="2_nbrm4"]
+[ext_resource type="Script" uid="uid://0ftjfvwrotvx" path="res://ManholeCover/manhole_cover.gd" id="1_ihuje"]
+[ext_resource type="Texture2D" uid="uid://bifcguomsjubs" path="res://ManholeCover/manhole cover animation spritesheet.png" id="2_nbrm4"]
 
 [sub_resource type="Animation" id="Animation_u33t8"]
 length = 0.001
