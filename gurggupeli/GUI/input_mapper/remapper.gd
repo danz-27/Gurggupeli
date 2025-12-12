@@ -14,6 +14,7 @@ func _toggled(toggled_on: bool) -> void:
 	set_process_unhandled_input(toggled_on)
 	if toggled_on:
 		text = "..."
+		release_focus()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.pressed:

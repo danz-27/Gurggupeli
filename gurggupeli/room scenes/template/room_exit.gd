@@ -42,6 +42,10 @@ func _on_enter(player: Node2D) -> void:
 			RoomTransition.enabled = false
 		
 		if Input.get_vector("move_left", "move_right", "move_up", "move_down") == enterance_vectors[enterance_direction]:
+			RoomTransition.enabled = true
+			while !RoomTransition.fade_complete:
+				await get_tree().physics_frame
+
 			var exit_scene: Node = load(next_room_path).instantiate()
 			var exit_scene_first_child: Node = exit_scene.get_child(0)
 			for child: Node in exit_scene_first_child.get_children():
@@ -49,9 +53,7 @@ func _on_enter(player: Node2D) -> void:
 				if child is RoomExit and child.door_ID == door_ID:
 					spawn_location = child.get_child(0).global_position
 					suitable_door_found = true
-					RoomTransition.enabled = true
-					while !RoomTransition.fade_complete:
-						await get_tree().physics_frame
+					
 					RoomHandler.instance._change_room(exit_scene, spawn_location)
 					Player.instance.respawn_pos = child.get_child(1).global_position
 					
