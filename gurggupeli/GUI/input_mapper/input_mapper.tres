@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b74hf2cftdmov"]
+
+[ext_resource type="FontFile" uid="uid://cb131dndimq2w" path="res://GUI/OLDENGL.TTF" id="1_fui3a"]
+
+[resource]
+default_base_scale = 1.0
+default_font = ExtResource("1_fui3a")
+default_font_size = 22
