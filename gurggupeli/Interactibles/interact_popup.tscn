@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://6pbawsjxpl8x"]
+[gd_scene load_steps=3 format=3 uid="uid://6pbawsjxpl8x"]
 
 [ext_resource type="Texture2D" uid="uid://bl63fmfjlqrp2" path="res://GUI/gurggu_icon.png" id="1_0yts5"]
+[ext_resource type="Script" uid="uid://c6j8f1n17sh40" path="res://Interactibles/interact_button.gd" id="2_34pjp"]
 
 [node name="InteractPopup" type="Control"]
 z_index = 60
@@ -60,3 +61,4 @@ text = "Interact"
 layout_mode = 2
 text = "E"
 horizontal_alignment = 1
+script = ExtResource("2_34pjp")

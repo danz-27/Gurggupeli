@@ -18,7 +18,7 @@ func _physics_process(_delta: float) -> void:
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	is_inside_detection_area = true
 	$InteractPopup.scale = Vector2(0.5, 0.5)
-	$InteractPopup.global_position = $Area2D/CollisionShape2D.global_position
+	$InteractPopup.global_position = $Area2D/CollisionShape2D.global_position + 20 * Vector2.UP 
 	if $StaticBody2D/CollisionShape2D.disabled == true:
 		pass
 	else:
