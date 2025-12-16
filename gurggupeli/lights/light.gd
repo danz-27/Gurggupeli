@@ -17,10 +17,10 @@ var brightening: bool = false
 
 func _ready() -> void:
 	if is_electiric:
-		color = Color(1.0, 0.924, 0.748)
+		color = Color(1.0, 0.875, 0.576)
 	if is_natural:
 		color = Color(1.0, 0.835, 0.435)
-	energy = randf_range(min_brightness, max_brightness)
+		energy = randf_range(min_brightness, max_brightness)
 
 func flicker() -> void:
 	var SaveEnergy: float = energy

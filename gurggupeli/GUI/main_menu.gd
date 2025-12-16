@@ -3,25 +3,26 @@ class_name MainMenu
 
 static var instance: MainMenu
 
-@onready var BG: Sprite2D = $BG
-@onready var BG2: Sprite2D = $BG2
+@onready var BG: TextureRect = $BG
+@onready var BG2: TextureRect = $BG2
 var speed: float = 0.05
+var texture_width: int = 324
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	instance = self
-	BG.position.x = 0
-	BG2.position.x = 328
+	BG.global_position.x = 0
+	BG2.global_position.x = texture_width
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
-	BG.position.x -= speed
-	BG2.position.x -= speed
-	if BG.position.x <= -328:
-		BG.position.x = abs(BG.position.x)
-	if BG2.position.x <= -328:
-		BG2.position.x = abs(BG2.position.x)
+	BG.global_position.x -= speed
+	BG2.global_position.x -= speed
+	if BG.global_position.x <= -texture_width:
+		BG.global_position.x = abs(BG.global_position.x)
+	if BG2.global_position.x <= -texture_width:
+		BG2.global_position.x = abs(BG2.global_position.x)
 	
 	if visible:
 		get_tree().paused = true
