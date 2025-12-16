@@ -115,12 +115,24 @@ mouse_filter = 2
 theme = ExtResource("4_rikqw")
 script = ExtResource("10_j5h0c")
 
-[node name="BG" type="Sprite2D" parent="OptionsMenu"]
+[node name="BG" type="TextureRect" parent="OptionsMenu"]
 z_index = 98
+layout_mode = 0
+offset_left = -164.0
+offset_top = -90.0
+offset_right = 164.0
+offset_bottom = 90.0
+mouse_filter = 2
 texture = ExtResource("11_hra2n")
 
-[node name="BG2" type="Sprite2D" parent="OptionsMenu"]
+[node name="BG2" type="TextureRect" parent="OptionsMenu"]
 z_index = 98
+layout_mode = 0
+offset_left = -164.0
+offset_top = -90.0
+offset_right = 164.0
+offset_bottom = 90.0
+mouse_filter = 2
 texture = ExtResource("11_hra2n")
 
 [node name="KeyBindButton" type="Button" parent="OptionsMenu"]
@@ -164,16 +176,39 @@ mouse_filter = 2
 theme = ExtResource("4_rikqw")
 script = ExtResource("11_gedss")
 
-[node name="UI" type="Sprite2D" parent="MainMenu"]
+[node name="UI" type="TextureRect" parent="MainMenu"]
 z_index = 99
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -163.92459
+offset_top = -89.798676
+offset_right = 116.07541
+offset_bottom = 50.201324
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("12_rikqw")
 
-[node name="BG" type="Sprite2D" parent="MainMenu"]
+[node name="BG" type="TextureRect" parent="MainMenu"]
 z_index = 98
+layout_mode = 1
+offset_left = -163.92459
+offset_top = -89.798676
+offset_right = 164.07541
+offset_bottom = 90.201324
+mouse_filter = 2
 texture = ExtResource("11_hra2n")
 
-[node name="BG2" type="Sprite2D" parent="MainMenu"]
+[node name="BG2" type="TextureRect" parent="MainMenu"]
 z_index = 98
+layout_mode = 1
+offset_left = -163.92459
+offset_top = -89.798676
+offset_right = 164.07541
+offset_bottom = 90.201324
+mouse_filter = 2
 texture = ExtResource("11_hra2n")
 
 [node name="PlayButton" type="Button" parent="MainMenu"]
