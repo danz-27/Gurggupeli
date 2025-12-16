@@ -19,7 +19,10 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	is_inside_detection_area = true
 	$InteractPopup.scale = Vector2(0.5, 0.5)
 	$InteractPopup.global_position = $Area2D/CollisionShape2D.global_position
-	$InteractPopup.show()
+	if $StaticBody2D/CollisionShape2D.disabled == true:
+		pass
+	else:
+		$InteractPopup.show()
 
 func _on_area_2d_body_exited(_body: Node2D) -> void:
 	is_inside_detection_area = false
