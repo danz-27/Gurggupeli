@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bq44tjbliygpq" path="res://random assets/enivironment assests.png" id="4_s35yh"]
 [ext_resource type="Texture2D" uid="uid://d1pe07qp6otxu" path="res://random assets/Gurggu_graffiti.png" id="5_s35yh"]
 [ext_resource type="Texture2D" uid="uid://7fx0kfswq7vo" path="res://tilemaps/darkness new.png" id="6_esrvc"]
-[ext_resource type="PackedScene" uid="uid://hryjdy13d3t5" path="res://random assets/valve/valve.tscn" id="7_2qfoi"]
+[ext_resource type="PackedScene" uid="uid://hryjdy13d3t5" path="res://Interactibles/valve/valve.tscn" id="7_2qfoi"]
 [ext_resource type="PackedScene" uid="uid://cpd7uvkqcf58v" path="res://rising water/rising_water.tscn" id="7_o06sh"]
 [ext_resource type="PackedScene" uid="uid://crjqkjsi3uyms" path="res://background/parallax_background.tscn" id="7_pla4y"]
 [ext_resource type="PackedScene" uid="uid://pwbg6eqe5b86" path="res://pipe/pipeIntersection/pipe_intersection.tscn" id="7_qequa"]

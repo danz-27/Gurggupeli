@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bq44tjbliygpq" path="res://random assets/enivironment assests.png" id="5_p77y1"]
 [ext_resource type="PackedScene" uid="uid://dp8k64wold6vs" path="res://room scenes/template/parallax_background_template.tscn" id="6_8q7c2"]
 [ext_resource type="PackedScene" uid="uid://cl0rlqpu7fbia" path="res://random assets/broken pipe/broken_pipe.tscn" id="7_4fmbu"]
-[ext_resource type="PackedScene" uid="uid://hryjdy13d3t5" path="res://random assets/valve/valve.tscn" id="8_t56ak"]
+[ext_resource type="PackedScene" uid="uid://hryjdy13d3t5" path="res://Interactibles/valve/valve.tscn" id="8_t56ak"]
 [ext_resource type="PackedScene" uid="uid://cpd7uvkqcf58v" path="res://rising water/rising_water.tscn" id="9_4fmbu"]
 [ext_resource type="PackedScene" uid="uid://bix0v4xhowapv" path="res://hideableWall/hideable_wall.tscn" id="11_gvb8v"]
 [ext_resource type="Script" uid="uid://dcvjsnyev2fla" path="res://player/water_particle_system.gd" id="11_rhps5"]

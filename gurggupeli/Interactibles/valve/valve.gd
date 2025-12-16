@@ -12,27 +12,28 @@ func valve_deactivated() -> void:
 	for child in get_children():
 		if child.has_method("_deactivate"):
 			child._deactivate()
-	
-func _ready() -> void:
-	return
 
 func _physics_process(_delta: float) -> void:
 	if is_inside_detection_area and Input.is_action_just_pressed("interact"):
 		if !currently_activated:
 			var tween: Tween = $Valve_sprite.create_tween()
-			tween.tween_property($Valve_sprite,"rotation",PI,1)
+			tween.tween_property($Valve_sprite, "rotation", PI, 1)
 			valve_activated()
 			currently_activated = true
 		else:
 			var tween: Tween = $Valve_sprite.create_tween()
-			tween.tween_property($Valve_sprite,"rotation",0,1)
+			tween.tween_property($Valve_sprite, "rotation", 0, 1)
 			valve_deactivated()
 			currently_activated = false
 
 
 func _on_area_2d_body_entered(_player: Node2D) -> void:
 	is_inside_detection_area = true
-
+	$InteractPopup.scale = Vector2(0.5, 0.5)
+	$InteractPopup.global_position.y = $Area2D.global_position.y - 20
+	$InteractPopup.show()
+	print($Area2D.global_position)
 
 func _on_area_2d_body_exited(_player: Node2D) -> void:
 	is_inside_detection_area = false
+	$InteractPopup.hide()

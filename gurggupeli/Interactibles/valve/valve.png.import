@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c72b8w6x6qp1y"
-path="res://.godot/imported/valve.png-104fe3215ac0190a1ff2f75d6b83a7d7.ctex"
+path="res://.godot/imported/valve.png-f41abb6e82283f020b0a745c364a259b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://random assets/valve/valve.png"
-dest_files=["res://.godot/imported/valve.png-104fe3215ac0190a1ff2f75d6b83a7d7.ctex"]
+source_file="res://Interactibles/valve/valve.png"
+dest_files=["res://.godot/imported/valve.png-f41abb6e82283f020b0a745c364a259b.ctex"]
 
 [params]
 

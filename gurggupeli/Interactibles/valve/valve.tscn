@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://hryjdy13d3t5"]
+[gd_scene load_steps=5 format=3 uid="uid://hryjdy13d3t5"]
 
-[ext_resource type="Script" uid="uid://c87e3fnqv6600" path="res://random assets/valve/valve.gd" id="1_yr303"]
-[ext_resource type="Texture2D" uid="uid://c72b8w6x6qp1y" path="res://random assets/valve/valve.png" id="2_h7264"]
+[ext_resource type="Script" uid="uid://c87e3fnqv6600" path="res://Interactibles/valve/valve.gd" id="1_yr303"]
+[ext_resource type="Texture2D" uid="uid://c72b8w6x6qp1y" path="res://Interactibles/valve/valve.png" id="2_h7264"]
+[ext_resource type="PackedScene" uid="uid://6pbawsjxpl8x" path="res://Interactibles/interact_popup.tscn" id="3_jl54s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yr303"]
 
@@ -18,6 +19,9 @@ shape = SubResource("RectangleShape2D_yr303")
 [node name="Valve_sprite" type="Sprite2D" parent="."]
 z_index = -5
 texture = ExtResource("2_h7264")
+
+[node name="InteractPopup" parent="." instance=ExtResource("3_jl54s")]
+visible = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

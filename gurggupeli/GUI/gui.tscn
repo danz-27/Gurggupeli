@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2trf1846jb0b"]
+[gd_scene load_steps=15 format=3 uid="uid://d2trf1846jb0b"]
 
 [ext_resource type="PackedScene" uid="uid://betvs3gq1xrw7" path="res://GUI/health_bar.tscn" id="1_80edf"]
 [ext_resource type="Texture2D" uid="uid://dn3247ny3t3ch" path="res://GUI/vine.png" id="1_egdk1"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b205wy6yad0ep" path="res://GUI/title_screen_background.png" id="11_hra2n"]
 [ext_resource type="Texture2D" uid="uid://1x0amq151cs7" path="res://GUI/title.png" id="12_rikqw"]
 [ext_resource type="PackedScene" uid="uid://rnf12mxa410b" path="res://GUI/input_mapper/input_mapper.tscn" id="13_gedss"]
+[ext_resource type="PackedScene" uid="uid://6pbawsjxpl8x" path="res://Interactibles/interact_popup.tscn" id="14_rikqw"]
 
 [node name="GUI" type="CanvasLayer"]
 process_mode = 3
@@ -236,6 +237,9 @@ offset_top = 136.0
 offset_right = 192.0
 offset_bottom = 167.0
 text = "Back"
+
+[node name="InteractPopup" parent="." instance=ExtResource("14_rikqw")]
+visible = false
 
 [connection signal="pressed" from="DeathScreen/RespawnButton" to="DeathScreen" method="_on_respawn_button_pressed"]
 [connection signal="pressed" from="DeathScreen/ExitButton" to="DeathScreen" method="_on_exit_button_pressed"]

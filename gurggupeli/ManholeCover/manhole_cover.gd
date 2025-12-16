@@ -16,13 +16,14 @@ func _physics_process(_delta: float) -> void:
 		opened = true
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
-	#print(body)
 	is_inside_detection_area = true
+	$InteractPopup.scale = Vector2(0.5, 0.5)
+	$InteractPopup.global_position = $Area2D/CollisionShape2D.global_position
+	$InteractPopup.show()
 
 func _on_area_2d_body_exited(_body: Node2D) -> void:
-	#print(body)
 	is_inside_detection_area = false
-
+	$InteractPopup.hide()
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	$StaticBody2D/CollisionShape2D.disabled = true

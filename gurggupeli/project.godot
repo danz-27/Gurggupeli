@@ -28,6 +28,10 @@ window/size/mode=2
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
 [input]
 
 move_right={
@@ -77,4 +81,4 @@ interact={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=3
+textures/canvas_textures/default_texture_filter=0
