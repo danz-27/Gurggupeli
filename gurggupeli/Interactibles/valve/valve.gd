@@ -29,7 +29,6 @@ func _physics_process(_delta: float) -> void:
 
 func _on_area_2d_body_entered(_player: Node2D) -> void:
 	is_inside_detection_area = true
-	$InteractPopup.scale = Vector2(0.5, 0.5)
 	$InteractPopup.global_position.y = $Area2D.global_position.y - 20
 	$InteractPopup.show()
 	print($Area2D.global_position)

@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cyxmti5pufta7" path="res://random assets/spikes/sparkle_animation.png" id="9_esrvc"]
 [ext_resource type="Script" path="res://enemis/piranha/piranha_spawn_locations.gd" id="9_nsu1e"]
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="9_vvp1l"]
-[ext_resource type="PackedScene" uid="uid://crf0k4un1wh5m" path="res://ManholeCover/manhole_cover.tscn" id="10_wgmn7"]
+[ext_resource type="PackedScene" uid="uid://crf0k4un1wh5m" path="res://Interactibles/ManholeCover/manhole_cover.tscn" id="10_wgmn7"]
 [ext_resource type="Texture2D" uid="uid://dyrn2eup2xn5e" path="res://random assets/spikes/white spike.png" id="13_t10vw"]
 [ext_resource type="Texture2D" uid="uid://cc0d8aqs7qqfw" path="res://lights/light_assets.png" id="14_q0aco"]
 [ext_resource type="PackedScene" uid="uid://ctf1m12u42fhp" path="res://lights/light.tscn" id="16_t10vw"]

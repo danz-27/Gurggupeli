@@ -14,6 +14,7 @@ var min_brightness: float = energy - brightness_range
 var max_brightness: float = energy + brightness_range
 var brightening_speed: float = randf_range(0.005, 0.007)
 var brightening: bool = false
+var light_quality: String = "medium"
 
 func _ready() -> void:
 	if is_electiric:
@@ -21,6 +22,18 @@ func _ready() -> void:
 	if is_natural:
 		color = Color(1.0, 0.835, 0.435)
 		energy = randf_range(min_brightness, max_brightness)
+	if light_quality == "low":
+		shadow_filter = SHADOW_FILTER_NONE
+		flickers = false
+		fades = false
+	elif light_quality == "medium":
+		shadow_filter = SHADOW_FILTER_PCF5
+	elif light_quality == "high":
+		shadow_filter = SHADOW_FILTER_PCF13
+	elif light_quality == "extremely low":
+		enabled = false
+		flickers = false
+		fades = false
 
 func flicker() -> void:
 	var SaveEnergy: float = energy
