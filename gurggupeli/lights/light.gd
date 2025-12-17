@@ -31,7 +31,7 @@ func _ready() -> void:
 	elif light_quality == "high":
 		shadow_filter = SHADOW_FILTER_PCF13
 	elif light_quality == "extremely low":
-		enabled = false
+		shadow_enabled = false
 		flickers = false
 		fades = false
 

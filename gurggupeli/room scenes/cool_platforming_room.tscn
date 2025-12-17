@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=4 uid="uid://dyc83n3556rbn"]
+[gd_scene load_steps=111 format=4 uid="uid://dyc83n3556rbn"]
 
 [ext_resource type="PackedScene" uid="uid://df2e83qk72c1r" path="res://room scenes/template/roomtemplate.tscn" id="1_0mrkg"]
 [ext_resource type="Texture2D" uid="uid://bc50v4iry6plj" path="res://player/textures/radioactive waste.png" id="2_4jida"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ctf1m12u42fhp" path="res://lights/light.tscn" id="5_iaubd"]
 [ext_resource type="PackedScene" uid="uid://dp8k64wold6vs" path="res://room scenes/template/parallax_background_template.tscn" id="6_s2mfo"]
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="8_nwnoo"]
+[ext_resource type="PackedScene" uid="uid://c7wn1s4w7tv" path="res://room scenes/template/checkpoint.tscn" id="9_v6xk0"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_chuao"]
 tile_data = PackedInt32Array(0, 262145, 13, 65536, 262145, 14, 1, 327681, 13, 65537, 327681, 14, 2, 393217, 13, 65538, 393217, 14, 3, 458753, 13, 65539, 458753, 14, 4, 524289, 13, 65540, 524289, 14, 5, 589825, 13, 65541, 589825, 14)
@@ -8754,6 +8755,12 @@ door_ID = 2
 
 [node name="RespawnPosition" parent="roomtemplate/RoomExit3" index="1"]
 position = Vector2(-16, 6)
+
+[node name="Checkpoint2" parent="roomtemplate" instance=ExtResource("9_v6xk0")]
+position = Vector2(545, -55)
+
+[node name="Checkpoint" parent="roomtemplate" instance=ExtResource("9_v6xk0")]
+position = Vector2(523, -168)
 
 [editable path="roomtemplate"]
 [editable path="roomtemplate/RoomExit"]

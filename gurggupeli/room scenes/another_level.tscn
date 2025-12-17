@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=4 uid="uid://bnegvhdv2bg18"]
+[gd_scene load_steps=80 format=4 uid="uid://bnegvhdv2bg18"]
 
 [ext_resource type="PackedScene" uid="uid://df2e83qk72c1r" path="res://room scenes/template/roomtemplate.tscn" id="1_irkqb"]
 [ext_resource type="Texture2D" uid="uid://bc50v4iry6plj" path="res://player/textures/radioactive waste.png" id="2_q7p56"]
@@ -7,9 +7,10 @@
 [ext_resource type="Script" uid="uid://24iqjqsdya03" path="res://room scenes/rats.gd" id="5_dlmcy"]
 [ext_resource type="PackedScene" uid="uid://ctf1m12u42fhp" path="res://lights/light.tscn" id="5_lf12h"]
 [ext_resource type="PackedScene" uid="uid://dp8k64wold6vs" path="res://room scenes/template/parallax_background_template.tscn" id="5_oxgcm"]
-[ext_resource type="Script" path="res://enemis/piranha/piranha_spawn_locations.gd" id="6_c55gm"]
+[ext_resource type="Script" uid="uid://ue44lh2wtgwp" path="res://enemis/piranha/piranha_spawn_locations.gd" id="6_c55gm"]
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="7_6uhww"]
 [ext_resource type="Script" uid="uid://8or5lgs1860v" path="res://room scenes/falling_water.gd" id="10_al4w0"]
+[ext_resource type="PackedScene" uid="uid://c7wn1s4w7tv" path="res://room scenes/template/checkpoint.tscn" id="11_41lww"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4jida"]
 tile_data = PackedInt32Array(0, 262145, 13, 65536, 262145, 14, 1, 327681, 13, 65537, 327681, 14, 2, 393217, 13, 65538, 393217, 14, 3, 458753, 13, 65539, 458753, 14, 4, 524289, 13, 65540, 524289, 14, 5, 589825, 13, 65541, 589825, 14)
@@ -6594,6 +6595,12 @@ trail_enabled = true
 trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_al4w0")
 script = ExtResource("10_al4w0")
+
+[node name="Checkpoint" parent="roomtemplate" instance=ExtResource("11_41lww")]
+position = Vector2(927.3251, -222.86044)
+
+[node name="Checkpoint2" parent="roomtemplate" instance=ExtResource("11_41lww")]
+position = Vector2(485.94235, -40.222534)
 
 [editable path="roomtemplate"]
 [editable path="roomtemplate/RoomExit"]
