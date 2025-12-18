@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2trf1846jb0b"]
+[gd_scene load_steps=17 format=3 uid="uid://d2trf1846jb0b"]
 
 [ext_resource type="PackedScene" uid="uid://betvs3gq1xrw7" path="res://GUI/health_bar.tscn" id="1_80edf"]
 [ext_resource type="Texture2D" uid="uid://dn3247ny3t3ch" path="res://GUI/vine.png" id="1_egdk1"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://1x0amq151cs7" path="res://GUI/title.png" id="12_rikqw"]
 [ext_resource type="PackedScene" uid="uid://rnf12mxa410b" path="res://GUI/input_mapper/input_mapper.tscn" id="13_gedss"]
 [ext_resource type="PackedScene" uid="uid://6pbawsjxpl8x" path="res://Interactibles/interact_popup.tscn" id="14_rikqw"]
+[ext_resource type="PackedScene" uid="uid://b76ly8xg11ojm" path="res://healthviles.tscn" id="16_4bf3s"]
 
 [node name="GUI" type="CanvasLayer"]
 process_mode = 3
@@ -237,32 +238,31 @@ offset_bottom = 81.20133
 theme = ExtResource("4_rikqw")
 
 [node name="InputMapper" parent="." instance=ExtResource("13_gedss")]
-visible = false
 z_index = 300
 
 [node name="Right" parent="InputMapper" index="0"]
 offset_left = 200.0
-offset_top = 48.0
+offset_top = 69.0
 offset_right = 248.59813
-offset_bottom = 64.0
+offset_bottom = 85.0
 
 [node name="Left" parent="InputMapper" index="1"]
 offset_left = 80.0
-offset_top = 48.0
+offset_top = 69.0
 offset_right = 130.07248
-offset_bottom = 65.29251
+offset_bottom = 86.29251
 
 [node name="Up" parent="InputMapper" index="2"]
 offset_left = 144.0
-offset_top = 24.0
+offset_top = 40.0
 offset_right = 192.0
-offset_bottom = 40.0
+offset_bottom = 56.0
 
 [node name="Down" parent="InputMapper" index="3"]
 offset_left = 144.0
-offset_top = 64.0
+offset_top = 69.0
 offset_right = 193.39493
-offset_bottom = 82.008316
+offset_bottom = 87.008316
 
 [node name="Jump" parent="InputMapper" index="4"]
 offset_left = 80.0
@@ -277,10 +277,16 @@ offset_right = 192.0
 offset_bottom = 112.0
 
 [node name="Interact" parent="InputMapper" index="6"]
-offset_left = 208.0
-offset_top = 96.0
-offset_right = 256.0
-offset_bottom = 112.0
+offset_left = 200.0
+offset_top = 40.0
+offset_right = 248.0
+offset_bottom = 56.0
+
+[node name="Heal" parent="InputMapper" index="7"]
+offset_left = 81.0
+offset_top = 40.0
+offset_right = 129.0
+offset_bottom = 56.0
 
 [node name="BackButton" type="Button" parent="InputMapper"]
 z_index = 201
@@ -294,6 +300,10 @@ text = "Back"
 
 [node name="InteractPopup" parent="." instance=ExtResource("14_rikqw")]
 visible = false
+
+[node name="Healthviles" parent="." instance=ExtResource("16_4bf3s")]
+z_index = -1
+mouse_filter = 2
 
 [connection signal="pressed" from="DeathScreen/RespawnButton" to="DeathScreen" method="_on_respawn_button_pressed"]
 [connection signal="pressed" from="DeathScreen/ExitButton" to="DeathScreen" method="_on_exit_button_pressed"]

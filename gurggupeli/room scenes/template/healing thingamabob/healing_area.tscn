@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dsa2cd5m8j5ni"]
 
-[ext_resource type="Script" uid="uid://dl7i8qog2bs46" path="res://room scenes/template/healing_area.gd" id="1_shnlo"]
+[ext_resource type="Script" uid="uid://dl7i8qog2bs46" path="res://room scenes/template/healing thingamabob/healing_area.gd" id="1_shnlo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icd7j"]
 
-[node name="Healing area" type="Node2D"]
+[node name="Healing area" type="Node2D" groups=["healthvile"]]
 script = ExtResource("1_shnlo")
 
 [node name="Area2D" type="Area2D" parent="."]

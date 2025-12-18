@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bix0v4xhowapv" path="res://hideableWall/hideable_wall.tscn" id="7_v5jw1"]
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="8_t0gfm"]
 [ext_resource type="PackedScene" uid="uid://dp8k64wold6vs" path="res://room scenes/template/parallax_background_template.tscn" id="9_t56ak"]
-[ext_resource type="PackedScene" uid="uid://dsa2cd5m8j5ni" path="res://room scenes/template/healing_area.tscn" id="10_4fmbu"]
+[ext_resource type="PackedScene" uid="uid://dsa2cd5m8j5ni" path="res://room scenes/template/healing thingamabob/healing_area.tscn" id="10_4fmbu"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4jida"]
 tile_data = PackedInt32Array(0, 262145, 13, 65536, 262145, 14, 1, 327681, 13, 65537, 327681, 14, 2, 393217, 13, 65538, 393217, 14, 3, 458753, 13, 65539, 458753, 14, 4, 524289, 13, 65540, 524289, 14, 5, 589825, 13, 65541, 589825, 14)
