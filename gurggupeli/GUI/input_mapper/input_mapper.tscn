@@ -69,3 +69,11 @@ offset_bottom = 8.0
 theme = ExtResource("2_csc7f")
 script = ExtResource("2_20rny")
 action = "interact"
+
+[node name="Heal" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("2_csc7f")
+script = ExtResource("2_20rny")
+action = "heal"

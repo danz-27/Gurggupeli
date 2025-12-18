@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://bvrknvknjcol7"]
+[gd_scene load_steps=79 format=4 uid="uid://bvrknvknjcol7"]
 
 [ext_resource type="PackedScene" uid="uid://df2e83qk72c1r" path="res://room scenes/template/roomtemplate.tscn" id="1_aae7c"]
 [ext_resource type="Texture2D" uid="uid://bc50v4iry6plj" path="res://player/textures/radioactive waste.png" id="2_t56ak"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bix0v4xhowapv" path="res://hideableWall/hideable_wall.tscn" id="7_v5jw1"]
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="8_t0gfm"]
 [ext_resource type="PackedScene" uid="uid://dp8k64wold6vs" path="res://room scenes/template/parallax_background_template.tscn" id="9_t56ak"]
+[ext_resource type="PackedScene" uid="uid://dsa2cd5m8j5ni" path="res://room scenes/template/healing thingamabob/healing_area.tscn" id="10_4fmbu"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4jida"]
 tile_data = PackedInt32Array(0, 262145, 13, 65536, 262145, 14, 1, 327681, 13, 65537, 327681, 14, 2, 393217, 13, 65538, 393217, 14, 3, 458753, 13, 65539, 458753, 14, 4, 524289, 13, 65540, 524289, 14, 5, 589825, 13, 65541, 589825, 14)
@@ -6300,6 +6301,9 @@ pattern_10 = SubResource("TileMapPattern_v5jw1")
 pattern_11 = SubResource("TileMapPattern_t0gfm")
 pattern_12 = SubResource("TileMapPattern_fud38")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fmbu"]
+size = Vector2(104, 5)
+
 [node name="Starting room" type="Node2D"]
 
 [node name="roomtemplate" parent="." instance=ExtResource("1_aae7c")]
@@ -6466,9 +6470,17 @@ z_index = -6
 visible = false
 z_index = -7
 
+[node name="Healing area" parent="roomtemplate" instance=ExtResource("10_4fmbu")]
+position = Vector2(50, 31)
+
+[node name="CollisionShape2D" parent="roomtemplate/Healing area/Area2D" index="0"]
+position = Vector2(42, 0.5)
+shape = SubResource("RectangleShape2D_4fmbu")
+
 [editable path="roomtemplate"]
 [editable path="roomtemplate/RoomExit"]
 [editable path="roomtemplate/ManholeCover"]
 [editable path="roomtemplate/ManholeCover/Hideable wall"]
 [editable path="roomtemplate/RoomExit2"]
 [editable path="roomtemplate/ParallaxBackgroundTemplate"]
+[editable path="roomtemplate/Healing area"]

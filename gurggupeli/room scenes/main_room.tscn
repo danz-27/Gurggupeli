@@ -2923,7 +2923,7 @@ script = ExtResource("18_0h68g")
 [node name="StartingRoom" parent="roomtemplate" instance=ExtResource("9_vvp1l")]
 position = Vector2(268, 36)
 next_room_path = "res://room scenes/challenge_room.tscn"
-door_ID = 1
+door_ID = 2
 
 [node name="OtterRoom" parent="roomtemplate" instance=ExtResource("9_vvp1l")]
 position = Vector2(-319, -252)
