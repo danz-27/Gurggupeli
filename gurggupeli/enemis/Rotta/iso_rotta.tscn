@@ -1,13 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://cptupmeqygulr"]
+[gd_scene load_steps=12 format=3 uid="uid://8rn3egw3432e"]
 
-[ext_resource type="Script" uid="uid://b5w66ikrmckne" path="res://enemis/Rotta/rotta.gd" id="1_3rxqv"]
-[ext_resource type="Texture2D" uid="uid://tlc8vv0uqo1s" path="res://enemis/Rotta/Rat spritesheet.png" id="2_abuis"]
-[ext_resource type="PackedScene" uid="uid://bnka5lngeyuhl" path="res://enemis/hurtbox.tscn" id="3_av6fj"]
-[ext_resource type="PackedScene" uid="uid://buf5pdb22e0bo" path="res://enemis/entity_health.tscn" id="4_0g7rb"]
-[ext_resource type="PackedScene" uid="uid://dcfljpyeu8gif" path="res://enemis/soft_collision.tscn" id="5_cp4qd"]
+[ext_resource type="Script" uid="uid://pfc6ua62ho38" path="res://enemis/Rotta/Iso rotta.gd" id="1_l82j7"]
+[ext_resource type="Texture2D" uid="uid://dynp61eis6qat" path="res://enemis/Rotta/big rat.png" id="2_dwwqh"]
+[ext_resource type="PackedScene" uid="uid://bnka5lngeyuhl" path="res://enemis/hurtbox.tscn" id="3_6jywo"]
+[ext_resource type="PackedScene" uid="uid://buf5pdb22e0bo" path="res://enemis/entity_health.tscn" id="4_hb3gj"]
+[ext_resource type="PackedScene" uid="uid://dcfljpyeu8gif" path="res://enemis/soft_collision.tscn" id="5_308ot"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_37wr3"]
-size = Vector2(14, 6)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhi1x"]
+size = Vector2(24, 10)
 
 [sub_resource type="Animation" id="Animation_0g7rb"]
 resource_name = "Angry_run"
@@ -134,42 +134,44 @@ _data = {
 &"Run": SubResource("Animation_3rxqv")
 }
 
-[node name="Rotta" type="CharacterBody2D"]
+[node name="Iso rotta" type="CharacterBody2D"]
 collision_layer = 0
-script = ExtResource("1_3rxqv")
+script = ExtResource("1_l82j7")
 metadata/_custom_type_script = "uid://dcs3qc800r40p"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
-texture = ExtResource("2_abuis")
+position = Vector2(0, -16)
+texture = ExtResource("2_dwwqh")
 hframes = 8
 vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -3)
-shape = SubResource("RectangleShape2D_37wr3")
+position = Vector2(1, -5)
+shape = SubResource("RectangleShape2D_jhi1x")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_eildp")
 }
 
-[node name="HurtBox" parent="." instance=ExtResource("3_av6fj")]
+[node name="HurtBox" parent="." instance=ExtResource("3_6jywo")]
+position = Vector2(-1, 0)
+damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(1, -3)
-shape = SubResource("RectangleShape2D_37wr3")
+position = Vector2(2, -5)
+shape = SubResource("RectangleShape2D_jhi1x")
 
-[node name="EntityHealth" parent="." instance=ExtResource("4_0g7rb")]
+[node name="EntityHealth" parent="." instance=ExtResource("4_hb3gj")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EntityHealth"]
-position = Vector2(1, -3)
-shape = SubResource("RectangleShape2D_37wr3")
+position = Vector2(1, -5)
+shape = SubResource("RectangleShape2D_jhi1x")
 
-[node name="SoftCollision" parent="." instance=ExtResource("5_cp4qd")]
+[node name="SoftCollision" parent="." instance=ExtResource("5_308ot")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SoftCollision"]
-position = Vector2(1, -3)
-shape = SubResource("RectangleShape2D_37wr3")
+position = Vector2(1, -5)
+shape = SubResource("RectangleShape2D_jhi1x")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

@@ -22,6 +22,7 @@ texture = ExtResource("2_h7264")
 
 [node name="InteractPopup" parent="." instance=ExtResource("3_jl54s")]
 visible = false
+picture = ExtResource("2_h7264")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
