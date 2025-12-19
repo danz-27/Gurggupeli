@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://1x0amq151cs7" path="res://GUI/title.png" id="12_rikqw"]
 [ext_resource type="PackedScene" uid="uid://rnf12mxa410b" path="res://GUI/input_mapper/input_mapper.tscn" id="13_gedss"]
 [ext_resource type="PackedScene" uid="uid://6pbawsjxpl8x" path="res://Interactibles/interact_popup.tscn" id="14_rikqw"]
-[ext_resource type="PackedScene" uid="uid://b76ly8xg11ojm" path="res://healthviles.tscn" id="16_4bf3s"]
+[ext_resource type="PackedScene" uid="uid://b76ly8xg11ojm" path="res://GUI/inventory/inventory.tscn" id="16_4bf3s"]
 
 [node name="GUI" type="CanvasLayer"]
 process_mode = 3

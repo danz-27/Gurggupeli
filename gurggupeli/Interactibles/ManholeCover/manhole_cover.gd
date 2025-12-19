@@ -10,18 +10,19 @@ func manhole_opened() -> void:
 			child._activate()
 
 func _physics_process(_delta: float) -> void:
-	if is_inside_detection_area and Input.is_action_just_pressed("interact") and !opened:
+	if is_inside_detection_area and Input.is_action_just_pressed("interact") and !opened and GlobalVariables.has_crowbar:
 		manhole_opened()
 		$ManholeCoverAnimationSpritesheet/AnimationPlayer.play("open")
 		opened = true
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	is_inside_detection_area = true
-	$InteractPopup.global_position = $Area2D/CollisionShape2D.global_position + 20 * Vector2.UP 
-	if $StaticBody2D/CollisionShape2D.disabled == true:
-		pass
-	else:
-		$InteractPopup.show()
+	if GlobalVariables.has_crowbar:
+		$InteractPopup.global_position = $Area2D/CollisionShape2D.global_position + 20 * Vector2.UP 
+		if $StaticBody2D/CollisionShape2D.disabled == true:
+			pass
+		else:
+			$InteractPopup.show()
 
 func _on_area_2d_body_exited(_body: Node2D) -> void:
 	is_inside_detection_area = false

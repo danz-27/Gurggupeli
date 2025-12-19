@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b677tvxhoxiwn"
-path="res://.godot/imported/rautasorkka.png-edd760b45172635f41bceb385aa4d30d.ctex"
+uid="uid://do12n4qk3p5mf"
+path="res://.godot/imported/health vile.png-60c007c50d5670a7f0239f217ea5e7b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://random assets/rautasorkka.png"
-dest_files=["res://.godot/imported/rautasorkka.png-edd760b45172635f41bceb385aa4d30d.ctex"]
+source_file="res://GUI/inventory/health vile.png"
+dest_files=["res://.godot/imported/health vile.png-60c007c50d5670a7f0239f217ea5e7b7.ctex"]
 
 [params]
 

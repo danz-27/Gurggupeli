@@ -2,28 +2,39 @@ extends Control
 
 @export var full_vile_texture: Texture2D
 @export var empty_vile_texture: Texture2D
+@onready var healthviles: VBoxContainer = $"Health viles"
+@onready var crowbar: TextureRect = $items/rautasorkka
 var vile_amount: int = 3
 var viles_full: int = 0
 var max_viles: int = 5
+var has_crowbar: bool = false
+
+func _has_crowbar() -> bool:
+	return has_crowbar
+
+func get_crowbar() -> void:
+	has_crowbar = true
+	crowbar.visible = true
 
 func _ready() -> void:
-	for vile in $VBoxContainer.get_children():
+	crowbar.visible = has_crowbar
+	for vile in healthviles.get_children():
 		vile.visible = false
 	for vile in vile_amount:
-		$VBoxContainer.get_children()[vile].visible = true
+		healthviles.get_children()[vile].visible = true
 
 func _add_vile() -> void:
 	if vile_amount < max_viles:
 		vile_amount += 1
-		for vile in $VBoxContainer.get_children():
+		for vile in healthviles.get_children():
 			vile.visible = false
 		for vile in vile_amount:
-			$VBoxContainer.get_children()[vile].visible = true
+			healthviles.get_children()[vile].visible = true
 		
 func fill_vile() -> void:
 	if viles_full < vile_amount:
 		viles_full += 1
-		for vile: TextureRect in $VBoxContainer.get_children():
+		for vile: TextureRect in healthviles.get_children():
 			if vile.texture == empty_vile_texture:
 				vile.texture = full_vile_texture
 				break
@@ -31,7 +42,7 @@ func fill_vile() -> void:
 func heal() -> void:
 	viles_full -= 1
 	Player.instance.health.health += 3
-	$VBoxContainer.get_children()[viles_full].texture = empty_vile_texture
+	healthviles.get_children()[viles_full].texture = empty_vile_texture
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("heal") and viles_full > 0:

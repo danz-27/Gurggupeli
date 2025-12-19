@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://r0f1ybgr0pka" path="res://Interactibles/interact_popup.gd" id="1_ibfpj"]
 [ext_resource type="Theme" uid="uid://b74hf2cftdmov" path="res://GUI/input_mapper/input_mapper.tres" id="2_2v1rf"]
 [ext_resource type="Script" uid="uid://c6j8f1n17sh40" path="res://Interactibles/interact_button.gd" id="2_34pjp"]
-[ext_resource type="Texture2D" uid="uid://b677tvxhoxiwn" path="res://random assets/rautasorkka.png" id="3_2v1rf"]
+[ext_resource type="Texture2D" uid="uid://b677tvxhoxiwn" path="res://GUI/inventory/rautasorkka.png" id="3_2v1rf"]
 
 [node name="InteractPopup" type="Control"]
 z_index = 60
@@ -17,7 +17,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_ibfpj")
-picture = ExtResource("3_2v1rf")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
