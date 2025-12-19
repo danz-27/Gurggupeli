@@ -4,20 +4,12 @@ extends Control
 @export var empty_vile_texture: Texture2D
 @onready var healthviles: VBoxContainer = $"Health viles"
 @onready var crowbar: TextureRect = $items/rautasorkka
-var vile_amount: int = 3
+@onready var max_viles: int = $"Health viles".get_children().size()
+var vile_amount: int = 0
 var viles_full: int = 0
-var max_viles: int = 5
-var has_crowbar: bool = false
-
-func _has_crowbar() -> bool:
-	return has_crowbar
-
-func get_crowbar() -> void:
-	has_crowbar = true
-	crowbar.visible = true
 
 func _ready() -> void:
-	crowbar.visible = has_crowbar
+	crowbar.visible = GlobalVariables.has_crowbar
 	for vile in healthviles.get_children():
 		vile.visible = false
 	for vile in vile_amount:
@@ -47,3 +39,4 @@ func heal() -> void:
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("heal") and viles_full > 0:
 		heal()
+	crowbar.visible = GlobalVariables.has_crowbar

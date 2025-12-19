@@ -297,7 +297,7 @@ text = "Back"
 [node name="InteractPopup" parent="." instance=ExtResource("14_rikqw")]
 visible = false
 
-[node name="Healthviles" parent="." instance=ExtResource("16_4bf3s")]
+[node name="Inventory" parent="." instance=ExtResource("16_4bf3s")]
 z_index = -1
 mouse_filter = 2
 

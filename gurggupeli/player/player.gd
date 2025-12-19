@@ -232,7 +232,7 @@ func _physics_process(delta: float) -> void:
 			if velocity.y > max_fall_speed:
 				velocity.y = max_fall_speed
 			
-			if Input.is_action_just_pressed("dash") and dash_count > 0:
+			if Input.is_action_just_pressed("dash") and dash_count > 0 and GlobalVariables.has_dash:
 				gurggu.material.set_shader_parameter("new", Color(0.161, 0.247, 0.129))
 				dash()
 				state = STATE.DASHING
