@@ -233,6 +233,7 @@ offset_bottom = 81.20133
 theme = ExtResource("4_rikqw")
 
 [node name="InputMapper" parent="." instance=ExtResource("13_gedss")]
+visible = false
 z_index = 300
 
 [node name="Right" parent="InputMapper" index="0"]

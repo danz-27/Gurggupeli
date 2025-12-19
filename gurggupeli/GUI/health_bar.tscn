@@ -13,35 +13,31 @@ texture = ExtResource("2_8nv1i")
 offset = Vector2(33, 14)
 
 [node name="HealthIcon1" type="Sprite2D" parent="."]
-position = Vector2(-6, 73)
+position = Vector2(10, 29)
 texture = ExtResource("2_cdhan")
-offset = Vector2(15.5, -45.106785)
-hframes = 5
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
 
 [node name="HealthIcon6" type="Sprite2D" parent="."]
-position = Vector2(8, 69)
+position = Vector2(25, 25)
 texture = ExtResource("2_cdhan")
-offset = Vector2(15.5, -45.106785)
-hframes = 5
-frame = 1
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)
 
 [node name="HealthIcon7" type="Sprite2D" parent="."]
-position = Vector2(25, 68)
+position = Vector2(40, 24)
 texture = ExtResource("2_cdhan")
-offset = Vector2(15.5, -45.106785)
-hframes = 5
-frame = 2
+region_enabled = true
+region_rect = Rect2(32, 0, 16, 16)
 
 [node name="HealthIcon8" type="Sprite2D" parent="."]
-position = Vector2(39, 71)
+position = Vector2(55, 24)
 texture = ExtResource("2_cdhan")
-offset = Vector2(15.5, -45.106785)
-hframes = 5
-frame = 3
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
 
 [node name="HealthIcon9" type="Sprite2D" parent="."]
-position = Vector2(51, 59)
+position = Vector2(68, 14)
 texture = ExtResource("2_cdhan")
-offset = Vector2(15.5, -45.106785)
-hframes = 5
-frame = 4
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
