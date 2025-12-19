@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2trf1846jb0b"]
+[gd_scene load_steps=16 format=3 uid="uid://d2trf1846jb0b"]
 
 [ext_resource type="PackedScene" uid="uid://betvs3gq1xrw7" path="res://GUI/health_bar.tscn" id="1_80edf"]
-[ext_resource type="Texture2D" uid="uid://dn3247ny3t3ch" path="res://GUI/vine.png" id="1_egdk1"]
 [ext_resource type="Script" uid="uid://dal06uv2b8l11" path="res://GUI/gui.gd" id="1_qtfhu"]
 [ext_resource type="Texture2D" uid="uid://dhyd4qc2si41b" path="res://GUI/DeathGui.png" id="4_2xed4"]
 [ext_resource type="Theme" uid="uid://b74hf2cftdmov" path="res://GUI/input_mapper/input_mapper.tres" id="4_rikqw"]
@@ -22,10 +21,6 @@ process_mode = 3
 layer = 1000
 follow_viewport_scale = 6.0
 script = ExtResource("1_qtfhu")
-
-[node name="HealthbarTexture" type="Sprite2D" parent="."]
-texture = ExtResource("1_egdk1")
-offset = Vector2(33, 14)
 
 [node name="HealthBarHealths" parent="." instance=ExtResource("1_80edf")]
 

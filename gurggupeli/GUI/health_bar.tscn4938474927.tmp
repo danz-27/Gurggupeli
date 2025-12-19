@@ -8,39 +8,39 @@
 script = ExtResource("1_cdhan")
 
 [node name="HealthbarTexture" type="Sprite2D" parent="."]
-z_index = -1
+z_index = 1
 texture = ExtResource("2_8nv1i")
 offset = Vector2(33, 14)
 
 [node name="HealthIcon1" type="Sprite2D" parent="."]
-position = Vector2(-6, 73)
+position = Vector2(-6, 68)
 texture = ExtResource("2_cdhan")
 offset = Vector2(15.5, -45.106785)
 hframes = 5
 
 [node name="HealthIcon6" type="Sprite2D" parent="."]
-position = Vector2(8, 69)
+position = Vector2(11, 66)
 texture = ExtResource("2_cdhan")
 offset = Vector2(15.5, -45.106785)
 hframes = 5
 frame = 1
 
 [node name="HealthIcon7" type="Sprite2D" parent="."]
-position = Vector2(25, 68)
+position = Vector2(27, 65)
 texture = ExtResource("2_cdhan")
 offset = Vector2(15.5, -45.106785)
 hframes = 5
 frame = 2
 
 [node name="HealthIcon8" type="Sprite2D" parent="."]
-position = Vector2(39, 71)
+position = Vector2(41, 59)
 texture = ExtResource("2_cdhan")
 offset = Vector2(15.5, -45.106785)
 hframes = 5
 frame = 3
 
 [node name="HealthIcon9" type="Sprite2D" parent="."]
-position = Vector2(51, 59)
+position = Vector2(57, 53)
 texture = ExtResource("2_cdhan")
 offset = Vector2(15.5, -45.106785)
 hframes = 5
