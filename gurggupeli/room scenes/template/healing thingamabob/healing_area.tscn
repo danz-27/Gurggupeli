@@ -4,7 +4,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icd7j"]
 
-[node name="Healing area" type="Node2D" groups=["healthvile"]]
+[node name="Healing area" type="Node2D" groups=["inventory"]]
 script = ExtResource("1_shnlo")
 
 [node name="Area2D" type="Area2D" parent="."]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://crf0k4un1wh5m"]
+[gd_scene load_steps=10 format=3 uid="uid://crf0k4un1wh5m"]
 
 [ext_resource type="Script" uid="uid://0ftjfvwrotvx" path="res://Interactibles/ManholeCover/manhole_cover.gd" id="1_ihuje"]
 [ext_resource type="Texture2D" uid="uid://bifcguomsjubs" path="res://Interactibles/ManholeCover/manhole cover animation spritesheet.png" id="2_nbrm4"]
 [ext_resource type="PackedScene" uid="uid://6pbawsjxpl8x" path="res://Interactibles/interact_popup.tscn" id="3_omhan"]
+[ext_resource type="Texture2D" uid="uid://b677tvxhoxiwn" path="res://GUI/inventory/rautasorkka.png" id="4_autvk"]
 
 [sub_resource type="Animation" id="Animation_u33t8"]
 length = 0.001
@@ -75,6 +76,7 @@ shape = SubResource("RectangleShape2D_ihuje")
 
 [node name="InteractPopup" parent="." instance=ExtResource("3_omhan")]
 visible = false
+image = ExtResource("4_autvk")
 
 [connection signal="animation_finished" from="ManholeCoverAnimationSpritesheet/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

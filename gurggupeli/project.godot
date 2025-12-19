@@ -16,6 +16,10 @@ config/use_custom_user_dir=true
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://bl63fmfjlqrp2"
 
+[autoload]
+
+GlobalVariables="*res://Main folderi/global variables.gd"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=1
@@ -30,7 +34,7 @@ window/vsync/vsync_mode=0
 
 [global_group]
 
-healthvile=""
+inventory=""
 
 [gui]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1agt8h6t40lt"
-path="res://.godot/imported/health vile empty.png-5297f9b45c802fbafdc3cc9f635fd309.ctex"
+path="res://.godot/imported/health vile empty.png-3982c7123b16ede92a57df8b34b749ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://room scenes/template/healing thingamabob/health vile empty.png"
-dest_files=["res://.godot/imported/health vile empty.png-5297f9b45c802fbafdc3cc9f635fd309.ctex"]
+source_file="res://GUI/inventory/health vile empty.png"
+dest_files=["res://.godot/imported/health vile empty.png-3982c7123b16ede92a57df8b34b749ef.ctex"]
 
 [params]
 

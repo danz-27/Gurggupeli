@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://b76ly8xg11ojm"]
+
+[ext_resource type="Script" uid="uid://bb8dnpkpb1vec" path="res://GUI/inventory/healthviles.gd" id="1_ji1vn"]
+[ext_resource type="Texture2D" uid="uid://do12n4qk3p5mf" path="res://GUI/inventory/health vile.png" id="2_w0fyw"]
+[ext_resource type="Texture2D" uid="uid://d1agt8h6t40lt" path="res://GUI/inventory/health vile empty.png" id="3_81s43"]
+[ext_resource type="Texture2D" uid="uid://b677tvxhoxiwn" path="res://GUI/inventory/rautasorkka.png" id="4_w0fyw"]
+
+[node name="Inventory" type="Control" groups=["inventory"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ji1vn")
+full_vile_texture = ExtResource("2_w0fyw")
+empty_vile_texture = ExtResource("3_81s43")
+
+[node name="Health viles" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 2.0
+offset_right = 318.0
+offset_bottom = 98.0
+
+[node name="TextureRect" type="TextureRect" parent="Health viles"]
+layout_mode = 2
+texture = ExtResource("3_81s43")
+
+[node name="TextureRect2" type="TextureRect" parent="Health viles"]
+layout_mode = 2
+texture = ExtResource("3_81s43")
+
+[node name="TextureRect3" type="TextureRect" parent="Health viles"]
+layout_mode = 2
+texture = ExtResource("3_81s43")
+
+[node name="TextureRect4" type="TextureRect" parent="Health viles"]
+layout_mode = 2
+texture = ExtResource("3_81s43")
+
+[node name="TextureRect5" type="TextureRect" parent="Health viles"]
+layout_mode = 2
+texture = ExtResource("3_81s43")
+
+[node name="items" type="HBoxContainer" parent="."]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_right = 36.0
+grow_vertical = 0
+
+[node name="rautasorkka" type="TextureRect" parent="items"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_w0fyw")
+stretch_mode = 2
