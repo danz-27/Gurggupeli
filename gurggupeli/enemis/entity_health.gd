@@ -10,6 +10,7 @@ func take_damage(damage: int) -> void:
 	if !iframes_timer.is_stopped():
 		return
 	health -= damage
+	$"../HitParticles".emitting = true
 	GameTime.instance.freeze_game(0.08)
 	iframes_timer.start(iframes_duration)
 	if health <= 0:

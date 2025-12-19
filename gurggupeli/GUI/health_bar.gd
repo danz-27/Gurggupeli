@@ -4,11 +4,12 @@ const HEART_AMOUNT := 5
 
 var entity_health_node : EntityHealth
 var previous_health : int
-@onready var health_icons : Array[Sprite2D] = [$HealthIcon1, $HealthIcon2, $HealthIcon3, $HealthIcon4, $HealthIcon5]
+@onready var health_icons : Array[Sprite2D]
 var health_icon_positions : Array[Vector2]
 var tween_dict : Dictionary
 
 func _ready() -> void:
+	health_icons.append_array(get_children().filter(func(icon: Sprite2D) -> bool: return icon.z_index == 0))
 	health_icon_positions.assign(health_icons.map(func(icon: Sprite2D) -> Vector2: return icon.position))
 	await get_tree().physics_frame
 	entity_health_node = Player.instance.get_node("EntityHealth")
@@ -33,17 +34,16 @@ func _physics_process(_delta: float) -> void:
 	
 	
 	var color1 : Color
-	var color2 : Color
-	
+	var color2 : Color 
 	if health <= 5:
-		color1 = Color.DARK_GREEN
-		color2 = Color.DARK_GREEN
+		color1 = Color("68f300")
+		color2 = Color("68f300")
 	elif health <= 10:
-		color1 = Color.DARK_GREEN
-		color2 = Color.CRIMSON
+		color1 = Color("68f300")
+		color2 = Color("ffdf00")
 	else:
-		color1 = Color.CRIMSON
-		color2 = Color.YELLOW
+		color1 = Color("ffdf00")
+		color2 = Color(1.0, 0.639, 0.0, 1.0)
 	
 	for i : int in range(HEART_AMOUNT):
 		var icon := health_icons[i]
