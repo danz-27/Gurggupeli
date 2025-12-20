@@ -45,7 +45,7 @@ func calclulate_path() -> void:
 	var starting_position_in_tilemap: Vector2i = tilemap.local_to_map(starting_position)
 	var current_position: Vector2 = starting_position_in_tilemap
 	var direction_coming_from: int = head1_direction
-	var maximum_tiles: int = 500
+	var maximum_tiles: int = 1000
 	var iterations: int
 	var current_cell: TileData = tilemap.get_cell_tile_data(starting_position_in_tilemap)
 	if !current_cell:
@@ -59,12 +59,12 @@ func calclulate_path() -> void:
 	}
 	direction_going_to = return_other_direction[direction_coming_from]
 	points_in_path.curve = points_in_path.curve.duplicate(true)
-	print(points_in_path.global_position)
+	#print(points_in_path.global_position)
 	points_in_path.position = Vector2i.ZERO
 	points_in_path.global_position -= position
 	points_in_path.curve.clear_points()
 	points_in_path.curve.add_point(to_global(Vector2(starting_position)))
-	print(starting_position_in_tilemap, " ", direction_coming_from)
+	#print(starting_position_in_tilemap, " ", direction_coming_from)
 	points_in_path.curve.add_point(to_global(Vector2(tilemap.map_to_local(current_position))))
 	#current_cell.get_custom_data("pipe directions")
 	#tilemap.get_neighbor_cell(current_position, direction_going_to * 4)
@@ -92,10 +92,10 @@ func calclulate_path() -> void:
 	#print(points_in_path.curve.get_baked_points())
 
 func _ready() -> void:
-	print(get_parent().get_parent().name)
+	#print(get_parent().get_parent().name)
 	if get_parent().get_parent().name == "putkilo":
 		tilemap = get_parent().get_parent() as TileMapLayer
-		print("tilemap: ",tilemap)
+		#print("tilemap: ",tilemap)
 		calclulate_path()
 
 

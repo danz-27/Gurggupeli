@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://b8o1exqb7web1"]
+[gd_scene load_steps=76 format=4 uid="uid://b8o1exqb7web1"]
 
 [ext_resource type="PackedScene" uid="uid://df2e83qk72c1r" path="res://room scenes/template/roomtemplate.tscn" id="1_qamc7"]
 [ext_resource type="Texture2D" uid="uid://bc50v4iry6plj" path="res://player/textures/radioactive waste.png" id="2_dckm1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bq44tjbliygpq" path="res://random assets/enivironment assests.png" id="4_j4vbn"]
 [ext_resource type="PackedScene" uid="uid://dp8k64wold6vs" path="res://room scenes/template/parallax_background_template.tscn" id="5_44gh6"]
 [ext_resource type="Script" uid="uid://24iqjqsdya03" path="res://room scenes/rats.gd" id="6_g0cak"]
+[ext_resource type="PackedScene" uid="uid://otw7oka0orrl" path="res://Interactibles/dash.tscn" id="7_44gh6"]
 [ext_resource type="Script" uid="uid://c321ypq0r5o54" path="res://enemis/Rotta/big rats.gd" id="7_j4vbn"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4jida"]
@@ -6405,6 +6406,9 @@ z_index = -7
 [node name="Rats" type="Node2D" parent="roomtemplate"]
 position = Vector2(321, -17)
 script = ExtResource("6_g0cak")
+
+[node name="Dash" parent="roomtemplate/Rats" instance=ExtResource("7_44gh6")]
+position = Vector2(106, -3)
 
 [node name="BigRats" type="Node2D" parent="roomtemplate"]
 position = Vector2(359, 4)

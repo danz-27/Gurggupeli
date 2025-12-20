@@ -1,8 +1,8 @@
-[gd_scene load_steps=70 format=4 uid="uid://df2e83qk72c1r"]
+[gd_scene load_steps=68 format=4 uid="uid://df2e83qk72c1r"]
 
 [ext_resource type="Texture2D" uid="uid://bcpkm41dmh3tc" path="res://tilemaps/tiiliseinä tileset.png" id="1_sdgk7"]
 [ext_resource type="Texture2D" uid="uid://bc50v4iry6plj" path="res://player/textures/radioactive waste.png" id="2_ai5h1"]
-[ext_resource type="Texture2D" uid="uid://dekn2512yw5bn" path="res://pipe/pipe.png" id="3_5pyl6"]
+[ext_resource type="TileSet" uid="uid://bge0um2ub1a52" path="res://room scenes/template/putkilo_tilemap.tres" id="4_0xbjd"]
 [ext_resource type="Texture2D" uid="uid://7fx0kfswq7vo" path="res://tilemaps/darkness new.png" id="4_8ucbx"]
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="5_sdgk7"]
 [ext_resource type="Texture2D" uid="uid://bq44tjbliygpq" path="res://random assets/enivironment assests.png" id="5_x8ttf"]
@@ -1260,107 +1260,6 @@ pattern_8 = SubResource("TileMapPattern_6bwck")
 pattern_9 = SubResource("TileMapPattern_jjgij")
 pattern_10 = SubResource("TileMapPattern_iaubd")
 pattern_11 = SubResource("TileMapPattern_37uls")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_37gh4"]
-texture = ExtResource("3_5pyl6")
-texture_region_size = Vector2i(24, 24)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -9, 5, -9, 5, -10, 8, -12, 12, -12, 12, 12, 8, 12, 5, 10, 5, 9, -12, 9)
-0:0/0/terrains_peering_bit/left_side = 0
-1:0/0 = 0
-1:0/0/terrain_set = 0
-1:0/0/terrain = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, 12, -9, -5, -10, -5, -12, -8, -12, -12, 12, -12, 12, -8, 10, -5, 9, -5, 9, 12)
-1:0/0/terrains_peering_bit/bottom_side = 0
-2:0/0 = 0
-2:0/0/terrain_set = 0
-2:0/0/terrain = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, 12, -9, 8, -8, 5, -7, 3, -6, 1, -5, 0, -4, -2, -3, -3, -2, -4, 0, -5, 1, -6, 3, -7, 5, -8, 8, -9, 12, -9, 12, 9, 10, 10, 9, 12)
-2:0/0/terrains_peering_bit/right_side = 0
-2:0/0/terrains_peering_bit/bottom_side = 0
-3:0/0 = 0
-3:0/0/terrain_set = 0
-3:0/0/terrain = 0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -9, -8, -9, -5, -8, -3, -7, -1, -6, 0, -5, 2, -4, 3, -3, 4, -2, 5, 0, 6, 1, 7, 3, 8, 5, 9, 8, 9, 12, -9, 12, -10, 10, -12, 9)
-3:0/0/terrains_peering_bit/bottom_side = 0
-3:0/0/terrains_peering_bit/left_side = 0
-4:0/0 = 0
-4:0/0/terrain_set = 0
-4:0/0/terrain = 0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, -12, 9, -12, 9, 12, -9, 12)
-4:0/0/terrains_peering_bit/bottom_side = 0
-4:0/0/terrains_peering_bit/top_side = 0
-0:1/0 = 0
-0:1/0/terrain_set = 0
-0:1/0/terrain = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, 9, -5, 9, -5, 10, -8, 12, -12, 12, -12, -12, -8, -12, -5, -10, -5, -9, 12, -9)
-0:1/0/terrains_peering_bit/right_side = 0
-1:1/0 = 0
-1:1/0/terrain_set = 0
-1:1/0/terrain = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(9, -12, 9, 5, 10, 5, 12, 8, 12, 12, -12, 12, -12, 8, -10, 5, -9, 5, -9, -12)
-1:1/0/terrains_peering_bit/top_side = 0
-2:1/0 = 0
-2:1/0/terrain_set = 0
-2:1/0/terrain = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, 9, 8, 9, 5, 8, 3, 7, 1, 6, 0, 5, -2, 4, -3, 3, -4, 2, -5, 0, -6, -1, -7, -3, -8, -5, -9, -8, -9, -12, 9, -12, 10, -10, 12, -9)
-2:1/0/terrains_peering_bit/right_side = 0
-2:1/0/terrains_peering_bit/top_side = 0
-3:1/0 = 0
-3:1/0/terrain_set = 0
-3:1/0/terrain = 0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(9, -12, 9, -8, 8, -5, 7, -3, 6, -1, 5, 0, 4, 2, 3, 3, 2, 4, 0, 5, -1, 6, -3, 7, -5, 8, -8, 9, -12, 9, -12, -9, -10, -10, -9, -12)
-3:1/0/terrains_peering_bit/left_side = 0
-3:1/0/terrains_peering_bit/top_side = 0
-4:1/0 = 0
-4:1/0/terrain_set = 0
-4:1/0/terrain = 0
-4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, -9, 12, 9, -12, 9, -12, -9)
-4:1/0/terrains_peering_bit/right_side = 0
-4:1/0/terrains_peering_bit/left_side = 0
-5:0/0 = 0
-5:0/0/terrain_set = 0
-5:0/0/terrain = 0
-5:0/0/terrains_peering_bit/right_side = 0
-5:0/0/terrains_peering_bit/bottom_side = 0
-5:0/0/terrains_peering_bit/top_side = 0
-6:0/0 = 0
-6:0/0/terrain_set = 0
-6:0/0/terrain = 0
-6:0/0/terrains_peering_bit/right_side = 0
-6:0/0/terrains_peering_bit/bottom_side = 0
-6:0/0/terrains_peering_bit/left_side = 0
-6:1/0 = 0
-6:1/0/terrain_set = 0
-6:1/0/terrain = 0
-6:1/0/terrains_peering_bit/bottom_side = 0
-6:1/0/terrains_peering_bit/left_side = 0
-6:1/0/terrains_peering_bit/top_side = 0
-7:1/0 = 0
-7:1/0/terrain_set = 0
-7:0/0 = 0
-7:0/0/terrain_set = 0
-7:0/0/terrain = 0
-7:0/0/terrains_peering_bit/right_side = 0
-7:0/0/terrains_peering_bit/bottom_side = 0
-7:0/0/terrains_peering_bit/left_side = 0
-7:0/0/terrains_peering_bit/top_side = 0
-5:1/0 = 0
-5:1/0/terrain_set = 0
-5:1/0/terrain = 0
-5:1/0/terrains_peering_bit/right_side = 0
-5:1/0/terrains_peering_bit/left_side = 0
-5:1/0/terrains_peering_bit/top_side = 0
-
-[sub_resource type="TileSet" id="TileSet_lb5op"]
-tile_size = Vector2i(24, 24)
-physics_layer_0/collision_layer = 1
-terrain_set_0/mode = 2
-terrain_set_0/terrain_0/name = "pipe 0"
-terrain_set_0/terrain_0/color = Color(1, 1, 1, 1)
-sources/1 = SubResource("TileSetAtlasSource_37gh4")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xbjd"]
 texture = ExtResource("2_ai5h1")
@@ -5269,7 +5168,7 @@ tile_set = SubResource("TileSet_st1lc")
 
 [node name="putkilo" type="TileMapLayer" parent="TileMapLayer"]
 z_index = 4
-tile_set = SubResource("TileSet_lb5op")
+tile_set = ExtResource("4_0xbjd")
 
 [node name="putket tämän alle" type="Node2D" parent="TileMapLayer/putkilo"]
 
