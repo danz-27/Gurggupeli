@@ -183,7 +183,6 @@ light_mask = 16
 script = ExtResource("1_iv2bn")
 
 [node name="darkness" type="TileMapLayer" parent="."]
-light_mask = 2
 z_index = 6
 material = SubResource("ShaderMaterial_vvwa2")
 use_parent_material = true
