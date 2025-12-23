@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://24iqjqsdya03" path="res://room scenes/rats.gd" id="5_dlmcy"]
 [ext_resource type="PackedScene" uid="uid://ctf1m12u42fhp" path="res://lights/light.tscn" id="5_lf12h"]
 [ext_resource type="PackedScene" uid="uid://dp8k64wold6vs" path="res://room scenes/template/parallax_background_template.tscn" id="5_oxgcm"]
-[ext_resource type="Script" uid="uid://ue44lh2wtgwp" path="res://enemis/piranha/piranha_spawn_locations.gd" id="6_c55gm"]
+[ext_resource type="Script" path="res://enemis/piranha/piranha_spawn_locations.gd" id="6_c55gm"]
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="7_6uhww"]
 [ext_resource type="Script" uid="uid://8or5lgs1860v" path="res://room scenes/falling_water.gd" id="10_al4w0"]
 [ext_resource type="PackedScene" uid="uid://c7wn1s4w7tv" path="res://room scenes/template/checkpoint.tscn" id="11_41lww"]
@@ -6612,7 +6612,7 @@ position = Vector2(-0.11151123, 29.878952)
 
 [node name="RoomExit4" parent="roomtemplate" instance=ExtResource("7_6uhww")]
 position = Vector2(530, -36)
-next_room_path = "res://crowbar_room.tscn"
+next_room_path = "res://room scenes/crowbar_room.tscn"
 enterance_direction = 2
 door_ID = 4
 

@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d3cetv611wvug" path="res://random assets/Gurggu_graffiti.png" id="10_1lif5"]
 [ext_resource type="PackedScene" uid="uid://crf0k4un1wh5m" path="res://Interactibles/ManholeCover/manhole_cover.tscn" id="11_4oqff"]
 [ext_resource type="PackedScene" uid="uid://bix0v4xhowapv" path="res://hideableWall/hideable_wall.tscn" id="12_smk1m"]
-[ext_resource type="Texture2D" uid="uid://byk0nftky457d" path="res://random assets/anglerfish.png" id="13_smk1m"]
+[ext_resource type="PackedScene" uid="uid://drjlvjo16o0y7" path="res://enemis/anglerfish.tscn" id="13_f02hu"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4jida"]
 tile_data = PackedInt32Array(0, 262145, 13, 65536, 262145, 14, 1, 327681, 13, 65537, 327681, 14, 2, 393217, 13, 65538, 393217, 14, 3, 458753, 13, 65539, 458753, 14, 4, 524289, 13, 65540, 524289, 14, 5, 589825, 13, 65541, 589825, 14)
@@ -4243,14 +4243,8 @@ tile_map_data = PackedByteArray("AAAAAAAAAQACAAIAAAD//wAAAQACAAIAAAD/////AQACAAI
 [node name="CollisionPolygon2D" parent="roomtemplate/ManholeCover/Hideable wall/Area2D" index="0"]
 polygon = PackedVector2Array(-61, -88, 163, -99, 164, 5, -61, 25)
 
-[node name="Anglerfish" type="Sprite2D" parent="."]
-position = Vector2(443, 1318)
-texture = ExtResource("13_smk1m")
-
-[node name="PointLight2D4" parent="Anglerfish" instance=ExtResource("7_i6u68")]
-position = Vector2(-36, -20)
-texture_scale = 0.81
-flickers = false
+[node name="Anglerfish" parent="roomtemplate" instance=ExtResource("13_f02hu")]
+position = Vector2(455, 1315)
 
 [editable path="roomtemplate"]
 [editable path="roomtemplate/TileMapLayer/putkilo/putket tämän alle/pipe"]
