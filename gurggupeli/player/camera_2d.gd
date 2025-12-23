@@ -10,4 +10,4 @@ var camera_offset: Vector2 = Vector2(0.0, -20.0)
 func _ready() -> void:
 	instance = self
 	set_zoom(Vector2(scale_width,scale_height))
-	position = camera_offset
+	#position = camera_offset

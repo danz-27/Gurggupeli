@@ -28,7 +28,7 @@ var reset_velocity: bool = false
 var gravity := 15
 var fast_gravity := gravity * 2
 var water_gravity := 5
-const max_fall_speed := 300
+const max_fall_speed := 250
 
 var respawn_pos : Vector2
 var next_reset_time : int = GameTime.current_time
@@ -420,8 +420,8 @@ func _die() -> void:
 	# Stop the timer to stop the I-frames flashing
 	health.iframes_timer.stop()
 	health.monitoring = false
-	frozen = true
-	DeathScreen.instance._show_death_screen()
+	#frozen = true
+	#DeathScreen.instance._show_death_screen()
 
 func _respawn() -> void:
 	health.health = 5
