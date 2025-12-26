@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cujrijuo6sgnq"]
+
+[ext_resource type="Script" uid="uid://bffm5kqx5g4vs" path="res://wind_tunnel.gd" id="1_3gth7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edxur"]
+size = Vector2(56, 68)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3gth7"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(28, 34, 1)
+spread = 0.0
+
+[node name="wind tunnel" type="Node2D"]
+script = ExtResource("1_3gth7")
+acceleration_per_frame = 2.0
+direction = Vector2(0, -1)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_edxur")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_3gth7")

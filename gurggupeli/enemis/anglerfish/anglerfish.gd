@@ -5,12 +5,14 @@ extends Entity
 var attacking: bool = false
 var player_in_mouth: bool = false
 var player_in_mouth_timer: int = 0
+var cooldown_timer: int = 0
+var on_cooldown: bool = false
 
 func _ready() -> void:
 	animation.play("swim_mouth_closed")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player and !attacking:
+	if body is Player and !attacking and !on_cooldown:
 		attacking = true
 		var tween1: Tween = get_tree().create_tween()
 		tween1.set_ease(Tween.EASE_IN_OUT)
@@ -38,9 +40,11 @@ func _on_mouth_area_body_entered(body: Node2D) -> void:
 		player_in_mouth = true
 		
 func spit_out(body: Player) -> void:
+	on_cooldown = true
+	cooldown_timer = 100
 	player_in_mouth = false
 	body.visible = true
-	body.velocity += Vector2(-1000 * scale.x, 0)
+	body.velocity += Vector2(-1000 * scale.y, 0)
 
 func _physics_process(_delta: float) -> void:
 	for body: Player in mouth_detection.get_overlapping_bodies():
@@ -49,5 +53,10 @@ func _physics_process(_delta: float) -> void:
 			body.instance.global_position = $"Sprite2D/Mouth area/CollisionShape2D".global_position
 			player_in_mouth_timer += 1
 			if player_in_mouth_timer > 100:
-				player_in_mouth_timer = 0
 				spit_out(body)
+				player_in_mouth_timer = 0
+	if on_cooldown:
+		if cooldown_timer > 0:
+			cooldown_timer -= 1
+		else:
+			on_cooldown = false

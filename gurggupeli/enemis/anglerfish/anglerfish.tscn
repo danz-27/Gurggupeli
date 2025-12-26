@@ -106,6 +106,7 @@ _data = {
 size = Vector2(7.75, 7.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ke244"]
+size = Vector2(36, 36.5)
 
 [node name="Anglerfish" type="CharacterBody2D"]
 script = ExtResource("1_ke244")
@@ -146,7 +147,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-41, -2)
+position = Vector2(-44, 0.75)
 shape = SubResource("RectangleShape2D_ke244")
 
 [connection signal="animation_finished" from="Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
