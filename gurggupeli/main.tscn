@@ -75,7 +75,7 @@ script = ExtResource("1_ycdy4")
 
 [node name="player" parent="." instance=ExtResource("1_7mycd")]
 z_index = 2
-position = Vector2(86.48105, 22.1306)
+position = Vector2(178, -151)
 
 [node name="GUI" parent="." instance=ExtResource("12_dg77c")]
 layer = 11

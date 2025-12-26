@@ -63,7 +63,8 @@ func calclulate_path() -> void:
 	points_in_path.position = Vector2i.ZERO
 	points_in_path.global_position -= position
 	points_in_path.curve.clear_points()
-	points_in_path.curve.add_point(to_global(Vector2(starting_position)))
+	points_in_path.curve.add_point(to_global(Vector2(starting_position)+Vector2(starting_position).direction_to(Vector2(tilemap.map_to_local(current_position))) * -Vector2(16, 16)))
+	print(Vector2(starting_position).direction_to(Vector2(tilemap.map_to_local(current_position))) * -Vector2(8, 8))
 	#print(starting_position_in_tilemap, " ", direction_coming_from)
 	points_in_path.curve.add_point(to_global(Vector2(tilemap.map_to_local(current_position))))
 	#current_cell.get_custom_data("pipe directions")
@@ -87,7 +88,7 @@ func calclulate_path() -> void:
 				points_in_path.curve.add_point(to_global(Vector2(tilemap.map_to_local(current_position))))
 				direction_coming_from = (direction_going_to + 2) % 4
 		iterations += 1
-	points_in_path.curve.add_point(Vector2(ending_position))
+	points_in_path.curve.add_point(Vector2(ending_position)+Vector2(ending_position).direction_to(Vector2(tilemap.map_to_local(current_position))) * Vector2(8, 8))
 	#print(points_in_path)
 	#print(points_in_path.curve.get_baked_points())
 
@@ -121,6 +122,7 @@ func _on_head_1_entered(player: Node2D) -> void:
 			dash_direction = Vector2.ZERO
 		
 		if !wait_for_release and Input.get_vector("move_left", "move_right", "move_up", "move_down") == vector_for_direction[head1_direction] or (dash_direction == vector_for_direction[head1_direction]):
+			player.health.make_invincible()
 			player.dash_timer.stop()
 			player.on_dash_timer_timeout()
 			pipe_entered_velocity_length = player.velocity.length()
@@ -143,6 +145,7 @@ func _on_head_1_entered(player: Node2D) -> void:
 			player.gurggu.visible = true
 			player.frozen = false
 			player.keep_moving = true
+			player.health.make_vincible()
 			can_enter = false
 			
 			wait_for_release = true
@@ -169,6 +172,7 @@ func _on_head_2_entered(player: Node2D) -> void:
 		if !wait_for_release and Input.get_vector("move_left", "move_right", "move_up", "move_down") == vector_for_direction[head2_direction] or (dash_direction == vector_for_direction[head2_direction]):
 			player.dash_timer.stop()
 			player.on_dash_timer_timeout()
+			player.health.make_invincible()
 			pipe_entered_velocity_length = player.velocity.length()
 			#print(pipe_entered_velocity_length)
 			var pipe_travel_speed: float = pipe_entered_velocity_length / 75.0 + 5.0
@@ -190,6 +194,7 @@ func _on_head_2_entered(player: Node2D) -> void:
 			player.gurggu.visible = true
 			player.frozen = false
 			player.keep_moving = true
+			player.health.make_vincible()
 			can_enter = false
 			
 			wait_for_release = true

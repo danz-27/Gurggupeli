@@ -434,7 +434,7 @@ func _respawn() -> void:
 	frozen = false
 
 func _take_damage(damage_amount: int = 1, teleport: bool = false) -> void:
-	health.health -= damage_amount
+	health.take_damage(damage_amount)
 	frozen = true
 	keep_moving = false
 	await create_tween().tween_property(gurggu, "modulate:a", 0.0, 0.5).set_ease(Tween.EASE_IN).finished
