@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://brraufw4h63vr"]
+[gd_scene load_steps=27 format=3 uid="uid://brraufw4h63vr"]
 
 [ext_resource type="PackedScene" uid="uid://dvwl2b6vslbe4" path="res://player/player.tscn" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://cxtrxt1qv4pk2" path="res://main.gd" id="1_ycdy4"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://defsbd0nnkgjh" path="res://lights/vignette/Vignette.png" id="9_yaehf"]
 [ext_resource type="Script" uid="uid://dv8tul6e2m1or" path="res://lights/vignette/vignette.gd" id="10_dg77c"]
 [ext_resource type="Material" uid="uid://du1n6iwau11kg" path="res://particle systems/water particles/water_particles.tres" id="11_dg77c"]
-[ext_resource type="Script" path="res://player/water_particle_system.gd" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://dcvjsnyev2fla" path="res://player/water_particle_system.gd" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://d2trf1846jb0b" path="res://GUI/gui.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://doejntmkit0nt" path="res://enemis/entities_container.gd" id="13_w48qg"]
 [ext_resource type="Script" uid="uid://c3emcfajdb86a" path="res://particle systems/landing_particle_spawner.gd" id="13_ycdy4"]
@@ -15,7 +15,9 @@
 [ext_resource type="Script" uid="uid://bqeqcg0ahq7md" path="res://Main folderi/room_handler.gd" id="15_2cqfq"]
 [ext_resource type="Script" uid="uid://blxoajrevqln2" path="res://particle systems/ground_particles.gd" id="15_vivmo"]
 [ext_resource type="Script" uid="uid://dvumgycdotb3r" path="res://particle systems/DashParticles.gd" id="16_2cqfq"]
+[ext_resource type="AudioStream" uid="uid://cwfh5v7tg65h0" path="res://audio/kurkku 1.wav" id="17_074og"]
 [ext_resource type="Script" uid="uid://dsmbkcdqitjdx" path="res://particle systems/hyper_particles.gd" id="17_yaehf"]
+[ext_resource type="Script" uid="uid://dxc50yhrt4rxx" path="res://audio/audio_stream_player.gd" id="18_074og"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vivmo"]
 particle_flag_disable_z = true
@@ -148,7 +150,15 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_074og")
 script = ExtResource("17_yaehf")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_074og")
+volume_db = -13.0
+autoplay = true
+mix_target = 1
+script = ExtResource("18_074og")
+
 [connection signal="just_jumped" from="player" to="Particles/JumpParticles" method="_on_player_just_jumped"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]
 
 [editable path="GUI"]
 [editable path="GUI/InputMapper"]

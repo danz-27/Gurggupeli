@@ -8760,7 +8760,7 @@ position = Vector2(-16, 6)
 position = Vector2(545, -55)
 
 [node name="Checkpoint" parent="roomtemplate" instance=ExtResource("9_v6xk0")]
-position = Vector2(523, -168)
+position = Vector2(545, -168)
 
 [editable path="roomtemplate"]
 [editable path="roomtemplate/RoomExit"]
