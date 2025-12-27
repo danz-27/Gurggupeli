@@ -69,7 +69,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_qhqgy"]
 resource_name = "falling"
 length = 0.2
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -86,7 +85,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_dqkch"]
 resource_name = "falling_up"
 length = 0.2
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -206,6 +204,7 @@ shape = SubResource("CapsuleShape2D_qhqgy")
 libraries = {
 &"": SubResource("AnimationLibrary_762f5")
 }
+autoplay = "idle"
 
 [node name="DashTimer" type="Timer" parent="."]
 one_shot = true

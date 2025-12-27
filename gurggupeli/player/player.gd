@@ -253,7 +253,9 @@ func _physics_process(delta: float) -> void:
 	# Add softcollision push after everything else
 	velocity += SoftCollision.velocity_to_add
 	SoftCollision.velocity_to_add = Vector2.ZERO
+	position.round()
 	move_and_slide()
+	
 
 func handle_jump() -> void:
 	# Handle jump if dashing
@@ -449,14 +451,16 @@ func _take_damage(damage_amount: int = 1, teleport: bool = false) -> void:
 	await create_tween().tween_property(gurggu, "modulate:a", 1.0, 0.2).set_ease(Tween.EASE_OUT).finished
 
 func animate_player() -> void:
-	if velocity.x != 0:
+	if !is_zero_approx(velocity.x):
 		animation_player.play("walk")
-	elif !animation_player.is_playing():
+	
+	if !animation_player.is_playing():
 		animation_player.play("idle")
 	
 	# jump & fall
 	if velocity.y > 0:
 		animation_player.play("falling")
+
 	if velocity.y < 0:
 		animation_player.play("falling_up")
 	
