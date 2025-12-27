@@ -6,7 +6,11 @@ class_name EntityHealth
 
 @onready var iframes_timer : Timer = $Iframes
 
+var invincible: bool = false
+
 func take_damage(damage: int) -> void:
+	if invincible:
+		return
 	if !iframes_timer.is_stopped():
 		return
 	health -= damage
@@ -15,3 +19,9 @@ func take_damage(damage: int) -> void:
 	iframes_timer.start(iframes_duration)
 	if health <= 0:
 		get_parent()._die()
+
+func make_invincible() -> void:
+	invincible = true
+
+func make_vincible() -> void:
+	invincible = false
