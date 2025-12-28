@@ -424,8 +424,8 @@ func _die() -> void:
 	# Stop the timer to stop the I-frames flashing
 	health.iframes_timer.stop()
 	health.monitoring = false
-	frozen = true
-	DeathScreen.instance._show_death_screen()
+	#frozen = true
+#	DeathScreen.instance._show_death_screen()
 
 func _respawn() -> void:
 	health.health = 5
