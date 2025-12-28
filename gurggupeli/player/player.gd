@@ -252,10 +252,12 @@ func _physics_process(delta: float) -> void:
 	
 	# Add softcollision push after everything else
 	velocity += SoftCollision.velocity_to_add
+	if SoftCollision.velocity_to_add.y > 0:
+		print(SoftCollision.velocity_to_add)
+		print(velocity, "velocity")
 	SoftCollision.velocity_to_add = Vector2.ZERO
 	position.round()
 	move_and_slide()
-	
 
 func handle_jump() -> void:
 	# Handle jump if dashing
@@ -422,8 +424,8 @@ func _die() -> void:
 	# Stop the timer to stop the I-frames flashing
 	health.iframes_timer.stop()
 	health.monitoring = false
-	#frozen = true
-	#DeathScreen.instance._show_death_screen()
+	frozen = true
+	DeathScreen.instance._show_death_screen()
 
 func _respawn() -> void:
 	health.health = 5

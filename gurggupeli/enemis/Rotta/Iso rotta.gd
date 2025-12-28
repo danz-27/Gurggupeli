@@ -52,6 +52,9 @@ func _physics_process(_delta: float) -> void:
 				grounded_frames += 1
 				animation_player.play("Angry_run")
 				
+				if $ShapeCast2D.is_colliding():
+					velocity += sign(velocity) * 10
+				
 				if grounded_frames == min_amount_between_jumps:
 					animation_player.stop()
 					velocity = velocity.lerp(velocity.direction_to(raycast.target_position) * jump_strenght, 0.5) * randf_range(1, 2)
@@ -137,4 +140,4 @@ func _call_this() -> void:
 	#print(roam_pos)
 
 func _die() -> void:
-	get_parent().queue_free()
+	queue_free()

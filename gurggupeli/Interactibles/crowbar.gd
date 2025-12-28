@@ -6,7 +6,7 @@ func _ready() -> void:
 	if GlobalVariables.has_crowbar == true:
 		sprite.visible = false
 	var tween: Tween = get_tree().create_tween()
-	tween.set_loops()
+	tween.set_loops(9999)
 	tween.tween_property(sprite, "position", Vector2(0, -5), 3).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(sprite, "position", Vector2(0, 5), 3).set_ease(Tween.EASE_IN_OUT)
 

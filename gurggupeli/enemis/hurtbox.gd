@@ -18,12 +18,19 @@ func _physics_process(_delta: float) -> void:
 	
 	for area: Area2D in overlapping_areas:
 		if area is EntityHealth:
-			var entity_health: EntityHealth = area
-			if get_parent() == entity_health.get_parent():
+			#var entity_health: EntityHealth = area
+			if get_parent() == area.get_parent():
 				continue
-			if get_parent().team == entity_health.get_parent().team:
+			if get_parent().team == area.get_parent().team:
 				continue
-
+			
+			if area.get_parent() is Player:
+				if area.get_parent().velocity.y > 0:
+					$"../EntityHealth".take_damage(1)
+					SoftCollision.velocity_to_add += Vector2.UP * 500
+					area.get_parent().health.iframes_timer.start(area.get_parent().health.iframes_duration)
+					area.get_parent().reset_dashes()
+			
 			hit_cooldown_timer.start(hit_cooldown)
-			entity_health.take_damage(damage)
+			area.take_damage(damage)
 			return

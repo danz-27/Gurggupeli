@@ -40,6 +40,8 @@ const ROAM_THRESHOLD: int = 1
 
 
 func _physics_process(_delta: float) -> void:
+	if Player.instance == null:
+		return
 	var player_pos: Vector2 = Player.instance.global_position
 	
 	match state:
@@ -51,6 +53,9 @@ func _physics_process(_delta: float) -> void:
 			if is_on_floor():
 				grounded_frames += 1
 				animation_player.play("Angry_run")
+				
+				if $ShapeCast2D.is_colliding():
+					velocity += sign(velocity) * 10
 				
 				if grounded_frames == min_amount_between_jumps:
 					animation_player.stop()
@@ -75,10 +80,9 @@ func _physics_process(_delta: float) -> void:
 				grounded_frames = 0
 			
 			if (
-				position.distance_to(player_pos) > CHASE_THRESHOLD# or 
+				position.distance_to(player_pos) > CHASE_THRESHOLD
 				# Check if rat is below or under the player to move the rat to right or left
-				#(position.angle_to(Vector2(1.0, -1.0)) < position.angle_to(player_pos) and position.angle_to(Vector2(-1.0, -1.0)) < position.angle_to(player_pos)) or 
-				#(position.angle_to(Vector2(1.0, 1.0)) < position.angle_to(player_pos) and position.angle_to(Vector2(-1.0, 1.0)) < position.angle_to(player_pos))
+				
 				):
 				state_switch_timer += 1
 				if state_switch_timer == required_duration:
@@ -128,7 +132,7 @@ func recalculate_roam_pos() -> void:
 		roam_pos = spawn_pos + Vector2.RIGHT * right_roam_pos_distance
 		#print("RIGHT")
 
-func _call_this() -> void:
+func _call_this() -> void: #call this function & call this method
 	#print("Called this")
 	backing_up = false
 	jump = true
@@ -137,4 +141,4 @@ func _call_this() -> void:
 	#print(roam_pos)
 
 func _die() -> void:
-	get_parent().queue_free()
+	queue_free()

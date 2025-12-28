@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://8rn3egw3432e"]
+[gd_scene load_steps=14 format=3 uid="uid://8rn3egw3432e"]
 
 [ext_resource type="Script" uid="uid://pfc6ua62ho38" path="res://enemis/Rotta/Iso rotta.gd" id="1_l82j7"]
 [ext_resource type="Texture2D" uid="uid://dynp61eis6qat" path="res://enemis/Rotta/big rat.png" id="2_dwwqh"]
 [ext_resource type="PackedScene" uid="uid://bnka5lngeyuhl" path="res://enemis/hurtbox.tscn" id="3_6jywo"]
 [ext_resource type="PackedScene" uid="uid://buf5pdb22e0bo" path="res://enemis/entity_health.tscn" id="4_hb3gj"]
 [ext_resource type="PackedScene" uid="uid://dcfljpyeu8gif" path="res://enemis/soft_collision.tscn" id="5_308ot"]
+[ext_resource type="PackedScene" uid="uid://glyipsfmmk8v" path="res://particle systems/hit_particles.tscn" id="6_dbnbw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhi1x"]
 size = Vector2(24, 10)
@@ -134,6 +135,10 @@ _data = {
 &"Run": SubResource("Animation_3rxqv")
 }
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dbnbw"]
+a = Vector2(-45, 0)
+b = Vector2(45, 0)
+
 [node name="Iso rotta" type="CharacterBody2D"]
 collision_layer = 0
 script = ExtResource("1_l82j7")
@@ -156,13 +161,15 @@ libraries = {
 
 [node name="HurtBox" parent="." instance=ExtResource("3_6jywo")]
 position = Vector2(-1, 0)
-damage = 2
+damage = 5
+hit_cooldown = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(2, -5)
 shape = SubResource("RectangleShape2D_jhi1x")
 
 [node name="EntityHealth" parent="." instance=ExtResource("4_hb3gj")]
+health = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EntityHealth"]
 position = Vector2(1, -5)
@@ -175,3 +182,12 @@ position = Vector2(1, -5)
 shape = SubResource("RectangleShape2D_jhi1x")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+position = Vector2(0, -24)
+shape = SubResource("SegmentShape2D_dbnbw")
+target_position = Vector2(0, -72)
+collision_mask = 4
+
+[node name="HitParticles" parent="." instance=ExtResource("6_dbnbw")]
+particle_color = Color(0, 1, 0, 1)
