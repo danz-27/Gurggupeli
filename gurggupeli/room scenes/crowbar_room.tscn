@@ -1,10 +1,11 @@
-[gd_scene load_steps=60 format=4 uid="uid://dlb451ltvnnic"]
+[gd_scene load_steps=61 format=4 uid="uid://dlb451ltvnnic"]
 
 [ext_resource type="PackedScene" uid="uid://df2e83qk72c1r" path="res://room scenes/template/roomtemplate.tscn" id="1_5qk3s"]
 [ext_resource type="Texture2D" uid="uid://bc50v4iry6plj" path="res://player/textures/radioactive waste.png" id="2_vqyor"]
 [ext_resource type="Texture2D" uid="uid://bcpkm41dmh3tc" path="res://tilemaps/tiiliseinä tileset.png" id="3_inphd"]
 [ext_resource type="Texture2D" uid="uid://bq44tjbliygpq" path="res://random assets/enivironment assests.png" id="4_c2mqs"]
 [ext_resource type="PackedScene" uid="uid://c757qtqwmyrb5" path="res://pipe/pipe.tscn" id="5_inphd"]
+[ext_resource type="PackedScene" uid="uid://bqpjbh4s4dmjy" path="res://Interactibles/vile.tscn" id="6_0ascn"]
 [ext_resource type="Texture2D" uid="uid://dekn2512yw5bn" path="res://pipe/pipe.png" id="6_c2mqs"]
 [ext_resource type="PackedScene" uid="uid://ckfvrv61v7ygj" path="res://Interactibles/crowbar.tscn" id="7_c2mqs"]
 [ext_resource type="PackedScene" uid="uid://ctf1m12u42fhp" path="res://lights/light.tscn" id="7_i6u68"]
@@ -4304,6 +4305,10 @@ position = Vector2(291, 1086)
 [node name="wind tunnel" parent="roomtemplate/valve" instance=ExtResource("14_tr4oo")]
 position = Vector2(17, 310)
 acceleration_per_frame = 300.0
+
+[node name="Vile5" parent="roomtemplate" instance=ExtResource("6_0ascn")]
+position = Vector2(611, -17)
+vile_tag = "5"
 
 [editable path="roomtemplate"]
 [editable path="roomtemplate/TileMapLayer/putkilo/putket tämän alle/pipe"]

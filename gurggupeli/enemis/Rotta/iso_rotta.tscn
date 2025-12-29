@@ -82,7 +82,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [24]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -148,7 +148,8 @@ metadata/_custom_type_script = "uid://dcs3qc800r40p"
 position = Vector2(0, -16)
 texture = ExtResource("2_dwwqh")
 hframes = 8
-vframes = 3
+vframes = 4
+frame = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -5)

@@ -12,6 +12,7 @@ func manhole_opened() -> void:
 func _physics_process(_delta: float) -> void:
 	if is_inside_detection_area and Input.is_action_just_pressed("interact") and !opened and GlobalVariables.has_crowbar:
 		manhole_opened()
+		$InteractPopup.hide()
 		$ManholeCoverAnimationSpritesheet/AnimationPlayer.play("open")
 		opened = true
 

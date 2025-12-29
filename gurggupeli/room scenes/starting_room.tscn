@@ -6479,10 +6479,6 @@ position = Vector2(50, 31)
 position = Vector2(42, 0.5)
 shape = SubResource("RectangleShape2D_4fmbu")
 
-[node name="Vile" parent="roomtemplate" instance=ExtResource("13_5nj6x")]
-position = Vector2(-170, -1)
-vile_tag = "1"
-
 [node name="Vile2" parent="roomtemplate" instance=ExtResource("13_5nj6x")]
 position = Vector2(-55, -1)
 vile_tag = "2"
@@ -6494,10 +6490,6 @@ vile_tag = "3"
 [node name="Vile4" parent="roomtemplate" instance=ExtResource("13_5nj6x")]
 position = Vector2(-112, -1)
 vile_tag = "4"
-
-[node name="Vile5" parent="roomtemplate" instance=ExtResource("13_5nj6x")]
-position = Vector2(-142, -1)
-vile_tag = "5"
 
 [node name="Rotta" parent="roomtemplate" instance=ExtResource("12_m3xws")]
 position = Vector2(85.58481, -3.8250427)
