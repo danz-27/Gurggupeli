@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bcpkm41dmh3tc" path="res://tilemaps/tiiliseinä tileset.png" id="2_nsu1e"]
 [ext_resource type="Texture2D" uid="uid://bc50v4iry6plj" path="res://player/textures/radioactive waste.png" id="3_vvp1l"]
 [ext_resource type="Texture2D" uid="uid://bq44tjbliygpq" path="res://random assets/enivironment assests.png" id="4_s35yh"]
-[ext_resource type="Texture2D" uid="uid://d1pe07qp6otxu" path="res://random assets/Gurggu_graffiti.png" id="5_s35yh"]
+[ext_resource type="Texture2D" uid="uid://d3cetv611wvug" path="res://random assets/Gurggu_graffiti.png" id="5_s35yh"]
 [ext_resource type="TileSet" uid="uid://bge0um2ub1a52" path="res://room scenes/template/putkilo_tilemap.tres" id="5_t10vw"]
 [ext_resource type="Texture2D" uid="uid://7fx0kfswq7vo" path="res://tilemaps/darkness new.png" id="6_esrvc"]
 [ext_resource type="PackedScene" uid="uid://hryjdy13d3t5" path="res://Interactibles/valve/valve.tscn" id="7_2qfoi"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cl0rlqpu7fbia" path="res://random assets/broken pipe/broken_pipe.tscn" id="9_2qfoi"]
 [ext_resource type="Texture2D" uid="uid://cyxmti5pufta7" path="res://random assets/spikes/sparkle_animation.png" id="9_esrvc"]
 [ext_resource type="Script" uid="uid://ue44lh2wtgwp" path="res://enemis/piranha/piranha_spawn_locations.gd" id="9_nsu1e"]
-[ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="9_vvp1l"]
+[ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room exit/room_exit.tscn" id="9_vvp1l"]
 [ext_resource type="PackedScene" uid="uid://crf0k4un1wh5m" path="res://Interactibles/ManholeCover/manhole_cover.tscn" id="10_wgmn7"]
 [ext_resource type="Texture2D" uid="uid://dyrn2eup2xn5e" path="res://random assets/spikes/white spike.png" id="13_t10vw"]
 [ext_resource type="Texture2D" uid="uid://cc0d8aqs7qqfw" path="res://lights/light_assets.png" id="14_q0aco"]
@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://bix0v4xhowapv" path="res://hideableWall/hideable_wall.tscn" id="22_0h68g"]
 [ext_resource type="PackedScene" uid="uid://xhca1v1elpg0" path="res://Ropes/rope_physics.tscn" id="24_as4y7"]
 [ext_resource type="PackedScene" uid="uid://blj8f6rpgx5ol" path="res://pipe/pipeMinigame/pipe_connect_minigame.tscn" id="25_qequa"]
-[ext_resource type="PackedScene" uid="uid://c7wn1s4w7tv" path="res://room scenes/template/checkpoint.tscn" id="25_trbjl"]
+[ext_resource type="PackedScene" uid="uid://c7wn1s4w7tv" path="res://room scenes/template/checkpoint/checkpoint.tscn" id="25_trbjl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_as4y7"]
 texture = ExtResource("2_nsu1e")

@@ -14,7 +14,7 @@ config/name="Gurggupeli"
 run/main_scene="uid://brraufw4h63vr"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="uid://bl63fmfjlqrp2"
+config/icon="uid://chgx2aol1xr7w"
 
 [autoload]
 

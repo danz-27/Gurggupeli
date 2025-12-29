@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bix0v4xhowapv" path="res://hideableWall/hideable_wall.tscn" id="12_smk1m"]
 [ext_resource type="PackedScene" uid="uid://drjlvjo16o0y7" path="res://enemis/anglerfish/anglerfish.tscn" id="13_f02hu"]
 [ext_resource type="PackedScene" uid="uid://hryjdy13d3t5" path="res://Interactibles/valve/valve.tscn" id="14_qbsgi"]
-[ext_resource type="PackedScene" uid="uid://cujrijuo6sgnq" path="res://wind_tunnel.tscn" id="14_tr4oo"]
+[ext_resource type="PackedScene" uid="uid://cujrijuo6sgnq" path="res://room scenes/template/wind tunnel/wind_tunnel.tscn" id="14_tr4oo"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4jida"]
 tile_data = PackedInt32Array(0, 262145, 13, 65536, 262145, 14, 1, 327681, 13, 65537, 327681, 14, 2, 393217, 13, 65538, 393217, 14, 3, 458753, 13, 65539, 458753, 14, 4, 524289, 13, 65540, 524289, 14, 5, 589825, 13, 65541, 589825, 14)

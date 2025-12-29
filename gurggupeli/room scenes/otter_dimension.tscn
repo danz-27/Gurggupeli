@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bc50v4iry6plj" path="res://player/textures/radioactive waste.png" id="3_f5txg"]
 [ext_resource type="Texture2D" uid="uid://dekn2512yw5bn" path="res://pipe/pipe.png" id="4_tfmeo"]
 [ext_resource type="Texture2D" uid="uid://7fx0kfswq7vo" path="res://tilemaps/darkness new.png" id="5_e6ll1"]
-[ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room_exit.tscn" id="5_i3vxi"]
+[ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room exit/room_exit.tscn" id="5_i3vxi"]
 [ext_resource type="Texture2D" uid="uid://w8wyfx78oaps" path="res://room scenes/otter-1-2000-1-77e1b6014e484b2b897864d12d76c296.jpg" id="7_tfmeo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i5tgt"]

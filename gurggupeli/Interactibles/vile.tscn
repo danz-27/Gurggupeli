@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqpjbh4s4dmjy"]
 
-[ext_resource type="Script" uid="uid://bbgvkhmnocvxb" path="res://vile.gd" id="1_ctjlc"]
+[ext_resource type="Script" uid="uid://bbgvkhmnocvxb" path="res://GUI/inventory/vile.gd" id="1_ctjlc"]
 [ext_resource type="Texture2D" uid="uid://d1agt8h6t40lt" path="res://GUI/inventory/health vile empty.png" id="2_kv5oa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awble"]
