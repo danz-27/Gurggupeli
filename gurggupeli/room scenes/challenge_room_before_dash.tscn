@@ -6407,12 +6407,12 @@ z_index = -7
 position = Vector2(321, -17)
 script = ExtResource("6_g0cak")
 
-[node name="Dash" parent="roomtemplate/Rats" instance=ExtResource("7_44gh6")]
-position = Vector2(106, -3)
-
 [node name="BigRats" type="Node2D" parent="roomtemplate"]
 position = Vector2(359, 4)
 script = ExtResource("7_j4vbn")
+
+[node name="Dash" parent="roomtemplate" instance=ExtResource("7_44gh6")]
+position = Vector2(427, -20)
 
 [editable path="roomtemplate"]
 [editable path="roomtemplate/RoomExit"]
