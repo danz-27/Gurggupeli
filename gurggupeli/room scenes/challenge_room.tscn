@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=4 uid="uid://suadkll52njl"]
+[gd_scene load_steps=103 format=4 uid="uid://suadkll52njl"]
 
 [ext_resource type="PackedScene" uid="uid://df2e83qk72c1r" path="res://room scenes/template/roomtemplate.tscn" id="1_bnu7n"]
 [ext_resource type="PackedScene" uid="uid://c7wn1s4w7tv" path="res://room scenes/template/checkpoint/checkpoint.tscn" id="2_l5di8"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bix0v4xhowapv" path="res://hideableWall/hideable_wall.tscn" id="11_gvb8v"]
 [ext_resource type="Script" uid="uid://dcvjsnyev2fla" path="res://player/water_particle_system.gd" id="11_rhps5"]
 [ext_resource type="Script" uid="uid://8or5lgs1860v" path="res://room scenes/falling_water.gd" id="12_m3xws"]
+[ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room exit/room_exit.tscn" id="15_gx0f1"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_chuao"]
 tile_data = PackedInt32Array(0, 262145, 13, 65536, 262145, 14, 1, 327681, 13, 65537, 327681, 14, 2, 393217, 13, 65538, 393217, 14, 3, 458753, 13, 65539, 458753, 14, 4, 524289, 13, 65540, 524289, 14, 5, 589825, 13, 65541, 589825, 14)
@@ -8115,6 +8116,15 @@ self_modulate = Color(0.7666196, 0.76661956, 0.76661956, 1)
 position = Vector2(755, -349)
 rotation = -3.1415882
 
+[node name="RoomExit" parent="." instance=ExtResource("15_gx0f1")]
+position = Vector2(876, -22)
+next_room_path = "res://room scenes/boss_battle_room.tscn"
+enterance_direction = 1
+door_ID = 1
+
+[node name="RespawnPosition" parent="RoomExit" index="1"]
+position = Vector2(0, -7)
+
 [editable path="roomtemplate"]
 [editable path="roomtemplate/TileMapLayer/putkilo/putket tämän alle/pipe"]
 [editable path="roomtemplate/RoomExit"]
@@ -8124,3 +8134,4 @@ rotation = -3.1415882
 [editable path="roomtemplate/ParallaxBackgroundTemplate"]
 [editable path="roomtemplate/ParallaxForegroundTemplate2"]
 [editable path="roomtemplate/Checkpoint2"]
+[editable path="RoomExit"]

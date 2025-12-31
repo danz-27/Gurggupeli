@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://bvrknvknjcol7"]
+[gd_scene load_steps=80 format=4 uid="uid://bvrknvknjcol7"]
 
 [ext_resource type="PackedScene" uid="uid://df2e83qk72c1r" path="res://room scenes/template/roomtemplate.tscn" id="1_aae7c"]
 [ext_resource type="Texture2D" uid="uid://bc50v4iry6plj" path="res://player/textures/radioactive waste.png" id="2_t56ak"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room exit/room_exit.tscn" id="8_t0gfm"]
 [ext_resource type="PackedScene" uid="uid://dp8k64wold6vs" path="res://room scenes/template/parallax_background_template.tscn" id="9_t56ak"]
 [ext_resource type="PackedScene" uid="uid://dsa2cd5m8j5ni" path="res://room scenes/template/healing thingamabob/healing_area.tscn" id="10_4fmbu"]
-[ext_resource type="PackedScene" uid="uid://cptupmeqygulr" path="res://enemis/Rotta/rotta.tscn" id="12_m3xws"]
 [ext_resource type="PackedScene" uid="uid://bqpjbh4s4dmjy" path="res://Interactibles/vile.tscn" id="13_5nj6x"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4jida"]
@@ -6424,8 +6423,9 @@ is_natural = true
 
 [node name="RoomExit" parent="roomtemplate" index="1"]
 position = Vector2(386, 12)
-next_room_path = "res://room scenes/cool_platforming_room.tscn"
+next_room_path = "res://room scenes/boss_battle_room.tscn"
 enterance_direction = 2
+door_ID = 1
 
 [node name="RespawnPosition" parent="roomtemplate/RoomExit" index="1"]
 position = Vector2(-15, 5)
@@ -6519,9 +6519,6 @@ vile_tag = "3"
 [node name="Vile4" parent="roomtemplate" instance=ExtResource("13_5nj6x")]
 position = Vector2(-112, -1)
 vile_tag = "4"
-
-[node name="Rotta" parent="roomtemplate" instance=ExtResource("12_m3xws")]
-position = Vector2(85.58481, -3.8250427)
 
 [node name="Hideable wall" parent="roomtemplate" instance=ExtResource("7_v5jw1")]
 position = Vector2(-184, 40)

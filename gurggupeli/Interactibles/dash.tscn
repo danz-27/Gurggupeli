@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://otw7oka0orrl"]
+[gd_scene load_steps=7 format=3 uid="uid://otw7oka0orrl"]
 
 [ext_resource type="Script" uid="uid://bcriowbwhrjvi" path="res://get_dash.gd" id="1_eowfj"]
-[ext_resource type="Texture2D" uid="uid://cn50r8k2jqjwr" path="res://player/textures/Gurggu dash spritesheet.png" id="2_eowfj"]
+[ext_resource type="Texture2D" uid="uid://dsugcbvf76fp5" path="res://random assets/nuclear waste pot.png" id="2_eowfj"]
+[ext_resource type="PackedScene" uid="uid://6pbawsjxpl8x" path="res://Interactibles/interact_popup.tscn" id="3_tjk48"]
+[ext_resource type="Texture2D" uid="uid://cn50r8k2jqjwr" path="res://player/textures/Gurggu dash spritesheet.png" id="4_4vwlf"]
+[ext_resource type="Script" uid="uid://ckwf1oe0u480u" path="res://Interactibles/dash_interact_button.gd" id="5_4vwlf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awble"]
+size = Vector2(52, 43)
 
 [node name="Dash" type="Node2D"]
+z_index = 5
 script = ExtResource("1_eowfj")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -13,9 +18,27 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_awble")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_eowfj")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D"]
+polygon = PackedVector2Array(31, -24, 31, -22, 30, -22, 30, -12, 31, -12, 31, 19, 30, 19, 30, 23, 28, 25, 12, 27, -12, 27, -28, 25, -30, 23, -30, 19, -31, 19, -31, -12, -30, -12, -30, -22, -31, -22, -31, -24, -26, -24, -26, 21, 26, 21, 26, -24)
+
+[node name="InteractPopup" parent="." instance=ExtResource("3_tjk48")]
+visible = false
+offset_top = -37.0
+offset_bottom = -37.0
+image = ExtResource("4_4vwlf")
+
+[node name="InteractButton" parent="InteractPopup/PanelContainer/MarginContainer/HBoxContainer" index="0"]
+script = ExtResource("5_4vwlf")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+
+[editable path="InteractPopup"]

@@ -4,11 +4,15 @@ var currently_activated: bool = false
 var is_inside_detection_area: bool = false
 	
 func valve_activated() -> void:
+	if !(self in GlobalVariables.activated_interactables):
+		GlobalVariables.activated_interactables.append(self)
 	for child in get_children():
 		if child.has_method("_activate"):
 			child._activate()
 			
 func valve_deactivated() -> void:
+	if self in GlobalVariables.activated_interactables:
+		GlobalVariables.activated_interactables.erase(self)
 	for child in get_children():
 		if child.has_method("_deactivate"):
 			child._deactivate()

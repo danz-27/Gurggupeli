@@ -2,19 +2,29 @@ extends Node2D
 
 var opened: bool = false
 var is_inside_detection_area: bool = false
-	
+
+func _ready() -> void:
+	if self in GlobalVariables.activated_interactables:
+		open()
+
 func manhole_opened() -> void:
 	#print("Mandhole open called")
+	if !(self in GlobalVariables.activated_interactables):
+		GlobalVariables.activated_interactables.append(self)
+		
 	for child in get_children():
 		if child.has_method("_activate"):
 			child._activate()
 
+func open() -> void:
+	manhole_opened()
+	$InteractPopup.hide()
+	$ManholeCoverAnimationSpritesheet/AnimationPlayer.play("open")
+	opened = true
+
 func _physics_process(_delta: float) -> void:
 	if is_inside_detection_area and Input.is_action_just_pressed("interact") and !opened and GlobalVariables.has_crowbar:
-		manhole_opened()
-		$InteractPopup.hide()
-		$ManholeCoverAnimationSpritesheet/AnimationPlayer.play("open")
-		opened = true
+		open()
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	is_inside_detection_area = true
