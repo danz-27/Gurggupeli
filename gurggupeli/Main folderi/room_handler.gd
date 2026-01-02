@@ -17,3 +17,7 @@ func _change_room(next_room: Node2D, spawn_pos: Vector2) -> void:
 	
 	add_child.call_deferred(next_room)
 	Player.instance.position = spawn_pos
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	Player.instance.position = spawn_pos

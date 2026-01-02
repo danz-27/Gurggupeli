@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=4 uid="uid://suadkll52njl"]
+[gd_scene load_steps=104 format=4 uid="uid://suadkll52njl"]
 
 [ext_resource type="PackedScene" uid="uid://df2e83qk72c1r" path="res://room scenes/template/roomtemplate.tscn" id="1_bnu7n"]
 [ext_resource type="PackedScene" uid="uid://c7wn1s4w7tv" path="res://room scenes/template/checkpoint/checkpoint.tscn" id="2_l5di8"]
@@ -7754,12 +7754,18 @@ color = Color(0.59495336, 0.61, 0.3843, 0.39215687)
 hue_variation_min = -0.050000023
 hue_variation_max = -0.050000023
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gx0f1"]
-size = Vector2(16.5, 16.5)
-
 [node name="challenge room" type="Node2D"]
 
 [node name="roomtemplate" parent="." instance=ExtResource("1_bnu7n")]
+
+[node name="RoomExit2" parent="roomtemplate" instance=ExtResource("15_gx0f1")]
+position = Vector2(876, -27)
+next_room_path = "res://room scenes/boss_battle_room.tscn"
+enterance_direction = 1
+door_ID = 1
+
+[node name="RespawnPosition" parent="roomtemplate/RoomExit2" index="1"]
+position = Vector2(0, -4)
 
 [node name="level" parent="roomtemplate/TileMapLayer" index="0"]
 z_index = 7
@@ -7896,7 +7902,7 @@ color = Color(1, 0.89411765, 0.64705884, 1)
 texture_scale = 2.38
 is_electiric = true
 
-[node name="RoomExit" parent="roomtemplate" index="1"]
+[node name="RoomExit" parent="roomtemplate" index="2"]
 position = Vector2(12, -4)
 next_room_path = "res://room scenes/another_level.tscn"
 enterance_direction = 1
@@ -8120,23 +8126,12 @@ self_modulate = Color(0.7666196, 0.76661956, 0.76661956, 1)
 position = Vector2(755, -349)
 rotation = -3.1415882
 
-[node name="RoomExit2" parent="roomtemplate" instance=ExtResource("15_gx0f1")]
-position = Vector2(876, -22)
-next_room_path = "res://room scenes/boss_battle_room.tscn"
-enterance_direction = 1
-door_ID = 1
-
-[node name="CollisionShape2D" parent="roomtemplate/RoomExit2" index="0"]
-shape = SubResource("RectangleShape2D_gx0f1")
-
-[node name="RespawnPosition" parent="roomtemplate/RoomExit2" index="1"]
-position = Vector2(0, -7)
-
 [node name="Vile4" parent="roomtemplate" instance=ExtResource("16_fk7l5")]
 position = Vector2(338, -76)
 vile_tag = "4"
 
 [editable path="roomtemplate"]
+[editable path="roomtemplate/RoomExit2"]
 [editable path="roomtemplate/TileMapLayer/putkilo/putket tämän alle/pipe"]
 [editable path="roomtemplate/RoomExit"]
 [editable path="roomtemplate/Hideable wall"]
@@ -8145,4 +8140,3 @@ vile_tag = "4"
 [editable path="roomtemplate/ParallaxBackgroundTemplate"]
 [editable path="roomtemplate/ParallaxForegroundTemplate2"]
 [editable path="roomtemplate/Checkpoint2"]
-[editable path="roomtemplate/RoomExit2"]

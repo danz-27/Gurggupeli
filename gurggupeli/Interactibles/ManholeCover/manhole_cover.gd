@@ -3,14 +3,17 @@ extends Node2D
 var opened: bool = false
 var is_inside_detection_area: bool = false
 
+@onready var path: String = get_path()
+
 func _ready() -> void:
-	if self in GlobalVariables.activated_interactables:
+	if GlobalVariables.activated_interactables.has(path):
 		open()
 
 func manhole_opened() -> void:
 	#print("Mandhole open called")
-	if !(self in GlobalVariables.activated_interactables):
-		GlobalVariables.activated_interactables.append(self)
+	if !(GlobalVariables.activated_interactables.has(path)):
+		GlobalVariables.activated_interactables.append(path)
+		#print(GlobalVariables.activated_interactables, ", self: ", path)
 		
 	for child in get_children():
 		if child.has_method("_activate"):

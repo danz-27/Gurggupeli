@@ -4639,9 +4639,6 @@ script = ExtResource("19_1vv8m")
 [node name="valve2" parent="roomtemplate" instance=ExtResource("18_dfilt")]
 position = Vector2(816, -428)
 
-[node name="InteractPopup" parent="roomtemplate/valve2" index="2"]
-visible = true
-
 [node name="Label" type="Label" parent="roomtemplate/valve2/InteractPopup" index="1"]
 z_index = 10
 layout_mode = 0
