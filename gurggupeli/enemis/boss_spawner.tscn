@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://8ufmr1peli1w"]
+[gd_scene load_steps=2 format=3 uid="uid://8ufmr1peli1w"]
 
 [ext_resource type="Script" uid="uid://bqji8cbkyo8cu" path="res://boss_spawner.gd" id="1_bxpi5"]
-[ext_resource type="PackedScene" uid="uid://8rn3egw3432e" path="res://enemis/Rotta/iso_rotta.tscn" id="2_s85n1"]
 
 [node name="boss spawner" type="Node2D"]
 script = ExtResource("1_bxpi5")
-boss_scene = ExtResource("2_s85n1")
 
 [node name="Area2D" type="Area2D" parent="."]
 

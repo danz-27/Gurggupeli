@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2trf1846jb0b"]
+[gd_scene load_steps=18 format=3 uid="uid://d2trf1846jb0b"]
 
 [ext_resource type="PackedScene" uid="uid://betvs3gq1xrw7" path="res://GUI/health_bar.tscn" id="1_80edf"]
 [ext_resource type="Script" uid="uid://dal06uv2b8l11" path="res://GUI/gui.gd" id="1_qtfhu"]
@@ -14,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://1x0amq151cs7" path="res://GUI/title.png" id="12_rikqw"]
 [ext_resource type="PackedScene" uid="uid://rnf12mxa410b" path="res://GUI/input_mapper/input_mapper.tscn" id="13_gedss"]
 [ext_resource type="PackedScene" uid="uid://6pbawsjxpl8x" path="res://Interactibles/interact_popup.tscn" id="14_rikqw"]
+[ext_resource type="Texture2D" uid="uid://ib0vs278vrw0" path="res://GUI/YOU WIN.png" id="16_3kka3"]
 [ext_resource type="PackedScene" uid="uid://b76ly8xg11ojm" path="res://GUI/inventory/inventory.tscn" id="16_4bf3s"]
+[ext_resource type="Script" uid="uid://cmosj1esic63u" path="res://GUI/texture_rect.gd" id="17_si67a"]
 
 [node name="GUI" type="CanvasLayer"]
 process_mode = 3
@@ -300,6 +302,13 @@ visible = false
 [node name="Inventory" parent="." instance=ExtResource("16_4bf3s")]
 z_index = -1
 mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_3kka3")
+script = ExtResource("17_si67a")
 
 [connection signal="pressed" from="DeathScreen/RespawnButton" to="DeathScreen" method="_on_respawn_button_pressed"]
 [connection signal="pressed" from="DeathScreen/ExitButton" to="DeathScreen" method="_on_exit_button_pressed"]

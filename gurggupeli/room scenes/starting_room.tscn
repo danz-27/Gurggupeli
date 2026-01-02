@@ -6423,9 +6423,8 @@ is_natural = true
 
 [node name="RoomExit" parent="roomtemplate" index="1"]
 position = Vector2(386, 12)
-next_room_path = "res://room scenes/boss_battle_room.tscn"
+next_room_path = "res://room scenes/cool_platforming_room.tscn"
 enterance_direction = 2
-door_ID = 1
 
 [node name="RespawnPosition" parent="roomtemplate/RoomExit" index="1"]
 position = Vector2(-15, 5)
@@ -6515,10 +6514,6 @@ shape = SubResource("RectangleShape2D_4fmbu")
 [node name="Vile3" parent="roomtemplate" instance=ExtResource("13_5nj6x")]
 position = Vector2(-85, -1)
 vile_tag = "3"
-
-[node name="Vile4" parent="roomtemplate" instance=ExtResource("13_5nj6x")]
-position = Vector2(-112, -1)
-vile_tag = "4"
 
 [node name="Hideable wall" parent="roomtemplate" instance=ExtResource("7_v5jw1")]
 position = Vector2(-184, 40)

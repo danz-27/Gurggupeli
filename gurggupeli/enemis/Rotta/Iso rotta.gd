@@ -11,7 +11,8 @@ static func create(pos: Vector2) -> BigRat:
 
 enum STATE {
 	ROAM,
-	CHASE
+	CHASE,
+	DIE
 }
 
 var spawn_pos : Vector2 
@@ -116,7 +117,9 @@ func _physics_process(_delta: float) -> void:
 			velocity.x = clamp(velocity.x, -20, 20)
 			if position.distance_to(player_pos) < CHASE_THRESHOLD:
 				state = STATE.CHASE
-	
+		STATE.DIE:
+			animation_player.play("RESET")
+			velocity = lerp(velocity, velocity * 0.1, 0.5)
 	
 	velocity.y = lerp(velocity.y, velocity.y + gravity, 0.9)
 	#print(position)
@@ -140,4 +143,7 @@ func _call_this() -> void:
 	#print(roam_pos)
 
 func _die() -> void:
-	queue_free()
+	GlobalVariables.big_rat_killed = true
+	state = STATE.DIE
+	$HurtBox/CollisionShape2D.disabled = true
+	$SoftCollision/CollisionShape2D.disabled = true
