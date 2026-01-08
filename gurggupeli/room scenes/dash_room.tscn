@@ -6530,6 +6530,7 @@ position = Vector2(404, -241)
 shape = SubResource("RectangleShape2D_44gh6")
 
 [node name="arrow graffiti" type="Sprite2D" parent="roomtemplate"]
+visible = false
 modulate = Color(0.34117648, 0, 0, 0.7921569)
 z_index = -2
 position = Vector2(607, -32)
@@ -6550,7 +6551,7 @@ region_rect = Rect2(24, 56, 24, 24)
 [node name="arrow graffiti3" type="Sprite2D" parent="roomtemplate"]
 modulate = Color(0.21568628, 0.5058824, 0, 0.6156863)
 z_index = -2
-position = Vector2(503, -77)
+position = Vector2(510, -89)
 rotation = -1.5707964
 texture = ExtResource("10_qd8er")
 region_enabled = true
@@ -6560,6 +6561,14 @@ region_rect = Rect2(24, 56, 24, 24)
 modulate = Color(0.34117648, 1, 0, 0.7921569)
 z_index = -2
 position = Vector2(287, -10)
+texture = ExtResource("10_qd8er")
+region_enabled = true
+region_rect = Rect2(3, 55, 18, 24)
+
+[node name="skull graffiti2" type="Sprite2D" parent="roomtemplate"]
+modulate = Color(0.34117648, 1, 0, 0.7921569)
+z_index = -2
+position = Vector2(605, -39)
 texture = ExtResource("10_qd8er")
 region_enabled = true
 region_rect = Rect2(3, 55, 18, 24)

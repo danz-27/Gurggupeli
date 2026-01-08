@@ -2880,11 +2880,11 @@ door_ID = 4
 [node name="RespawnPosition" parent="roomtemplate/RoomExit" index="1"]
 position = Vector2(-16, 8)
 
-[node name="Checkpoint" parent="." instance=ExtResource("25_trbjl")]
-position = Vector2(338.59106, -131.21948)
-
-[node name="Checkpoint2" parent="." instance=ExtResource("25_trbjl")]
+[node name="Checkpoint2" parent="roomtemplate" instance=ExtResource("25_trbjl")]
 position = Vector2(1479, -505)
+
+[node name="Checkpoint" parent="roomtemplate" instance=ExtResource("25_trbjl")]
+position = Vector2(338.59106, -131.21948)
 
 [editable path="roomtemplate/TileMapLayer/putkilo/Pipes/pipe"]
 [editable path="roomtemplate/TileMapLayer/putkilo/Pipes/pipe2"]
