@@ -1,7 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://brraufw4h63vr"]
+[gd_scene load_steps=28 format=3 uid="uid://brraufw4h63vr"]
 
 [ext_resource type="PackedScene" uid="uid://dvwl2b6vslbe4" path="res://player/player.tscn" id="1_7mycd"]
-[ext_resource type="Script" uid="uid://cxtrxt1qv4pk2" path="res://main.gd" id="1_ycdy4"]
+[ext_resource type="Script" path="res://main.gd" id="1_ycdy4"]
 [ext_resource type="Script" uid="uid://ii2yc220q1u" path="res://particle systems/JumpParticles.gd" id="3_w48qg"]
 [ext_resource type="PackedScene" uid="uid://bvrknvknjcol7" path="res://room scenes/starting_room.tscn" id="7_074og"]
 [ext_resource type="Texture2D" uid="uid://defsbd0nnkgjh" path="res://lights/vignette/Vignette.png" id="9_yaehf"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://bqeqcg0ahq7md" path="res://Main folderi/room_handler.gd" id="15_2cqfq"]
 [ext_resource type="Script" uid="uid://blxoajrevqln2" path="res://particle systems/ground_particles.gd" id="15_vivmo"]
 [ext_resource type="Script" uid="uid://dvumgycdotb3r" path="res://particle systems/DashParticles.gd" id="16_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://dcv3okcxh2xr7" path="res://random assets/dash particle.png" id="16_cegan"]
 [ext_resource type="AudioStream" uid="uid://cwfh5v7tg65h0" path="res://audio/kurkku 1.wav" id="17_074og"]
 [ext_resource type="Script" uid="uid://dsmbkcdqitjdx" path="res://particle systems/hyper_particles.gd" id="17_yaehf"]
 [ext_resource type="Script" uid="uid://dxc50yhrt4rxx" path="res://audio/audio_stream_player.gd" id="18_074og"]
@@ -145,6 +146,7 @@ script = ExtResource("16_2cqfq")
 [node name="HyperParticles" type="GPUParticles2D" parent="Particles"]
 emitting = false
 amount = 15
+texture = ExtResource("16_cegan")
 lifetime = 0.5
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_074og")

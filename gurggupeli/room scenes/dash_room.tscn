@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://b8o1exqb7web1"]
+[gd_scene load_steps=82 format=4 uid="uid://b8o1exqb7web1"]
 
 [ext_resource type="PackedScene" uid="uid://df2e83qk72c1r" path="res://room scenes/template/roomtemplate.tscn" id="1_qamc7"]
 [ext_resource type="Texture2D" uid="uid://bc50v4iry6plj" path="res://player/textures/radioactive waste.png" id="2_dckm1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ctf1m12u42fhp" path="res://lights/light.tscn" id="6_cqpf3"]
 [ext_resource type="PackedScene" uid="uid://otw7oka0orrl" path="res://Interactibles/dash.tscn" id="7_44gh6"]
 [ext_resource type="Script" uid="uid://dkk67gq0xthap" path="res://room scenes/dash_walls.gd" id="7_g0cak"]
+[ext_resource type="Texture2D" uid="uid://d3cetv611wvug" path="res://random assets/Gurggu_graffiti.png" id="10_qd8er"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4jida"]
 tile_data = PackedInt32Array(0, 262145, 13, 65536, 262145, 14, 1, 327681, 13, 65537, 327681, 14, 2, 393217, 13, 65538, 393217, 14, 3, 458753, 13, 65539, 458753, 14, 4, 524289, 13, 65540, 524289, 14, 5, 589825, 13, 65541, 589825, 14)
@@ -6410,19 +6411,32 @@ tile_map_data = PackedByteArray("AABU/msAAgACAAAAAABU/mwAAgACAAEAAABV/msAAgACAAA
 tile_set = SubResource("TileSet_eeuwk")
 
 [node name="Lights" parent="roomtemplate/TileMapLayer" index="9"]
-tile_map_data = PackedByteArray("AAAmAPb/AAADAAAAAAAmAPf/AAADAAEAAAA5AN//AAADAAAAAAA5AOD/AAADAAEAAABLAP7/AAADAAAAAABLAP//AAADAAEAAAAxAM//AAADAAAAAAAxAND/AAADAAEAAAAmAPX/AAACAAAAAAAmAPT/AAACAAAAAAAmAPP/AAACAAAAAAAxAM7/AAACAAAAAAAxAM3/AAACAAAAAAAxAMz/AAACAAAAAAAxAMv/AAACAAAAAAAxAMr/AAACAAAAAAAxAMn/AAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAmAPb/AAADAAAAAAAmAPf/AAADAAEAAAA5AN//AAADAAAAAAA5AOD/AAADAAEAAABLAP7/AAADAAAAAABLAP//AAADAAEAAAAxAM//AAADAAAAAAAxAND/AAADAAEAAAAmAPX/AAACAAAAAAAmAPT/AAACAAAAAAAmAPP/AAACAAAAAAAxAM7/AAACAAAAAAAxAM3/AAACAAAAAAAxAMz/AAACAAAAAAAxAMv/AAACAAAAAAAxAMr/AAACAAAAAAAxAMn/AAACAAAAAAA/APD/AAADAAAAAAA/APH/AAADAAEAAAA=")
 
 [node name="PointLight2D" parent="roomtemplate/TileMapLayer/Lights" index="0" instance=ExtResource("6_cqpf3")]
 position = Vector2(307, -69)
+flickers = false
+fades = true
 
-[node name="PointLight2D2" parent="roomtemplate/TileMapLayer/Lights" index="1" instance=ExtResource("6_cqpf3")]
+[node name="PointLight2D5" parent="roomtemplate/TileMapLayer/Lights" index="1" instance=ExtResource("6_cqpf3")]
+position = Vector2(507.73676, -118.13373)
+flickers = false
+fades = true
+
+[node name="PointLight2D2" parent="roomtemplate/TileMapLayer/Lights" index="2" instance=ExtResource("6_cqpf3")]
 position = Vector2(604, -7)
+flickers = false
+fades = true
 
-[node name="PointLight2D3" parent="roomtemplate/TileMapLayer/Lights" index="2" instance=ExtResource("6_cqpf3")]
+[node name="PointLight2D3" parent="roomtemplate/TileMapLayer/Lights" index="3" instance=ExtResource("6_cqpf3")]
 position = Vector2(459, -253)
+flickers = false
+fades = true
 
-[node name="PointLight2D4" parent="roomtemplate/TileMapLayer/Lights" index="3" instance=ExtResource("6_cqpf3")]
+[node name="PointLight2D4" parent="roomtemplate/TileMapLayer/Lights" index="4" instance=ExtResource("6_cqpf3")]
 position = Vector2(397, -382)
+flickers = false
+fades = true
 
 [node name="RoomExit" parent="roomtemplate" index="1"]
 next_room_path = "res://room scenes/parkour_room_3415421.tscn"
@@ -6514,6 +6528,15 @@ script = ExtResource("7_g0cak")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="roomtemplate/StaticBody2D2"]
 position = Vector2(404, -241)
 shape = SubResource("RectangleShape2D_44gh6")
+
+[node name="Sprite2D" type="Sprite2D" parent="roomtemplate"]
+modulate = Color(0.34117648, 0, 0, 0.7921569)
+z_index = -2
+position = Vector2(607, -32)
+rotation = -1.5707964
+texture = ExtResource("10_qd8er")
+region_enabled = true
+region_rect = Rect2(48, 56, 24, 24)
 
 [editable path="roomtemplate"]
 [editable path="roomtemplate/RoomExit"]
