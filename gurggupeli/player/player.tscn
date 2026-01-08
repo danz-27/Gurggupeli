@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://buf5pdb22e0bo" path="res://enemis/entity_health.tscn" id="5_qjkh3"]
 [ext_resource type="Script" uid="uid://b1gy7oj6u3lgm" path="res://player/label.gd" id="6_boad6"]
 [ext_resource type="Texture2D" uid="uid://bxgjf7m8oknvn" path="res://player/textures/Gurggu dash ready sprite sheet.png" id="6_hg6s5"]
-[ext_resource type="Script" uid="uid://de7d6j8elrthl" path="res://player/dash_blink.gd" id="8_rgyib"]
+[ext_resource type="Script" path="res://player/dash_blink.gd" id="8_rgyib"]
 [ext_resource type="PackedScene" uid="uid://dcfljpyeu8gif" path="res://enemis/soft_collision.tscn" id="11_2ieo8"]
 [ext_resource type="PackedScene" uid="uid://dh7fcqrbcj7bb" path="res://spikes/spike_detector.tscn" id="12_ebec5"]
 [ext_resource type="PackedScene" uid="uid://glyipsfmmk8v" path="res://particle systems/hit_particles.tscn" id="13_yllr7"]
