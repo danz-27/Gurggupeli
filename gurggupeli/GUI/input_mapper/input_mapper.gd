@@ -8,7 +8,8 @@ func _ready() -> void:
 		if InputMap.action_get_events(action).size() != 0:
 			keymaps[action] = InputMap.action_get_events(action)[0]
 	load_keymap()
-	for child: Button in get_children():
+	
+	for child: Button in get_tree().get_nodes_in_group("Buttons") :
 		if child.has_method("update_text"):
 			child.update_text()
 

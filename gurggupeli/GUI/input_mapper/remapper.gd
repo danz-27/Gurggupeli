@@ -1,14 +1,14 @@
 extends Button
 
 @export var action: String
-@onready var input_mapper: Control = $".."
+@onready var input_mapper: Control = find_parent("InputMapper")
 
 func _init() -> void:
 	toggle_mode = true
-	
 
 func _ready() -> void:
 	set_process_unhandled_input(false)
+	add_theme_color_override("font_color", Color(0.0, 0.568, 0.0, 1.0))
 
 func _toggled(toggled_on: bool) -> void:
 	set_process_unhandled_input(toggled_on)

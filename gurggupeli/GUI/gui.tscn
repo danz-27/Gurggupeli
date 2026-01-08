@@ -269,61 +269,20 @@ text = "Back"
 visible = false
 z_index = 300
 
-[node name="Right" parent="InputMapper" index="0"]
-offset_left = 200.0
-offset_top = 69.0
-offset_right = 248.59813
-offset_bottom = 85.0
-
-[node name="Left" parent="InputMapper" index="1"]
-offset_left = 80.0
-offset_top = 69.0
-offset_right = 130.07248
-offset_bottom = 86.29251
-
-[node name="Up" parent="InputMapper" index="2"]
-offset_left = 144.0
-offset_top = 40.0
-offset_right = 192.0
-offset_bottom = 56.0
-
-[node name="Down" parent="InputMapper" index="3"]
-offset_left = 144.0
-offset_top = 69.0
-offset_right = 193.39493
-offset_bottom = 87.008316
-
-[node name="Jump" parent="InputMapper" index="4"]
-offset_left = 80.0
-offset_top = 96.0
-offset_right = 128.0
-offset_bottom = 112.0
-
-[node name="Dash" parent="InputMapper" index="5"]
-offset_left = 144.0
-offset_top = 96.0
-offset_right = 192.0
-offset_bottom = 112.0
-
-[node name="Interact" parent="InputMapper" index="6"]
-offset_left = 200.0
-offset_top = 40.0
-offset_right = 248.0
-offset_bottom = 56.0
-
-[node name="Heal" parent="InputMapper" index="7"]
-offset_left = 81.0
-offset_top = 40.0
-offset_right = 129.0
-offset_bottom = 56.0
-
 [node name="BackButton" type="Button" parent="InputMapper"]
 z_index = 201
-layout_mode = 0
-offset_left = 144.0
-offset_top = 136.0
-offset_right = 192.0
-offset_bottom = 167.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -3.0
+offset_right = 33.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 0
 theme = ExtResource("4_rikqw")
 text = "Back"
 
@@ -354,5 +313,3 @@ script = ExtResource("17_si67a")
 [connection signal="pressed" from="MainMenu/OptionsButton" to="MainMenu" method="_on_options_button_pressed"]
 [connection signal="pressed" from="MainMenu/QuitButton" to="MainMenu" method="_on_quit_button_pressed"]
 [connection signal="pressed" from="InputMapper/BackButton" to="InputMapper" method="_on_back_button_pressed"]
-
-[editable path="InputMapper"]
