@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7fx0kfswq7vo"
-path="res://.godot/imported/darkness new.png-8e72bf8d383a97bdc9f86e07217eb021.ctex"
+uid="uid://dcv3okcxh2xr7"
+path="res://.godot/imported/dash particle.png-7d28bd56af22c7bea9f0340a47008b5a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilemaps/darkness new.png"
-dest_files=["res://.godot/imported/darkness new.png-8e72bf8d383a97bdc9f86e07217eb021.ctex"]
+source_file="res://random assets/dash particle.png"
+dest_files=["res://.godot/imported/dash particle.png-7d28bd56af22c7bea9f0340a47008b5a.ctex"]
 
 [params]
 

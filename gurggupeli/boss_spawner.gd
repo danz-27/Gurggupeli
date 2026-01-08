@@ -9,4 +9,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			if GlobalVariables.big_rat_killed:
 				return
 			boss_spawned = true
-			BigRat.create($"boss spawn location".global_position)
+			var rotta: BigRat = BigRat.new()
+			rotta.call_deferred("create",$"boss spawn location".global_position)
