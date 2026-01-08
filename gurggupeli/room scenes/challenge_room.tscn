@@ -8140,6 +8140,14 @@ rotation = -3.1415882
 position = Vector2(338, -76)
 vile_tag = "4"
 
+[node name="strawberry graffiti" type="Sprite2D" parent="."]
+modulate = Color(0.08467484, 9.62615e-08, 0.5594615, 0.6313726)
+z_index = -1
+position = Vector2(338, -76)
+texture = ExtResource("6_6yj38")
+region_enabled = true
+region_rect = Rect2(72, 56, 44, 24)
+
 [editable path="roomtemplate"]
 [editable path="roomtemplate/TileMapLayer/putkilo/putket tämän alle/pipe"]
 [editable path="roomtemplate/RoomExit"]

@@ -4359,6 +4359,14 @@ texture = ExtResource("10_1lif5")
 region_enabled = true
 region_rect = Rect2(24, 56, 24, 24)
 
+[node name="strawberry graffiti" type="Sprite2D" parent="."]
+modulate = Color(0, 0.22495231, 0.08992129, 0.6313726)
+z_index = -1
+position = Vector2(611, -17)
+texture = ExtResource("10_1lif5")
+region_enabled = true
+region_rect = Rect2(72, 56, 44, 24)
+
 [editable path="roomtemplate"]
 [editable path="roomtemplate/TileMapLayer/putkilo/putket tämän alle/pipe"]
 [editable path="roomtemplate/TileMapLayer/darkness/Hideable wall"]
