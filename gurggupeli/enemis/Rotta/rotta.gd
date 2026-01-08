@@ -141,4 +141,13 @@ func _call_this() -> void: #call this function & call this method
 	#print(roam_pos)
 
 func _die() -> void:
-	queue_free()
+	$HitParticles.amount = 1000
+	$HitParticles.particle_color = Color(1.0, 0.145, 0.267, 1.0)
+	$HitParticles.emitting = true
+	while $Sprite2D.modulate.a > 0:
+		$Sprite2D.modulate.a -= 1
+		
+		if $Sprite2D.modulate.a <= 0:
+			queue_free()
+		
+		await get_tree().physics_frame

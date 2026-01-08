@@ -105,6 +105,7 @@ func _physics_process(delta: float) -> void:
 	#print(velocity.y)
 	
 	update_shaders()
+	set_dash_outline()
 	
 	if frozen:
 		if keep_moving:
@@ -253,9 +254,9 @@ func _physics_process(delta: float) -> void:
 	
 	# Add softcollision push after everything else
 	velocity += SoftCollision.velocity_to_add
-	if SoftCollision.velocity_to_add.y > 0:
-		print(SoftCollision.velocity_to_add)
-		print(velocity, "velocity")
+	#if SoftCollision.velocity_to_add.y > 0:
+		#print(SoftCollision.velocity_to_add)
+		#print(velocity, "velocity")
 	SoftCollision.velocity_to_add = Vector2.ZERO
 	position.round()
 	move_and_slide()

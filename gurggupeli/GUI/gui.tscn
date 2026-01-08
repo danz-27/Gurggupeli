@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d2trf1846jb0b"]
+[gd_scene load_steps=19 format=3 uid="uid://d2trf1846jb0b"]
 
 [ext_resource type="PackedScene" uid="uid://betvs3gq1xrw7" path="res://GUI/health_bar.tscn" id="1_80edf"]
 [ext_resource type="Script" uid="uid://dal06uv2b8l11" path="res://GUI/gui.gd" id="1_qtfhu"]
@@ -13,10 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://b205wy6yad0ep" path="res://GUI/title_screen_background.png" id="11_hra2n"]
 [ext_resource type="Texture2D" uid="uid://1x0amq151cs7" path="res://GUI/title.png" id="12_rikqw"]
 [ext_resource type="PackedScene" uid="uid://rnf12mxa410b" path="res://GUI/input_mapper/input_mapper.tscn" id="13_gedss"]
+[ext_resource type="Script" uid="uid://bcqowhthhsibn" path="res://GUI/debug_menu.gd" id="13_si67a"]
 [ext_resource type="PackedScene" uid="uid://6pbawsjxpl8x" path="res://Interactibles/interact_popup.tscn" id="14_rikqw"]
 [ext_resource type="Texture2D" uid="uid://ib0vs278vrw0" path="res://GUI/YOU WIN.png" id="16_3kka3"]
 [ext_resource type="PackedScene" uid="uid://b76ly8xg11ojm" path="res://GUI/inventory/inventory.tscn" id="16_4bf3s"]
-[ext_resource type="Script" uid="uid://cmosj1esic63u" path="res://GUI/texture_rect.gd" id="17_si67a"]
+[ext_resource type="Script" path="res://GUI/texture_rect.gd" id="17_si67a"]
 
 [node name="GUI" type="CanvasLayer"]
 process_mode = 3
@@ -152,7 +153,7 @@ offset_top = -10.0
 offset_right = 33.0
 offset_bottom = 21.0
 theme = ExtResource("4_rikqw")
-text = "Sounds"
+text = "Debug"
 
 [node name="BackButton" type="Button" parent="OptionsMenu"]
 z_index = 201
@@ -233,6 +234,36 @@ offset_top = 55.201332
 offset_right = -99.92459
 offset_bottom = 81.20133
 theme = ExtResource("4_rikqw")
+
+[node name="DebugMenu" type="Control" parent="."]
+visible = false
+z_index = 740
+layout_mode = 3
+anchors_preset = 0
+offset_left = 132.0
+offset_top = 80.0
+offset_right = 172.0
+offset_bottom = 120.0
+script = ExtResource("13_si67a")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugMenu"]
+layout_mode = 0
+offset_left = -28.0
+offset_top = -24.0
+offset_right = 103.0
+offset_bottom = 77.0
+
+[node name="Dash" type="Button" parent="DebugMenu/VBoxContainer"]
+layout_mode = 2
+text = "Enable Dash"
+
+[node name="Crowbar" type="Button" parent="DebugMenu/VBoxContainer"]
+layout_mode = 2
+text = "Enable Crowbar"
+
+[node name="Back" type="Button" parent="DebugMenu/VBoxContainer"]
+layout_mode = 2
+text = "Back"
 
 [node name="InputMapper" parent="." instance=ExtResource("13_gedss")]
 visible = false

@@ -147,3 +147,7 @@ func _die() -> void:
 	state = STATE.DIE
 	$HurtBox/CollisionShape2D.disabled = true
 	$SoftCollision/CollisionShape2D.disabled = true
+	$HitParticles.amount = 10000
+	$HitParticles.particle_color = Color(1.0, 0.145, 0.267, 1.0)
+	$HitParticles.emitting = true
+	
