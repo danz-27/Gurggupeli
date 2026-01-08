@@ -39,12 +39,15 @@ func _on_key_bind_button_pressed() -> void:
 	
 
 func _on_music_volume_button_pressed() -> void:
-	pass # Replace with function body.
-
+	$KeyBindButton.hide()
+	$MusicVolumeButton.hide()
+	$BackButton.hide()
+	
+	$"../DebugMenu".show()
 
 func _on_back_button_pressed() -> void:
 	visible = false
 	#print(PauseScreen.instance)
 	if is_on_pause_menu:
 		pause_screen.visible = true
-		print(pause_screen)
+		#print(pause_screen)
