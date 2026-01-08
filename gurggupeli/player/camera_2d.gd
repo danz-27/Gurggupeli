@@ -15,3 +15,6 @@ func _ready() -> void:
 func set_camera_offset(offset_to_set_to: Vector2) -> void:
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(self, "position", offset_to_set_to, 2)
+	
+func _physics_process(delta: float) -> void:
+	position = round(position)
