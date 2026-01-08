@@ -182,7 +182,7 @@ shape = SubResource("RectangleShape2D_37wr3")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
 [node name="HitParticles" parent="." instance=ExtResource("6_35avu")]
-particle_color = Color(0.44269907, 0.22152746, 4.813075e-08, 1)
+particle_color = Color(0.29174003, 0.13614732, 0, 1)
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="."]
 position = Vector2(0, -16)

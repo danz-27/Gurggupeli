@@ -92,6 +92,7 @@ var keep_moving: bool = true
 func _ready() -> void:
 	instance = self
 	respawn_pos = position
+	set_dash_outline()
 
 func _physics_process(delta: float) -> void:
 	# Debug stuff
@@ -233,7 +234,7 @@ func _physics_process(delta: float) -> void:
 				velocity.y = max_fall_speed
 			
 			if Input.is_action_just_pressed("dash") and dash_count > 0 and GlobalVariables.has_dash:
-				gurggu.material.set_shader_parameter("new", Color(0.161, 0.247, 0.129))
+				set_dash_outline()
 				dash()
 				state = STATE.DASHING
 	
@@ -355,7 +356,7 @@ func dash() -> void:
 
 func reset_dashes() -> void:
 	dash_count = max_dashes
-	gurggu.material.set_shader_parameter("new", Color(0.263, 0.518, 0.016))
+	set_dash_outline()
 
 func while_in_water() -> void:
 	first_time_leaving_water = true
@@ -474,10 +475,8 @@ func animate_player() -> void:
 		blinking_duration -= 1
 		if blinking_duration == 0:
 			gurggu.texture.set_diffuse_texture(default_texture)
-			if dash_count > 0:
-				gurggu.material.set_shader_parameter("new", Color(0.263, 0.518, 0.016))
-			else:
-				gurggu.material.set_shader_parameter("new", Color(0.161, 0.247, 0.129))
+			
+			set_dash_outline()
 			blinking_duration = 5
 			interval_between_blinks = randi_range(210, 300)
 	
@@ -488,6 +487,12 @@ func animate_player() -> void:
 
 func update_shaders() -> void:
 	gurggu.material.set_shader_parameter("modulate", gurggu.modulate * gurggu.self_modulate)
+
+func set_dash_outline() -> void:
+	if dash_count > 0 and GlobalVariables.has_dash:
+		gurggu.material.set_shader_parameter("new", Color(0.263, 0.518, 0.016))
+	else:
+		gurggu.material.set_shader_parameter("new", Color(0.161, 0.247, 0.129))
 
 func set_player_flip_h() -> void:
 	if last_pressed_direction() > 0:
