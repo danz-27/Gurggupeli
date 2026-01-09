@@ -6548,6 +6548,15 @@ tile_map_data = PackedByteArray("AAABAO//AQACAAQAAAACAO//AQACAAQAAAADAO//AQACAAQ
 [node name="CollisionPolygon2D" parent="roomtemplate/Hideable wall2/Area2D" index="0"]
 polygon = PackedVector2Array(-10, -254, 197, -268, 206, -122, 107, -128, 107, -140, 76, -140, 76, -127, -17, -126)
 
+[node name="RoomExit3" parent="roomtemplate" instance=ExtResource("8_t0gfm")]
+position = Vector2(92, -217)
+next_room_path = "res://room scenes/main_room.tscn"
+enterance_direction = 3
+door_ID = 4
+
+[node name="RespawnPosition" parent="roomtemplate/RoomExit3" index="1"]
+position = Vector2(-43, 83)
+
 [editable path="roomtemplate"]
 [editable path="roomtemplate/RoomExit"]
 [editable path="roomtemplate/ManholeCover"]
@@ -6556,3 +6565,4 @@ polygon = PackedVector2Array(-10, -254, 197, -268, 206, -122, 107, -128, 107, -1
 [editable path="roomtemplate/Healing area"]
 [editable path="roomtemplate/Hideable wall"]
 [editable path="roomtemplate/Hideable wall2"]
+[editable path="roomtemplate/RoomExit3"]
