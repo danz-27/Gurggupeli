@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://hryjdy13d3t5" path="res://Interactibles/valve/valve.tscn" id="8_t56ak"]
 [ext_resource type="PackedScene" uid="uid://cpd7uvkqcf58v" path="res://rising water/rising_water.tscn" id="9_4fmbu"]
 [ext_resource type="PackedScene" uid="uid://bix0v4xhowapv" path="res://hideableWall/hideable_wall.tscn" id="11_gvb8v"]
-[ext_resource type="Script" uid="uid://dcvjsnyev2fla" path="res://player/water_particle_system.gd" id="11_rhps5"]
+[ext_resource type="Script" path="res://player/water_particle_system.gd" id="11_rhps5"]
 [ext_resource type="Script" uid="uid://8or5lgs1860v" path="res://room scenes/falling_water.gd" id="12_m3xws"]
 [ext_resource type="PackedScene" uid="uid://brodvah2kdovd" path="res://room scenes/template/room exit/room_exit.tscn" id="15_gx0f1"]
 [ext_resource type="PackedScene" uid="uid://bqpjbh4s4dmjy" path="res://Interactibles/vile.tscn" id="16_fk7l5"]
@@ -7904,18 +7904,14 @@ texture_scale = 2.38
 is_electiric = true
 
 [node name="RoomExit" parent="roomtemplate" index="1"]
-position = Vector2(12, -4)
-next_room_path = "res://room scenes/another_level.tscn"
+position = Vector2(194, -624)
+monitoring = false
+monitorable = false
 enterance_direction = 1
+door_ID = 4
 
-[node name="RoomExit2" parent="roomtemplate" instance=ExtResource("15_gx0f1")]
-position = Vector2(876, -27)
-next_room_path = "res://room scenes/boss_battle_room.tscn"
-enterance_direction = 1
-door_ID = 1
-
-[node name="RespawnPosition" parent="roomtemplate/RoomExit2" index="1"]
-position = Vector2(0, -4)
+[node name="CollisionShape2D" parent="roomtemplate/RoomExit" index="0"]
+disabled = true
 
 [node name="Hideable wall" parent="roomtemplate" instance=ExtResource("11_gvb8v")]
 z_index = 1
@@ -8140,6 +8136,17 @@ rotation = -3.1415882
 position = Vector2(338, -76)
 vile_tag = "4"
 
+[node name="RoomExit3" parent="roomtemplate" instance=ExtResource("15_gx0f1")]
+position = Vector2(12, -6)
+next_room_path = "res://room scenes/another_level.tscn"
+enterance_direction = 1
+
+[node name="RoomExit2" parent="roomtemplate" instance=ExtResource("15_gx0f1")]
+position = Vector2(876, -32)
+next_room_path = "res://room scenes/boss_battle_room.tscn"
+enterance_direction = 1
+door_ID = 1
+
 [node name="strawberry graffiti" type="Sprite2D" parent="."]
 modulate = Color(0.08467484, 9.62615e-08, 0.5594615, 0.6313726)
 z_index = -1
@@ -8151,7 +8158,6 @@ region_rect = Rect2(72, 56, 44, 24)
 [editable path="roomtemplate"]
 [editable path="roomtemplate/TileMapLayer/putkilo/putket tämän alle/pipe"]
 [editable path="roomtemplate/RoomExit"]
-[editable path="roomtemplate/RoomExit2"]
 [editable path="roomtemplate/Hideable wall"]
 [editable path="roomtemplate/valve"]
 [editable path="roomtemplate/valve/rising water"]
