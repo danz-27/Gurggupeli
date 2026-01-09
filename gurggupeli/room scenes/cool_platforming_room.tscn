@@ -8757,7 +8757,7 @@ position = Vector2(-18, 5)
 position = Vector2(578, -156)
 next_room_path = "res://room scenes/another_level.tscn"
 enterance_direction = 2
-door_ID = 2
+door_ID = 4
 
 [node name="RespawnPosition" parent="roomtemplate/RoomExit3" index="1"]
 position = Vector2(-16, 6)

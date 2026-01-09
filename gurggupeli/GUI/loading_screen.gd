@@ -13,7 +13,7 @@ func _ready() -> void:
 
 var show_loading: bool = false
 var coefficient: float = 0.1
-
+var maximium_duration: int = 0
 var first_time: bool = true
 var min_fade_duration: int = 25
 var last_activated: int
@@ -43,3 +43,11 @@ func _physics_process(_delta: float) -> void:
 		elif room_transition.modulate.a <= 0:
 			fade_complete = false
 			first_time_fade_complete = true
+	
+	# a failsafe 
+	if enabled:
+		maximium_duration += 1
+		if maximium_duration >= 120:
+			enabled = false
+			maximium_duration = 0
+			push_error("loading Screen took over 2 seconds to load")

@@ -17,6 +17,10 @@ func _change_room(next_room: Node2D, spawn_pos: Vector2) -> void:
 	
 	add_child.call_deferred(next_room)
 	# Man this code does not fucking work
+	if next_room.find_child("spikes").enabled == false:
+		Player.instance.position = spawn_pos
+		return
+		
 	next_room.find_child("spikes").enabled = false
 	Player.instance.position = spawn_pos
 	next_room.find_child("spikes").enabled = true

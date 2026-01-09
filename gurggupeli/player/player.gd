@@ -80,6 +80,8 @@ signal just_jumped()
 
 @onready var health : EntityHealth = $EntityHealth
 
+var debug_mode_active: bool = false
+
 enum STATE {
 	MOVING,
 	DASHING
@@ -96,9 +98,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Debug stuff
-	if Input.is_action_just_pressed("ui_focus_next"):
+	if Input.is_action_just_pressed("ui_focus_next") and debug_mode_active:
 		health.health += 3
 	if Input.is_action_just_pressed("ui_text_delete"):
+		debug_mode_active = true if debug_mode_active == false else false
 		velocity = Vector2.ZERO
 		position = respawn_pos
 	health.health = clamp(health.health, 0, 15)

@@ -4257,7 +4257,6 @@ is_natural = true
 [node name="RoomExit" parent="roomtemplate" index="1"]
 position = Vector2(-26, -12)
 next_room_path = "res://room scenes/another_level.tscn"
-door_ID = 4
 
 [node name="RespawnPosition" parent="roomtemplate/RoomExit" index="1"]
 position = Vector2(21, 6)

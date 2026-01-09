@@ -11,6 +11,7 @@ var pause_screen: PauseScreen
 var bg_speed: float = 0.05
 var is_on_pause_menu: bool = false
 var texture_width: int = 324
+var show_debug: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,9 +29,16 @@ func _physics_process(_delta: float) -> void:
 		BG.global_position.x = abs(BG.global_position.x)
 	if BG2.global_position.x <= -texture_width:
 		BG2.global_position.x = abs(BG2.global_position.x)
-
+	
 	if Input.is_action_just_pressed("ui_text_delete"):
 		$VBoxContainer/MusicVolumeButton.show()
+		show_debug = true
+		
+	
+	if Player.instance.debug_mode_active:
+		$VBoxContainer/MusicVolumeButton.show()
+	elif !show_debug:
+		$VBoxContainer/MusicVolumeButton.hide()
 
 func _on_key_bind_button_pressed() -> void:
 	$VBoxContainer/KeyBindButton.hide()
@@ -49,6 +57,7 @@ func _on_music_volume_button_pressed() -> void:
 
 func _on_back_button_pressed() -> void:
 	visible = false
+	show_debug = false
 	$VBoxContainer/MusicVolumeButton.hide()
 	#print(PauseScreen.instance)
 	if is_on_pause_menu:
