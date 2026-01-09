@@ -115,6 +115,32 @@ mouse_filter = 2
 theme = ExtResource("4_rikqw")
 script = ExtResource("10_j5h0c")
 
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu"]
+layout_mode = 0
+offset_left = -52.0
+offset_top = -50.0
+offset_right = 58.0
+offset_bottom = 57.0
+
+[node name="KeyBindButton" type="Button" parent="OptionsMenu/VBoxContainer"]
+z_index = 201
+layout_mode = 2
+theme = ExtResource("4_rikqw")
+text = "KeyBinds"
+
+[node name="MusicVolumeButton" type="Button" parent="OptionsMenu/VBoxContainer"]
+visible = false
+z_index = 201
+layout_mode = 2
+theme = ExtResource("4_rikqw")
+text = "Debug"
+
+[node name="BackButton" type="Button" parent="OptionsMenu/VBoxContainer"]
+z_index = 201
+layout_mode = 2
+theme = ExtResource("4_rikqw")
+text = "Back"
+
 [node name="BG" type="TextureRect" parent="OptionsMenu"]
 z_index = 98
 layout_mode = 0
@@ -134,36 +160,6 @@ offset_right = 164.0
 offset_bottom = 90.0
 mouse_filter = 2
 texture = ExtResource("11_hra2n")
-
-[node name="KeyBindButton" type="Button" parent="OptionsMenu"]
-z_index = 201
-layout_mode = 0
-offset_left = -91.0
-offset_top = -40.0
-offset_right = 90.41966
-offset_bottom = -8.731323
-theme = ExtResource("4_rikqw")
-text = "KeyBinds"
-
-[node name="MusicVolumeButton" type="Button" parent="OptionsMenu"]
-z_index = 201
-layout_mode = 0
-offset_left = -32.0
-offset_top = -10.0
-offset_right = 33.0
-offset_bottom = 21.0
-theme = ExtResource("4_rikqw")
-text = "Debug"
-
-[node name="BackButton" type="Button" parent="OptionsMenu"]
-z_index = 201
-layout_mode = 0
-offset_left = -21.0
-offset_top = 16.0
-offset_right = 24.0
-offset_bottom = 47.0
-theme = ExtResource("4_rikqw")
-text = "Back"
 
 [node name="MainMenu" type="Control" parent="."]
 layout_mode = 3
@@ -306,9 +302,9 @@ script = ExtResource("17_si67a")
 [connection signal="pressed" from="PauseScreen/ContinueButton" to="PauseScreen" method="_on_continue_button_pressed"]
 [connection signal="pressed" from="PauseScreen/OptionsButton" to="PauseScreen" method="_on_options_button_pressed"]
 [connection signal="pressed" from="PauseScreen/ExitButton" to="PauseScreen" method="_on_exit_button_pressed"]
-[connection signal="pressed" from="OptionsMenu/KeyBindButton" to="OptionsMenu" method="_on_key_bind_button_pressed"]
-[connection signal="pressed" from="OptionsMenu/MusicVolumeButton" to="OptionsMenu" method="_on_music_volume_button_pressed"]
-[connection signal="pressed" from="OptionsMenu/BackButton" to="OptionsMenu" method="_on_back_button_pressed"]
+[connection signal="pressed" from="OptionsMenu/VBoxContainer/KeyBindButton" to="OptionsMenu" method="_on_key_bind_button_pressed"]
+[connection signal="pressed" from="OptionsMenu/VBoxContainer/MusicVolumeButton" to="OptionsMenu" method="_on_music_volume_button_pressed"]
+[connection signal="pressed" from="OptionsMenu/VBoxContainer/BackButton" to="OptionsMenu" method="_on_back_button_pressed"]
 [connection signal="pressed" from="MainMenu/PlayButton" to="MainMenu" method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenu/OptionsButton" to="MainMenu" method="_on_options_button_pressed"]
 [connection signal="pressed" from="MainMenu/QuitButton" to="MainMenu" method="_on_quit_button_pressed"]

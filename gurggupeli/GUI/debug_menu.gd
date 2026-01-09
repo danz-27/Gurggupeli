@@ -15,5 +15,5 @@ func _enable_crowbar() -> void:
 
 func _back() -> void:
 	hide()
-	for child in $"../OptionsMenu".get_children():
+	for child in $"../OptionsMenu".get_child(0).get_children():
 		child.show()

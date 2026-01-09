@@ -9,7 +9,7 @@ func _ready() -> void:
 			keymaps[action] = InputMap.action_get_events(action)[0]
 	load_keymap()
 	
-	for child: Button in get_tree().get_nodes_in_group("Buttons") :
+	for child: Button in get_tree().get_nodes_in_group("Buttons"):
 		if child.has_method("update_text"):
 			child.update_text()
 
@@ -33,6 +33,10 @@ func save_keymap() -> void:
 	file.close()
 
 func _on_back_button_pressed() -> void:
+	for button in get_tree().get_nodes_in_group("Buttons"):
+		button.update_text()
+		button.button_pressed = false
+		button.release_focus()
 	hide()
-	for child in $"../OptionsMenu".get_children():
+	for child in $"../OptionsMenu".get_child(0).get_children():
 		child.show()

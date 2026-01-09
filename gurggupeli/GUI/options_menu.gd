@@ -29,24 +29,27 @@ func _physics_process(_delta: float) -> void:
 	if BG2.global_position.x <= -texture_width:
 		BG2.global_position.x = abs(BG2.global_position.x)
 
+	if Input.is_action_just_pressed("ui_text_delete"):
+		$VBoxContainer/MusicVolumeButton.show()
 
 func _on_key_bind_button_pressed() -> void:
-	$KeyBindButton.hide()
-	$MusicVolumeButton.hide()
-	$BackButton.hide()
+	$VBoxContainer/KeyBindButton.hide()
+	$VBoxContainer/MusicVolumeButton.hide()
+	$VBoxContainer/BackButton.hide()
 	
 	$"../InputMapper".show()
 	
 
 func _on_music_volume_button_pressed() -> void:
-	$KeyBindButton.hide()
-	$MusicVolumeButton.hide()
-	$BackButton.hide()
+	$VBoxContainer/KeyBindButton.hide()
+	$VBoxContainer/MusicVolumeButton.hide()
+	$VBoxContainer/BackButton.hide()
 	
 	$"../DebugMenu".show()
 
 func _on_back_button_pressed() -> void:
 	visible = false
+	$VBoxContainer/MusicVolumeButton.hide()
 	#print(PauseScreen.instance)
 	if is_on_pause_menu:
 		pause_screen.visible = true

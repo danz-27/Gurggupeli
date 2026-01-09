@@ -174,7 +174,6 @@ layout_mode = 2
 [node name="Jump" type="Button" parent="PanelContainer/HBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer5" groups=["Buttons"]]
 layout_mode = 2
 theme = ExtResource("2_csc7f")
-text = "t"
 script = ExtResource("2_20rny")
 action = "jump"
 

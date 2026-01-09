@@ -17,7 +17,7 @@ func _toggled(toggled_on: bool) -> void:
 		release_focus()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.pressed:
+	if event.is_pressed():
 		InputMap.action_erase_events(action)
 		InputMap.action_add_event(action, event)
 		button_pressed = false
