@@ -6312,6 +6312,7 @@ hue_variation_min = -0.050000023
 hue_variation_max = -0.050000023
 
 [node name="another level" type="Node2D"]
+position = Vector2(0, 27.77)
 
 [node name="roomtemplate" parent="." instance=ExtResource("1_irkqb")]
 
@@ -6556,7 +6557,7 @@ door_ID = 2
 position = Vector2(14, 8)
 
 [node name="Rats" type="Node2D" parent="roomtemplate"]
-position = Vector2(244, 125)
+position = Vector2(241.39453, 125.968994)
 script = ExtResource("5_dlmcy")
 
 [node name="PiranhaSpawnLocations" type="Node2D" parent="roomtemplate"]

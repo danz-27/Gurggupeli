@@ -16,8 +16,7 @@ func _change_room(next_room: Node2D, spawn_pos: Vector2) -> void:
 		entity.queue_free()
 	
 	add_child.call_deferred(next_room)
+	# Man this code does not fucking work
+	next_room.find_child("spikes").enabled = false
 	Player.instance.position = spawn_pos
-	await get_tree().physics_frame
-	await get_tree().physics_frame
-	await get_tree().physics_frame
-	Player.instance.position = spawn_pos
+	next_room.find_child("spikes").enabled = true

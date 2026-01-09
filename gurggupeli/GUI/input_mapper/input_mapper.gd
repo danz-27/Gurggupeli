@@ -40,3 +40,4 @@ func _on_back_button_pressed() -> void:
 	hide()
 	for child in $"../OptionsMenu".get_child(0).get_children():
 		child.show()
+	$"../OptionsMenu".get_child(0).get_child(1).hide()

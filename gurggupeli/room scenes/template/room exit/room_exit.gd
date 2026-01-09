@@ -45,7 +45,7 @@ func _on_enter(player: Node2D) -> void:
 			RoomTransition.enabled = true
 			while !RoomTransition.fade_complete:
 				await get_tree().physics_frame
-
+	
 			var exit_scene: Node = load(next_room_path).instantiate()
 			var exit_scene_first_child: Node = exit_scene.get_child(0)
 			for child: Node in exit_scene_first_child.get_children():
