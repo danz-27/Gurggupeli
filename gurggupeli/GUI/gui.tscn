@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d2trf1846jb0b"]
+[gd_scene load_steps=20 format=3 uid="uid://d2trf1846jb0b"]
 
 [ext_resource type="PackedScene" uid="uid://betvs3gq1xrw7" path="res://GUI/health_bar.tscn" id="1_80edf"]
 [ext_resource type="Script" uid="uid://dal06uv2b8l11" path="res://GUI/gui.gd" id="1_qtfhu"]
@@ -17,7 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://6pbawsjxpl8x" path="res://Interactibles/interact_popup.tscn" id="14_rikqw"]
 [ext_resource type="Texture2D" uid="uid://ib0vs278vrw0" path="res://GUI/YOU WIN.png" id="16_3kka3"]
 [ext_resource type="PackedScene" uid="uid://b76ly8xg11ojm" path="res://GUI/inventory/inventory.tscn" id="16_4bf3s"]
-[ext_resource type="Script" path="res://GUI/texture_rect.gd" id="17_si67a"]
+[ext_resource type="Script" uid="uid://cmosj1esic63u" path="res://GUI/texture_rect.gd" id="17_si67a"]
+[ext_resource type="PackedScene" uid="uid://bh4d8h5e1slv8" path="res://GUI/starting_animation.tscn" id="19_stg18"]
 
 [node name="GUI" type="CanvasLayer"]
 process_mode = 3
@@ -296,6 +297,10 @@ offset_bottom = 40.0
 mouse_filter = 2
 texture = ExtResource("16_3kka3")
 script = ExtResource("17_si67a")
+
+[node name="starting animation" parent="." instance=ExtResource("19_stg18")]
+visible = false
+z_index = 100
 
 [connection signal="pressed" from="DeathScreen/RespawnButton" to="DeathScreen" method="_on_respawn_button_pressed"]
 [connection signal="pressed" from="DeathScreen/ExitButton" to="DeathScreen" method="_on_exit_button_pressed"]

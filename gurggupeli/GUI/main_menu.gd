@@ -5,6 +5,7 @@ static var instance: MainMenu
 
 @onready var BG: TextureRect = $BG
 @onready var BG2: TextureRect = $BG2
+@onready var starting_animation: Control = $"../starting animation"
 var speed: float = 0.05
 var texture_width: int = 324
 
@@ -31,8 +32,9 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_play_button_pressed() -> void:
-	visible = false
-	OptionsMenu.instance.is_on_pause_menu = true
+	starting_animation.visible = true
+	starting_animation.animation_player.play("starting animation")
+	
 
 
 func _on_options_button_pressed() -> void:

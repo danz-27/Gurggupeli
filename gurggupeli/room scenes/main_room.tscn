@@ -2623,6 +2623,8 @@ collision_enabled = false
 [node name="GurgguGraffiti" type="Sprite2D" parent="roomtemplate/TileMapLayer/level_background"]
 position = Vector2(446, -199)
 texture = ExtResource("5_s35yh")
+region_enabled = true
+region_rect = Rect2(0, 0, 120, 32)
 
 [node name="water" type="TileMapLayer" parent="roomtemplate/TileMapLayer"]
 z_index = 4
@@ -2887,6 +2889,8 @@ position = Vector2(338.59106, -131.21948)
 
 [node name="RoomExit2" parent="roomtemplate" instance=ExtResource("9_vvp1l")]
 position = Vector2(156, -24)
+next_room_path = "res://room scenes/starting_room.tscn"
+enterance_direction = 1
 door_ID = 4
 
 [editable path="roomtemplate/TileMapLayer/putkilo/Pipes/pipe"]

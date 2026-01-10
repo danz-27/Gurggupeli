@@ -64,7 +64,7 @@ func calclulate_path() -> void:
 	points_in_path.global_position -= position
 	points_in_path.curve.clear_points()
 	points_in_path.curve.add_point(to_global(Vector2(starting_position)+Vector2(starting_position).direction_to(Vector2(tilemap.map_to_local(current_position))) * -Vector2(16, 16)))
-	print(Vector2(starting_position).direction_to(Vector2(tilemap.map_to_local(current_position))) * -Vector2(8, 8))
+	#print(Vector2(starting_position).direction_to(Vector2(tilemap.map_to_local(current_position))) * -Vector2(8, 8))
 	#print(starting_position_in_tilemap, " ", direction_coming_from)
 	points_in_path.curve.add_point(to_global(Vector2(tilemap.map_to_local(current_position))))
 	#current_cell.get_custom_data("pipe directions")

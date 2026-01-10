@@ -47,7 +47,7 @@ func _physics_process(_delta: float) -> void:
 	# a failsafe 
 	if enabled:
 		maximium_duration += 1
-		if maximium_duration >= 120:
+		if maximium_duration >= 100:
 			enabled = false
 			maximium_duration = 0
 			push_error("loading Screen took over 2 seconds to load")

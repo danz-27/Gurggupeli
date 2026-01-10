@@ -52,6 +52,7 @@ func _on_enter(player: Node2D) -> void:
 				# Check if the child's class is RoomExit and check if the two rooms ID's are same
 				if child is RoomExit and child.door_ID == door_ID:
 					spawn_location = child.get_child(0).global_position
+					#print("spawn_location from inside roomexit:",spawn_location)
 					suitable_door_found = true
 					
 					RoomHandler.instance._change_room(exit_scene, spawn_location)

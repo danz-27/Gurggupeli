@@ -6606,13 +6606,15 @@ position = Vector2(927.3251, -222.86044)
 position = Vector2(485.94235, -40.222534)
 
 [node name="RoomExit3" parent="roomtemplate" instance=ExtResource("7_6uhww")]
-position = Vector2(924, -233.77)
 next_room_path = "res://room scenes/challenge_room.tscn"
 enterance_direction = 3
 door_ID = 2
 
+[node name="CollisionShape2D" parent="roomtemplate/RoomExit3" index="0"]
+position = Vector2(924, -242)
+
 [node name="RespawnPosition" parent="roomtemplate/RoomExit3" index="1"]
-position = Vector2(0, 19)
+position = Vector2(924, -217)
 
 [node name="RoomExit4" parent="roomtemplate" instance=ExtResource("7_6uhww")]
 position = Vector2(530, -36)
