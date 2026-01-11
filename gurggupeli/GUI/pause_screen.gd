@@ -8,7 +8,7 @@ func _onready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") and !$"../starting animation/AnimationPlayer".is_playing():
 		visible = true
 		OptionsMenu.instance.is_on_pause_menu = true
 	

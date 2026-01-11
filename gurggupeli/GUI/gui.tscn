@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d2trf1846jb0b"]
+[gd_scene load_steps=21 format=3 uid="uid://d2trf1846jb0b"]
 
 [ext_resource type="PackedScene" uid="uid://betvs3gq1xrw7" path="res://GUI/health_bar.tscn" id="1_80edf"]
 [ext_resource type="Script" uid="uid://dal06uv2b8l11" path="res://GUI/gui.gd" id="1_qtfhu"]
@@ -19,6 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://b76ly8xg11ojm" path="res://GUI/inventory/inventory.tscn" id="16_4bf3s"]
 [ext_resource type="Script" uid="uid://cmosj1esic63u" path="res://GUI/texture_rect.gd" id="17_si67a"]
 [ext_resource type="PackedScene" uid="uid://bh4d8h5e1slv8" path="res://GUI/starting_animation.tscn" id="19_stg18"]
+
+[sub_resource type="Curve" id="Curve_stg18"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.20866774, 0.9771663), 0.0, 0.0, 0, 0, Vector2(0.3739968, 0), 0.0, 0.0, 0, 0, Vector2(0.58908504, 0.9923888), 0.0, 0.0, 0, 0, Vector2(0.77849114, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 6
 
 [node name="GUI" type="CanvasLayer"]
 process_mode = 3
@@ -301,6 +305,7 @@ script = ExtResource("17_si67a")
 [node name="starting animation" parent="." instance=ExtResource("19_stg18")]
 visible = false
 z_index = 100
+curve = SubResource("Curve_stg18")
 
 [connection signal="pressed" from="DeathScreen/RespawnButton" to="DeathScreen" method="_on_respawn_button_pressed"]
 [connection signal="pressed" from="DeathScreen/ExitButton" to="DeathScreen" method="_on_exit_button_pressed"]
@@ -314,3 +319,5 @@ z_index = 100
 [connection signal="pressed" from="MainMenu/OptionsButton" to="MainMenu" method="_on_options_button_pressed"]
 [connection signal="pressed" from="MainMenu/QuitButton" to="MainMenu" method="_on_quit_button_pressed"]
 [connection signal="pressed" from="InputMapper/BackButton" to="InputMapper" method="_on_back_button_pressed"]
+
+[editable path="starting animation"]
