@@ -4265,7 +4265,7 @@ position = Vector2(21, 6)
 position = Vector2(311, 1490)
 
 [node name="PointLight2D" type="PointLight2D" parent="roomtemplate"]
-position = Vector2(305, 900.9999)
+position = Vector2(310, 914.99994)
 rotation = -3.1415927
 scale = Vector2(4.775, 1.81)
 blend_mode = 1
@@ -4291,6 +4291,24 @@ rotation = -4.712389
 texture = ExtResource("10_1lif5")
 region_enabled = true
 region_rect = Rect2(48, 56, 24, 24)
+
+[node name="ArrowGraffiti3" type="Sprite2D" parent="roomtemplate"]
+modulate = Color(0.7059394, 2.23808e-06, 2.8878452e-07, 0.6784314)
+z_index = -2
+position = Vector2(261, 22)
+rotation = -4.712389
+texture = ExtResource("10_1lif5")
+region_enabled = true
+region_rect = Rect2(22.132, 56, 25.49, 24)
+
+[node name="ArrowGraffiti4" type="Sprite2D" parent="roomtemplate"]
+modulate = Color(0.18885216, 0, 0, 0.6784314)
+z_index = -2
+position = Vector2(303, 261)
+rotation = 1.5707964
+texture = ExtResource("10_1lif5")
+region_enabled = true
+region_rect = Rect2(22.132, 56, 25.49, 24)
 
 [node name="ManholeCover" parent="roomtemplate" instance=ExtResource("11_4oqff")]
 position = Vector2(124, -127)

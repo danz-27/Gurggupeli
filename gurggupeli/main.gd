@@ -5,6 +5,3 @@ var scale_height : int = ProjectSettings.get_setting("display/window/size/viewpo
 
 func _ready() -> void:
 	$GUI.visible = true
-
-func _physics_process(_delta: float) -> void:
-	pass

@@ -32,9 +32,10 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_play_button_pressed() -> void:
-	starting_animation.visible = true
-	starting_animation.animation_player.play("starting animation")
-	
+	if !GlobalVariables.anim_played:
+		starting_animation.show()
+		starting_animation.animation_player.play("starting animation")
+	hide()
 
 
 func _on_options_button_pressed() -> void:

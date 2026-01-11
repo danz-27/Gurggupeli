@@ -94,7 +94,7 @@ script = ExtResource("15_2cqfq")
 [node name="Starting room" parent="RoomHandler" instance=ExtResource("7_074og")]
 
 [node name="Vignette" type="PointLight2D" parent="."]
-process_mode = 3
+energy = 0.7
 blend_mode = 1
 range_layer_min = -99
 range_layer_max = 10
@@ -164,4 +164,3 @@ script = ExtResource("18_074og")
 
 [editable path="GUI"]
 [editable path="GUI/InputMapper"]
-[editable path="GUI/starting animation"]

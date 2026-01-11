@@ -6,3 +6,4 @@ var has_dash: bool = false
 var collected_viles: Array = []
 var activated_interactables: Array = []
 var big_rat_killed: bool = false
+var anim_played: bool = false
