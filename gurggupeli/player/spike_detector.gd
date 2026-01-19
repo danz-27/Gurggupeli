@@ -5,6 +5,8 @@ extends Area2D
 
 func _spike_hit(_body: Node2D) -> void:
 	if parent is Player:
+		if Player.instance.health.invincible:
+			return
 		parent._take_damage(1, true)
 		hit_particles.emitting = true
 	elif parent.has_method("_die"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://bvrknvknjcol7"]
+[gd_scene load_steps=82 format=4 uid="uid://bvrknvknjcol7"]
 
 [ext_resource type="PackedScene" uid="uid://df2e83qk72c1r" path="res://room scenes/template/roomtemplate.tscn" id="1_aae7c"]
 [ext_resource type="Texture2D" uid="uid://bc50v4iry6plj" path="res://player/textures/radioactive waste.png" id="2_t56ak"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dsa2cd5m8j5ni" path="res://room scenes/template/healing thingamabob/healing_area.tscn" id="10_4fmbu"]
 [ext_resource type="Texture2D" uid="uid://d3cetv611wvug" path="res://random assets/Gurggu_graffiti.png" id="12_m3xws"]
 [ext_resource type="PackedScene" uid="uid://bqpjbh4s4dmjy" path="res://Interactibles/vile.tscn" id="13_5nj6x"]
+[ext_resource type="Texture2D" uid="uid://b677tvxhoxiwn" path="res://GUI/inventory/rautasorkka.png" id="13_v5jw1"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4jida"]
 tile_data = PackedInt32Array(0, 262145, 13, 65536, 262145, 14, 1, 327681, 13, 65537, 327681, 14, 2, 393217, 13, 65538, 393217, 14, 3, 458753, 13, 65539, 458753, 14, 4, 524289, 13, 65540, 524289, 14, 5, 589825, 13, 65541, 589825, 14)
@@ -6538,6 +6539,23 @@ z_index = -1
 position = Vector2(93, -184)
 texture = ExtResource("12_m3xws")
 region_enabled = true
+region_rect = Rect2(72, 56, 44, 24)
+
+[node name="arrow graffiti" type="Sprite2D" parent="roomtemplate"]
+modulate = Color(0.4, 0.05882353, 0, 0.68235296)
+z_index = -1
+position = Vector2(-172, 11)
+rotation = 3.1415927
+texture = ExtResource("12_m3xws")
+region_enabled = true
+region_rect = Rect2(48, 56, 24, 24)
+
+[node name="crowbar graffiti" type="Sprite2D" parent="roomtemplate"]
+modulate = Color(0.9999688, 0.6070396, 0.548209, 0.46666667)
+z_index = -1
+position = Vector2(-160, -6)
+scale = Vector2(2, 2)
+texture = ExtResource("13_v5jw1")
 region_rect = Rect2(72, 56, 44, 24)
 
 [node name="Hideable wall2" parent="roomtemplate" instance=ExtResource("7_v5jw1")]
